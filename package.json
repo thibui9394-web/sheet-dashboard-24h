@@ -1,0 +1,11 @@
+{
+  "name": "sheet-dashboard-24h",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "update": "node ./scripts/update-snapshot.mjs",
+    "serve": "node ./scripts/serve.mjs",
+    "start": "node ./scripts/serve.mjs"
+  }
+}

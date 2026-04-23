@@ -1,0 +1,2397 @@
+{
+  "metadata": {
+    "generatedAt": "2026-04-23T04:37:27.952Z",
+    "timezone": "Asia/Bangkok",
+    "source": {
+      "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
+      "sheetName": "2026_Design_Team",
+      "gid": "131891982"
+    },
+    "exclusions": {
+      "KHANG": [
+        128
+      ]
+    },
+    "totalRecords": 479
+  },
+  "overview": {
+    "tasks": 479,
+    "quantity": 21859,
+    "avgQuantityPerTask": 45.63,
+    "completedTasks": 462,
+    "completedQuantity": 21725,
+    "inProgressTasks": 7,
+    "inProgressQuantity": 127,
+    "canceledTasks": 2,
+    "missingQuantityTasks": 27,
+    "missingQuantityRows": [
+      24,
+      92,
+      98,
+      150,
+      174,
+      175,
+      176,
+      223,
+      237,
+      416,
+      425,
+      426,
+      427,
+      430,
+      438,
+      439,
+      447,
+      451,
+      452,
+      453,
+      454,
+      456,
+      473,
+      475,
+      484,
+      487,
+      489
+    ],
+    "byStatusTasks": {
+      "Hoàn thành": 462,
+      "Đang thực hiện": 7,
+      "Pending": 4,
+      "(trong)": 4,
+      "Cancel": 2
+    },
+    "byCategoryQty": {
+      "HÌNH ẢNH": 18911,
+      "HÌNH ẢNH AI": 1918,
+      "SOCIAL POST": 394,
+      "VIDEO": 245,
+      "LANDINGPAGE": 130,
+      "KEY VISUAL": 116,
+      "KEY VISUAL AI": 68,
+      "VIDEO AI": 32,
+      "(trong)": 25,
+      "GIAO DIỆN": 20
+    },
+    "byCategoryTasks": {
+      "HÌNH ẢNH AI": 194,
+      "HÌNH ẢNH": 138,
+      "SOCIAL POST": 58,
+      "VIDEO": 30,
+      "LANDINGPAGE": 14,
+      "KEY VISUAL": 13,
+      "KEY VISUAL AI": 12,
+      "(trong)": 12,
+      "VIDEO AI": 7,
+      "GIAO DIỆN": 1
+    },
+    "byChannelQty": {
+      "SHOPPE": 19085,
+      "FACEBOOK": 945,
+      "(trong)": 595,
+      "TIKTOK MB": 471,
+      "WEB KG VIETNAM": 246,
+      "TIKTOK MN": 153,
+      "AMAZON": 146,
+      "WEB ARISTINO": 123,
+      "ZALO OA/MINIAPP": 36,
+      "WEB ISM": 29,
+      "LAZADA": 11,
+      "ZNS": 7,
+      "Facebook": 5,
+      "WEB CHRISBELLA": 2,
+      "WEB SALINA": 2,
+      "ZALO BROADCAST": 1,
+      "B2B": 1,
+      "Shopee MN": 1,
+      "Shopee": 0
+    },
+    "byChannelTasks": {
+      "FACEBOOK": 161,
+      "SHOPPE": 116,
+      "TIKTOK MB": 70,
+      "(trong)": 44,
+      "WEB KG VIETNAM": 23,
+      "WEB ARISTINO": 21,
+      "AMAZON": 15,
+      "TIKTOK MN": 8,
+      "ZALO OA/MINIAPP": 7,
+      "LAZADA": 3,
+      "ZNS": 2,
+      "WEB ISM": 2,
+      "ZALO BROADCAST": 1,
+      "WEB CHRISBELLA": 1,
+      "WEB SALINA": 1,
+      "B2B": 1,
+      "Shopee MN": 1,
+      "Shopee": 1,
+      "Facebook": 1
+    },
+    "byMonthQty": {
+      "2026-01": 8171,
+      "2025-12": 5200,
+      "2026-03": 2895,
+      "2026-04": 2560,
+      "2026-12": 2125,
+      "2026-02": 878,
+      "2025-26": 20,
+      "(khong ngay)": 8,
+      "2025-11": 2
+    }
+  },
+  "byPerson": {
+    "ẨN": {
+      "tasks": 210,
+      "quantity": 2313,
+      "avgQuantityPerTask": 11.01,
+      "completedTasks": 207,
+      "completedQuantity": 2210,
+      "inProgressTasks": 2,
+      "inProgressQuantity": 102,
+      "canceledTasks": 1,
+      "missingQuantityTasks": 3,
+      "missingQuantityRows": [
+        438,
+        439,
+        456
+      ],
+      "byStatusTasks": {
+        "Hoàn thành": 207,
+        "Đang thực hiện": 2,
+        "Cancel": 1
+      },
+      "byCategoryQty": {
+        "HÌNH ẢNH AI": 1198,
+        "HÌNH ẢNH": 860,
+        "VIDEO": 214,
+        "VIDEO AI": 21,
+        "SOCIAL POST": 11,
+        "(trong)": 9
+      },
+      "byCategoryTasks": {
+        "HÌNH ẢNH AI": 102,
+        "HÌNH ẢNH": 73,
+        "VIDEO": 27,
+        "SOCIAL POST": 3,
+        "(trong)": 3,
+        "VIDEO AI": 2
+      },
+      "byChannelQty": {
+        "SHOPPE": 1079,
+        "(trong)": 396,
+        "TIKTOK MB": 369,
+        "FACEBOOK": 203,
+        "TIKTOK MN": 152,
+        "WEB ARISTINO": 37,
+        "WEB KG VIETNAM": 33,
+        "WEB ISM": 29,
+        "LAZADA": 5,
+        "ZNS": 4,
+        "ZALO OA/MINIAPP": 2,
+        "WEB SALINA": 2,
+        "ZALO BROADCAST": 1,
+        "Shopee MN": 1
+      },
+      "byChannelTasks": {
+        "SHOPPE": 55,
+        "TIKTOK MB": 55,
+        "FACEBOOK": 43,
+        "(trong)": 28,
+        "TIKTOK MN": 7,
+        "WEB KG VIETNAM": 7,
+        "WEB ARISTINO": 6,
+        "ZALO OA/MINIAPP": 2,
+        "WEB ISM": 2,
+        "ZALO BROADCAST": 1,
+        "LAZADA": 1,
+        "WEB SALINA": 1,
+        "ZNS": 1,
+        "Shopee MN": 1
+      },
+      "byMonthQty": {
+        "2026-01": 603,
+        "2025-12": 545,
+        "2026-03": 481,
+        "2026-04": 361,
+        "2026-02": 315,
+        "(khong ngay)": 8
+      }
+    },
+    "KHANG": {
+      "tasks": 173,
+      "quantity": 1213,
+      "avgQuantityPerTask": 7.01,
+      "completedTasks": 170,
+      "completedQuantity": 1213,
+      "inProgressTasks": 2,
+      "inProgressQuantity": 0,
+      "canceledTasks": 1,
+      "missingQuantityTasks": 13,
+      "missingQuantityRows": [
+        223,
+        237,
+        426,
+        447,
+        451,
+        452,
+        453,
+        454,
+        473,
+        475,
+        484,
+        487,
+        489
+      ],
+      "byStatusTasks": {
+        "Hoàn thành": 170,
+        "Đang thực hiện": 2,
+        "Cancel": 1
+      },
+      "byCategoryQty": {
+        "SOCIAL POST": 383,
+        "HÌNH ẢNH": 348,
+        "HÌNH ẢNH AI": 243,
+        "LANDINGPAGE": 110,
+        "KEY VISUAL": 98,
+        "(trong)": 16,
+        "KEY VISUAL AI": 15,
+        "VIDEO": 0
+      },
+      "byCategoryTasks": {
+        "SOCIAL POST": 54,
+        "HÌNH ẢNH AI": 46,
+        "HÌNH ẢNH": 42,
+        "LANDINGPAGE": 11,
+        "KEY VISUAL": 11,
+        "(trong)": 5,
+        "KEY VISUAL AI": 3,
+        "VIDEO": 1
+      },
+      "byChannelQty": {
+        "FACEBOOK": 626,
+        "SHOPPE": 252,
+        "(trong)": 176,
+        "TIKTOK MB": 84,
+        "WEB KG VIETNAM": 32,
+        "WEB ARISTINO": 30,
+        "Facebook": 5,
+        "ZNS": 3,
+        "WEB CHRISBELLA": 2,
+        "TIKTOK MN": 1,
+        "ZALO OA/MINIAPP": 1,
+        "B2B": 1,
+        "Shopee": 0
+      },
+      "byChannelTasks": {
+        "FACEBOOK": 97,
+        "SHOPPE": 34,
+        "TIKTOK MB": 12,
+        "(trong)": 11,
+        "WEB ARISTINO": 6,
+        "WEB KG VIETNAM": 6,
+        "WEB CHRISBELLA": 1,
+        "ZNS": 1,
+        "TIKTOK MN": 1,
+        "ZALO OA/MINIAPP": 1,
+        "B2B": 1,
+        "Shopee": 1,
+        "Facebook": 1
+      },
+      "byMonthQty": {
+        "2026-01": 380,
+        "2025-12": 301,
+        "2026-02": 237,
+        "2026-03": 237,
+        "2026-04": 56,
+        "2025-11": 2
+      }
+    },
+    "NHẬT THI": {
+      "tasks": 96,
+      "quantity": 18333,
+      "avgQuantityPerTask": 190.97,
+      "completedTasks": 85,
+      "completedQuantity": 18302,
+      "inProgressTasks": 3,
+      "inProgressQuantity": 25,
+      "canceledTasks": 0,
+      "missingQuantityTasks": 11,
+      "missingQuantityRows": [
+        24,
+        92,
+        98,
+        150,
+        174,
+        175,
+        176,
+        416,
+        425,
+        427,
+        430
+      ],
+      "byStatusTasks": {
+        "Hoàn thành": 85,
+        "Pending": 4,
+        "(trong)": 4,
+        "Đang thực hiện": 3
+      },
+      "byCategoryQty": {
+        "HÌNH ẢNH": 17703,
+        "HÌNH ẢNH AI": 477,
+        "KEY VISUAL AI": 53,
+        "VIDEO": 31,
+        "GIAO DIỆN": 20,
+        "LANDINGPAGE": 20,
+        "KEY VISUAL": 18,
+        "VIDEO AI": 11,
+        "(trong)": 0,
+        "SOCIAL POST": 0
+      },
+      "byCategoryTasks": {
+        "HÌNH ẢNH AI": 46,
+        "HÌNH ẢNH": 23,
+        "KEY VISUAL AI": 9,
+        "VIDEO AI": 5,
+        "(trong)": 4,
+        "LANDINGPAGE": 3,
+        "VIDEO": 2,
+        "KEY VISUAL": 2,
+        "GIAO DIỆN": 1,
+        "SOCIAL POST": 1
+      },
+      "byChannelQty": {
+        "SHOPPE": 17754,
+        "WEB KG VIETNAM": 181,
+        "AMAZON": 146,
+        "FACEBOOK": 116,
+        "WEB ARISTINO": 56,
+        "ZALO OA/MINIAPP": 33,
+        "(trong)": 23,
+        "TIKTOK MB": 18,
+        "LAZADA": 6
+      },
+      "byChannelTasks": {
+        "SHOPPE": 27,
+        "FACEBOOK": 21,
+        "AMAZON": 15,
+        "WEB KG VIETNAM": 10,
+        "WEB ARISTINO": 9,
+        "(trong)": 5,
+        "ZALO OA/MINIAPP": 4,
+        "TIKTOK MB": 3,
+        "LAZADA": 2
+      },
+      "byMonthQty": {
+        "2026-01": 7188,
+        "2025-12": 4354,
+        "2026-03": 2177,
+        "2026-04": 2143,
+        "2026-12": 2125,
+        "2026-02": 326,
+        "2025-26": 20,
+        "(khong ngay)": 0
+      }
+    }
+  },
+  "latestRows": [
+    {
+      "row": 511,
+      "person": "ẨN",
+      "channel": "TIKTOK MN",
+      "category": "VIDEO",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-04",
+      "detail": "BACKGROUND live insidemen Underwear\n- Thiết kế tương tự review brief, thay hình ảnh sản phẩm gốc phải thành 3 mã: IBX065, ABX072, ATT001EXP01\n- Tông màu mùa hè, xanh biển, vàng, cam\n- Text chính:  INSIDEMEN UNDERWEAR BIG DEAL\n- Dòng chữ chạy: UNDERWEAR BIG DEAL – FREESHIP – MUA 2 TẶNG 2 – DEAL CHỈ CÓ TRONG LIVE"
+    },
+    {
+      "row": 510,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 8,
+      "month": "2026-04",
+      "detail": "CAMP UNDERWEAR\n\nhttps://www.figma.com/board/vxg0oqrCA9BXkso6LlsvMe/K-G-T4-2026?node-id=1024-415&t=1Bpx0povJ97tDbPj-0"
+    },
+    {
+      "row": 509,
+      "person": "NHẬT THI",
+      "channel": "AMAZON",
+      "category": "HÌNH ẢNH",
+      "status": "(trong)",
+      "quantity": 5,
+      "month": "2026-04",
+      "detail": "Anh làm giống bộ hình này cho các mã:\n- APS003EGP01 (3 màu: Đen, Nâu, Xám )\n- APS004EGP01 (2 màu: Xanh than, Trắng)\n\nhttps://docs.google.com/presentation/d/1vv4gIrJd-ETVFhPfymXxzrRWPcPGqXfQrVuXGV9jRuU/edit?usp=sharing"
+    },
+    {
+      "row": 508,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "KEY VISUAL",
+      "status": "Hoàn thành",
+      "quantity": 8,
+      "month": "2026-04",
+      "detail": "Banner ads hàng sale 30/4 - Làm KV tổng trước, Post social/Video đang pic mã\n\nhttps://www.figma.com/board/vxg0oqrCA9BXkso6LlsvMe/K-G-T4-2026?node-id=995-185&t=1Bpx0povJ97tDbPj-0"
+    },
+    {
+      "row": 507,
+      "person": "NHẬT THI",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 5,
+      "month": "2026-04",
+      "detail": "POST LẺ ARISTINO - CONTENT THEO Mix & Match outfits du lịch - LB NB - ASS608EDP01\n\nhttps://www.figma.com/board/vxg0oqrCA9BXkso6LlsvMe/K-G-T4-2026?node-id=904-932&t=sHHQtEh7qqTZtNhP-0"
+    },
+    {
+      "row": 506,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 5,
+      "month": "2026-04",
+      "detail": "POST LẺ ARISTINO - CONTENT THEO Mix & Match outfits du lịch - LB NB - APS601EDP01\n\nhttps://www.figma.com/board/vxg0oqrCA9BXkso6LlsvMe/K-G-T4-2026?node-id=901-777&t=sHHQtEh7qqTZtNhP-0"
+    },
+    {
+      "row": 505,
+      "person": "ẨN",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 4,
+      "month": "2026-04",
+      "detail": "POST LẺ ARISTINO - CONTENT THEO Mix & Match outfits du lịch - LB NB - ASS617EDP01\n\nhttps://www.figma.com/board/vxg0oqrCA9BXkso6LlsvMe/K-G-T4-2026?node-id=899-532&t=sHHQtEh7qqTZtNhP-0"
+    },
+    {
+      "row": 504,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 5,
+      "month": "2026-04",
+      "detail": "POST LẺ ARISTINO - CONTENT THEO Mix & Match outfits du lịch - LB NB - APS606EDP01\n\nhttps://www.figma.com/board/vxg0oqrCA9BXkso6LlsvMe/K-G-T4-2026?node-id=894-363&t=sHHQtEh7qqTZtNhP-0"
+    },
+    {
+      "row": 503,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-04",
+      "detail": "Thumbnail Aristino | Anh Tây ơi\nhttps://www.figma.com/design/AQE3X1ilvzylC1uMG9NjMc/Thi%E1%BA%BFt-k%E1%BA%BF-ch%C6%B0a-c%C3%B3-t%C3%AAn--12-?node-id=0-1&t=HEConOaxdSzcB165-1 \n\n(CHỈ CẦN KHUNG THUMBNAIL, SẢN PHẨM TEAM TỰ THAY)"
+    },
+    {
+      "row": 502,
+      "person": "KHANG",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 3,
+      "month": "2026-04",
+      "detail": "QUÀ TẶNG YÊU NƯỚC - CPAS SHOPEE\n\nhttps://www.figma.com/board/vxg0oqrCA9BXkso6LlsvMe/K-G-T4-2026?node-id=879-197&t=sHHQtEh7qqTZtNhP-0"
+    },
+    {
+      "row": 501,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-04",
+      "detail": "Banner truyền thông ANH TÂY ƠI x ARISTINO\n\nhttps://www.figma.com/board/iaYXq8oFeoc0ppQm83kBPs/Untitled?node-id=227-148&t=lOUejxvk17ikjNxW-0"
+    },
+    {
+      "row": 500,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-04",
+      "detail": "Thump sản phẩm https://www.figma.com/design/7KFVQpMcBmfDLMnawzarRm/Untitled?node-id=0-1&t=M1WNY1P3tJVXVRcv-1"
+    },
+    {
+      "row": 499,
+      "person": "NHẬT THI",
+      "channel": "(trong)",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 4,
+      "month": "2026-04",
+      "detail": "K&G VIỆT NAM - COMBO ĐỒ LÓT NAM \n\n-> Chi tiết: https://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=6627-816&t=iQQZXB7R9O3w3XKp-0"
+    },
+    {
+      "row": 498,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 3,
+      "month": "2026-04",
+      "detail": "K&G VIỆT NAM - ÁO TANKTOP \n\nChi tiết tại brief: https://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=6605-771&t=iQQZXB7R9O3w3XKp-0"
+    },
+    {
+      "row": 497,
+      "person": "NHẬT THI",
+      "channel": "AMAZON",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 20,
+      "month": "2026-04",
+      "detail": "Fix hình listing Polo Active màu navy\n\nCreative Feedback_090426"
+    },
+    {
+      "row": 496,
+      "person": "ẨN",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 29,
+      "month": "2026-04",
+      "detail": "KV 25.4 Aristino, ISM, các phiên bản:\n\nShopee Aris MN, Aris MB, Aris Business, ISM\n1. ngang - dọc - vuông - nội sàn\n2. video vuông\n\nTiktok Aris MN, Aris MB, Aris Business, ISM\n1. ngang - dọc - vuông"
+    },
+    {
+      "row": 495,
+      "person": "KHANG",
+      "channel": "Facebook",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 5,
+      "month": "2026-04",
+      "detail": "POST LẺ ARISTINO - CONTENT THEO CHỦ ĐỀ READY HOLIDAY  - Quà Yêu nước Bill 2.5M\n\nhttps://www.figma.com/board/vxg0oqrCA9BXkso6LlsvMe/K-G-T4-2026?node-id=799-179&t=TcFp75aFVBLSe5gr-0"
+    },
+    {
+      "row": 494,
+      "person": "ẨN",
+      "channel": "FACEBOOK",
+      "category": "VIDEO",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-04",
+      "detail": "POST K&G VIỆT NAM: \n\nChi tiết tại: https://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=6576-871&t=k532Q1YdYjroyEUJ-0"
+    },
+    {
+      "row": 492,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 5,
+      "month": "2026-04",
+      "detail": "POST LẺ ARISTINO - CONTENT THEO CHỦ ĐỀ READY HOLIDAY  - Quà Yêu nước Bill 1.5M\n\nhttps://www.figma.com/board/vxg0oqrCA9BXkso6LlsvMe/K-G-T4-2026?node-id=739-179&t=fLPTWQZUlGTer0pP-0"
+    },
+    {
+      "row": 490,
+      "person": "NHẬT THI",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 5,
+      "month": "2026-04",
+      "detail": "Post daily Cecina CBI002EDP01\nhttps://www.figma.com/board/ZZOtmTHb2xq8rO4ffal3wO/Brief-KV?node-id=2820-1319&t=3Fjz7VAcewA87zhN-0"
+    },
+    {
+      "row": 489,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 0,
+      "month": "2026-04",
+      "detail": "K&G VIỆT NAM - CAMP UNDEWEAR NAM - NỮ: \n\nChi tiết tại: https://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=6405-1570&t=uJe8GmeladLDTWgB-0"
+    },
+    {
+      "row": 488,
+      "person": "ẨN",
+      "channel": "FACEBOOK",
+      "category": "VIDEO",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-04",
+      "detail": "POST LẺ ARISTINO - CONTENT THEO CHỦ ĐỀ READY HOLIDAY  - Mix match 4 ngày (video)\n\nhttps://www.figma.com/board/vxg0oqrCA9BXkso6LlsvMe/K-G-T4-2026?node-id=615-311&t=4lmxfqOjdlkIVef5-0"
+    },
+    {
+      "row": 487,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 0,
+      "month": "2026-04",
+      "detail": "POST LẺ ARISTINO - CONTENT THEO CHỦ ĐỀ READY HOLIDAY  - Mix match Polo\n\nhttps://www.figma.com/board/vxg0oqrCA9BXkso6LlsvMe/K-G-T4-2026?node-id=614-144&t=7UafmpNtyOuu9aK8-0"
+    },
+    {
+      "row": 486,
+      "person": "NHẬT THI",
+      "channel": "FACEBOOK",
+      "category": "VIDEO AI",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-04",
+      "detail": "ARISTINO - POST BST ÁO POLO - NEW (VIDEO)\n\nhttps://www.figma.com/board/vxg0oqrCA9BXkso6LlsvMe/K-G-T4-2026?node-id=545-217&t=mcdkLBUtDnfnVmZi-0"
+    },
+    {
+      "row": 485,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-04",
+      "detail": "QUÀ TẶNG YÊU NƯỚC\n\nhttps://www.figma.com/board/vxg0oqrCA9BXkso6LlsvMe/K-G-T4-2026?node-id=631-191&t=cxWlEzsV8u3wbdFo-0"
+    },
+    {
+      "row": 484,
+      "person": "KHANG",
+      "channel": "Shopee",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 0,
+      "month": "2026-04",
+      "detail": "KV 15.4 Aristino, ISM, các phiên bản:\n\nShopee Aris MN, Aris MB, Aris Business, ISM\n1. ngang - dọc - vuông - nội sàn\n2. video vuông\n\nTiktok Aris MN, Aris MB, Aris Business, ISM\n1. ngang - dọc - vuông"
+    },
+    {
+      "row": 483,
+      "person": "ẨN",
+      "channel": "Shopee MN",
+      "category": "(trong)",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-04",
+      "detail": "KV Salina \nhttps://www.canva.com/design/DAHGs9kaFk4/H0jPvFjm8vPaw9Tr_Hco_w/edit?ui=e30&referrer=https%3A%2F%2Fwww.canva.com%2F"
+    },
+    {
+      "row": 482,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-04",
+      "detail": "Thumb gộp mã :\n-ISC010M0H0\n-ISC011M0H0\n-ISC012M0H0\nhttps://www.figma.com/design/7KFVQpMcBmfDLMnawzarRm/Untitled?node-id=6-2&t=JJqzSV3spNdP4OBb-0"
+    },
+    {
+      "row": 481,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-04",
+      "detail": "Thumb gộp mã :\n-ISC016A0H0\n-ISC017A0H0\n-ISC018A0H0\nhttps://www.figma.com/design/7KFVQpMcBmfDLMnawzarRm/Untitled?node-id=2-385&t=JJqzSV3spNdP4OBb-0"
+    },
+    {
+      "row": 480,
+      "person": "ẨN",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 8,
+      "month": "2026-04",
+      "detail": "ARISTINO - POST BST ÁO SƠ MI - NEW\n\nhttps://www.figma.com/board/vxg0oqrCA9BXkso6LlsvMe/K-G-T4-2026?node-id=477-395&t=KBI69BDaIaG7eVtL-0"
+    },
+    {
+      "row": 479,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-04",
+      "detail": "BACK LIVESTREAM ARISTINO ONLINE:\n\nhttps://www.figma.com/board/iaYXq8oFeoc0ppQm83kBPs/Untitled?node-id=69-72&t=S3o9Mb0LcFam6kJE-0"
+    },
+    {
+      "row": 478,
+      "person": "ẨN",
+      "channel": "WEB ISM",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 19,
+      "month": "2026-04",
+      "detail": "Brief homepage web Inside T4 , resize ảnh lookbook cho homepage"
+    },
+    {
+      "row": 477,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 4,
+      "month": "2026-04",
+      "detail": "Post ASS617EDP01\n\nhttps://www.figma.com/board/vxg0oqrCA9BXkso6LlsvMe/K-G-T4-2026?node-id=484-429&t=5PUDfAiC2ka62PeC-0"
+    },
+    {
+      "row": 476,
+      "person": "ẨN",
+      "channel": "SHOPPE",
+      "category": "(trong)",
+      "status": "Hoàn thành",
+      "quantity": 8,
+      "month": "(khong ngay)",
+      "detail": "Thumb+usp : IPS116EDP01"
+    },
+    {
+      "row": 475,
+      "person": "KHANG",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 0,
+      "month": "2026-04",
+      "detail": "CAMP HÀNG NEW\n- Ngang - dọc - vuông - GDN\n- Social post\n\nhttps://www.figma.com/board/vxg0oqrCA9BXkso6LlsvMe/K-G-T4-2026?node-id=455-91&t=5PUDfAiC2ka62PeC-0"
+    },
+    {
+      "row": 474,
+      "person": "NHẬT THI",
+      "channel": "AMAZON",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 6,
+      "month": "2026-04",
+      "detail": "Fix hình listing mục Đồ lót ABX003EUP03 + BST Polo Active\n\n0104_Creative Brainstorm"
+    },
+    {
+      "row": 473,
+      "person": "KHANG",
+      "channel": "(trong)",
+      "category": "SOCIAL POST",
+      "status": "Đang thực hiện",
+      "quantity": 0,
+      "month": "2026-04",
+      "detail": "K&G Việt Nam: \n\nCamp chạy xuyên tháng + social:  COMBO các loại https://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=6359-1022&t=zxFaTKaDuPDJJIyC-0"
+    },
+    {
+      "row": 472,
+      "person": "ẨN",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 7,
+      "month": "2026-04",
+      "detail": "POST SOCIAL - BILL QUÀ TẶNG\n\nhttps://www.figma.com/board/vxg0oqrCA9BXkso6LlsvMe/K-G-T4-2026?node-id=441-263&t=qQSpH33nx42xp0OH-0"
+    },
+    {
+      "row": 470,
+      "person": "NHẬT THI",
+      "channel": "WEB KG VIETNAM",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 5,
+      "month": "2026-04",
+      "detail": "K&G Việt Nam: \n\nCamp chạy xuyên tháng + social:  Sản phẩm thiết yếu: \n\nhttps://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=6359-1026&t=1CtkJ4B88lU1PRT9-0"
+    },
+    {
+      "row": 469,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 7,
+      "month": "2026-04",
+      "detail": "Thum+usp ITS002EDP:\nHình ảnh làm như trong link thay bằng ITS002EDP\nlINK"
+    },
+    {
+      "row": 468,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 5,
+      "month": "2026-04",
+      "detail": "Thumb+usp IBF001:\nhttps://www.figma.com/design/e26HiHq6G6VdFjgAYPWM7X/Untitled?node-id=152-244&t=ZCR8PQD4MGJbyf2x-0"
+    },
+    {
+      "row": 467,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 5,
+      "month": "2026-04",
+      "detail": "Thumb+usp IBX001exp+IBF001exp:note(LẤY HÌNH ẢNH MÃ IBX004,IBF004)\n\nhttps://www.figma.com/design/e26HiHq6G6VdFjgAYPWM7X/Untitled?node-id=152-76&t=t835SMJfdWIZ9ydI-0"
+    },
+    {
+      "row": 466,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 5,
+      "month": "2026-04",
+      "detail": "Thumb+usp IBX125+IBF125:\n\nhttps://www.figma.com/design/e26HiHq6G6VdFjgAYPWM7X/Untitled?node-id=141-178&t=uO4KqCZPHKMjUcrL-0"
+    },
+    {
+      "row": 465,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 5,
+      "month": "2026-04",
+      "detail": "Thumb+usp IBX002EXP+IBF002EXP:\n\nhttps://www.figma.com/design/e26HiHq6G6VdFjgAYPWM7X/Untitled?node-id=141-110&t=uO4KqCZPHKMjUcrL-0"
+    },
+    {
+      "row": 464,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 5,
+      "month": "2026-04",
+      "detail": "Thumb+usp IBX005EXP+IBF005EXP:\n\nhttps://www.figma.com/design/e26HiHq6G6VdFjgAYPWM7X/Untitled?node-id=141-60&t=uO4KqCZPHKMjUcrL-0"
+    },
+    {
+      "row": 463,
+      "person": "ẨN",
+      "channel": "TIKTOK MN",
+      "category": "HÌNH ẢNH AI",
+      "status": "Đang thực hiện",
+      "quantity": 102,
+      "month": "2026-04",
+      "detail": "Thumb khăn Salina tiktok + shopee\nBriefs: https://docs.google.com/spreadsheets/d/1OJx2SBsMQYYcotePQRRJhGyuXSDQ8wc1lsLPgDqyANI/edit?usp=sharing"
+    },
+    {
+      "row": 462,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 5,
+      "month": "2026-04",
+      "detail": "BACK LIVESTREAM ISM:\n\nhttps://www.figma.com/design/e26HiHq6G6VdFjgAYPWM7X/Untitled?node-id=136-9&t=uO4KqCZPHKMjUcrL-0"
+    },
+    {
+      "row": 461,
+      "person": "NHẬT THI",
+      "channel": "WEB ARISTINO",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 16,
+      "month": "2026-04",
+      "detail": "Hình AI các mã: đây"
+    },
+    {
+      "row": 459,
+      "person": "ẨN",
+      "channel": "WEB KG VIETNAM",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 2,
+      "month": "2026-04",
+      "detail": "website K&G : \nFix lại kích thước banner cho web K&G VIỆT NAM: \nhttps://drive.google.com/drive/folders/1ZPIoJeINmAOIXo3oLwBIjJ7LvcWG2GHc?usp=drive_link"
+    },
+    {
+      "row": 458,
+      "person": "NHẬT THI",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 8,
+      "month": "2026-04",
+      "detail": "LAMODE: POST ĐỒ BỘ ĐĂNG FANPAGE  \n\nPOST 2: Chung cho cả 2 mã: https://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=6286-1130&t=66gXk47aeQbq0seR-0 \n\nPOST 3: https://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=6321-1106&t=66gXk47aeQbq0seR-0"
+    },
+    {
+      "row": 457,
+      "person": "NHẬT THI",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 4,
+      "month": "2026-04",
+      "detail": "LAMODE: POST ĐỒ BỘ ĐĂNG FANPAGE  \n\nPOST 1: https://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=6285-1114&t=Bbu2YsuzoFDmC9kA-0"
+    },
+    {
+      "row": 456,
+      "person": "ẨN",
+      "channel": "SHOPPE",
+      "category": "(trong)",
+      "status": "Đang thực hiện",
+      "quantity": 0,
+      "month": "2026-04",
+      "detail": "Thumb quà tặng túi vải trị giá 20k, đơn từ 500k"
+    },
+    {
+      "row": 455,
+      "person": "ẨN",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 21,
+      "month": "2026-04",
+      "detail": "KV DAILY T4 ARISTINO, ISM\n\n1. Aristino\nSửa KV 4.4 của shop MN, MB, LZD, Business từ 4.4 -> THÁNG 4\nCác phiên bản kích thước cần: Ngang - dọc - vuông - nội sàn\n\n2. Ism: sửa KV 4.4 từ 4.4 => THÁNG 4\nCác phiên bản kích thước yêu cầu: Ngang - dọc - vuông - nội sàn"
+    },
+    {
+      "row": 454,
+      "person": "KHANG",
+      "channel": "TIKTOK MB",
+      "category": "(trong)",
+      "status": "Hoàn thành",
+      "quantity": 0,
+      "month": "2026-04",
+      "detail": "Thumb sp gộp:\n\nhttps://www.figma.com/board/iaYXq8oFeoc0ppQm83kBPs/Untitled?node-id=140-459&t=QdBR9eOMRHGRb1AG-0"
+    },
+    {
+      "row": 453,
+      "person": "KHANG",
+      "channel": "TIKTOK MB",
+      "category": "(trong)",
+      "status": "Hoàn thành",
+      "quantity": 0,
+      "month": "2026-04",
+      "detail": "Thumb áo tanktop Aristino:\nhttps://www.figma.com/design/e26HiHq6G6VdFjgAYPWM7X/Untitled?node-id=74-6&t=w3tMZBLgXnlqfc6z-0"
+    },
+    {
+      "row": 452,
+      "person": "KHANG",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 0,
+      "month": "2026-04",
+      "detail": "Thumb áo tanktop Aristino:\nhttps://www.figma.com/design/e26HiHq6G6VdFjgAYPWM7X/Untitled?node-id=74-6&t=w3tMZBLgXnlqfc6z-0"
+    },
+    {
+      "row": 451,
+      "person": "KHANG",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 0,
+      "month": "2026-04",
+      "detail": "Thumb sơ mi ARISTINO:\n\nhttps://www.figma.com/board/iaYXq8oFeoc0ppQm83kBPs/Untitled?node-id=115-62&t=lGTuBaxr1jFdGVIU-0"
+    },
+    {
+      "row": 449,
+      "person": "ẨN",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 64,
+      "month": "2026-04",
+      "detail": "Thumb+usp tất ism: https://docs.google.com/spreadsheets/d/11EtLdwvCEga963ASDojtkQZpFQ9Dxj9IyWFVvfBAW9o/edit?gid=1964173512#gid=1964173512"
+    },
+    {
+      "row": 448,
+      "person": "ẨN",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 30,
+      "month": "2026-04",
+      "detail": "Thumb+usp polo ism: https://docs.google.com/spreadsheets/d/11EtLdwvCEga963ASDojtkQZpFQ9Dxj9IyWFVvfBAW9o/edit?gid=1964173512#gid=1964173512"
+    },
+    {
+      "row": 447,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 0,
+      "month": "2026-04",
+      "detail": "Camp ads hàng cũ\n1. Banner ads ngang - dọc - vuông - gdn\n2. Social post\n3. Video ads (ngang - dọc - vuông)\n\nhttps://www.figma.com/board/vxg0oqrCA9BXkso6LlsvMe/K-G-T4-2026?node-id=224-322&t=F0T47Qz5qDRRXbwO-0"
+    },
+    {
+      "row": 446,
+      "person": "ẨN",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 2,
+      "month": "2026-04",
+      "detail": "Banner tbao live shopee\n\nhttps://www.figma.com/board/vxg0oqrCA9BXkso6LlsvMe/K-G-T4-2026?node-id=211-78&t=F0T47Qz5qDRRXbwO-0"
+    },
+    {
+      "row": 445,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 2,
+      "month": "2026-04",
+      "detail": "Back livestream Aristino chạy Campain tháng 4:\nChi tiết:\nhttps://www.figma.com/design/AQE3X1ilvzylC1uMG9NjMc/Thi%E1%BA%BFt-k%E1%BA%BF-ch%C6%B0a-c%C3%B3-t%C3%AAn--12-?node-id=0-1&t=D3zZNPCxvgnrTJ8X-1"
+    },
+    {
+      "row": 444,
+      "person": "ẨN",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 10,
+      "month": "2026-04",
+      "detail": "LDP ISM T4\n\nhttps://www.figma.com/board/vxg0oqrCA9BXkso6LlsvMe/K-G-T4-2026?node-id=10-198&t=WBin4FFYWJ8pEk9P-0"
+    },
+    {
+      "row": 443,
+      "person": "NHẬT THI",
+      "channel": "SHOPPE",
+      "category": "LANDINGPAGE",
+      "status": "Đang thực hiện",
+      "quantity": 1,
+      "month": "2026-04",
+      "detail": "CECINA - KV + LANDINGPAGE THÁNG 4:\n\nChi tiết tại: https://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=6001-944&t=RrvWbJkq3Q6azCZH-0"
+    },
+    {
+      "row": 442,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 4,
+      "month": "2026-04",
+      "detail": "Thumb gộp mã :\n-IBX002EXP(Màu xám)\n-IBX008EDP(Màu xám đậm)\n-IBX006(màu xanh than)\n-IBX145(màu đen)\nhttps://www.figma.com/design/e26HiHq6G6VdFjgAYPWM7X/Untitled?node-id=85-60&t=O59CBkOYSEcbxlW8-0"
+    },
+    {
+      "row": 441,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-04",
+      "detail": "Thumb gộp mã :\n-IBX005EXP(Màu xám)\n-IBX146(màu xám)\n-IBX125(màu đen)\nhttps://www.figma.com/design/e26HiHq6G6VdFjgAYPWM7X/Untitled?node-id=81-18&t=O59CBkOYSEcbxlW8-0"
+    },
+    {
+      "row": 440,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-04",
+      "detail": "Thumb gộp mã :\n-ITL001EXP\n-ITT001EDP\n-IC22\nhttps://www.figma.com/design/e26HiHq6G6VdFjgAYPWM7X/Untitled?node-id=81-16&t=O59CBkOYSEcbxlW8-0"
+    },
+    {
+      "row": 439,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 0,
+      "month": "2026-04",
+      "detail": "Thumb gộp mã :\n -IBF145(Màu đen)\n-IBF148(Màu đen)\n-IBF001(Màu xanh)\nhttps://www.figma.com/design/e26HiHq6G6VdFjgAYPWM7X/Untitled?node-id=85-45&t=O59CBkOYSEcbxlW8-0"
+    },
+    {
+      "row": 438,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 0,
+      "month": "2026-04",
+      "detail": "Thumb gộp mã :\n -IBF125(xanh than 55)\n-IBF005EXP(màu xám)\nhttps://www.figma.com/design/e26HiHq6G6VdFjgAYPWM7X/Untitled?node-id=85-30&t=O59CBkOYSEcbxlW8-0"
+    },
+    {
+      "row": 437,
+      "person": "KHANG",
+      "channel": "WEB ARISTINO",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 9,
+      "month": "2026-04",
+      "detail": "CTKM yêu nước, brief tại đây https://www.figma.com/design/VtDZvXC7PKY6E4AyAQYZ4N/Untitled?node-id=0-1&p=f&t=KkEb6XE9sVS2V93S-0"
+    },
+    {
+      "row": 436,
+      "person": "ẨN",
+      "channel": "WEB ARISTINO",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 8,
+      "month": "2026-04",
+      "detail": "Sửa lại CTKM Quà tặng bill tại đây"
+    },
+    {
+      "row": 435,
+      "person": "NHẬT THI",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 2063,
+      "month": "2026-04",
+      "detail": "Frame Shopee 4/4, 15/4, 25/4: brief: đây\n\nXong frame chạy ảnh tại link: Chạy frame business"
+    },
+    {
+      "row": 433,
+      "person": "KHANG",
+      "channel": "SHOPPE",
+      "category": "KEY VISUAL",
+      "status": "Hoàn thành",
+      "quantity": 8,
+      "month": "2026-03",
+      "detail": "UNDERWEAR: KV + LANDINGPAGE THÁNG 4\n\nChi tiết tại: https://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=6001-940&t=trbEBoXNi9VTuaT8-0"
+    },
+    {
+      "row": 432,
+      "person": "KHANG",
+      "channel": "SHOPPE",
+      "category": "KEY VISUAL",
+      "status": "Hoàn thành",
+      "quantity": 8,
+      "month": "2026-03",
+      "detail": "K&G VIỆT NAM: KV + LANDINGAPGE THÁNG 4\n\n https://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=6001-929&t=trbEBoXNi9VTuaT8-0"
+    },
+    {
+      "row": 431,
+      "person": "ẨN",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 8,
+      "month": "2026-03",
+      "detail": "LAMODE: KV + LANDINGAPGE THÁNG 4\n\nhttps://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=6001-936&t=bCnnUykehoKfRn1J-0"
+    },
+    {
+      "row": 430,
+      "person": "NHẬT THI",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 0,
+      "month": "2026-03",
+      "detail": "Post ASS619EDP01 Lookbook\n\nhttps://www.figma.com/board/vxg0oqrCA9BXkso6LlsvMe/K-G-T4-2026?node-id=114-367&t=8sUqQAFsnMavzGtN-0"
+    },
+    {
+      "row": 429,
+      "person": "ẨN",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 3,
+      "month": "2026-03",
+      "detail": "Post ASS616EDP01 lookbook\n\nhttps://www.figma.com/board/vxg0oqrCA9BXkso6LlsvMe/K-G-T4-2026?node-id=101-183&t=8sUqQAFsnMavzGtN-0"
+    },
+    {
+      "row": 428,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 4,
+      "month": "2026-03",
+      "detail": "Post APS010EDP01 lookbook\n\nhttps://www.figma.com/board/vxg0oqrCA9BXkso6LlsvMe/K-G-T4-2026?node-id=101-50&t=8sUqQAFsnMavzGtN-0"
+    },
+    {
+      "row": 427,
+      "person": "NHẬT THI",
+      "channel": "WEB ARISTINO",
+      "category": "LANDINGPAGE",
+      "status": "Đang thực hiện",
+      "quantity": 0,
+      "month": "2026-03",
+      "detail": "ARISTINO - đồng phục: \n\nLandingapge đồng phục: https://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=5727-919&t=VInJOMFKT56WeGiw-0"
+    },
+    {
+      "row": 426,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "VIDEO",
+      "status": "Đang thực hiện",
+      "quantity": 0,
+      "month": "2026-03",
+      "detail": "Mix & Match Polo - Short\n\nhttps://www.figma.com/board/vxg0oqrCA9BXkso6LlsvMe/K-G-T4-2026?node-id=80-2&t=xeCnh6MnIClpXMnb-0"
+    },
+    {
+      "row": 425,
+      "person": "NHẬT THI",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 0,
+      "month": "2026-03",
+      "detail": "Shopee Business\nThumail 4/4 Võ Hà Linh cho các mã submit\nLink thumb + font: đây\nThông tin điền vào thumb tại đây"
+    },
+    {
+      "row": 424,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 5,
+      "month": "2026-03",
+      "detail": "Thumb+USP sản phẩm: ISO036S3\n\nhttps://www.figma.com/design/e26HiHq6G6VdFjgAYPWM7X/Untitled?node-id=18-60&t=ImI9tJf4TrQLJiQG-0"
+    },
+    {
+      "row": 423,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-03",
+      "detail": "THUMB GỘP MÃ IPS095EDP01+IPS096EDP01+IPS097EDP01+IPS098EDP01+IPS099EDP01:\n\nhttps://www.figma.com/design/e26HiHq6G6VdFjgAYPWM7X/Untitled?node-id=11-51&t=ImI9tJf4TrQLJiQG-0"
+    },
+    {
+      "row": 421,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 7,
+      "month": "2026-03",
+      "detail": "Thumb+USP sản phẩm: 6tr0070z\n\nhttps://www.figma.com/design/e26HiHq6G6VdFjgAYPWM7X/Untitled?node-id=2-2&t=ImI9tJf4TrQLJiQG-0"
+    },
+    {
+      "row": 420,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 3,
+      "month": "2026-03",
+      "detail": "ẢNH AI: CHÂN ĐI MÃ TẤT CO08"
+    },
+    {
+      "row": 419,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 3,
+      "month": "2026-03",
+      "detail": "BACK LIVESTREAM TIKTOK – ARISTINO ONLINE\n\nhttps://www.figma.com/board/iaYXq8oFeoc0ppQm83kBPs/Untitled?node-id=69-68&t=QeewJmP12SLh07J5-0"
+    },
+    {
+      "row": 418,
+      "person": "NHẬT THI",
+      "channel": "WEB KG VIETNAM",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 7,
+      "month": "2026-03",
+      "detail": "LAMODE: LÀM HÌNH AI 2 MÃ SẢN PHẨM MỚI \n\n- Hình AI cho 2 mã: LST001EDP01 - LLH002EDP01 \nL:\\Lamode\\Bộ Đồ Ngắn Tay (LST)\\LST001EDP01\nL:\\Lamode\\Bộ Đồ Thu Đông (LLH)\\LLH002EDP01\n\nMỗi mã 4 ảnh model ở góc toàn cảnh - trung cảnh và cận cảnh nửa người mặc áo  \n- Model Việt nhé: tham khảo hình mấy bé này nha: L:\\Lamode\\LOOKBOOK\\Ảnh retouch"
+    },
+    {
+      "row": 417,
+      "person": "ẨN",
+      "channel": "SHOPPE",
+      "category": "VIDEO AI",
+      "status": "Hoàn thành",
+      "quantity": 20,
+      "month": "2026-03",
+      "detail": "KV ISM 4.4\n\nhttps://www.figma.com/board/vxg0oqrCA9BXkso6LlsvMe/K-G-T4-2026?node-id=9-136&t=nXz2E5ZqNLztOgQ6-0"
+    },
+    {
+      "row": 416,
+      "person": "NHẬT THI",
+      "channel": "SHOPPE",
+      "category": "VIDEO AI",
+      "status": "Hoàn thành",
+      "quantity": 0,
+      "month": "2026-03",
+      "detail": "KV ARISTINO 4.4\n\nhttps://www.figma.com/board/vxg0oqrCA9BXkso6LlsvMe/K-G-T4-2026?node-id=2-3&t=nXz2E5ZqNLztOgQ6-0"
+    },
+    {
+      "row": 415,
+      "person": "NHẬT THI",
+      "channel": "WEB KG VIETNAM",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 12,
+      "month": "2026-03",
+      "detail": "CECINA: LÀM HÌNH AI 4 MÃ SẢN PHẨM MỚI \n\n- Hình AI cho 4 mã: CBR005EDP01 - CBR002EDP01 - CBI002EDP01 \n- Mỗi mã khoảng 3-4 ảnh pose dáng phù hợp với các usp của sản phẩm nhé - Đủ các màu"
+    },
+    {
+      "row": 414,
+      "person": "ẨN",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 3,
+      "month": "2026-03",
+      "detail": "Post ATT601EDP01\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=1090-213&t=TmAd9uRANqObOd6G-0"
+    },
+    {
+      "row": 413,
+      "person": "ẨN",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-03",
+      "detail": "Back livestream Aristino chạy Campain cuối tháng 3"
+    },
+    {
+      "row": 412,
+      "person": "ẨN",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-03",
+      "detail": "Post ATT600EDP02\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=1025-196&t=7HTsuZFYhB94GqKC-0"
+    },
+    {
+      "row": 411,
+      "person": "NHẬT THI",
+      "channel": "AMAZON",
+      "category": "VIDEO AI",
+      "status": "Pending",
+      "quantity": 1,
+      "month": "2026-03",
+      "detail": "Video AI sản phẩm APS005EGP01"
+    },
+    {
+      "row": 410,
+      "person": "NHẬT THI",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 8,
+      "month": "2026-03",
+      "detail": "K&G - CECINA: \n\nPost 3: sản phẩm mới: \nhttps://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=5840-1374&t=fnD0g0iGz0VgcaKw-0\n\nPost 4: Sản phẩm mới: \nhttps://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=5853-1719&t=fnD0g0iGz0VgcaKw-0"
+    },
+    {
+      "row": 409,
+      "person": "ẨN",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 3,
+      "month": "2026-03",
+      "detail": "ARISTINO: \n\nChi tiết tại file đính kèm: https://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=5825-1031&t=fnD0g0iGz0VgcaKw-0"
+    },
+    {
+      "row": 408,
+      "person": "ẨN",
+      "channel": "WEB KG VIETNAM",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-03",
+      "detail": "Resize ảnh preview share link:\n- Kích thước: 1200 × 628 px\n- File: JPG < 200KB\n- Không đặt nội dung sát mép\n- Padding mỗi cạnh: 100px\n- Vùng nội dung an toàn: 1000 × 500 px (ở giữa)\n- Ảnh: https://cdn.hstatic.net/files/200000886795/file/pc-aris-hompage_0ad9df2ce1ac49968b8afe84cdf69376.jpg"
+    },
+    {
+      "row": 407,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 7,
+      "month": "2026-03",
+      "detail": "K&G - CECINA: \nPost 1: sản phẩm mới: https://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=5806-1146&t=7JQITLOUIca1cRVh-0\n\nPost 2 - sản phẩm mới : https://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=5834-1190&t=fnD0g0iGz0VgcaKw-0"
+    },
+    {
+      "row": 406,
+      "person": "NHẬT THI",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 7,
+      "month": "2026-03",
+      "detail": "Thumb Cecina\nhttps://docs.google.com/spreadsheets/d/1PEhKwcDQ6cC-GBlTge6X_rIDvbKCUQRRiVi3kTo-jNY/edit?usp=sharing"
+    },
+    {
+      "row": 405,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 3,
+      "month": "2026-03",
+      "detail": "Thumb ATT001AAH\n\nhttps://www.figma.com/board/iaYXq8oFeoc0ppQm83kBPs/Untitled?node-id=28-443&t=KYmC8mCh3YgcZwSG-0"
+    },
+    {
+      "row": 404,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 4,
+      "month": "2026-03",
+      "detail": "Thumb ATT601EDP01\n\nhttps://www.figma.com/board/iaYXq8oFeoc0ppQm83kBPs/Untitled?node-id=28-213&t=KYmC8mCh3YgcZwSG-0"
+    },
+    {
+      "row": 403,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 6,
+      "month": "2026-03",
+      "detail": "Thumb ATT600EDP01\n\nhttps://www.figma.com/board/iaYXq8oFeoc0ppQm83kBPs/Untitled?node-id=28-14&t=KYmC8mCh3YgcZwSG-0"
+    },
+    {
+      "row": 402,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 3,
+      "month": "2026-03",
+      "detail": "Post ATT600EDP01\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=906-716&t=x1ybuLPOX4df9rzu-0"
+    },
+    {
+      "row": 401,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 4,
+      "month": "2026-03",
+      "detail": "Post ALS602EDP01\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=900-509&t=x1ybuLPOX4df9rzu-0"
+    },
+    {
+      "row": 400,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 4,
+      "month": "2026-03",
+      "detail": "Post APS601EDP01\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=891-190&t=x1ybuLPOX4df9rzu-0"
+    },
+    {
+      "row": 399,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 14,
+      "month": "2026-03",
+      "detail": "Order hình ảnh USP sản phẩm đồ lót nam mới ra mắt: \n- Các mã cần làm hình ảnh:\n+ ATT600EXP\n+ ATT601EXP"
+    },
+    {
+      "row": 398,
+      "person": "NHẬT THI",
+      "channel": "WEB ARISTINO",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 8,
+      "month": "2026-03",
+      "detail": "ARISTINO - CAMP ĐỒNG PHỤC:\n\nChi tiết tại file đính kèm: https://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=5700-831&t=FxjyTa0DdRMy2lrG-0"
+    },
+    {
+      "row": 397,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 7,
+      "month": "2026-03",
+      "detail": "New Arrivals - BST Sơ mi (bổ sung ảnh phụ các mã mới)\n\nlist mã bổ sung: https://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=766-194&t=DR9FpmGsZDwcGLZf-0"
+    },
+    {
+      "row": 396,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH AI",
+      "status": "Cancel",
+      "quantity": 1,
+      "month": "2026-03",
+      "detail": "Backgroud livestream:\nText: Đẳng cấp nam tính trong từng chuyển động\nMô tả:\n1. Backgroud livestream sẽ mang hơi hướng thể thao\n2. Sẽ có lượt vào bóng pickleball nằm ở góc \n3. Tone màu sử dụng mang hơi hướng mùa hè,mát mẻ\n4. Có màn hình tivi có xiền ở đằng sau"
+    },
+    {
+      "row": 395,
+      "person": "NHẬT THI",
+      "channel": "WEB ARISTINO",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 5,
+      "month": "2026-03",
+      "detail": "Thiết kế giao diện E-voucher Tủ đồ quý ông theo các gói:\n1. Gói 10 triệu - Platinum\n2. Gói 20 triệu - Diamond\n3. Gói 30 triệu - Legend\n4. Gói 50tr - Iconic\n5. Gói 80tr - Inspiring\nBrief tại đây, làm thử trước gói 1 để em check trước nhé"
+    },
+    {
+      "row": 394,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 3,
+      "month": "2026-03",
+      "detail": "Post APS606EDP01\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=701-286&t=sufT93EtPoHDGGX5-0"
+    },
+    {
+      "row": 393,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 4,
+      "month": "2026-03",
+      "detail": "Post ASS609EDP01\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=695-692&t=sufT93EtPoHDGGX5-0"
+    },
+    {
+      "row": 392,
+      "person": "ẨN",
+      "channel": "FACEBOOK",
+      "category": "VIDEO AI",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-03",
+      "detail": "Post mix match APS602EDP01\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=692-566&t=sufT93EtPoHDGGX5-0"
+    },
+    {
+      "row": 391,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 4,
+      "month": "2026-03",
+      "detail": "Post mix match APS211AS0E\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=692-314&t=sufT93EtPoHDGGX5-0"
+    },
+    {
+      "row": 390,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 3,
+      "month": "2026-03",
+      "detail": "Post APS602EDP01\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=689-202&t=sufT93EtPoHDGGX5-0"
+    },
+    {
+      "row": 389,
+      "person": "KHANG",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-03",
+      "detail": "BANNER TẦNG POLO ACTIVE\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=688-194&t=sufT93EtPoHDGGX5-0"
+    },
+    {
+      "row": 388,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-03",
+      "detail": "Bổ sung thêm size XXXL: Áo polo\nSize:                                XXXL\nChiều cao (cm):           180–186\nCân nặng (kg):              90–105\nDài áo (cm):                      73.5\nRộng vai (cm):                  48.5\nVòng ngực (cm):                55.5\nDài tay (cm):                       24"
+    },
+    {
+      "row": 387,
+      "person": "ẨN",
+      "channel": "(trong)",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 7,
+      "month": "2026-03",
+      "detail": "Camp Quần lót Polyamide Cecina:\nhttps://www.figma.com/board/ZZOtmTHb2xq8rO4ffal3wO/Brief-KV?node-id=2645-1471&t=CTvH4HQi9JHDnpPb-0"
+    },
+    {
+      "row": 386,
+      "person": "ẨN",
+      "channel": "(trong)",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 7,
+      "month": "2026-03",
+      "detail": "Post social combo tiết kiệm đồ lót Aris + ISM:\nhttps://www.figma.com/board/ZZOtmTHb2xq8rO4ffal3wO/Brief-KV?node-id=2633-1325&t=CTvH4HQi9JHDnpPb-0"
+    },
+    {
+      "row": 385,
+      "person": "ẨN",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 9,
+      "month": "2026-03",
+      "detail": "Sửa KV 15.3 Insidemen (gửi Zalo)"
+    },
+    {
+      "row": 384,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 2,
+      "month": "2026-03",
+      "detail": "Post mix match ALS611EDP01\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=638-144&t=wEvRDdCyMbTdVuYc-0"
+    },
+    {
+      "row": 383,
+      "person": "ẨN",
+      "channel": "(trong)",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 6,
+      "month": "2026-03",
+      "detail": "Post social combo tiết kiệm đồ lót Aristino:\nhttps://www.figma.com/board/ZZOtmTHb2xq8rO4ffal3wO/Brief-KV?node-id=2620-940&t=MCaMRsoogvrYETrp-0"
+    },
+    {
+      "row": 382,
+      "person": "ẨN",
+      "channel": "(trong)",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 18,
+      "month": "2026-03",
+      "detail": "KV 3.3 đổi số 3.3 sang 25.3\nhttps://kgvn.sharepoint.com/:f:/s/all/IgBuHLA0FhMSQbg5_bRAPsKWAa1NYc9ieMRRYGQaHz-gQkM?e=OSLmVq\n\nBrand: Cecina, Salina, Underwear và tiktok ngang dọc vuông\nĐổi tagline: \nCecina: Chốt tháng \nSăn deal \"độ\" dáng\nSalina: Cuối tháng deal hời - Săn khăn giá đỉnh"
+    },
+    {
+      "row": 381,
+      "person": "ẨN",
+      "channel": "(trong)",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 18,
+      "month": "2026-03",
+      "detail": "KV 3.3 đổi số 3.3 sang 15.3\nhttps://kgvn.sharepoint.com/:f:/s/all/IgBuHLA0FhMSQbg5_bRAPsKWAa1NYc9ieMRRYGQaHz-gQkM?e=OSLmVq\n\nBrand: Cecina, Salina, Underwear và tiktok ngang dọc vuông\nĐổi tagline: \nCecina: Siêu sale giữa tháng - Săn nội y thỏa thích\nSalina: Giữa tháng sale hời - Săn khăn giá rẻ"
+    },
+    {
+      "row": 380,
+      "person": "NHẬT THI",
+      "channel": "WEB KG VIETNAM",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 19,
+      "month": "2026-03",
+      "detail": "Làm hình AI Cecina cho web\nhttps://docs.google.com/spreadsheets/d/1URo045BUYEb8akugu2_ndWPOk_d58xSWV3wIvn87VcE/edit?usp=sharing"
+    },
+    {
+      "row": 379,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 34,
+      "month": "2026-03",
+      "detail": "CTKM T3 Post social\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=550-688&t=uH8JGn6PtNOFJY6F-0"
+    },
+    {
+      "row": 378,
+      "person": "NHẬT THI",
+      "channel": "WEB ARISTINO",
+      "category": "KEY VISUAL AI",
+      "status": "Hoàn thành",
+      "quantity": 9,
+      "month": "2026-03",
+      "detail": "CTKM T3: https://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=546-117&t=HilkESrN8zEaKG0o-0 \n\nCác hạng mục:\n- Banner ads: Ngang - dọc - vuông \n- Banner Zalo OA\n- Banner Web Aris (home - collection): PC - Mobile\n- Banner Web KG (home - collection): PC - Mobile"
+    },
+    {
+      "row": 377,
+      "person": "ẨN",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 16,
+      "month": "2026-03",
+      "detail": "KV 25.3: Đổi text 3.3 => 25.3 https://kgvn.sharepoint.com/:f:/s/all/IgBuHLA0FhMSQbg5_bRAPsKWAa1NYc9ieMRRYGQaHz-gQkM?e=oSYkWT\n\nCần làm các banner\n- Ngang - dọc - vuông - nội sàn cho Shopee, LZD\n- Ngang - dọc - vuông cho Tiktok\n\nBrand:\n- Aristino (MN-MB-Business - LZD)\n- ISM\n- KG"
+    },
+    {
+      "row": 376,
+      "person": "ẨN",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 16,
+      "month": "2026-03",
+      "detail": "KV 15.3: Đổi text 3.3 => 15.3 https://kgvn.sharepoint.com/:f:/s/all/IgBuHLA0FhMSQbg5_bRAPsKWAa1NYc9ieMRRYGQaHz-gQkM?e=oSYkWT\n\nCần làm các banner\n- Ngang - dọc - vuông - nội sàn cho Shopee, LZD\n- Ngang - dọc - vuông cho Tiktok\n\nBrand:\n- Aristino (MN-MB-Business - LZD)\n- ISM\n- KG"
+    },
+    {
+      "row": 375,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 28,
+      "month": "2026-03",
+      "detail": "Insidemen - K&G Việt Nam: \n\nPost BST SHORT: HÀNG RIÊNG ECOM: \nảnh cover fix ra đủ kích thước ngang - dọc - vuông để chạy ads -> click to web: \nhttps://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=5548-1154&t=5SHGSxeApEqP0oCk-0"
+    },
+    {
+      "row": 373,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 3,
+      "month": "2026-03",
+      "detail": "Backlivestream TIKTOK  ARISTINO ONLINE \n- Concept: Sang trọng – cao cấp – mùa hè / du lịch\n- Tone màu: Gradient Xanh biển → Xanh sky nhạt → Trắng\n\n- BACK 1: Chèn ô text\n                            Sale 15/3, Freeship toàn quốc, Voucher mở bán \n- BACK 2: Chèn ô text\n                            Sale lương về 25/3, Freeship toàn quốc, Voucher mở bán \n- BACK 3: Text\n                                  THÁNG MỚI – DIỆN ĐỒ MỚI\n                                  BỘ SƯU TẬP XUÂN HÈ 2026"
+    },
+    {
+      "row": 372,
+      "person": "ẨN",
+      "channel": "TIKTOK MN",
+      "category": "VIDEO",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-03",
+      "detail": "Edit tài liệu cuộc họp 6.3\nhttps://drive.google.com/file/d/19QeNSWljtxTYHc7Mx0T5bI3V437yMQYm/view?usp=sharing"
+    },
+    {
+      "row": 371,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 3,
+      "month": "2026-03",
+      "detail": "Post APS604EDP01\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=497-397&t=IkHFX3hOa4Y7MXeR-0"
+    },
+    {
+      "row": 370,
+      "person": "ẨN",
+      "channel": "ZNS",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 4,
+      "month": "2026-03",
+      "detail": "Banner gửi tin ZNS, mỗi mục là 1 banner riêng.\n1. Quan tâm OA nhận ưu đãi (làm 2 phiên bản cho K&G và Aristino)\n2. Gửi đánh giá nhận ưu đãi (làm 2 phiên bản cho K&G và Aristino)\n\nBrief: đây"
+    },
+    {
+      "row": 369,
+      "person": "ẨN",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 5,
+      "month": "2026-03",
+      "detail": "Post APS211AS0E\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=446-331&t=IkHFX3hOa4Y7MXeR-0"
+    },
+    {
+      "row": 368,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 9,
+      "month": "2026-03",
+      "detail": "Insidemen - K&G Việt Nam: \n\nPost BST POLO (hàng riêng Ecom) - Ảnh cover fix thêm các kích thước để chạy click to web\n\nhttps://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=5542-827&t=5SHGSxeApEqP0oCk-0"
+    },
+    {
+      "row": 367,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 35,
+      "month": "2026-03",
+      "detail": "Order hình ảnh USP sản phẩm \n- Các mã cần làm hình ảnh:\n+ IPS095EDP01\n+ IPS098EDP01\n+ IPS096EDP01\n+ IPS097EDP01\n+ IPS099EDP01"
+    },
+    {
+      "row": 365,
+      "person": "KHANG",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 37,
+      "month": "2026-03",
+      "detail": "- Order hình ảnh cho các mã cần làm hình ảnh:\n+ AJN0060S0\n+ APS204AS0E, APS205AS0E. APS206AS0E\n+ APS208AS0E, APS210AS0E, APS211AS0E\n+ ASS612, 619, 620, 616\n+ APS115S3\n+ APSR10\n+ APS003EGP01"
+    },
+    {
+      "row": 364,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 84,
+      "month": "2026-03",
+      "detail": "Order hình ảnh USP sản phẩm đồ lót nam\n- Các mã cần làm hình ảnh:\n+ ATT001EXP\n+ ATS001EXP\n+ ITT001EDP\n+ ITL001EXP\n+ ABX001EXP / ABF001EXP\n+ ABX003EXP / ABF003EXP\n+ ABX010EXP / ABF005EXP\n+ ABX011EXP / ABF011EXP\n+ ABX012EXP / ABF012EXP\n+ IBX018\nHình ảnh sản phẩm mong muốn đã đẩy lên drive phần nguồn sử dụng\n- Áo lót mong muốn làm ảnh:\n+ Chất liệu sản phẩm\n+ Thuộc tính sản phẩm - USP ( mỏng nhẹ, thấm hút ) \n+ Mẫu mặc áo mặt trước và mặt sau\n- Quần lót mong muốn làm ảnh:\n+ Chất liệu sản phẩm\n+ Công nghệ trên sản phẩm ( ví dụ: seamless và có dòng chữ giải thích về công nghệ đó)\n+ Cạp quần mềm mịn - Không hằn ngứa\n+ Quần co dãn\n+ Các thuộc tính của quần ( mỏng nhẹ, thấm hút tốt, thoáng khí, mát mẻ)\n+ Tất cả màu sắc sản phẩm"
+    },
+    {
+      "row": 363,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-03",
+      "detail": "Valentine trắng:\nhttps://www.figma.com/board/ZZOtmTHb2xq8rO4ffal3wO/Brief-KV?node-id=2459-1197&t=xJf6PIJybB2Pn7iF-0"
+    },
+    {
+      "row": 362,
+      "person": "ẨN",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 4,
+      "month": "2026-03",
+      "detail": "Post mix match ASS612EDP01\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=445-190&t=hPk0CvRHWeWLPij3-0"
+    },
+    {
+      "row": 361,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 19,
+      "month": "2026-03",
+      "detail": "New Arrivals - BST Shorts\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=445-141&t=hPk0CvRHWeWLPij3-0"
+    },
+    {
+      "row": 360,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-03",
+      "detail": "Công bố minigame 8.3:\nhttps://www.figma.com/board/ZZOtmTHb2xq8rO4ffal3wO/Brief-KV?node-id=2445-1063&t=xJf6PIJybB2Pn7iF-0"
+    },
+    {
+      "row": 359,
+      "person": "ẨN",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 87,
+      "month": "2026-03",
+      "detail": "Thumb+ usp cho các mã trg link: https://docs.google.com/spreadsheets/d/11EtLdwvCEga963ASDojtkQZpFQ9Dxj9IyWFVvfBAW9o/edit?gid=1964173512#gid=1964173512"
+    },
+    {
+      "row": 358,
+      "person": "NHẬT THI",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 17,
+      "month": "2026-03",
+      "detail": "Làm ảnh USP cho 6 mã quần lót mới Cecina Lunamour:\nhttps://www.figma.com/board/ZZOtmTHb2xq8rO4ffal3wO/Brief-KV?node-id=2423-849&t=ksorpEZ9aCSme6hP-0"
+    },
+    {
+      "row": 357,
+      "person": "ẨN",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 10,
+      "month": "2026-03",
+      "detail": "K&G và INSIDEMEN: \n\nPost fanpage: https://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=5472-795&t=a4U6qoljy2wGMYqB-0"
+    },
+    {
+      "row": 356,
+      "person": "ẨN",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 4,
+      "month": "2026-03",
+      "detail": "New Arrivals - BST Elite Polo\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=381-79&t=LfN7ad1bd2BPnzHN-0 \nLàm trước hạng mục:\n- Banner ngang - dọc - vuông\n- Zalo OA: Banner ngang 16:9"
+    },
+    {
+      "row": 355,
+      "person": "ẨN",
+      "channel": "TIKTOK MN",
+      "category": "VIDEO",
+      "status": "Hoàn thành",
+      "quantity": 6,
+      "month": "2026-03",
+      "detail": "Edit source video sản phẩm, mỗi sản phẩm gôm 2 video\n- ASS616EDP01 https://1drv.ms/f/c/0e42e76836d493d2/IgBCdTAco0bFTq5zB8lyyw7hAWKBsMeJhNnAj2I9tSh0-pk?e=ieObt6\n- ASS620EDP01 https://1drv.ms/f/c/0e42e76836d493d2/IgBiVBukj_6qQY09W9es_NqOAbo2YiAeuRf4vYGnXhsgOGM?e=3dCHcs\n- APS602EDP01 https://1drv.ms/f/c/0e42e76836d493d2/IgDxyRmvYPNJQYCH31tvOx6mAfAxO5GGCDbecLM3qLDLkTM?e=GSpDO7"
+    },
+    {
+      "row": 354,
+      "person": "ẨN",
+      "channel": "WEB ARISTINO",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 6,
+      "month": "2026-03",
+      "detail": "Banner collection mục Sale web aris + KG + ISM\nBrief: đây"
+    },
+    {
+      "row": 353,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 16,
+      "month": "2026-03",
+      "detail": "New Arrivals - BST Quần Âu\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=344-286&t=bHu2TTsV0AIfAF4f-0"
+    },
+    {
+      "row": 352,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 4,
+      "month": "2026-03",
+      "detail": "Post ASS612EDP01\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=342-60&t=bHu2TTsV0AIfAF4f-0"
+    },
+    {
+      "row": 350,
+      "person": "ẨN",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 21,
+      "month": "2026-03",
+      "detail": "KV THÁNG 3: Đổi text 3.3 => THÁNG 3 https://kgvn.sharepoint.com/:f:/s/all/IgBuHLA0FhMSQbg5_bRAPsKWAa1NYc9ieMRRYGQaHz-gQkM?e=oSYkWT\n\nCần làm các banner Ngang - dọc - vuông - nội sàn cho Shopee và LZD (K cần Tiktok)\n- Aristino (MN-MB-Business - LZD)\n- ISM\n- KG"
+    },
+    {
+      "row": 349,
+      "person": "KHANG",
+      "channel": "(trong)",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-03",
+      "detail": "Chúc mừng ngày QTPN 08/03\nhttps://www.figma.com/board/ZZOtmTHb2xq8rO4ffal3wO/Brief-KV?node-id=2262-900&t=qZSwXUZsm72118bZ-0"
+    },
+    {
+      "row": 348,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-03",
+      "detail": "Minigame 8/3\nhttps://www.figma.com/board/ZZOtmTHb2xq8rO4ffal3wO/Brief-KV?node-id=2262-886&t=qZSwXUZsm72118bZ-0"
+    },
+    {
+      "row": 347,
+      "person": "ẨN",
+      "channel": "TIKTOK MN",
+      "category": "VIDEO",
+      "status": "Hoàn thành",
+      "quantity": 8,
+      "month": "2026-03",
+      "detail": "Edit source video sản phẩm, mỗi sản phẩm gôm 2 video\n- CBI006EDP01\nCBI006EDP01\n- CBI007EDP01\nCBI007EDP01\n- CBI008EDP01\n CBI008EDP01\n- CBI009EDP01\nCBI009EDP01"
+    },
+    {
+      "row": 346,
+      "person": "ẨN",
+      "channel": "TIKTOK MN",
+      "category": "VIDEO",
+      "status": "Hoàn thành",
+      "quantity": 6,
+      "month": "2026-03",
+      "detail": "Edit source video sản phẩm, mỗi sản phẩm gôm 2 video\n- ASS162EDP01 https://1drv.ms/f/c/0e42e76836d493d2/IgBIAYIcAg4TT51shfKSiyotAcpZEbIEvoTNRv6Msi8Zm5o?e=8ZqAmn\n- AlS615EDP01 https://1drv.ms/f/c/0e42e76836d493d2/IgD3JGoj-pT7QJC7drUPLmY_AYI1jXJocujfu_OBNVqrd6I?e=eNoYSK\n- ASS619EDP01 https://1drv.ms/f/c/0e42e76836d493d2/IgD7uLkSzlKeQp-2HY42b7UjAfEBs1H_aYn0WX3rh67I40A?e=nEWMlZ"
+    },
+    {
+      "row": 345,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-03",
+      "detail": "Thumbnail sản phẩm đồ lót nam theo từng thương hiệu Aristino, Insidemen\nThông tin gồm: chất liệu, thuộc tính vải\nMàu nền: Màu xanh dương( mát mắt dành cho màu hè)"
+    },
+    {
+      "row": 344,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 3,
+      "month": "2026-03",
+      "detail": "Thumbnail nội y cecina theo từng chất liệu\nTông màu hồng chủ đạo"
+    },
+    {
+      "row": 343,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-03",
+      "detail": "Backlivestream Tiktok CECINA tỉ lệ 9:16 nền hồng chủ đạo\nHai bên back làm tủ đồ nội y nữ\nText: Tôn vinh vẻ đẹp phái nữ\nKhung text: Sale up 50%, Freeship toàn quốc, Deal độc quyền"
+    },
+    {
+      "row": 342,
+      "person": "ẨN",
+      "channel": "SHOPPE",
+      "category": "VIDEO",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-03",
+      "detail": "Edit lại source treo lives\n- Cắt đi phần chào đầu và chào kết livestream\n- Bỏ các đoạn mẫu nói sale ngày 3/3\n\nLink source:       Hoàng 0203 Shopee.mov"
+    },
+    {
+      "row": 341,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 18,
+      "month": "2026-03",
+      "detail": "New Arrivals - BST Sơ mi\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=270-259&t=sOWl9OsrnComGs9L-0"
+    },
+    {
+      "row": 340,
+      "person": "ẨN",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 4,
+      "month": "2026-03",
+      "detail": "Post ALS611EDP01\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=264-131&t=sOWl9OsrnComGs9L-0"
+    },
+    {
+      "row": 339,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 3,
+      "month": "2026-03",
+      "detail": "Post mix match ALS610EDP01\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=260-43&t=sOWl9OsrnComGs9L-0"
+    },
+    {
+      "row": 338,
+      "person": "ẨN",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-03",
+      "detail": "Backlivestream Shopee CECINA\nText: DEAL XINH CHO THÁNG CỦA NÀNG\nText: Sale up 50%, Freeship toàn quốc, Deal độc quyền"
+    },
+    {
+      "row": 337,
+      "person": "NHẬT THI",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 2084,
+      "month": "2026-03",
+      "detail": "Frame Shopee 3/3: brief: đây"
+    },
+    {
+      "row": 335,
+      "person": "ẨN",
+      "channel": "WEB KG VIETNAM",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 11,
+      "month": "2026-02",
+      "detail": "K&G VIỆT NAM \n- https://drive.google.com/drive/folders/1Ul5GuX1ofWnqkygU1yKuMa6iXjTRp8xG?usp=drive_link\n- edit lại kích thước banner cho K&G Việt Nam. \n- Bổ sung thêm 1 kích thước cho collection bên trong: https://kgvietnam.com/collections/hang-moi-aristino"
+    },
+    {
+      "row": 334,
+      "person": "ẨN",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 11,
+      "month": "2026-02",
+      "detail": "INSIDEMEN - LDP T3:\nBrief chi tiết tại file đính kèm sau, các banner k cần để logo shopee, để sử dụng được cả shop tiktok nhé: \n https://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=5317-1097&t=cOLaWGytqk0zIYxN-0"
+    },
+    {
+      "row": 333,
+      "person": "ẨN",
+      "channel": "WEB KG VIETNAM",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-02",
+      "detail": "Resize ảnh\nhttps://www.figma.com/design/wJmGjbozJvfWk8TOMcPNHM/Resize?node-id=0-1&t=mEymh6j4Xe2kNHhr-1"
+    },
+    {
+      "row": 331,
+      "person": "ẨN",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 4,
+      "month": "2026-02",
+      "detail": "Post ALS615EDP01\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=114-1181&t=NczuWq85ra2oxRht-0"
+    },
+    {
+      "row": 330,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 3,
+      "month": "2026-02",
+      "detail": "Post ALS611EDP01\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=101-935&t=NczuWq85ra2oxRht-0"
+    },
+    {
+      "row": 329,
+      "person": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 2,
+      "month": "2026-02",
+      "detail": "Backlivestream TIKTOK  ARISTINO ONLINE\n\n- BACK 1: Chèn ô text\n                            Sale 3/3, Freeship toàn quốc, Voucher mở bán \n                        \n- BACK 2: Text\n                                  THÁNG MỚI – DIỆN ĐỒ MỚI\n                                  BỘ SƯU TẬP XUÂN HÈ 2026"
+    },
+    {
+      "row": 328,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 4,
+      "month": "2026-02",
+      "detail": "Post ALS610EDP01\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=94-629&t=NczuWq85ra2oxRht-0"
+    },
+    {
+      "row": 327,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 4,
+      "month": "2026-02",
+      "detail": "Post ASS612EDP01\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=92-627&t=NczuWq85ra2oxRht-0"
+    },
+    {
+      "row": 326,
+      "person": "ẨN",
+      "channel": "(trong)",
+      "category": "VIDEO",
+      "status": "Hoàn thành",
+      "quantity": 28,
+      "month": "2026-02",
+      "detail": "Edit video combo hàng riêng ecom:\nhttps://docs.google.com/spreadsheets/d/1ABu4WYeED2QIruFxkrhGEukfv2aJkLn7h8gY1gsKu78/edit?usp=sharing"
+    },
+    {
+      "row": 325,
+      "person": "KHANG",
+      "channel": "SHOPPE",
+      "category": "LANDINGPAGE",
+      "status": "Hoàn thành",
+      "quantity": 27,
+      "month": "2026-02",
+      "detail": "LDP ARISTINO T3\n\nMB: https://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=1-26&t=NczuWq85ra2oxRht-0 \n\nMN: https://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=1-27&t=NczuWq85ra2oxRht-0 \n\nBUSINESS: https://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=1-28&t=NczuWq85ra2oxRht-0"
+    },
+    {
+      "row": 324,
+      "person": "ẨN",
+      "channel": "WEB ARISTINO",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 3,
+      "month": "2026-02",
+      "detail": "Thiết kế banner homepage và collection - brief"
+    },
+    {
+      "row": 323,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 4,
+      "month": "2026-02",
+      "detail": "Post ASS620EDP01\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=13-334&t=p3HV24xVoeo0aY6g-0"
+    },
+    {
+      "row": 322,
+      "person": "NHẬT THI",
+      "channel": "SHOPPE",
+      "category": "KEY VISUAL",
+      "status": "Hoàn thành",
+      "quantity": 15,
+      "month": "2026-02",
+      "detail": "KV ARISTINO T3 (MB-MN-BUSINESS)\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=1-31&t=p3HV24xVoeo0aY6g-0"
+    },
+    {
+      "row": 321,
+      "person": "NHẬT THI",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 60,
+      "month": "2026-02",
+      "detail": "Thumbnail Cecina:\nCBI005EDP01\nCBR023\nCBI011\nhttps://docs.google.com/spreadsheets/d/1PEhKwcDQ6cC-GBlTge6X_rIDvbKCUQRRiVi3kTo-jNY/edit?usp=sharing"
+    },
+    {
+      "row": 320,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 4,
+      "month": "2026-02",
+      "detail": "Post ASS616EDP01\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=8-2&t=p3HV24xVoeo0aY6g-0"
+    },
+    {
+      "row": 319,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 4,
+      "month": "2026-02",
+      "detail": "Post ASS619EDP01\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=1-50&t=1yPfqqsS0I8YGaAS-0"
+    },
+    {
+      "row": 318,
+      "person": "ẨN",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 6,
+      "month": "2026-02",
+      "detail": "K&G VIỆT NAM - SHOPEE/TIKTOK \n\n- Landingpage tháng 3: https://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=5302-841&t=9qU4Y1WiGTNUnii1-0"
+    },
+    {
+      "row": 317,
+      "person": "ẨN",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 30,
+      "month": "2026-02",
+      "detail": "Thumb +usp quần âu: https://docs.google.com/spreadsheets/d/11EtLdwvCEga963ASDojtkQZpFQ9Dxj9IyWFVvfBAW9o/edit?gid=1792041344#gid=1792041344"
+    },
+    {
+      "row": 316,
+      "person": "KHANG",
+      "channel": "B2B",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-02",
+      "detail": "Chỉnh lại hình ảnh sản phẩm sao cho có bố cục phù hợp và đẹp hơn\n\nhttps://www.canva.com/design/DAHCOIV1sak/67CXq76PZ6nnryar_HrrQA/edit?utm_content=DAHCOIV1sak&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+    },
+    {
+      "row": 315,
+      "person": "NHẬT THI",
+      "channel": "AMAZON",
+      "category": "VIDEO AI",
+      "status": "Hoàn thành",
+      "quantity": 4,
+      "month": "2026-02",
+      "detail": "Fix video polo\n\nhttps://www.figma.com/design/kfrOW2VUF32huDTOeWzZVq/AMAZON_ARISTINO?node-id=641-12&t=05ZaWeCPoEJyqMW6-0"
+    },
+    {
+      "row": 314,
+      "person": "NHẬT THI",
+      "channel": "AMAZON",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 5,
+      "month": "2026-02",
+      "detail": "Fix hình listing mục Đồ lót + Áo Polo\n\nhttps://www.figma.com/design/kfrOW2VUF32huDTOeWzZVq/AMAZON_ARISTINO?node-id=641-2&t=05ZaWeCPoEJyqMW6-0"
+    },
+    {
+      "row": 313,
+      "person": "NHẬT THI",
+      "channel": "SHOPPE",
+      "category": "KEY VISUAL AI",
+      "status": "Hoàn thành",
+      "quantity": 6,
+      "month": "2026-02",
+      "detail": "KV KG 3.3\n\nhttps://www.figma.com/board/uXUKHBDA4zKvnyaWiVwSz7/K-G-T2-2026?node-id=524-662&t=e2Y5FV1EYgsk7Nty-0"
+    },
+    {
+      "row": 312,
+      "person": "ẨN",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 8,
+      "month": "2026-02",
+      "detail": "KV ISM 3.3\n\nhttps://www.figma.com/board/uXUKHBDA4zKvnyaWiVwSz7/K-G-T2-2026?node-id=521-427&t=e2Y5FV1EYgsk7Nty-0"
+    },
+    {
+      "row": 311,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 4,
+      "month": "2026-02",
+      "detail": "Flatlay ALS1730S2\n\nhttps://www.figma.com/board/uXUKHBDA4zKvnyaWiVwSz7/K-G-T2-2026?node-id=502-145&t=e2Y5FV1EYgsk7Nty-0"
+    },
+    {
+      "row": 310,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 22,
+      "month": "2026-02",
+      "detail": "BST Polo\n\nhttps://www.figma.com/board/uXUKHBDA4zKvnyaWiVwSz7/K-G-T2-2026?node-id=483-417&t=e2Y5FV1EYgsk7Nty-0"
+    },
+    {
+      "row": 309,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 26,
+      "month": "2026-02",
+      "detail": "BST Áo khoác\n\nhttps://www.figma.com/board/uXUKHBDA4zKvnyaWiVwSz7/K-G-T2-2026?node-id=476-349&t=rX9V9LHhZ4dxJZYO-0"
+    },
+    {
+      "row": 308,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 3,
+      "month": "2026-02",
+      "detail": "Flatlay ALS1720S2\n\nhttps://www.figma.com/board/uXUKHBDA4zKvnyaWiVwSz7/K-G-T2-2026?node-id=474-262&t=rX9V9LHhZ4dxJZYO-0"
+    },
+    {
+      "row": 307,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 20,
+      "month": "2026-02",
+      "detail": "Combo đồ lót tiết kiệm\nhttps://www.figma.com/board/ZZOtmTHb2xq8rO4ffal3wO/Brief-KV?node-id=2148-799&t=zkrtvhpaLJuGYvuG-0"
+    },
+    {
+      "row": 306,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 25,
+      "month": "2026-02",
+      "detail": "BST Quần âu\n\nhttps://www.figma.com/board/uXUKHBDA4zKvnyaWiVwSz7/K-G-T2-2026?node-id=469-229&t=rX9V9LHhZ4dxJZYO-0"
+    },
+    {
+      "row": 305,
+      "person": "ẨN",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 19,
+      "month": "2026-02",
+      "detail": "BST Sơ mi\n\nhttps://www.figma.com/board/uXUKHBDA4zKvnyaWiVwSz7/K-G-T2-2026?node-id=426-149&t=rX9V9LHhZ4dxJZYO-0"
+    },
+    {
+      "row": 304,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
+      "quantity": 3,
+      "month": "2026-02",
+      "detail": "Flatlay ALS600EDP01\n\nhttps://www.figma.com/board/uXUKHBDA4zKvnyaWiVwSz7/K-G-T2-2026?node-id=405-172&t=ArHM1rQjkEeF79Vb-0"
+    },
+    {
+      "row": 303,
+      "person": "NHẬT THI",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 199,
+      "month": "2026-02",
+      "detail": "Thay nền màu background + chạy logo đây"
+    },
+    {
+      "row": 302,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 4,
+      "month": "2026-02",
+      "detail": "Flatlay AJK602EDP01\n\nhttps://www.figma.com/board/uXUKHBDA4zKvnyaWiVwSz7/K-G-T2-2026?node-id=356-144&t=AWikET6q38outE4X-0"
+    },
+    {
+      "row": 301,
+      "person": "ẨN",
+      "channel": "FACEBOOK",
+      "category": "VIDEO",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-02",
+      "detail": "Ready For Tet - BST Jacket\n\nhttps://www.figma.com/board/uXUKHBDA4zKvnyaWiVwSz7/K-G-T2-2026?node-id=327-478&t=04MS5PkQspPgTnFs-0"
+    },
+    {
+      "row": 300,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
+      "quantity": 1,
+      "month": "2026-02",
+      "detail": "Sắc Màu Diện Tết\n\nhttps://www.figma.com/board/uXUKHBDA4zKvnyaWiVwSz7/K-G-T2-2026?node-id=254-197&t=04MS5PkQspPgTnFs-0"
+    }
+  ]
+}

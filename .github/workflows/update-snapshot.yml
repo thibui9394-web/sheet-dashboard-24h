@@ -1,0 +1,39 @@
+name: Update Dashboard Snapshot
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 01:00 Asia/Bangkok = 18:00 UTC (ngay hom truoc)
+    - cron: "0 18 * * *"
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Build Snapshot
+        run: node ./scripts/update-snapshot.mjs
+        env:
+          TZ: Asia/Bangkok
+          SHEET_ID: 1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM
+          SHEET_GID: 131891982
+          SHEET_NAME: 2026_Design_Team
+
+      - name: Commit Snapshot
+        run: |
+          git config user.name "dashboard-bot"
+          git config user.email "dashboard-bot@users.noreply.github.com"
+          git add data/snapshot.json
+          if git diff --staged --quiet; then
+            echo "No changes"
+          else
+            git commit -m "chore: update dashboard snapshot"
+            git push
+          fi

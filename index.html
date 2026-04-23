@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Design Team Dashboard (24h)</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="top">
+        <div>
+          <h1>Design Team Dashboard</h1>
+          <p class="sub">Cap nhat moi 24h, mui gio Asia/Bangkok</p>
+        </div>
+        <div class="actions">
+          <label>
+            Nhan su:
+            <select id="personFilter"></select>
+          </label>
+          <label>
+            Thang:
+            <select id="monthFilter"></select>
+          </label>
+          <button id="reloadBtn" type="button">Nap lai</button>
+        </div>
+      </header>
+
+      <section class="meta">
+        <span id="updatedAt"></span>
+        <span id="totalRecords"></span>
+      </section>
+
+      <section class="grid stats" id="kpiGrid"></section>
+
+      <section class="grid columns">
+        <article class="card">
+          <h2>So sanh nhan su</h2>
+          <div class="table-wrap">
+            <table id="personTable">
+              <thead>
+                <tr>
+                  <th>Nhan su</th>
+                  <th>Task</th>
+                  <th>So luong</th>
+                  <th>TB/task</th>
+                  <th>Hoan thanh</th>
+                  <th>Dang lam</th>
+                  <th>Cancel</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>San luong theo thang</h2>
+          <div class="table-wrap">
+            <table id="monthTable">
+              <thead>
+                <tr>
+                  <th>Thang</th>
+                  <th>So luong</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="grid columns">
+        <article class="card">
+          <h2>Top hang muc</h2>
+          <div class="table-wrap">
+            <table id="categoryTable">
+              <thead>
+                <tr>
+                  <th>Hang muc</th>
+                  <th>So luong</th>
+                  <th>Task</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>Top kenh</h2>
+          <div class="table-wrap">
+            <table id="channelTable">
+              <thead>
+                <tr>
+                  <th>Kenh</th>
+                  <th>So luong</th>
+                  <th>Task</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="card">
+        <h2>Task thieu so luong</h2>
+        <div class="table-wrap">
+          <table id="missingQtyTable">
+            <thead>
+              <tr>
+                <th>Dong</th>
+                <th>Nhan su</th>
+                <th>Trang thai</th>
+                <th>Kenh</th>
+                <th>Hang muc</th>
+                <th>Noi dung</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
