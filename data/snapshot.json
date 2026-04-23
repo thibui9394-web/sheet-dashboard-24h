@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-04-23T07:34:01.843Z",
+    "generatedAt": "2026-04-23T19:01:49.047Z",
     "timezone": "Asia/Bangkok",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -16,10 +16,10 @@
   },
   "overview": {
     "tasks": 479,
-    "quantity": 21859,
-    "avgQuantityPerTask": 45.63,
+    "quantity": 21899,
+    "avgQuantityPerTask": 45.72,
     "completedTasks": 462,
-    "completedQuantity": 21725,
+    "completedQuantity": 21765,
     "inProgressTasks": 7,
     "inProgressQuantity": 127,
     "canceledTasks": 2,
@@ -65,8 +65,8 @@
       "HÌNH ẢNH AI": 1918,
       "SOCIAL POST": 394,
       "VIDEO": 245,
+      "KEY VISUAL": 156,
       "LANDINGPAGE": 130,
-      "KEY VISUAL": 116,
       "KEY VISUAL AI": 68,
       "VIDEO AI": 32,
       "(trong)": 25,
@@ -86,7 +86,7 @@
     },
     "byChannelQty": {
       "SHOPPE": 19085,
-      "FACEBOOK": 945,
+      "FACEBOOK": 985,
       "(trong)": 595,
       "TIKTOK MB": 471,
       "WEB KG VIETNAM": 246,
@@ -130,7 +130,7 @@
       "2026-01": 8171,
       "2025-12": 5200,
       "2026-03": 2895,
-      "2026-04": 2560,
+      "2026-04": 2600,
       "2026-12": 2125,
       "2026-02": 878,
       "2025-26": 20,
@@ -218,10 +218,10 @@
     },
     "KHANG": {
       "tasks": 173,
-      "quantity": 1213,
-      "avgQuantityPerTask": 7.01,
+      "quantity": 1253,
+      "avgQuantityPerTask": 7.24,
       "completedTasks": 170,
-      "completedQuantity": 1213,
+      "completedQuantity": 1253,
       "inProgressTasks": 2,
       "inProgressQuantity": 0,
       "canceledTasks": 1,
@@ -250,8 +250,8 @@
         "SOCIAL POST": 383,
         "HÌNH ẢNH": 348,
         "HÌNH ẢNH AI": 243,
+        "KEY VISUAL": 138,
         "LANDINGPAGE": 110,
-        "KEY VISUAL": 98,
         "(trong)": 16,
         "KEY VISUAL AI": 15,
         "VIDEO": 0
@@ -267,7 +267,7 @@
         "VIDEO": 1
       },
       "byChannelQty": {
-        "FACEBOOK": 626,
+        "FACEBOOK": 666,
         "SHOPPE": 252,
         "(trong)": 176,
         "TIKTOK MB": 84,
@@ -301,7 +301,7 @@
         "2025-12": 301,
         "2026-02": 237,
         "2026-03": 237,
-        "2026-04": 56,
+        "2026-04": 96,
         "2025-11": 2
       }
     },
@@ -429,9 +429,9 @@
       "channel": "FACEBOOK",
       "category": "KEY VISUAL",
       "status": "Hoàn thành",
-      "quantity": 8,
+      "quantity": 48,
       "month": "2026-04",
-      "detail": "Banner ads hàng sale 30/4 - Làm KV tổng trước, Post social/Video đang pic mã\n\nhttps://www.figma.com/board/vxg0oqrCA9BXkso6LlsvMe/K-G-T4-2026?node-id=995-185&t=1Bpx0povJ97tDbPj-0"
+      "detail": "Camp ads hàng sale 30/4 - Làm KV tổng trước, Post social/Video đang pic mã\n\nhttps://www.figma.com/board/vxg0oqrCA9BXkso6LlsvMe/K-G-T4-2026?node-id=995-185&t=1Bpx0povJ97tDbPj-0"
     },
     {
       "row": 507,
