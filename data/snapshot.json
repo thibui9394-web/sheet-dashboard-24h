@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-04-24T18:42:04.181Z",
+    "generatedAt": "2026-04-25T18:42:25.420Z",
     "timezone": "Asia/Bangkok",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -16,12 +16,12 @@
   },
   "overview": {
     "tasks": 479,
-    "quantity": 22014,
-    "avgQuantityPerTask": 45.96,
-    "completedTasks": 462,
-    "completedQuantity": 21880,
-    "inProgressTasks": 7,
-    "inProgressQuantity": 127,
+    "quantity": 22018,
+    "avgQuantityPerTask": 45.97,
+    "completedTasks": 463,
+    "completedQuantity": 21986,
+    "inProgressTasks": 6,
+    "inProgressQuantity": 25,
     "canceledTasks": 2,
     "missingQuantityTasks": 19,
     "missingQuantityRows": [
@@ -46,15 +46,15 @@
       475
     ],
     "byStatusTasks": {
-      "Hoàn thành": 462,
-      "Đang thực hiện": 7,
+      "Hoàn thành": 463,
+      "Đang thực hiện": 6,
       "Pending": 4,
       "(trong)": 4,
       "Cancel": 2
     },
     "byCategoryQty": {
       "HÌNH ẢNH": 18906,
-      "HÌNH ẢNH AI": 2074,
+      "HÌNH ẢNH AI": 2078,
       "SOCIAL POST": 394,
       "VIDEO": 245,
       "LANDINGPAGE": 130,
@@ -82,7 +82,7 @@
       "(trong)": 595,
       "TIKTOK MB": 501,
       "WEB KG VIETNAM": 246,
-      "TIKTOK MN": 153,
+      "TIKTOK MN": 157,
       "AMAZON": 146,
       "WEB ARISTINO": 123,
       "ZALO OA/MINIAPP": 36,
@@ -122,7 +122,7 @@
       "2026-01": 8171,
       "2025-12": 5200,
       "2026-03": 2895,
-      "2026-04": 2715,
+      "2026-04": 2719,
       "2026-12": 2125,
       "2026-02": 878,
       "2025-26": 20,
@@ -133,12 +133,12 @@
   "byPerson": {
     "ẨN": {
       "tasks": 210,
-      "quantity": 2313,
-      "avgQuantityPerTask": 11.01,
-      "completedTasks": 207,
-      "completedQuantity": 2210,
-      "inProgressTasks": 2,
-      "inProgressQuantity": 102,
+      "quantity": 2317,
+      "avgQuantityPerTask": 11.03,
+      "completedTasks": 208,
+      "completedQuantity": 2316,
+      "inProgressTasks": 1,
+      "inProgressQuantity": 0,
       "canceledTasks": 1,
       "missingQuantityTasks": 3,
       "missingQuantityRows": [
@@ -147,12 +147,12 @@
         456
       ],
       "byStatusTasks": {
-        "Hoàn thành": 207,
-        "Đang thực hiện": 2,
-        "Cancel": 1
+        "Hoàn thành": 208,
+        "Cancel": 1,
+        "Đang thực hiện": 1
       },
       "byCategoryQty": {
-        "HÌNH ẢNH AI": 1198,
+        "HÌNH ẢNH AI": 1202,
         "HÌNH ẢNH": 860,
         "VIDEO": 214,
         "VIDEO AI": 21,
@@ -172,7 +172,7 @@
         "(trong)": 396,
         "TIKTOK MB": 369,
         "FACEBOOK": 203,
-        "TIKTOK MN": 152,
+        "TIKTOK MN": 156,
         "WEB ARISTINO": 37,
         "WEB KG VIETNAM": 33,
         "WEB ISM": 29,
@@ -203,7 +203,7 @@
         "2026-01": 603,
         "2025-12": 545,
         "2026-03": 481,
-        "2026-04": 361,
+        "2026-04": 365,
         "2026-02": 315,
         "(khong ngay)": 8
       }
@@ -832,8 +832,8 @@
       "person": "ẨN",
       "channel": "TIKTOK MN",
       "category": "HÌNH ẢNH AI",
-      "status": "Đang thực hiện",
-      "quantity": 102,
+      "status": "Hoàn thành",
+      "quantity": 106,
       "month": "2026-04",
       "detail": "Thumb khăn Salina tiktok + shopee\nBriefs: https://docs.google.com/spreadsheets/d/1OJx2SBsMQYYcotePQRRJhGyuXSDQ8wc1lsLPgDqyANI/edit?usp=sharing"
     },
