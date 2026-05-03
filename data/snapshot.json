@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-05-02T18:52:24.472Z",
+    "generatedAt": "2026-05-03T18:52:20.158Z",
     "timezone": "Asia/Bangkok",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -18,9 +18,9 @@
     "tasks": 496,
     "quantity": 22127,
     "avgQuantityPerTask": 44.61,
-    "completedTasks": 474,
+    "completedTasks": 475,
     "completedQuantity": 22090,
-    "inProgressTasks": 12,
+    "inProgressTasks": 11,
     "inProgressQuantity": 25,
     "canceledTasks": 2,
     "missingQuantityTasks": 25,
@@ -52,8 +52,8 @@
       529
     ],
     "byStatusTasks": {
-      "Hoàn thành": 474,
-      "Đang thực hiện": 12,
+      "Hoàn thành": 475,
+      "Đang thực hiện": 11,
       "Pending": 4,
       "(trong)": 4,
       "Cancel": 2
@@ -221,9 +221,9 @@
       "tasks": 179,
       "quantity": 1418,
       "avgQuantityPerTask": 7.92,
-      "completedTasks": 171,
+      "completedTasks": 172,
       "completedQuantity": 1418,
-      "inProgressTasks": 7,
+      "inProgressTasks": 6,
       "inProgressQuantity": 0,
       "canceledTasks": 1,
       "missingQuantityTasks": 9,
@@ -239,8 +239,8 @@
         528
       ],
       "byStatusTasks": {
-        "Hoàn thành": 171,
-        "Đang thực hiện": 7,
+        "Hoàn thành": 172,
+        "Đang thực hiện": 6,
         "Cancel": 1
       },
       "byCategoryQty": {
@@ -440,7 +440,7 @@
       "person": "KHANG",
       "channel": "FACEBOOK",
       "category": "SOCIAL POST",
-      "status": "Đang thực hiện",
+      "status": "Hoàn thành",
       "quantity": 0,
       "month": "2026-04",
       "detail": "Post lookbook Lương Thế Thành - ASS620EDP01\n\nhttps://www.figma.com/board/X1EFJMFhcec1Z7umL00nkg/K-G-T5-2026?node-id=112-1159&t=c0jGyZv5H0TAWcGC-0"
