@@ -5,8 +5,10 @@ import { fileURLToPath } from "node:url";
 const SHEET_ID = process.env.SHEET_ID || "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM";
 const SHEET_GID = process.env.SHEET_GID || "131891982";
 const SHEET_NAME = process.env.SHEET_NAME || "2026_Design_Team";
+const AI_VIDEO_GID = process.env.AI_VIDEO_GID || "66835342";
 const TZ = process.env.TZ || "Asia/Bangkok";
 const EXPORT_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${SHEET_GID}`;
+const AI_VIDEO_EXPORT_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${AI_VIDEO_GID}`;
 
 // Exclusion setup for known outlier rows.
 const EXCLUDED_ROWS_BY_PERSON = {
@@ -143,6 +145,7 @@ function summarizePerson(records) {
   return {
     tasks: totalTasks,
     quantity: totalQuantity,
+
     avgQuantityPerTask: totalTasks ? Number((totalQuantity / totalTasks).toFixed(2)) : 0,
     completedTasks: completed.length,
     completedQuantity: completed.reduce((sum, r) => sum + r.quantity, 0),
@@ -158,6 +161,95 @@ function summarizePerson(records) {
     byChannelTasks: toKeyedCounts(byChannelTasks),
     byMonthQty: toKeyedCounts(byMonthQty)
   };
+}
+
+function summarizeAIVideo(records) {
+  const totalTasks = records.length;
+  const totalQuantity = records.reduce((sum, r) => sum + r.quantity, 0);
+  const completed = records.filter((r) => r.status === "Hoàn thành");
+  const inProgress = records.filter((r) => r.status === "Đang thực hiện");
+  const canceled = records.filter((r) => r.status === "Cancel");
+  const paused = records.filter((r) => r.status === "Tạm dừng");
+
+  const byChannel = new Map();
+  const byMonth = new Map();
+  const byPerson = new Map();
+
+  for (const r of records) {
+    if (!byChannel.has(r.channel)) byChannel.set(r.channel, { quantity: 0, tasks: 0 });
+    byChannel.get(r.channel).quantity += r.quantity;
+    byChannel.get(r.channel).tasks += 1;
+
+    byMonth.set(r.month, (byMonth.get(r.month) || 0) + r.quantity);
+
+    if (!byPerson.has(r.person)) byPerson.set(r.person, { quantity: 0, tasks: 0 });
+    byPerson.get(r.person).quantity += r.quantity;
+    byPerson.get(r.person).tasks += 1;
+  }
+
+  const sortedByQty = (map) =>
+    Object.fromEntries([...map.entries()].sort((a, b) => b[1].quantity - a[1].quantity));
+  const sortedByKey = (map) =>
+    Object.fromEntries([...map.entries()].sort((a, b) => a[0].localeCompare(b[0])));
+
+  return {
+    tasks: totalTasks,
+    quantity: totalQuantity,
+    completedTasks: completed.length,
+    completedQuantity: completed.reduce((sum, r) => sum + r.quantity, 0),
+    inProgressTasks: inProgress.length,
+    canceledTasks: canceled.length,
+    pausedTasks: paused.length,
+    byChannel: sortedByQty(byChannel),
+    byMonth: sortedByKey(byMonth),
+    byPerson: sortedByQty(byPerson)
+  };
+}
+
+async function fetchAIVideoRecords() {
+  const response = await fetch(AI_VIDEO_EXPORT_URL);
+  if (!response.ok) {
+    throw new Error(`AI Video download failed: ${response.status} ${response.statusText}`);
+  }
+  const csvBytes = await response.arrayBuffer();
+  const csvText = new TextDecoder("utf-8").decode(csvBytes);
+  const rows = parseCsv(csvText);
+  // Row 0: sheet title, Row 1: column headers, Row 2: totals, Row 3+: data
+  if (rows.length < 3) throw new Error("AI Video sheet: insufficient rows");
+  const headers = rows[1];
+  const body = rows.slice(3);
+
+  const col = (name) => headers.findIndex((h) => normalizeText(h) === name);
+  const colChannel = col("NGƯỜI ORDER");
+  const colProduct = col("SẢN PHẨM");
+  const colQty = col("SỐ LƯỢNG ORDER");
+  const colOrderDate = col("NGÀY ORDER");
+  const colCategory = col("PHÂN LOẠI HÀNG");
+  // Status (col N = index 13) and executor name (col O = index 14) are unnamed in headers
+  const colStatus = 13;
+  const colPersonName = 14;
+  const colPersonAlt = col("NGƯỜI THỰC HIỆN"); // fallback = col I = index 8
+
+  const records = [];
+  for (let index = 0; index < body.length; index += 1) {
+    const row = body[index];
+    const product = normalizeText(row[colProduct]);
+    if (!product) continue; // skip empty/separator rows
+    const personName = normalizePerson(row[colPersonName]);
+    const personAlt = normalizePerson(row[colPersonAlt]);
+    const person = personName || personAlt || "CTV";
+    records.push({
+      row: index + 4,
+      person,
+      channel: normalizeText(row[colChannel]) || "(trong)",
+      product,
+      quantity: parseQuantity(row[colQty]),
+      month: extractMonth(row[colOrderDate]),
+      category: normalizeText(row[colCategory]) || "(trong)",
+      status: normalizeStatus(row[colStatus])
+    });
+  }
+  return records;
 }
 
 async function main() {
@@ -238,7 +330,8 @@ async function main() {
     },
     overview: summarizePerson(filtered),
     byPerson,
-    latestRows
+    latestRows,
+    aiVideo: summarizeAIVideo(await fetchAIVideoRecords())
   };
 
   await writeFile(snapshotPath, `${JSON.stringify(snapshot, null, 2)}\n`, "utf8");
