@@ -23,7 +23,7 @@ function formatDate(iso) {
 }
 
 function monthLabel(monthKey) {
-  if (!monthKey || monthKey === "(khong ngay)") return "Khong ngay";
+  if (!monthKey || monthKey === "(khong ngay)") return "Không ngày";
   const [year, month] = monthKey.split("-");
   return `${month}/${year}`;
 }
@@ -48,13 +48,13 @@ function renderKpis(data) {
   container.innerHTML = "";
 
   const kpis = [
-    { title: "Tong task", value: formatNumber(data.tasks) },
-    { title: "Tong so luong", value: formatNumber(data.quantity), highlight: true },
-    { title: "TB so luong/task", value: formatNumber(data.avgQuantityPerTask) },
-    { title: "Hoan thanh", value: formatNumber(data.completedTasks), hint: `${formatNumber(data.completedQuantity)} SL` },
-    { title: "Dang lam", value: formatNumber(data.inProgressTasks), hint: `${formatNumber(data.inProgressQuantity)} SL` },
+    { title: "Tổng task", value: formatNumber(data.tasks) },
+    { title: "Tổng số lượng", value: formatNumber(data.quantity), highlight: true },
+    { title: "TB số lượng/task", value: formatNumber(data.avgQuantityPerTask) },
+    { title: "Hoàn thành", value: formatNumber(data.completedTasks), hint: `${formatNumber(data.completedQuantity)} SL` },
+    { title: "Đang làm", value: formatNumber(data.inProgressTasks), hint: `${formatNumber(data.inProgressQuantity)} SL` },
     { title: "Cancel", value: formatNumber(data.canceledTasks) },
-    { title: "Task thieu so luong", value: formatNumber(data.missingQuantityTasks) }
+    { title: "Task thiếu số lượng", value: formatNumber(data.missingQuantityTasks) }
   ];
 
   for (const item of kpis) {
@@ -121,14 +121,14 @@ function renderSimpleTable(targetId, sourceMap, keyLabel) {
   tbody.innerHTML = "";
   for (const [key, info] of sourceMap) {
     const tr = document.createElement("tr");
-    tr.appendChild(createCell(key === "(trong)" ? "Trong" : key));
+    tr.appendChild(createCell(key === "(trong)" ? "Trống" : key));
     tr.appendChild(createCell(formatNumber(info.quantity), "num"));
     tr.appendChild(createCell(formatNumber(info.tasks), "num"));
     tbody.appendChild(tr);
   }
   if (sourceMap.length === 0) {
     const tr = document.createElement("tr");
-    const td = createCell(`Khong co du lieu ${keyLabel}`);
+    const td = createCell(`Không có dữ liệu ${keyLabel}`);
     td.colSpan = 3;
     tr.appendChild(td);
     tbody.appendChild(tr);
@@ -169,8 +169,8 @@ function renderTables(person, month) {
 
   const categorySorted = [...category.entries()].sort((a, b) => b[1].quantity - a[1].quantity).slice(0, 12);
   const channelSorted = [...channel.entries()].sort((a, b) => b[1].quantity - a[1].quantity).slice(0, 12);
-  renderSimpleTable("#categoryTable", categorySorted, "hang muc");
-  renderSimpleTable("#channelTable", channelSorted, "kenh");
+  renderSimpleTable("#categoryTable", categorySorted, "hạng mục");
+  renderSimpleTable("#channelTable", channelSorted, "kênh");
 }
 
 function renderMissingTable(person, month) {
@@ -219,8 +219,8 @@ function render() {
 }
 
 function setFilters() {
-  personFilterEl.innerHTML = `<option value="ALL">Tat ca</option>${personList.map((p) => `<option value="${p}">${p}</option>`).join("")}`;
-  monthFilterEl.innerHTML = `<option value="ALL">Tat ca</option>${monthList.map((m) => `<option value="${m}">${monthLabel(m)}</option>`).join("")}`;
+  personFilterEl.innerHTML = `<option value="ALL">Tất cả</option>${personList.map((p) => `<option value="${p}">${p}</option>`).join("")}`;
+  monthFilterEl.innerHTML = `<option value="ALL">Tất cả</option>${monthList.map((m) => `<option value="${m}">${monthLabel(m)}</option>`).join("")}`;
 }
 
 async function load() {
@@ -230,8 +230,8 @@ async function load() {
   monthList = [...new Set(snapshot.latestRows.map((r) => r.month).filter((v) => v && v !== "(khong ngay)"))]
     .sort((a, b) => a.localeCompare(b));
 
-  updatedAtEl.textContent = `Cap nhat: ${formatDate(snapshot.metadata.generatedAt)}`;
-  totalRecordsEl.textContent = `Tong record: ${formatNumber(snapshot.metadata.totalRecords)}`;
+  updatedAtEl.textContent = `Cập nhật: ${formatDate(snapshot.metadata.generatedAt)}`;
+  totalRecordsEl.textContent = `Tổng record: ${formatNumber(snapshot.metadata.totalRecords)}`;
   setFilters();
   render();
 }
@@ -243,5 +243,5 @@ reloadBtn.addEventListener("click", load);
 load().catch((error) => {
   // eslint-disable-next-line no-console
   console.error(error);
-  updatedAtEl.textContent = "Loi nap du lieu";
+  updatedAtEl.textContent = "Lỗi nạp dữ liệu";
 });

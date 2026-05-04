@@ -11,18 +11,18 @@
       <header class="top">
         <div>
           <h1>Design Team Dashboard</h1>
-          <p class="sub">Cap nhat moi 24h, mui gio Asia/Bangkok</p>
+          <p class="sub">Cập nhật mỗi 24h, múi giờ Asia/Bangkok</p>
         </div>
         <div class="actions">
           <label>
-            Nhan su:
+            Nhân sự:
             <select id="personFilter"></select>
           </label>
           <label>
-            Thang:
+            Tháng:
             <select id="monthFilter"></select>
           </label>
-          <button id="reloadBtn" type="button">Nap lai</button>
+          <button id="reloadBtn" type="button">Nạp lại</button>
         </div>
       </header>
 
@@ -35,18 +35,18 @@
 
       <section class="grid columns">
         <article class="card">
-          <h2>So sanh nhan su</h2>
+          <h2>So sánh nhân sự</h2>
           <div class="table-wrap">
             <table id="personTable">
               <thead>
                 <tr>
-                  <th>Nhan su</th>
-                  <th>Task</th>
-                  <th>So luong</th>
-                  <th>TB/task</th>
-                  <th>Hoan thanh</th>
-                  <th>Dang lam</th>
-                  <th>Cancel</th>
+                  <th>Nhân sự</th>
+                  <th class="num">Task</th>
+                  <th class="num">Số lượng</th>
+                  <th class="num">TB/task</th>
+                  <th class="num">Hoàn thành</th>
+                  <th class="num">Đang làm</th>
+                  <th class="num">Cancel</th>
                 </tr>
               </thead>
               <tbody></tbody>
@@ -55,13 +55,13 @@
         </article>
 
         <article class="card">
-          <h2>San luong theo thang</h2>
+          <h2>Sản lượng theo tháng</h2>
           <div class="table-wrap">
             <table id="monthTable">
               <thead>
                 <tr>
-                  <th>Thang</th>
-                  <th>So luong</th>
+                  <th>Tháng</th>
+                  <th class="num">Số lượng</th>
                 </tr>
               </thead>
               <tbody></tbody>
@@ -72,14 +72,14 @@
 
       <section class="grid columns">
         <article class="card">
-          <h2>Top hang muc</h2>
+          <h2>Top hạng mục</h2>
           <div class="table-wrap">
             <table id="categoryTable">
               <thead>
                 <tr>
-                  <th>Hang muc</th>
-                  <th>So luong</th>
-                  <th>Task</th>
+                  <th>Hạng mục</th>
+                  <th class="num">Số lượng</th>
+                  <th class="num">Task</th>
                 </tr>
               </thead>
               <tbody></tbody>
@@ -88,14 +88,14 @@
         </article>
 
         <article class="card">
-          <h2>Top kenh</h2>
+          <h2>Top kênh</h2>
           <div class="table-wrap">
             <table id="channelTable">
               <thead>
                 <tr>
-                  <th>Kenh</th>
-                  <th>So luong</th>
-                  <th>Task</th>
+                  <th>Kênh</th>
+                  <th class="num">Số lượng</th>
+                  <th class="num">Task</th>
                 </tr>
               </thead>
               <tbody></tbody>
@@ -105,17 +105,17 @@
       </section>
 
       <section class="card">
-        <h2>Task thieu so luong</h2>
+        <h2>Task thiếu số lượng</h2>
         <div class="table-wrap">
           <table id="missingQtyTable">
             <thead>
               <tr>
-                <th>Dong</th>
-                <th>Nhan su</th>
-                <th>Trang thai</th>
-                <th>Kenh</th>
-                <th>Hang muc</th>
-                <th>Noi dung</th>
+                <th class="num">Dòng</th>
+                <th>Nhân sự</th>
+                <th>Trạng thái</th>
+                <th>Kênh</th>
+                <th>Hạng mục</th>
+                <th>Nội dung</th>
               </tr>
             </thead>
             <tbody></tbody>
