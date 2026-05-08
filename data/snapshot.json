@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-05-07T19:38:22.785Z",
+    "generatedAt": "2026-05-08T19:10:18.438Z",
     "timezone": "Asia/Bangkok",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -12,18 +12,18 @@
         128
       ]
     },
-    "totalRecords": 513
+    "totalRecords": 515
   },
   "overview": {
-    "tasks": 513,
+    "tasks": 515,
     "quantity": 22355,
-    "avgQuantityPerTask": 43.58,
-    "completedTasks": 497,
+    "avgQuantityPerTask": 43.41,
+    "completedTasks": 498,
     "completedQuantity": 22269,
-    "inProgressTasks": 7,
+    "inProgressTasks": 8,
     "inProgressQuantity": 84,
     "canceledTasks": 2,
-    "missingQuantityTasks": 28,
+    "missingQuantityTasks": 30,
     "missingQuantityRows": [
       24,
       92,
@@ -52,11 +52,13 @@
       542,
       544,
       546,
-      547
+      547,
+      548,
+      552
     ],
     "byStatusTasks": {
-      "Hoàn thành": 497,
-      "Đang thực hiện": 7,
+      "Hoàn thành": 498,
+      "Đang thực hiện": 8,
       "Pending": 4,
       "(trong)": 3,
       "Cancel": 2
@@ -77,9 +79,9 @@
       "HÌNH ẢNH AI": 211,
       "HÌNH ẢNH": 141,
       "SOCIAL POST": 62,
-      "VIDEO": 33,
+      "VIDEO": 34,
       "LANDINGPAGE": 18,
-      "KEY VISUAL": 16,
+      "KEY VISUAL": 17,
       "KEY VISUAL AI": 14,
       "(trong)": 10,
       "VIDEO AI": 7,
@@ -107,7 +109,7 @@
       "Shopee MN": 1
     },
     "byChannelTasks": {
-      "FACEBOOK": 172,
+      "FACEBOOK": 174,
       "SHOPPE": 136,
       "TIKTOK MB": 72,
       "(trong)": 44,
@@ -142,22 +144,24 @@
   },
   "byPerson": {
     "ẨN": {
-      "tasks": 226,
+      "tasks": 228,
       "quantity": 2481,
-      "avgQuantityPerTask": 10.98,
-      "completedTasks": 223,
+      "avgQuantityPerTask": 10.88,
+      "completedTasks": 224,
       "completedQuantity": 2420,
-      "inProgressTasks": 2,
+      "inProgressTasks": 3,
       "inProgressQuantity": 60,
       "canceledTasks": 1,
-      "missingQuantityTasks": 2,
+      "missingQuantityTasks": 4,
       "missingQuantityRows": [
         456,
-        515
+        515,
+        544,
+        552
       ],
       "byStatusTasks": {
-        "Hoàn thành": 223,
-        "Đang thực hiện": 2,
+        "Hoàn thành": 224,
+        "Đang thực hiện": 3,
         "Cancel": 1
       },
       "byCategoryQty": {
@@ -173,7 +177,7 @@
       "byCategoryTasks": {
         "HÌNH ẢNH AI": 106,
         "HÌNH ẢNH": 80,
-        "VIDEO": 29,
+        "VIDEO": 31,
         "SOCIAL POST": 4,
         "(trong)": 3,
         "VIDEO AI": 2,
@@ -199,7 +203,7 @@
       "byChannelTasks": {
         "SHOPPE": 64,
         "TIKTOK MB": 57,
-        "FACEBOOK": 47,
+        "FACEBOOK": 49,
         "(trong)": 28,
         "TIKTOK MN": 8,
         "WEB KG VIETNAM": 7,
@@ -240,8 +244,8 @@
         525,
         541,
         542,
-        544,
-        547
+        547,
+        548
       ],
       "byStatusTasks": {
         "Hoàn thành": 181,
@@ -263,10 +267,10 @@
         "SOCIAL POST": 56,
         "HÌNH ẢNH": 36,
         "LANDINGPAGE": 14,
-        "KEY VISUAL": 10,
+        "KEY VISUAL": 11,
         "KEY VISUAL AI": 5,
         "(trong)": 3,
-        "VIDEO": 2
+        "VIDEO": 1
       },
       "byChannelQty": {
         "FACEBOOK": 738,
@@ -404,6 +408,26 @@
   },
   "latestRows": [
     {
+      "row": 552,
+      "person": "ẨN",
+      "channel": "FACEBOOK",
+      "category": "VIDEO",
+      "status": "Hoàn thành",
+      "quantity": 0,
+      "month": "2026-05",
+      "detail": "Chèn text vào video 2: L:\\ARISTINO\\3.ARISTINO_Shooting\\ARISTINO_2026_XUÂN HÈ\\Aristino x Diễn viên Lương Thế Thành\\video\\lookbook\n\nELITE POLO\nPHONG CÁCH SMART CASUAL\n\nNĂNG ĐỘNG\n\nTHANH LỊCH"
+    },
+    {
+      "row": 548,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "KEY VISUAL",
+      "status": "Đang thực hiện",
+      "quantity": 0,
+      "month": "2026-05",
+      "detail": "CAMP HÀNG SALE T5\n\nhttps://www.figma.com/board/X1EFJMFhcec1Z7umL00nkg/K-G-T5-2026?node-id=383-494&t=NlSGiBnAjjQHc2jN-0\n\n- Bộ Banner\n- Post Social\n- Video"
+    },
+    {
       "row": 547,
       "person": "KHANG",
       "channel": "FACEBOOK",
@@ -435,7 +459,7 @@
     },
     {
       "row": 544,
-      "person": "KHANG",
+      "person": "ẨN",
       "channel": "FACEBOOK",
       "category": "VIDEO",
       "status": "Đang thực hiện",
@@ -2382,26 +2406,6 @@
       "quantity": 1,
       "month": "2026-03",
       "detail": "Backlivestream Shopee CECINA\nText: DEAL XINH CHO THÁNG CỦA NÀNG\nText: Sale up 50%, Freeship toàn quốc, Deal độc quyền"
-    },
-    {
-      "row": 337,
-      "person": "NHẬT THI",
-      "channel": "SHOPPE",
-      "category": "HÌNH ẢNH",
-      "status": "Hoàn thành",
-      "quantity": 2084,
-      "month": "2026-03",
-      "detail": "Frame Shopee 3/3: brief: đây"
-    },
-    {
-      "row": 335,
-      "person": "ẨN",
-      "channel": "WEB KG VIETNAM",
-      "category": "HÌNH ẢNH",
-      "status": "Hoàn thành",
-      "quantity": 11,
-      "month": "2026-02",
-      "detail": "K&G VIỆT NAM \n- https://drive.google.com/drive/folders/1Ul5GuX1ofWnqkygU1yKuMa6iXjTRp8xG?usp=drive_link\n- edit lại kích thước banner cho K&G Việt Nam. \n- Bổ sung thêm 1 kích thước cho collection bên trong: https://kgvietnam.com/collections/hang-moi-aristino"
     }
   ],
   "aiVideo": {
@@ -2409,7 +2413,7 @@
     "quantity": 338,
     "completedTasks": 69,
     "completedQuantity": 328,
-    "inProgressTasks": 2,
+    "inProgressTasks": 4,
     "canceledTasks": 1,
     "pausedTasks": 13,
     "byChannel": {
@@ -2448,11 +2452,11 @@
       },
       "ẨN": {
         "quantity": 12,
-        "tasks": 4
+        "tasks": 6
       },
       "CTV": {
         "quantity": 10,
-        "tasks": 39
+        "tasks": 37
       }
     }
   }
