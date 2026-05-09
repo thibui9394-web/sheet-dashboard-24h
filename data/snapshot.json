@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-05-08T19:10:18.438Z",
+    "generatedAt": "2026-05-09T18:53:28.367Z",
     "timezone": "Asia/Bangkok",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -12,18 +12,18 @@
         128
       ]
     },
-    "totalRecords": 515
+    "totalRecords": 518
   },
   "overview": {
-    "tasks": 515,
+    "tasks": 518,
     "quantity": 22355,
-    "avgQuantityPerTask": 43.41,
+    "avgQuantityPerTask": 43.16,
     "completedTasks": 498,
     "completedQuantity": 22269,
     "inProgressTasks": 8,
     "inProgressQuantity": 84,
     "canceledTasks": 2,
-    "missingQuantityTasks": 30,
+    "missingQuantityTasks": 33,
     "missingQuantityRows": [
       24,
       92,
@@ -54,13 +54,16 @@
       546,
       547,
       548,
+      549,
+      550,
+      551,
       552
     ],
     "byStatusTasks": {
       "Hoàn thành": 498,
       "Đang thực hiện": 8,
+      "(trong)": 6,
       "Pending": 4,
-      "(trong)": 3,
       "Cancel": 2
     },
     "byCategoryQty": {
@@ -77,7 +80,7 @@
     },
     "byCategoryTasks": {
       "HÌNH ẢNH AI": 211,
-      "HÌNH ẢNH": 141,
+      "HÌNH ẢNH": 144,
       "SOCIAL POST": 62,
       "VIDEO": 34,
       "LANDINGPAGE": 18,
@@ -115,7 +118,7 @@
       "(trong)": 44,
       "WEB KG VIETNAM": 23,
       "WEB ARISTINO": 21,
-      "AMAZON": 15,
+      "AMAZON": 18,
       "TIKTOK MN": 9,
       "ZALO OA/MINIAPP": 7,
       "LAZADA": 3,
@@ -313,15 +316,15 @@
       }
     },
     "NHẬT THI": {
-      "tasks": 102,
+      "tasks": 105,
       "quantity": 18368,
-      "avgQuantityPerTask": 180.08,
+      "avgQuantityPerTask": 174.93,
       "completedTasks": 93,
       "completedQuantity": 18343,
       "inProgressTasks": 2,
       "inProgressQuantity": 24,
       "canceledTasks": 0,
-      "missingQuantityTasks": 17,
+      "missingQuantityTasks": 20,
       "missingQuantityRows": [
         24,
         92,
@@ -339,12 +342,15 @@
         530,
         531,
         540,
-        546
+        546,
+        549,
+        550,
+        551
       ],
       "byStatusTasks": {
         "Hoàn thành": 93,
+        "(trong)": 6,
         "Pending": 4,
-        "(trong)": 3,
         "Đang thực hiện": 2
       },
       "byCategoryQty": {
@@ -361,7 +367,7 @@
       },
       "byCategoryTasks": {
         "HÌNH ẢNH AI": 46,
-        "HÌNH ẢNH": 25,
+        "HÌNH ẢNH": 28,
         "KEY VISUAL AI": 9,
         "KEY VISUAL": 5,
         "VIDEO AI": 5,
@@ -385,7 +391,7 @@
       "byChannelTasks": {
         "SHOPPE": 32,
         "FACEBOOK": 22,
-        "AMAZON": 15,
+        "AMAZON": 18,
         "WEB KG VIETNAM": 10,
         "WEB ARISTINO": 9,
         "(trong)": 5,
@@ -416,6 +422,36 @@
       "quantity": 0,
       "month": "2026-05",
       "detail": "Chèn text vào video 2: L:\\ARISTINO\\3.ARISTINO_Shooting\\ARISTINO_2026_XUÂN HÈ\\Aristino x Diễn viên Lương Thế Thành\\video\\lookbook\n\nELITE POLO\nPHONG CÁCH SMART CASUAL\n\nNĂNG ĐỘNG\n\nTHANH LỊCH"
+    },
+    {
+      "row": 551,
+      "person": "NHẬT THI",
+      "channel": "AMAZON",
+      "category": "HÌNH ẢNH",
+      "status": "(trong)",
+      "quantity": 0,
+      "month": "2026-05",
+      "detail": "Bổ sung hình PT ruột cho mã ABX003EUP03 (2 màu: Xám, Đen) để test\n\nABX003EUP03 (Xám, Đen) - Creative Brief"
+    },
+    {
+      "row": 550,
+      "person": "NHẬT THI",
+      "channel": "AMAZON",
+      "category": "HÌNH ẢNH",
+      "status": "(trong)",
+      "quantity": 0,
+      "month": "2026-05",
+      "detail": "Anh làm giúp em 3 layout hình main cho mã ABX003EUP03 (2 màu: Xám, Đen) để test \n\nABX003EUP03 (Xám, Đen) - Creative Brief"
+    },
+    {
+      "row": 549,
+      "person": "NHẬT THI",
+      "channel": "AMAZON",
+      "category": "HÌNH ẢNH",
+      "status": "(trong)",
+      "quantity": 0,
+      "month": "2026-05",
+      "detail": "Anh bổ sung hình cho các mã:\n\n- APS003EGP01 (mã Nâu) - Ref: Bộ Hình Polo\n- APS004EGP01 (2 mã: Xanh than, Trắng) - Ref: Hình main Polo"
     },
     {
       "row": 548,
@@ -2376,36 +2412,6 @@
       "quantity": 18,
       "month": "2026-03",
       "detail": "New Arrivals - BST Sơ mi\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=270-259&t=sOWl9OsrnComGs9L-0"
-    },
-    {
-      "row": 340,
-      "person": "ẨN",
-      "channel": "FACEBOOK",
-      "category": "HÌNH ẢNH",
-      "status": "Hoàn thành",
-      "quantity": 4,
-      "month": "2026-03",
-      "detail": "Post ALS611EDP01\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=264-131&t=sOWl9OsrnComGs9L-0"
-    },
-    {
-      "row": 339,
-      "person": "KHANG",
-      "channel": "FACEBOOK",
-      "category": "HÌNH ẢNH AI",
-      "status": "Hoàn thành",
-      "quantity": 3,
-      "month": "2026-03",
-      "detail": "Post mix match ALS610EDP01\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=260-43&t=sOWl9OsrnComGs9L-0"
-    },
-    {
-      "row": 338,
-      "person": "ẨN",
-      "channel": "SHOPPE",
-      "category": "HÌNH ẢNH AI",
-      "status": "Hoàn thành",
-      "quantity": 1,
-      "month": "2026-03",
-      "detail": "Backlivestream Shopee CECINA\nText: DEAL XINH CHO THÁNG CỦA NÀNG\nText: Sale up 50%, Freeship toàn quốc, Deal độc quyền"
     }
   ],
   "aiVideo": {
