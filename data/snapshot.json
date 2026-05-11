@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-05-10T18:54:56.710Z",
+    "generatedAt": "2026-05-11T19:41:30.227Z",
     "timezone": "Asia/Bangkok",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -12,18 +12,18 @@
         128
       ]
     },
-    "totalRecords": 518
+    "totalRecords": 522
   },
   "overview": {
-    "tasks": 518,
+    "tasks": 522,
     "quantity": 22355,
-    "avgQuantityPerTask": 43.16,
-    "completedTasks": 498,
+    "avgQuantityPerTask": 42.83,
+    "completedTasks": 503,
     "completedQuantity": 22269,
     "inProgressTasks": 8,
     "inProgressQuantity": 84,
     "canceledTasks": 2,
-    "missingQuantityTasks": 33,
+    "missingQuantityTasks": 37,
     "missingQuantityRows": [
       24,
       92,
@@ -57,12 +57,16 @@
       549,
       550,
       551,
-      552
+      552,
+      553,
+      554,
+      556,
+      560
     ],
     "byStatusTasks": {
-      "Hoàn thành": 498,
+      "Hoàn thành": 503,
       "Đang thực hiện": 8,
-      "(trong)": 6,
+      "(trong)": 5,
       "Pending": 4,
       "Cancel": 2
     },
@@ -79,12 +83,12 @@
       "GIAO DIỆN": 20
     },
     "byCategoryTasks": {
-      "HÌNH ẢNH AI": 211,
-      "HÌNH ẢNH": 144,
+      "HÌNH ẢNH AI": 212,
+      "HÌNH ẢNH": 146,
       "SOCIAL POST": 62,
       "VIDEO": 34,
       "LANDINGPAGE": 18,
-      "KEY VISUAL": 17,
+      "KEY VISUAL": 18,
       "KEY VISUAL AI": 14,
       "(trong)": 10,
       "VIDEO AI": 7,
@@ -112,12 +116,12 @@
       "Shopee MN": 1
     },
     "byChannelTasks": {
-      "FACEBOOK": 174,
-      "SHOPPE": 136,
+      "FACEBOOK": 175,
+      "SHOPPE": 137,
       "TIKTOK MB": 72,
       "(trong)": 44,
-      "WEB KG VIETNAM": 23,
-      "WEB ARISTINO": 21,
+      "WEB KG VIETNAM": 24,
+      "WEB ARISTINO": 22,
       "AMAZON": 18,
       "TIKTOK MN": 9,
       "ZALO OA/MINIAPP": 7,
@@ -150,9 +154,9 @@
       "tasks": 228,
       "quantity": 2481,
       "avgQuantityPerTask": 10.88,
-      "completedTasks": 224,
+      "completedTasks": 225,
       "completedQuantity": 2420,
-      "inProgressTasks": 3,
+      "inProgressTasks": 2,
       "inProgressQuantity": 60,
       "canceledTasks": 1,
       "missingQuantityTasks": 4,
@@ -163,8 +167,8 @@
         552
       ],
       "byStatusTasks": {
-        "Hoàn thành": 224,
-        "Đang thực hiện": 3,
+        "Hoàn thành": 225,
+        "Đang thực hiện": 2,
         "Cancel": 1
       },
       "byCategoryQty": {
@@ -230,15 +234,15 @@
       }
     },
     "KHANG": {
-      "tasks": 185,
+      "tasks": 187,
       "quantity": 1506,
-      "avgQuantityPerTask": 8.14,
-      "completedTasks": 181,
+      "avgQuantityPerTask": 8.05,
+      "completedTasks": 183,
       "completedQuantity": 1506,
       "inProgressTasks": 3,
       "inProgressQuantity": 0,
       "canceledTasks": 1,
-      "missingQuantityTasks": 9,
+      "missingQuantityTasks": 11,
       "missingQuantityRows": [
         223,
         237,
@@ -248,10 +252,12 @@
         541,
         542,
         547,
-        548
+        548,
+        553,
+        554
       ],
       "byStatusTasks": {
-        "Hoàn thành": 181,
+        "Hoàn thành": 183,
         "Đang thực hiện": 3,
         "Cancel": 1
       },
@@ -268,9 +274,9 @@
       "byCategoryTasks": {
         "HÌNH ẢNH AI": 59,
         "SOCIAL POST": 56,
-        "HÌNH ẢNH": 36,
+        "HÌNH ẢNH": 37,
         "LANDINGPAGE": 14,
-        "KEY VISUAL": 11,
+        "KEY VISUAL": 12,
         "KEY VISUAL AI": 5,
         "(trong)": 3,
         "VIDEO": 1
@@ -291,8 +297,8 @@
         "B2B": 1
       },
       "byChannelTasks": {
-        "FACEBOOK": 103,
-        "SHOPPE": 40,
+        "FACEBOOK": 104,
+        "SHOPPE": 41,
         "TIKTOK MB": 12,
         "(trong)": 11,
         "WEB ARISTINO": 6,
@@ -316,15 +322,15 @@
       }
     },
     "NHẬT THI": {
-      "tasks": 105,
+      "tasks": 107,
       "quantity": 18368,
-      "avgQuantityPerTask": 174.93,
-      "completedTasks": 93,
+      "avgQuantityPerTask": 171.66,
+      "completedTasks": 95,
       "completedQuantity": 18343,
-      "inProgressTasks": 2,
+      "inProgressTasks": 3,
       "inProgressQuantity": 24,
       "canceledTasks": 0,
-      "missingQuantityTasks": 20,
+      "missingQuantityTasks": 22,
       "missingQuantityRows": [
         24,
         92,
@@ -345,13 +351,15 @@
         546,
         549,
         550,
-        551
+        551,
+        556,
+        560
       ],
       "byStatusTasks": {
-        "Hoàn thành": 93,
-        "(trong)": 6,
+        "Hoàn thành": 95,
+        "(trong)": 5,
         "Pending": 4,
-        "Đang thực hiện": 2
+        "Đang thực hiện": 3
       },
       "byCategoryQty": {
         "HÌNH ẢNH": 17738,
@@ -366,8 +374,8 @@
         "SOCIAL POST": 0
       },
       "byCategoryTasks": {
-        "HÌNH ẢNH AI": 46,
-        "HÌNH ẢNH": 28,
+        "HÌNH ẢNH AI": 47,
+        "HÌNH ẢNH": 29,
         "KEY VISUAL AI": 9,
         "KEY VISUAL": 5,
         "VIDEO AI": 5,
@@ -392,8 +400,8 @@
         "SHOPPE": 32,
         "FACEBOOK": 22,
         "AMAZON": 18,
-        "WEB KG VIETNAM": 10,
-        "WEB ARISTINO": 9,
+        "WEB KG VIETNAM": 11,
+        "WEB ARISTINO": 10,
         "(trong)": 5,
         "ZALO OA/MINIAPP": 4,
         "TIKTOK MB": 3,
@@ -414,6 +422,46 @@
   },
   "latestRows": [
     {
+      "row": 560,
+      "person": "NHẬT THI",
+      "channel": "WEB ARISTINO",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 0,
+      "month": "2026-05",
+      "detail": "popup delivery\n\nhttps://www.figma.com/board/X1EFJMFhcec1Z7umL00nkg/K-G-T5-2026?node-id=539-722&t=SuzYEy8MPw0CJfSb-0"
+    },
+    {
+      "row": 556,
+      "person": "NHẬT THI",
+      "channel": "WEB KG VIETNAM",
+      "category": "HÌNH ẢNH AI",
+      "status": "(trong)",
+      "quantity": 0,
+      "month": "2026-05",
+      "detail": "LAMODE - HÌNH ẢNH AI ÁO CHỐNG NẮNG \n\n- Làm hình ảnh AI, model nữ mặc áo chống nắng mã: LSN002EDP01\n\n6 màu, mỗi màu 3-4 ảnh AI mặc áo bao gồm mặc mặt trước, mặt sau, trùm mũ kéo khóa và toàn bộ outfit \n\ntham khảo: https://canifa.com/ao-khoac-chong-nang-nu-6ot26s002-sa405?color=SA405\n\nL:\\Lamode\\Áo chống nắng (LSN)\\LSN002EDP01"
+    },
+    {
+      "row": 554,
+      "person": "KHANG",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 0,
+      "month": "2026-05",
+      "detail": "Thumbnail livestream Võ Hà Linh 15/5\nNội dung chi tiết  Nội dung làm thumbnaill\nMẫu thumbnail VHL Thumnail"
+    },
+    {
+      "row": 553,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "KEY VISUAL",
+      "status": "Đang thực hiện",
+      "quantity": 0,
+      "month": "2026-05",
+      "detail": "CAMP HÀNG SALE POLO\n\nhttps://www.figma.com/board/X1EFJMFhcec1Z7umL00nkg/K-G-T5-2026?node-id=472-211&t=ZfmcNZamUBLHHPPR-0\n\n- Bộ Banner\n- Post Social"
+    },
+    {
       "row": 552,
       "person": "ẨN",
       "channel": "FACEBOOK",
@@ -428,7 +476,7 @@
       "person": "NHẬT THI",
       "channel": "AMAZON",
       "category": "HÌNH ẢNH",
-      "status": "(trong)",
+      "status": "Đang thực hiện",
       "quantity": 0,
       "month": "2026-05",
       "detail": "Bổ sung hình PT ruột cho mã ABX003EUP03 (2 màu: Xám, Đen) để test\n\nABX003EUP03 (Xám, Đen) - Creative Brief"
@@ -448,7 +496,7 @@
       "person": "NHẬT THI",
       "channel": "AMAZON",
       "category": "HÌNH ẢNH",
-      "status": "(trong)",
+      "status": "Hoàn thành",
       "quantity": 0,
       "month": "2026-05",
       "detail": "Anh bổ sung hình cho các mã:\n\n- APS003EGP01 (mã Nâu) - Ref: Bộ Hình Polo\n- APS004EGP01 (2 mã: Xanh than, Trắng) - Ref: Hình main Polo"
@@ -458,7 +506,7 @@
       "person": "KHANG",
       "channel": "FACEBOOK",
       "category": "KEY VISUAL",
-      "status": "Đang thực hiện",
+      "status": "Hoàn thành",
       "quantity": 0,
       "month": "2026-05",
       "detail": "CAMP HÀNG SALE T5\n\nhttps://www.figma.com/board/X1EFJMFhcec1Z7umL00nkg/K-G-T5-2026?node-id=383-494&t=NlSGiBnAjjQHc2jN-0\n\n- Bộ Banner\n- Post Social\n- Video"
@@ -498,7 +546,7 @@
       "person": "ẨN",
       "channel": "FACEBOOK",
       "category": "VIDEO",
-      "status": "Đang thực hiện",
+      "status": "Hoàn thành",
       "quantity": 0,
       "month": "2026-05",
       "detail": "K&G Việt Nam: \n\n- Video Post đồ lót: https://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=6919-742&t=QeJsGyX3kNrYRIvI-0"
@@ -2372,52 +2420,12 @@
       "quantity": 1,
       "month": "2026-03",
       "detail": "Thumbnail sản phẩm đồ lót nam theo từng thương hiệu Aristino, Insidemen\nThông tin gồm: chất liệu, thuộc tính vải\nMàu nền: Màu xanh dương( mát mắt dành cho màu hè)"
-    },
-    {
-      "row": 344,
-      "person": "ẨN",
-      "channel": "TIKTOK MB",
-      "category": "HÌNH ẢNH AI",
-      "status": "Hoàn thành",
-      "quantity": 3,
-      "month": "2026-03",
-      "detail": "Thumbnail nội y cecina theo từng chất liệu\nTông màu hồng chủ đạo"
-    },
-    {
-      "row": 343,
-      "person": "ẨN",
-      "channel": "TIKTOK MB",
-      "category": "HÌNH ẢNH AI",
-      "status": "Hoàn thành",
-      "quantity": 1,
-      "month": "2026-03",
-      "detail": "Backlivestream Tiktok CECINA tỉ lệ 9:16 nền hồng chủ đạo\nHai bên back làm tủ đồ nội y nữ\nText: Tôn vinh vẻ đẹp phái nữ\nKhung text: Sale up 50%, Freeship toàn quốc, Deal độc quyền"
-    },
-    {
-      "row": 342,
-      "person": "ẨN",
-      "channel": "SHOPPE",
-      "category": "VIDEO",
-      "status": "Hoàn thành",
-      "quantity": 1,
-      "month": "2026-03",
-      "detail": "Edit lại source treo lives\n- Cắt đi phần chào đầu và chào kết livestream\n- Bỏ các đoạn mẫu nói sale ngày 3/3\n\nLink source:       Hoàng 0203 Shopee.mov"
-    },
-    {
-      "row": 341,
-      "person": "KHANG",
-      "channel": "FACEBOOK",
-      "category": "SOCIAL POST",
-      "status": "Hoàn thành",
-      "quantity": 18,
-      "month": "2026-03",
-      "detail": "New Arrivals - BST Sơ mi\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=270-259&t=sOWl9OsrnComGs9L-0"
     }
   ],
   "aiVideo": {
     "tasks": 108,
     "quantity": 338,
-    "completedTasks": 69,
+    "completedTasks": 71,
     "completedQuantity": 328,
     "inProgressTasks": 4,
     "canceledTasks": 1,
@@ -2458,11 +2466,11 @@
       },
       "ẨN": {
         "quantity": 12,
-        "tasks": 6
+        "tasks": 8
       },
       "CTV": {
         "quantity": 10,
-        "tasks": 37
+        "tasks": 35
       }
     }
   }
