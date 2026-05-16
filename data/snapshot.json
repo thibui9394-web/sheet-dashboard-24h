@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-05-15T19:24:23.424Z",
+    "generatedAt": "2026-05-16T18:57:40.809Z",
     "timezone": "Asia/Bangkok",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -12,18 +12,18 @@
         128
       ]
     },
-    "totalRecords": 542
+    "totalRecords": 543
   },
   "overview": {
-    "tasks": 542,
+    "tasks": 543,
     "quantity": 22393,
-    "avgQuantityPerTask": 41.32,
-    "completedTasks": 522,
+    "avgQuantityPerTask": 41.24,
+    "completedTasks": 523,
     "completedQuantity": 22305,
     "inProgressTasks": 11,
     "inProgressQuantity": 86,
     "canceledTasks": 2,
-    "missingQuantityTasks": 50,
+    "missingQuantityTasks": 51,
     "missingQuantityRows": [
       24,
       92,
@@ -74,10 +74,11 @@
       572,
       574,
       576,
-      577
+      577,
+      578
     ],
     "byStatusTasks": {
-      "Hoàn thành": 522,
+      "Hoàn thành": 523,
       "Đang thực hiện": 11,
       "Pending": 4,
       "(trong)": 3,
@@ -100,7 +101,7 @@
       "HÌNH ẢNH": 152,
       "SOCIAL POST": 66,
       "VIDEO": 36,
-      "KEY VISUAL": 22,
+      "KEY VISUAL": 23,
       "LANDINGPAGE": 18,
       "KEY VISUAL AI": 14,
       "(trong)": 13,
@@ -129,7 +130,7 @@
       "Shopee MN": 1
     },
     "byChannelTasks": {
-      "FACEBOOK": 183,
+      "FACEBOOK": 184,
       "SHOPPE": 143,
       "TIKTOK MB": 75,
       "(trong)": 45,
@@ -251,15 +252,15 @@
       }
     },
     "KHANG": {
-      "tasks": 197,
+      "tasks": 198,
       "quantity": 1511,
-      "avgQuantityPerTask": 7.67,
-      "completedTasks": 193,
+      "avgQuantityPerTask": 7.63,
+      "completedTasks": 194,
       "completedQuantity": 1511,
       "inProgressTasks": 3,
       "inProgressQuantity": 0,
       "canceledTasks": 1,
-      "missingQuantityTasks": 20,
+      "missingQuantityTasks": 21,
       "missingQuantityRows": [
         223,
         237,
@@ -280,10 +281,11 @@
         569,
         570,
         574,
-        576
+        576,
+        578
       ],
       "byStatusTasks": {
-        "Hoàn thành": 193,
+        "Hoàn thành": 194,
         "Đang thực hiện": 3,
         "Cancel": 1
       },
@@ -301,7 +303,7 @@
         "SOCIAL POST": 60,
         "HÌNH ẢNH AI": 59,
         "HÌNH ẢNH": 39,
-        "KEY VISUAL": 16,
+        "KEY VISUAL": 17,
         "LANDINGPAGE": 14,
         "KEY VISUAL AI": 5,
         "(trong)": 3,
@@ -323,7 +325,7 @@
         "B2B": 1
       },
       "byChannelTasks": {
-        "FACEBOOK": 110,
+        "FACEBOOK": 111,
         "SHOPPE": 43,
         "(trong)": 12,
         "TIKTOK MB": 12,
@@ -448,6 +450,16 @@
   },
   "latestRows": [
     {
+      "row": 578,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "KEY VISUAL",
+      "status": "Đang thực hiện",
+      "quantity": 0,
+      "month": "2026-05",
+      "detail": "CAMP HÀNG MỚI T5\n\nhttps://www.figma.com/board/X1EFJMFhcec1Z7umL00nkg/K-G-T5-2026?node-id=812-531&t=kljeA9NjuwcfY7A1-0\n\n- Bộ banner ads\n- Post social"
+    },
+    {
       "row": 577,
       "person": "ẨN",
       "channel": "FACEBOOK",
@@ -482,7 +494,7 @@
       "person": "KHANG",
       "channel": "FACEBOOK",
       "category": "SOCIAL POST",
-      "status": "Đang thực hiện",
+      "status": "Hoàn thành",
       "quantity": 0,
       "month": "2026-05",
       "detail": "CAMP HÀNG MỚI - SƠ MI\n\nhttps://www.figma.com/board/X1EFJMFhcec1Z7umL00nkg/K-G-T5-2026?node-id=713-326&t=3voMZv0BmkcXRY5C-0\n\n- Banner ads\n- Post social\n- Video motion"
@@ -2436,21 +2448,11 @@
       "quantity": 9,
       "month": "2026-03",
       "detail": "Insidemen - K&G Việt Nam: \n\nPost BST POLO (hàng riêng Ecom) - Ảnh cover fix thêm các kích thước để chạy click to web\n\nhttps://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=5542-827&t=5SHGSxeApEqP0oCk-0"
-    },
-    {
-      "row": 367,
-      "person": "ẨN",
-      "channel": "TIKTOK MB",
-      "category": "HÌNH ẢNH AI",
-      "status": "Hoàn thành",
-      "quantity": 35,
-      "month": "2026-03",
-      "detail": "Order hình ảnh USP sản phẩm \n- Các mã cần làm hình ảnh:\n+ IPS095EDP01\n+ IPS098EDP01\n+ IPS096EDP01\n+ IPS097EDP01\n+ IPS099EDP01"
     }
   ],
   "aiVideo": {
-    "tasks": 108,
-    "quantity": 338,
+    "tasks": 112,
+    "quantity": 358,
     "completedTasks": 71,
     "completedQuantity": 328,
     "inProgressTasks": 4,
@@ -2458,8 +2460,8 @@
     "pausedTasks": 13,
     "byChannel": {
       "(trong)": {
-        "quantity": 222,
-        "tasks": 82
+        "quantity": 242,
+        "tasks": 86
       },
       "TMDT Aristino": {
         "quantity": 84,
@@ -2483,20 +2485,21 @@
       "2026-01": 4,
       "2026-02": 75,
       "2026-03": 59,
-      "2026-04": 12
+      "2026-04": 12,
+      "2026-05": 20
     },
     "byPerson": {
       "NHẬT THI": {
         "quantity": 316,
         "tasks": 65
       },
+      "CTV": {
+        "quantity": 30,
+        "tasks": 39
+      },
       "ẨN": {
         "quantity": 12,
         "tasks": 8
-      },
-      "CTV": {
-        "quantity": 10,
-        "tasks": 35
       }
     }
   }
