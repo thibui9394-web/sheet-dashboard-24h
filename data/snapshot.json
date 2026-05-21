@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-05-20T20:07:34.643Z",
+    "generatedAt": "2026-05-21T19:47:30.362Z",
     "timezone": "Asia/Bangkok",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -12,18 +12,18 @@
         128
       ]
     },
-    "totalRecords": 552
+    "totalRecords": 555
   },
   "overview": {
-    "tasks": 552,
-    "quantity": 22431,
-    "avgQuantityPerTask": 40.64,
-    "completedTasks": 534,
+    "tasks": 555,
+    "quantity": 22446,
+    "avgQuantityPerTask": 40.44,
+    "completedTasks": 536,
     "completedQuantity": 22345,
-    "inProgressTasks": 9,
-    "inProgressQuantity": 84,
+    "inProgressTasks": 10,
+    "inProgressQuantity": 99,
     "canceledTasks": 2,
-    "missingQuantityTasks": 55,
+    "missingQuantityTasks": 57,
     "missingQuantityRows": [
       24,
       92,
@@ -79,11 +79,13 @@
       580,
       581,
       582,
-      586
+      586,
+      587,
+      589
     ],
     "byStatusTasks": {
-      "Hoàn thành": 534,
-      "Đang thực hiện": 9,
+      "Hoàn thành": 536,
+      "Đang thực hiện": 10,
       "Pending": 4,
       "(trong)": 3,
       "Cancel": 2
@@ -92,7 +94,7 @@
       "HÌNH ẢNH": 19082,
       "HÌNH ẢNH AI": 2192,
       "SOCIAL POST": 422,
-      "VIDEO": 283,
+      "VIDEO": 298,
       "LANDINGPAGE": 170,
       "KEY VISUAL": 113,
       "KEY VISUAL AI": 80,
@@ -103,8 +105,8 @@
     "byCategoryTasks": {
       "HÌNH ẢNH AI": 213,
       "HÌNH ẢNH": 153,
-      "SOCIAL POST": 68,
-      "VIDEO": 40,
+      "SOCIAL POST": 69,
+      "VIDEO": 42,
       "KEY VISUAL": 24,
       "LANDINGPAGE": 18,
       "KEY VISUAL AI": 15,
@@ -118,7 +120,7 @@
       "(trong)": 595,
       "TIKTOK MB": 516,
       "WEB KG VIETNAM": 255,
-      "TIKTOK MN": 229,
+      "TIKTOK MN": 244,
       "AMAZON": 181,
       "WEB ARISTINO": 123,
       "ZALO OA/MINIAPP": 36,
@@ -134,14 +136,14 @@
       "Shopee MN": 1
     },
     "byChannelTasks": {
-      "FACEBOOK": 189,
+      "FACEBOOK": 191,
       "SHOPPE": 145,
       "TIKTOK MB": 75,
       "(trong)": 45,
       "WEB ARISTINO": 24,
       "WEB KG VIETNAM": 24,
       "AMAZON": 18,
-      "TIKTOK MN": 11,
+      "TIKTOK MN": 12,
       "ZALO OA/MINIAPP": 7,
       "LAZADA": 3,
       "ZNS": 2,
@@ -162,22 +164,22 @@
       "2026-12": 2125,
       "2026-02": 878,
       "2026-05": 177,
+      "(khong ngay)": 25,
       "2025-26": 20,
-      "(khong ngay)": 10,
       "2025-11": 2
     }
   },
   "byPerson": {
     "ẨN": {
-      "tasks": 239,
+      "tasks": 240,
       "quantity": 2506,
-      "avgQuantityPerTask": 10.49,
+      "avgQuantityPerTask": 10.44,
       "completedTasks": 235,
       "completedQuantity": 2445,
-      "inProgressTasks": 3,
+      "inProgressTasks": 4,
       "inProgressQuantity": 60,
       "canceledTasks": 1,
-      "missingQuantityTasks": 10,
+      "missingQuantityTasks": 11,
       "missingQuantityRows": [
         456,
         515,
@@ -188,11 +190,12 @@
         562,
         572,
         577,
-        582
+        582,
+        589
       ],
       "byStatusTasks": {
         "Hoàn thành": 235,
-        "Đang thực hiện": 3,
+        "Đang thực hiện": 4,
         "Cancel": 1
       },
       "byCategoryQty": {
@@ -208,7 +211,7 @@
       "byCategoryTasks": {
         "HÌNH ẢNH AI": 106,
         "HÌNH ẢNH": 84,
-        "VIDEO": 35,
+        "VIDEO": 36,
         "(trong)": 6,
         "SOCIAL POST": 4,
         "VIDEO AI": 2,
@@ -234,7 +237,7 @@
       "byChannelTasks": {
         "SHOPPE": 68,
         "TIKTOK MB": 60,
-        "FACEBOOK": 51,
+        "FACEBOOK": 52,
         "(trong)": 28,
         "TIKTOK MN": 10,
         "WEB KG VIETNAM": 7,
@@ -258,15 +261,15 @@
       }
     },
     "KHANG": {
-      "tasks": 202,
+      "tasks": 203,
       "quantity": 1517,
-      "avgQuantityPerTask": 7.51,
-      "completedTasks": 197,
+      "avgQuantityPerTask": 7.47,
+      "completedTasks": 199,
       "completedQuantity": 1517,
-      "inProgressTasks": 4,
+      "inProgressTasks": 3,
       "inProgressQuantity": 0,
       "canceledTasks": 1,
-      "missingQuantityTasks": 23,
+      "missingQuantityTasks": 24,
       "missingQuantityRows": [
         223,
         237,
@@ -290,11 +293,12 @@
         579,
         580,
         581,
-        586
+        586,
+        587
       ],
       "byStatusTasks": {
-        "Hoàn thành": 197,
-        "Đang thực hiện": 4,
+        "Hoàn thành": 199,
+        "Đang thực hiện": 3,
         "Cancel": 1
       },
       "byCategoryQty": {
@@ -308,7 +312,7 @@
         "VIDEO": 0
       },
       "byCategoryTasks": {
-        "SOCIAL POST": 62,
+        "SOCIAL POST": 63,
         "HÌNH ẢNH AI": 59,
         "HÌNH ẢNH": 39,
         "KEY VISUAL": 18,
@@ -333,7 +337,7 @@
         "B2B": 1
       },
       "byChannelTasks": {
-        "FACEBOOK": 115,
+        "FACEBOOK": 116,
         "SHOPPE": 43,
         "(trong)": 12,
         "TIKTOK MB": 12,
@@ -358,13 +362,13 @@
       }
     },
     "NHẬT THI": {
-      "tasks": 111,
-      "quantity": 18408,
-      "avgQuantityPerTask": 165.84,
+      "tasks": 112,
+      "quantity": 18423,
+      "avgQuantityPerTask": 164.49,
       "completedTasks": 102,
       "completedQuantity": 18383,
-      "inProgressTasks": 2,
-      "inProgressQuantity": 24,
+      "inProgressTasks": 3,
+      "inProgressQuantity": 39,
       "canceledTasks": 0,
       "missingQuantityTasks": 22,
       "missingQuantityRows": [
@@ -394,14 +398,14 @@
       "byStatusTasks": {
         "Hoàn thành": 102,
         "Pending": 4,
-        "(trong)": 3,
-        "Đang thực hiện": 2
+        "Đang thực hiện": 3,
+        "(trong)": 3
       },
       "byCategoryQty": {
         "HÌNH ẢNH": 17742,
         "HÌNH ẢNH AI": 493,
+        "VIDEO": 66,
         "KEY VISUAL AI": 53,
-        "VIDEO": 51,
         "GIAO DIỆN": 20,
         "LANDINGPAGE": 20,
         "KEY VISUAL": 18,
@@ -413,9 +417,9 @@
         "HÌNH ẢNH AI": 48,
         "HÌNH ẢNH": 30,
         "KEY VISUAL AI": 9,
+        "VIDEO": 5,
         "KEY VISUAL": 5,
         "VIDEO AI": 5,
-        "VIDEO": 4,
         "(trong)": 4,
         "LANDINGPAGE": 3,
         "SOCIAL POST": 2,
@@ -430,6 +434,7 @@
         "ZALO OA/MINIAPP": 33,
         "(trong)": 23,
         "TIKTOK MB": 18,
+        "TIKTOK MN": 15,
         "LAZADA": 6
       },
       "byChannelTasks": {
@@ -441,7 +446,8 @@
         "(trong)": 5,
         "ZALO OA/MINIAPP": 4,
         "TIKTOK MB": 3,
-        "LAZADA": 2
+        "LAZADA": 2,
+        "TIKTOK MN": 1
       },
       "byMonthQty": {
         "2026-01": 7188,
@@ -452,11 +458,31 @@
         "2026-02": 326,
         "2026-05": 40,
         "2025-26": 20,
-        "(khong ngay)": 0
+        "(khong ngay)": 15
       }
     }
   },
   "latestRows": [
+    {
+      "row": 591,
+      "person": "NHẬT THI",
+      "channel": "TIKTOK MN",
+      "category": "VIDEO",
+      "status": "Đang thực hiện",
+      "quantity": 15,
+      "month": "(khong ngay)",
+      "detail": "Chỉnh sửa các source video (âm thanh, độ nét, cà da mẫu,\n loại bỏ phần dư, chèn logo)\n SOURCE ĐỒ LÓT NỮ CECINA"
+    },
+    {
+      "row": 589,
+      "person": "ẨN",
+      "channel": "FACEBOOK",
+      "category": "VIDEO",
+      "status": "Đang thực hiện",
+      "quantity": 0,
+      "month": "2026-05",
+      "detail": "WEEKEND LOOK\n\nhttps://www.figma.com/board/X1EFJMFhcec1Z7umL00nkg/K-G-T5-2026?node-id=1048-239&t=87hPNRR6pcCIlMpw-0"
+    },
     {
       "row": 588,
       "person": "NHẬT THI",
@@ -468,11 +494,21 @@
       "detail": "Edit video Salina livestream"
     },
     {
-      "row": 586,
+      "row": 587,
       "person": "KHANG",
       "channel": "FACEBOOK",
       "category": "SOCIAL POST",
       "status": "Đang thực hiện",
+      "quantity": 0,
+      "month": "2026-05",
+      "detail": "ISM - BST Short Active - New Arrivals\n\nhttps://www.figma.com/board/X1EFJMFhcec1Z7umL00nkg/K-G-T5-2026?node-id=967-416&t=cwAFfOzTtO7kjLpQ-0"
+    },
+    {
+      "row": 586,
+      "person": "KHANG",
+      "channel": "FACEBOOK",
+      "category": "SOCIAL POST",
+      "status": "Hoàn thành",
       "quantity": 0,
       "month": "2026-05",
       "detail": "ISM - BST Polo Active - New Arrivals\n\nhttps://www.figma.com/board/X1EFJMFhcec1Z7umL00nkg/K-G-T5-2026?node-id=903-910&t=cwAFfOzTtO7kjLpQ-0"
@@ -512,7 +548,7 @@
       "person": "KHANG",
       "channel": "FACEBOOK",
       "category": "KEY VISUAL",
-      "status": "Đang thực hiện",
+      "status": "Hoàn thành",
       "quantity": 0,
       "month": "2026-05",
       "detail": "ISM - CAMP BST ACTIVE\n\nhttps://www.figma.com/board/X1EFJMFhcec1Z7umL00nkg/K-G-T5-2026?node-id=874-492&t=Taq8LV24h98QW6Jo-0\n\n- Bộ banner\n- Post social\n- Video motion"
@@ -2426,36 +2462,6 @@
       "quantity": 18,
       "month": "2026-03",
       "detail": "KV 3.3 đổi số 3.3 sang 15.3\nhttps://kgvn.sharepoint.com/:f:/s/all/IgBuHLA0FhMSQbg5_bRAPsKWAa1NYc9ieMRRYGQaHz-gQkM?e=OSLmVq\n\nBrand: Cecina, Salina, Underwear và tiktok ngang dọc vuông\nĐổi tagline: \nCecina: Siêu sale giữa tháng - Săn nội y thỏa thích\nSalina: Giữa tháng sale hời - Săn khăn giá rẻ"
-    },
-    {
-      "row": 380,
-      "person": "NHẬT THI",
-      "channel": "WEB KG VIETNAM",
-      "category": "HÌNH ẢNH AI",
-      "status": "Hoàn thành",
-      "quantity": 19,
-      "month": "2026-03",
-      "detail": "Làm hình AI Cecina cho web\nhttps://docs.google.com/spreadsheets/d/1URo045BUYEb8akugu2_ndWPOk_d58xSWV3wIvn87VcE/edit?usp=sharing"
-    },
-    {
-      "row": 379,
-      "person": "KHANG",
-      "channel": "FACEBOOK",
-      "category": "SOCIAL POST",
-      "status": "Hoàn thành",
-      "quantity": 34,
-      "month": "2026-03",
-      "detail": "CTKM T3 Post social\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=550-688&t=uH8JGn6PtNOFJY6F-0"
-    },
-    {
-      "row": 378,
-      "person": "NHẬT THI",
-      "channel": "WEB ARISTINO",
-      "category": "KEY VISUAL AI",
-      "status": "Hoàn thành",
-      "quantity": 9,
-      "month": "2026-03",
-      "detail": "CTKM T3: https://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=546-117&t=HilkESrN8zEaKG0o-0 \n\nCác hạng mục:\n- Banner ads: Ngang - dọc - vuông \n- Banner Zalo OA\n- Banner Web Aris (home - collection): PC - Mobile\n- Banner Web KG (home - collection): PC - Mobile"
     }
   ],
   "aiVideo": {
