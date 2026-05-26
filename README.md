@@ -1,11 +1,11 @@
-# Sheet Dashboard 24h
+# Sheet Dashboard 1h
 
 Dashboard bao cao tu dong tu Google Sheet.
 
 ## Muc tieu
 
 - Giao dien don gian, de nhin.
-- Du lieu cap nhat theo snapshot 24h.
+- Du lieu cap nhat theo snapshot 1h.
 - Public link de moi nguoi trong team xem.
 - Mui gio mac dinh: `Asia/Bangkok` (gio Ha Noi).
 
@@ -24,7 +24,7 @@ npm run serve
 
 Mo: `http://localhost:4173`
 
-## Lich cap nhat 24h
+## Lich cap nhat 1h
 
 Workflow co san tai:
 
@@ -32,7 +32,7 @@ Workflow co san tai:
 
 Cron dang set:
 
-- `0 18 * * *` (UTC) => `01:00` hang ngay o `Asia/Bangkok`
+- `0 * * * *` (UTC) => chay moi dau gio
 
 ## File quan trong
 

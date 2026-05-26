@@ -3,8 +3,11 @@ name: Update Dashboard Snapshot
 on:
   workflow_dispatch:
   schedule:
-    # 01:00 Asia/Bangkok = 18:00 UTC (ngay hom truoc)
-    - cron: "0 18 * * *"
+    # Run hourly. UTC schedule is fine because this job snapshots the current sheet.
+    - cron: "0 * * * *"
+
+permissions:
+  contents: write
 
 jobs:
   update:
