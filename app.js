@@ -234,52 +234,6 @@ async function load() {
   totalRecordsEl.textContent = `Tổng record: ${formatNumber(snapshot.metadata.totalRecords)}`;
   setFilters();
   render();
-  if (snapshot.aiVideo) {
-    renderAIVideoKpis(snapshot.aiVideo);
-    renderAIVideoTables(snapshot.aiVideo);
-  }
-}
-
-function renderAIVideoKpis(data) {
-  const container = document.querySelector("#aiVideoKpiGrid");
-  container.innerHTML = "";
-  const kpis = [
-    { title: "Tổng sản phẩm", value: formatNumber(data.tasks) },
-    { title: "Tổng số lượng", value: formatNumber(data.quantity), highlight: true },
-    { title: "Hoàn thành", value: formatNumber(data.completedTasks), hint: `${formatNumber(data.completedQuantity)} SL` },
-    { title: "Đang thực hiện", value: formatNumber(data.inProgressTasks) },
-    { title: "Tạm dừng", value: formatNumber(data.pausedTasks) },
-    { title: "Cancel", value: formatNumber(data.canceledTasks) }
-  ];
-  for (const item of kpis) {
-    const card = document.createElement("article");
-    card.className = `card kpi ${item.highlight ? "highlight" : ""}`.trim();
-    card.innerHTML = `<span class="title">${item.title}</span><span class="value">${item.value}</span><span class="hint">${item.hint || ""}</span>`;
-    container.appendChild(card);
-  }
-}
-
-function renderAIVideoTables(data) {
-  // Channel table
-  const channelTbody = document.querySelector("#aiVideoChannelTable tbody");
-  channelTbody.innerHTML = "";
-  for (const [channel, info] of Object.entries(data.byChannel || {})) {
-    const tr = document.createElement("tr");
-    tr.appendChild(createCell(channel === "(trong)" ? "Trống" : channel));
-    tr.appendChild(createCell(formatNumber(info.quantity), "num"));
-    tr.appendChild(createCell(formatNumber(info.tasks), "num"));
-    channelTbody.appendChild(tr);
-  }
-
-  // Month table
-  const monthTbody = document.querySelector("#aiVideoMonthTable tbody");
-  monthTbody.innerHTML = "";
-  for (const [month, qty] of Object.entries(data.byMonth || {})) {
-    const tr = document.createElement("tr");
-    tr.appendChild(createCell(monthLabel(month)));
-    tr.appendChild(createCell(formatNumber(qty), "num"));
-    monthTbody.appendChild(tr);
-  }
 }
 
 personFilterEl.addEventListener("change", render);

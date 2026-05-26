@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-05-26T02:39:47.713Z",
+    "generatedAt": "2026-05-26T03:08:29.643Z",
     "timezone": "Asia/Bangkok",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -84,9 +84,9 @@
     "byChannelQty": {
       "SHOPPE": 21559,
       "FACEBOOK": 1376,
-      "(trong)": 597,
+      "(trong)": 595,
       "TIKTOK MB": 519,
-      "WEB KG VIETNAM": 255,
+      "WEB KG VIETNAM": 257,
       "TIKTOK MN": 249,
       "AMAZON": 202,
       "WEB ARISTINO": 128,
@@ -106,9 +106,9 @@
       "FACEBOOK": 194,
       "SHOPPE": 152,
       "TIKTOK MB": 76,
-      "(trong)": 45,
+      "(trong)": 44,
+      "WEB KG VIETNAM": 25,
       "WEB ARISTINO": 24,
-      "WEB KG VIETNAM": 24,
       "AMAZON": 19,
       "TIKTOK MN": 13,
       "ZALO OA/MINIAPP": 7,
@@ -128,10 +128,10 @@
       "2025-12": 5200,
       "2026-04": 2953,
       "2026-03": 2895,
-      "2026-05": 2722,
+      "2026-05": 2731,
       "2026-12": 2125,
       "2026-02": 878,
-      "(khong ngay)": 32,
+      "(khong ngay)": 23,
       "2025-26": 20,
       "2025-11": 2
     }
@@ -216,8 +216,8 @@
         "2026-03": 481,
         "2026-04": 480,
         "2026-02": 315,
-        "2026-05": 107,
-        "(khong ngay)": 12
+        "2026-05": 111,
+        "(khong ngay)": 8
       }
     },
     "KHANG": {
@@ -267,10 +267,10 @@
       "byChannelQty": {
         "FACEBOOK": 986,
         "SHOPPE": 410,
-        "(trong)": 178,
+        "(trong)": 176,
         "TIKTOK MB": 114,
+        "WEB KG VIETNAM": 34,
         "WEB ARISTINO": 32,
-        "WEB KG VIETNAM": 32,
         "Shopee": 18,
         "Facebook": 5,
         "ZNS": 3,
@@ -282,10 +282,10 @@
       "byChannelTasks": {
         "FACEBOOK": 117,
         "SHOPPE": 45,
-        "(trong)": 12,
         "TIKTOK MB": 12,
+        "(trong)": 11,
         "WEB ARISTINO": 7,
-        "WEB KG VIETNAM": 6,
+        "WEB KG VIETNAM": 7,
         "WEB CHRISBELLA": 1,
         "ZNS": 1,
         "TIKTOK MN": 1,
@@ -386,13 +386,13 @@
       "byMonthQty": {
         "2026-01": 7188,
         "2025-12": 4354,
-        "2026-05": 2284,
+        "2026-05": 2289,
         "2026-04": 2178,
         "2026-03": 2177,
         "2026-12": 2125,
         "2026-02": 326,
         "2025-26": 20,
-        "(khong ngay)": 20
+        "(khong ngay)": 15
       }
     }
   },
@@ -454,7 +454,7 @@
       "category": "VIDEO",
       "status": "Hoàn thành",
       "quantity": 5,
-      "month": "(khong ngay)",
+      "month": "2026-05",
       "detail": "Cắt video, chỉnh sửa video đồ lót cecina\nhttps://1drv.ms/v/c/0e42e76836d493d2/IQBJ7SYUOBf5SIhAvEa5lheqATbY5R5mKPL4WxLTbxNr61c?e=2vb0MN"
     },
     {
@@ -674,7 +674,7 @@
       "category": "(trong)",
       "status": "Hoàn thành",
       "quantity": 4,
-      "month": "(khong ngay)",
+      "month": "2026-05",
       "detail": "BANNER SHOP ISM CTKM như mẫu : https://canva.link/ijrbkzk33drvqmt"
     },
     {
@@ -730,7 +730,7 @@
     {
       "row": 569,
       "person": "KHANG",
-      "channel": "(trong)",
+      "channel": "WEB KG VIETNAM",
       "category": "HÌNH ẢNH",
       "status": "Hoàn thành",
       "quantity": 2,
@@ -864,7 +864,7 @@
       "category": "HÌNH ẢNH",
       "status": "Đang thực hiện",
       "quantity": 0,
-      "month": "(khong ngay)",
+      "month": "2026-05",
       "detail": "Thumb +USP quần ISM: https://docs.google.com/spreadsheets/d/11EtLdwvCEga963ASDojtkQZpFQ9Dxj9IyWFVvfBAW9o/edit?gid=1792041344#gid=1792041344"
     },
     {
@@ -2397,58 +2397,5 @@
       "month": "2026-03",
       "detail": "Post APS606EDP01\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=701-286&t=sufT93EtPoHDGGX5-0"
     }
-  ],
-  "aiVideo": {
-    "tasks": 112,
-    "quantity": 358,
-    "completedTasks": 71,
-    "completedQuantity": 328,
-    "inProgressTasks": 4,
-    "canceledTasks": 1,
-    "pausedTasks": 13,
-    "byChannel": {
-      "(trong)": {
-        "quantity": 242,
-        "tasks": 86
-      },
-      "TMDT Aristino": {
-        "quantity": 84,
-        "tasks": 18
-      },
-      "Shopee ISM": {
-        "quantity": 23,
-        "tasks": 6
-      },
-      "Global": {
-        "quantity": 5,
-        "tasks": 1
-      },
-      "Tiktok MB": {
-        "quantity": 4,
-        "tasks": 1
-      }
-    },
-    "byMonth": {
-      "(khong ngay)": 188,
-      "2026-01": 4,
-      "2026-02": 75,
-      "2026-03": 59,
-      "2026-04": 12,
-      "2026-05": 20
-    },
-    "byPerson": {
-      "NHẬT THI": {
-        "quantity": 316,
-        "tasks": 65
-      },
-      "CTV": {
-        "quantity": 30,
-        "tasks": 39
-      },
-      "ẨN": {
-        "quantity": 12,
-        "tasks": 8
-      }
-    }
-  }
+  ]
 }
