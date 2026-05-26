@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-05-26T05:04:17.041Z",
+    "generatedAt": "2026-05-26T05:38:57.316Z",
     "timezone": "Asia/Ho_Chi_Minh",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -22,14 +22,14 @@
   },
   "overview": {
     "tasks": 570,
-    "quantity": 25038,
-    "avgQuantityPerTask": 43.93,
+    "quantity": 25043,
+    "avgQuantityPerTask": 43.94,
     "completedTasks": 550,
-    "completedQuantity": 24951,
+    "completedQuantity": 24956,
     "inProgressTasks": 10,
     "inProgressQuantity": 85,
     "canceledTasks": 2,
-    "missingQuantityTasks": 25,
+    "missingQuantityTasks": 24,
     "missingQuantityRows": [
       24,
       92,
@@ -49,7 +49,6 @@
       473,
       515,
       525,
-      551,
       555,
       578,
       585,
@@ -65,7 +64,7 @@
       "Cancel": 2
     },
     "byCategoryQty": {
-      "HÌNH ẢNH": 21204,
+      "HÌNH ẢNH": 21209,
       "HÌNH ẢNH AI": 2309,
       "SOCIAL POST": 544,
       "VIDEO": 442,
@@ -95,7 +94,7 @@
       "TIKTOK MB": 519,
       "WEB KG VIETNAM": 257,
       "TIKTOK MN": 249,
-      "AMAZON": 202,
+      "AMAZON": 207,
       "WEB ARISTINO": 128,
       "ZALO OA/MINIAPP": 36,
       "WEB ISM": 29,
@@ -127,15 +126,13 @@
       "SHOPPE MN": 1
     },
     "byMonthQty": {
-      "2026-01": 8171,
-      "2025-12": 5200,
+      "2026-01": 10296,
+      "2025-12": 5220,
       "2026-04": 2953,
       "2026-03": 2895,
-      "2026-05": 2771,
-      "2026-12": 2125,
+      "2026-05": 2776,
       "2026-02": 878,
       "(khong ngay)": 23,
-      "2025-26": 20,
       "2025-11": 2
     }
   },
@@ -306,14 +303,14 @@
     },
     "NHẬT THI": {
       "tasks": 117,
-      "quantity": 20712,
-      "avgQuantityPerTask": 177.03,
+      "quantity": 20717,
+      "avgQuantityPerTask": 177.07,
       "completedTasks": 107,
-      "completedQuantity": 20687,
+      "completedQuantity": 20692,
       "inProgressTasks": 2,
       "inProgressQuantity": 24,
       "canceledTasks": 0,
-      "missingQuantityTasks": 13,
+      "missingQuantityTasks": 12,
       "missingQuantityRows": [
         24,
         92,
@@ -326,7 +323,6 @@
         425,
         427,
         430,
-        551,
         599
       ],
       "byStatusTasks": {
@@ -336,7 +332,7 @@
         "Đang thực hiện": 2
       },
       "byCategoryQty": {
-        "HÌNH ẢNH": 19814,
+        "HÌNH ẢNH": 19819,
         "HÌNH ẢNH AI": 520,
         "VIDEO": 201,
         "KEY VISUAL AI": 53,
@@ -361,7 +357,7 @@
       },
       "byChannelQty": {
         "SHOPPE": 20013,
-        "AMAZON": 202,
+        "AMAZON": 207,
         "WEB KG VIETNAM": 190,
         "FACEBOOK": 150,
         "WEB ARISTINO": 57,
@@ -384,14 +380,12 @@
         "TIKTOK MN": 2
       },
       "byMonthQty": {
-        "2026-01": 7188,
-        "2025-12": 4354,
-        "2026-05": 2329,
+        "2026-01": 9313,
+        "2025-12": 4374,
+        "2026-05": 2334,
         "2026-04": 2178,
         "2026-03": 2177,
-        "2026-12": 2125,
         "2026-02": 326,
-        "2025-26": 20,
         "(khong ngay)": 15
       }
     }
@@ -1414,7 +1408,7 @@
       "category": "GIAO DIỆN",
       "status": "Hoàn thành",
       "quantity": 20,
-      "month": "2025-26",
+      "month": "2025-12",
       "detail": "Giao diện miniapp, sơ sơ tại: đây\nnền background và cái header Đan Lát"
     },
     {
@@ -2104,7 +2098,7 @@
       "category": "HÌNH ẢNH",
       "status": "Hoàn thành",
       "quantity": 2125,
-      "month": "2026-12",
+      "month": "2026-01",
       "detail": "Thay Frame Shopee Business 15/1, nếu tiện thì chạy giúp e frame 25/1 luôn ạ, ảnh tại link:\n\nChạy frame business 15/1 + 25/1"
     },
     {
@@ -5573,7 +5567,7 @@
       "channel": "AMAZON",
       "category": "HÌNH ẢNH",
       "status": "Hoàn thành",
-      "quantity": 0,
+      "quantity": 5,
       "month": "2026-05",
       "detail": "Bổ sung hình PT ruột cho mã ABX003EUP03 (2 màu: Xám, Đen) để test\n\nABX003EUP03 (Xám, Đen) - Creative Brief"
     },
@@ -6625,7 +6619,7 @@
       "channel": "AMAZON",
       "category": "HÌNH ẢNH",
       "status": "Hoàn thành",
-      "quantity": 0,
+      "quantity": 5,
       "month": "2026-05",
       "detail": "Bổ sung hình PT ruột cho mã ABX003EUP03 (2 màu: Xám, Đen) để test\n\nABX003EUP03 (Xám, Đen) - Creative Brief"
     },

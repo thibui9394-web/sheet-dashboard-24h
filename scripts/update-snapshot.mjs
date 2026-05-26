@@ -99,12 +99,31 @@ function normalizeStatus(raw) {
   return normalizeText(raw) || "(trong)";
 }
 
+function monthIndex(year, month) {
+  return year * 12 + month;
+}
+
+function isValidDatePart(day, month) {
+  return day >= 1 && day <= 31 && month >= 1 && month <= 12;
+}
+
 function extractMonth(raw) {
   const text = normalizeText(raw);
   const match = text.match(/(\d{1,2})[/-](\d{1,2})[/-](\d{4})/);
   if (!match) return "(khong ngay)";
-  const month = Number(match[2]);
+  const first = Number(match[1]);
+  const second = Number(match[2]);
   const year = Number(match[3]);
+  let month = second;
+  const active = currentMonthKey().split("-").map(Number);
+  const activeMonthIndex = monthIndex(active[0], active[1]);
+  const dmyMonthIndex = monthIndex(year, second);
+  const swappedLooksValid = isValidDatePart(second, first);
+
+  if (!isValidDatePart(first, second) || (dmyMonthIndex > activeMonthIndex && swappedLooksValid)) {
+    month = first;
+  }
+
   return `${year}-${String(month).padStart(2, "0")}`;
 }
 
