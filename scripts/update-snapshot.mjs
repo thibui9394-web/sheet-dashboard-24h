@@ -107,13 +107,14 @@ function isValidDatePart(day, month) {
   return day >= 1 && day <= 31 && month >= 1 && month <= 12;
 }
 
-function extractMonth(raw) {
+function parseOrderDate(raw) {
   const text = normalizeText(raw);
   const match = text.match(/(\d{1,2})[/-](\d{1,2})[/-](\d{4})/);
-  if (!match) return "(khong ngay)";
+  if (!match) return null;
   const first = Number(match[1]);
   const second = Number(match[2]);
   const year = Number(match[3]);
+  let day = first;
   let month = second;
   const active = currentMonthKey().split("-").map(Number);
   const activeMonthIndex = monthIndex(active[0], active[1]);
@@ -121,10 +122,31 @@ function extractMonth(raw) {
   const swappedLooksValid = isValidDatePart(second, first);
 
   if (!isValidDatePart(first, second) || (dmyMonthIndex > activeMonthIndex && swappedLooksValid)) {
+    day = second;
     month = first;
   }
 
+  if (!isValidDatePart(day, month)) return null;
+  return { year, month, day };
+}
+
+function extractMonth(raw) {
+  const date = parseOrderDate(raw);
+  if (!date) return "(khong ngay)";
+  const { year, month } = date;
   return `${year}-${String(month).padStart(2, "0")}`;
+}
+
+function formatOrderDate(raw) {
+  const date = parseOrderDate(raw);
+  if (!date) return null;
+  return `${date.year}-${String(date.month).padStart(2, "0")}-${String(date.day).padStart(2, "0")}`;
+}
+
+function weekOfMonth(raw) {
+  const date = parseOrderDate(raw);
+  if (!date) return null;
+  return Math.min(4, Math.ceil(date.day / 7));
 }
 
 function toKeyedCounts(items) {
@@ -210,6 +232,8 @@ function recordsFromRows(headers, body, startRowNumber) {
       detail: normalizeText(row[colDetail]),
       quantity: parseQuantity(row[colQty]),
       month: extractMonth(row[colDate]),
+      orderDate: formatOrderDate(row[colDate]),
+      weekOfMonth: weekOfMonth(row[colDate]),
       category: normalizeText(row[colCategory]) || "(trong)",
       status: normalizeStatus(row[colStatus])
     });
@@ -272,6 +296,8 @@ function compactRecord(record) {
     status: record.status,
     quantity: record.quantity,
     month: record.month,
+    orderDate: record.orderDate || null,
+    weekOfMonth: record.weekOfMonth || null,
     detail: record.detail
   };
 }

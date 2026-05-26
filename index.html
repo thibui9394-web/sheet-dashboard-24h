@@ -11,18 +11,18 @@
       <header class="top">
         <div>
           <h1>Design Team Dashboard</h1>
-          <p class="sub">Cập nhật tự động mỗi 30 phút, múi giờ Việt Nam / Hà Nội</p>
+          <p class="sub">C&#7853;p nh&#7853;t t&#7921; &#273;&#7897;ng m&#7895;i 30 ph&#250;t, m&#250;i gi&#7901; Vi&#7879;t Nam / H&#224; N&#7897;i</p>
         </div>
         <div class="actions">
           <label>
-            Nhân sự:
+            Nh&#226;n s&#7921;:
             <select id="personFilter"></select>
           </label>
           <label>
-            Tháng:
+            Th&#225;ng:
             <select id="monthFilter"></select>
           </label>
-          <button id="reloadBtn" type="button">Nạp lại</button>
+          <button id="reloadBtn" type="button">N&#7841;p l&#7841;i</button>
         </div>
       </header>
 
@@ -36,17 +36,17 @@
 
       <section class="grid columns">
         <article class="card">
-          <h2>So sánh nhân sự</h2>
+          <h2>So s&#225;nh nh&#226;n s&#7921;</h2>
           <div class="table-wrap">
             <table id="personTable">
               <thead>
                 <tr>
-                  <th>Nhân sự</th>
+                  <th>Nh&#226;n s&#7921;</th>
                   <th class="num">Task</th>
-                  <th class="num">Số lượng</th>
+                  <th class="num">S&#7889; l&#432;&#7907;ng</th>
                   <th class="num">TB/task</th>
-                  <th class="num">Hoàn thành</th>
-                  <th class="num">Đang làm</th>
+                  <th class="num">Ho&#224;n th&#224;nh</th>
+                  <th class="num">&#272;ang l&#224;m</th>
                   <th class="num">Cancel</th>
                 </tr>
               </thead>
@@ -56,13 +56,13 @@
         </article>
 
         <article class="card">
-          <h2>Sản lượng theo tháng</h2>
+          <h2>S&#7843;n l&#432;&#7907;ng theo th&#225;ng</h2>
           <div class="table-wrap">
             <table id="monthTable">
               <thead>
                 <tr>
-                  <th>Tháng</th>
-                  <th class="num">Số lượng</th>
+                  <th>Th&#225;ng</th>
+                  <th class="num">S&#7889; l&#432;&#7907;ng</th>
                 </tr>
               </thead>
               <tbody></tbody>
@@ -71,15 +71,25 @@
         </article>
       </section>
 
+      <section class="card weekly-section">
+        <div class="section-head">
+          <div>
+            <h2>Ti&#7871;n &#273;&#7897; task theo tu&#7847;n</h2>
+            <p id="weeklyScope" class="section-note"></p>
+          </div>
+        </div>
+        <div class="week-grid" id="weeklyProgress"></div>
+      </section>
+
       <section class="card">
-        <h2>Top kênh + hạng mục</h2>
+        <h2>Top k&#234;nh + h&#7841;ng m&#7909;c</h2>
         <div class="table-wrap">
           <table id="channelCategoryTable">
             <thead>
               <tr>
-                <th>Kênh</th>
-                <th>Hạng mục</th>
-                <th class="num">Số lượng</th>
+                <th>K&#234;nh</th>
+                <th>H&#7841;ng m&#7909;c</th>
+                <th class="num">S&#7889; l&#432;&#7907;ng</th>
                 <th class="num">Task</th>
               </tr>
             </thead>
@@ -89,24 +99,23 @@
       </section>
 
       <section class="card">
-        <h2>Task thiếu số lượng</h2>
+        <h2>Task thi&#7871;u s&#7889; l&#432;&#7907;ng</h2>
         <div class="table-wrap">
           <table id="missingQtyTable">
             <thead>
               <tr>
-                <th class="num">Dòng</th>
-                <th>Nhân sự</th>
-                <th>Trạng thái</th>
-                <th>Kênh</th>
-                <th>Hạng mục</th>
-                <th>Nội dung</th>
+                <th class="num">D&#242;ng</th>
+                <th>Nh&#226;n s&#7921;</th>
+                <th>Tr&#7841;ng th&#225;i</th>
+                <th>K&#234;nh</th>
+                <th>H&#7841;ng m&#7909;c</th>
+                <th>N&#7897;i dung</th>
               </tr>
             </thead>
             <tbody></tbody>
           </table>
         </div>
       </section>
-
     </main>
 
     <script type="module" src="./app.js"></script>

@@ -3,13 +3,17 @@ const monthFilterEl = document.querySelector("#monthFilter");
 const updatedAtEl = document.querySelector("#updatedAt");
 const nextUpdateAtEl = document.querySelector("#nextUpdateAt");
 const totalRecordsEl = document.querySelector("#totalRecords");
+const weeklyProgressEl = document.querySelector("#weeklyProgress");
+const weeklyScopeEl = document.querySelector("#weeklyScope");
 const reloadBtn = document.querySelector("#reloadBtn");
 const TIME_ZONE = "Asia/Ho_Chi_Minh";
 const UPDATE_MINUTES = [10, 40];
+const WEEK_TASK_LIMIT = 8;
 
 let snapshot = null;
 let personList = [];
 let monthList = [];
+let expandedWeeks = new Set();
 
 function formatNumber(value) {
   return new Intl.NumberFormat("vi-VN").format(Number(value || 0));
@@ -76,6 +80,41 @@ function sumObjectValues(obj) {
 
 function snapshotRows() {
   return snapshot.records || snapshot.latestRows || [];
+}
+
+function statusKey(status) {
+  const value = status || "";
+  if (value === "Ho\u00e0n th\u00e0nh") return "completed";
+  if (value === "\u0110ang th\u1ef1c hi\u1ec7n") return "inProgress";
+  if (value.toLowerCase() === "cancel") return "cancel";
+  return "pending";
+}
+
+function statusLabel(key) {
+  return {
+    completed: "Ho\u00e0n th\u00e0nh",
+    inProgress: "\u0110ang l\u00e0m",
+    cancel: "Cancel",
+    pending: "Pending"
+  }[key] || "Pending";
+}
+
+function statusClass(key) {
+  return {
+    completed: "status-completed",
+    inProgress: "status-progress",
+    cancel: "status-cancel",
+    pending: "status-pending"
+  }[key] || "status-pending";
+}
+
+function statusSortValue(row) {
+  return {
+    inProgress: 0,
+    pending: 1,
+    cancel: 2,
+    completed: 3
+  }[statusKey(row.status)] ?? 4;
 }
 
 function createCell(value, className = "") {
@@ -249,6 +288,152 @@ function renderTables(person, month) {
   renderChannelCategoryTable(channelGroupsSorted);
 }
 
+function weekRangeLabel(week, month) {
+  const [year, monthNumber] = month.split("-").map(Number);
+  const lastDay = new Date(year, monthNumber, 0).getDate();
+  const start = week === 4 ? 22 : (week - 1) * 7 + 1;
+  const end = week === 4 ? lastDay : week * 7;
+  return `${String(start).padStart(2, "0")}-${String(end).padStart(2, "0")}`;
+}
+
+function latestMonth() {
+  return monthList[monthList.length - 1] || null;
+}
+
+function summarizeWeek(rows) {
+  const summary = {
+    tasks: rows.length,
+    quantity: rows.reduce((sum, row) => sum + row.quantity, 0),
+    completed: 0,
+    inProgress: 0,
+    cancel: 0,
+    pending: 0
+  };
+
+  for (const row of rows) {
+    summary[statusKey(row.status)] += 1;
+  }
+
+  return summary;
+}
+
+function createMetric(label, value) {
+  const item = document.createElement("span");
+  item.innerHTML = `<strong>${formatNumber(value)}</strong>${label}`;
+  return item;
+}
+
+function createStatusBadge(key) {
+  const badge = document.createElement("span");
+  badge.className = `status-badge ${statusClass(key)}`;
+  badge.textContent = statusLabel(key);
+  return badge;
+}
+
+function createTaskItem(row) {
+  const item = document.createElement("article");
+  item.className = "week-task";
+
+  const head = document.createElement("div");
+  head.className = "week-task-head";
+  head.appendChild(createStatusBadge(statusKey(row.status)));
+
+  const detail = document.createElement("p");
+  detail.className = "week-task-detail";
+  detail.textContent = row.detail || "(Kh\u00f4ng c\u00f3 n\u1ed9i dung)";
+  detail.title = row.detail || "";
+
+  const meta = document.createElement("p");
+  meta.className = "week-task-meta";
+  meta.textContent = `SL: ${formatNumber(row.quantity)} | ${row.person} | D\u00f2ng ${row.row}`;
+
+  item.appendChild(head);
+  item.appendChild(detail);
+  item.appendChild(meta);
+  return item;
+}
+
+function renderWeeklyProgress(person, month) {
+  const targetMonth = month === "ALL" ? latestMonth() : month;
+  weeklyProgressEl.innerHTML = "";
+
+  if (!targetMonth) {
+    weeklyScopeEl.textContent = "Ch\u01b0a c\u00f3 d\u1eef li\u1ec7u th\u00e1ng.";
+    return;
+  }
+
+  weeklyScopeEl.textContent = `\u0110ang xem ${monthLabel(targetMonth)}${person === "ALL" ? " | T\u1ea5t c\u1ea3 nh\u00e2n s\u1ef1" : ` | ${person}`}`;
+  const sourceRows = aggregateRows(person, targetMonth)
+    .filter((row) => row.weekOfMonth >= 1 && row.weekOfMonth <= 4)
+    .sort((a, b) =>
+      statusSortValue(a) - statusSortValue(b) ||
+      (a.orderDate || "").localeCompare(b.orderDate || "") ||
+      b.quantity - a.quantity ||
+      a.row - b.row
+    );
+
+  for (let week = 1; week <= 4; week += 1) {
+    const weekRows = sourceRows.filter((row) => row.weekOfMonth === week);
+    const summary = summarizeWeek(weekRows);
+    const card = document.createElement("article");
+    card.className = "week-card";
+
+    const header = document.createElement("div");
+    header.className = "week-card-head";
+    header.innerHTML = `<span>Tu\u1ea7n ${week}</span><strong>${weekRangeLabel(week, targetMonth)}</strong>`;
+
+    const metrics = document.createElement("div");
+    metrics.className = "week-metrics";
+    metrics.appendChild(createMetric("task", summary.tasks));
+    metrics.appendChild(createMetric("SL", summary.quantity));
+    metrics.appendChild(createMetric("HT", summary.completed));
+    metrics.appendChild(createMetric("\u0110ang", summary.inProgress));
+    metrics.appendChild(createMetric("Pending", summary.pending));
+    metrics.appendChild(createMetric("Cancel", summary.cancel));
+
+    const list = document.createElement("div");
+    list.className = "week-task-list";
+    const expandKey = `${person}|${targetMonth}|${week}`;
+    const expanded = expandedWeeks.has(expandKey);
+    const visibleRows = expanded ? weekRows : weekRows.slice(0, WEEK_TASK_LIMIT);
+
+    if (visibleRows.length === 0) {
+      const empty = document.createElement("p");
+      empty.className = "week-empty";
+      empty.textContent = "Kh\u00f4ng c\u00f3 task";
+      list.appendChild(empty);
+    } else {
+      for (const row of visibleRows) {
+        list.appendChild(createTaskItem(row));
+      }
+    }
+
+    card.appendChild(header);
+    card.appendChild(metrics);
+    card.appendChild(list);
+
+    if (weekRows.length > WEEK_TASK_LIMIT) {
+      const toggle = document.createElement("button");
+      toggle.type = "button";
+      toggle.className = "week-toggle";
+      toggle.textContent = expanded
+        ? "Thu g\u1ecdn"
+        : `Xem th\u00eam ${formatNumber(weekRows.length - WEEK_TASK_LIMIT)} task`;
+      toggle.addEventListener("click", () => {
+        if (expandedWeeks.has(expandKey)) {
+          expandedWeeks.delete(expandKey);
+        } else {
+          expandedWeeks.add(expandKey);
+        }
+        renderWeeklyProgress(person, month);
+      });
+      card.appendChild(toggle);
+    }
+
+    weeklyProgressEl.appendChild(card);
+  }
+}
+
 function renderMissingTable(person, month) {
   const tbody = document.querySelector("#missingQtyTable tbody");
   tbody.innerHTML = "";
@@ -291,6 +476,7 @@ function render() {
   renderKpis(kpi);
   renderPersonTable(person, month);
   renderTables(person, month);
+  renderWeeklyProgress(person, month);
   renderMissingTable(person, month);
 }
 

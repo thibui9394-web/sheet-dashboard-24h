@@ -109,6 +109,155 @@ button {
   padding: 14px;
 }
 
+.weekly-section {
+  margin-top: 14px;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: start;
+}
+
+.section-note {
+  margin: -8px 0 14px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(230px, 1fr));
+  gap: 12px;
+}
+
+.week-card {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfdff;
+  padding: 12px;
+}
+
+.week-card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.week-card-head span {
+  font-weight: 700;
+}
+
+.week-card-head strong {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.week-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.week-metrics span {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: white;
+  padding: 6px 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.week-metrics strong {
+  display: block;
+  color: var(--ink);
+  font-size: 16px;
+}
+
+.week-task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.week-task {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+  padding: 9px;
+}
+
+.week-task-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.week-task-detail {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 0;
+  line-height: 1.35;
+  font-size: 13px;
+}
+
+.week-task-meta,
+.week-empty {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.status-completed {
+  color: #047857;
+  background: #d1fae5;
+}
+
+.status-progress {
+  color: #92400e;
+  background: #fef3c7;
+}
+
+.status-pending {
+  color: #4f46e5;
+  background: #e0e7ff;
+}
+
+.status-cancel {
+  color: #b91c1c;
+  background: #fee2e2;
+}
+
+.week-toggle {
+  width: 100%;
+  margin-top: 10px;
+  background: white;
+  color: var(--accent);
+  border-color: #99f6e4;
+  font-weight: 700;
+}
+
 .kpi {
   display: flex;
   flex-direction: column;
@@ -198,6 +347,15 @@ tbody tr:hover {
   }
   h1 {
     font-size: 24px;
+  }
+  .week-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 741px) and (max-width: 1120px) {
+  .week-grid {
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
   }
 }
 
