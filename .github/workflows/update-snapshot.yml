@@ -3,8 +3,8 @@ name: Update Dashboard Snapshot
 on:
   workflow_dispatch:
   schedule:
-    # Run hourly. UTC schedule is fine because this job snapshots the current sheet.
-    - cron: "0 * * * *"
+    # Run every 30 minutes, offset from the top of the hour.
+    - cron: "10,40 * * * *"
 
 permissions:
   contents: write
@@ -24,7 +24,7 @@ jobs:
       - name: Build Snapshot
         run: node ./scripts/update-snapshot.mjs
         env:
-          TZ: Asia/Bangkok
+          TZ: Asia/Ho_Chi_Minh
           SHEET_ID: 1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM
           SHEET_GID: 131891982
           SHEET_NAME: 2026_Design_Team

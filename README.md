@@ -1,13 +1,13 @@
-# Sheet Dashboard 1h
+# Sheet Dashboard 30m
 
 Dashboard bao cao tu dong tu Google Sheet.
 
 ## Muc tieu
 
 - Giao dien don gian, de nhin.
-- Du lieu cap nhat theo snapshot 1h.
+- Du lieu cap nhat theo snapshot 30 phut.
 - Public link de moi nguoi trong team xem.
-- Mui gio mac dinh: `Asia/Bangkok` (gio Ha Noi).
+- Mui gio mac dinh: `Asia/Ho_Chi_Minh` (gio Viet Nam / Ha Noi).
 
 ## Nguon du lieu
 
@@ -24,7 +24,7 @@ npm run serve
 
 Mo: `http://localhost:4173`
 
-## Lich cap nhat 1h
+## Lich cap nhat 30 phut
 
 Workflow co san tai:
 
@@ -32,7 +32,15 @@ Workflow co san tai:
 
 Cron dang set:
 
-- `0 * * * *` (UTC) => chay moi dau gio
+- `10,40 * * * *` (UTC) => chay vao phut 10 va 40 moi gio
+
+Moi lan chay, script uu tien che do incremental:
+
+- Luu `records` day du trong `data/snapshot.json`.
+- Neu van la thang hien tai da cache, chi tai lai range tu dong bat dau cua thang hien tai den cuoi sheet.
+- Khi chua co cache hoac sang thang moi, script full-bootstrap mot lan de tim lai dong bat dau cua thang hien tai.
+- Neu can quet lai toan bo sheet thu cong: `FORCE_FULL_SNAPSHOT=1 npm run update`.
+- Dashboard hien thoi diem cap nhat cuoi va lan cap nhat tiep theo du kien.
 
 ## File quan trong
 

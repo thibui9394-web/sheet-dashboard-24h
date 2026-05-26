@@ -1,12 +1,13 @@
-import { writeFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const SHEET_ID = process.env.SHEET_ID || "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM";
 const SHEET_GID = process.env.SHEET_GID || "131891982";
 const SHEET_NAME = process.env.SHEET_NAME || "2026_Design_Team";
-const TZ = process.env.TZ || "Asia/Bangkok";
-const EXPORT_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${SHEET_GID}`;
+const TZ = process.env.TZ || "Asia/Ho_Chi_Minh";
+const SHEET_MAX_COLUMN = process.env.SHEET_MAX_COLUMN || "Z";
+const FORCE_FULL_SNAPSHOT = process.env.FORCE_FULL_SNAPSHOT === "1";
 
 // Exclusion setup for known outlier rows.
 const EXCLUDED_ROWS_BY_PERSON = {
@@ -122,11 +123,87 @@ function applyExclusions(records) {
   });
 }
 
+function exportUrl(range) {
+  const url = new URL(`https://docs.google.com/spreadsheets/d/${SHEET_ID}/export`);
+  url.searchParams.set("format", "csv");
+  url.searchParams.set("gid", SHEET_GID);
+  if (range) url.searchParams.set("range", range);
+  return url.toString();
+}
+
+async function fetchCsv(range) {
+  const response = await fetch(exportUrl(range));
+  if (!response.ok) {
+    throw new Error(`Download failed: ${response.status} ${response.statusText}`);
+  }
+  const csvBytes = await response.arrayBuffer();
+  return new TextDecoder("utf-8").decode(csvBytes);
+}
+
+async function readPreviousSnapshot() {
+  try {
+    const raw = await readFile(snapshotPath, "utf8");
+    return JSON.parse(raw);
+  } catch (error) {
+    if (error.code === "ENOENT") return null;
+    throw error;
+  }
+}
+
+function currentMonthKey() {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: TZ,
+    year: "numeric",
+    month: "2-digit"
+  }).formatToParts(new Date());
+  const year = parts.find((part) => part.type === "year")?.value;
+  const month = parts.find((part) => part.type === "month")?.value;
+  return `${year}-${month}`;
+}
+
+function columnIndex(headers, name) {
+  const index = headers.findIndex((header) => normalizeText(header) === name);
+  if (index === -1) {
+    throw new Error(`Missing required column: ${name}`);
+  }
+  return index;
+}
+
+function recordsFromRows(headers, body, startRowNumber) {
+  const colChannel = columnIndex(headers, "K\u00eanh");
+  const colDetail = columnIndex(headers, "N\u1ed8I DUNG ORDER");
+  const colQty = columnIndex(headers, "S\u1ed0 L\u01af\u1ee2NG");
+  const colDate = columnIndex(headers, "NG\u00c0Y ORDER");
+  const colCategory = columnIndex(headers, "H\u1ea0NG M\u1ee4C");
+  const colStatus = columnIndex(headers, "Tr\u1ea1ng Th\u00e1i");
+  const colPerson = columnIndex(headers, "NG\u01af\u1edcI THI\u1ebeT K\u1ebe");
+
+  const records = [];
+  for (let index = 0; index < body.length; index += 1) {
+    const row = body[index];
+    const rowNumber = startRowNumber + index;
+    const person = normalizePerson(row[colPerson]);
+    if (!person) continue;
+    records.push({
+      row: rowNumber,
+      person,
+      channel: normalizeChannel(row[colChannel]),
+      detail: normalizeText(row[colDetail]),
+      quantity: parseQuantity(row[colQty]),
+      month: extractMonth(row[colDate]),
+      category: normalizeText(row[colCategory]) || "(trong)",
+      status: normalizeStatus(row[colStatus])
+    });
+  }
+
+  return records;
+}
+
 function summarizePerson(records) {
   const totalTasks = records.length;
   const totalQuantity = records.reduce((sum, r) => sum + r.quantity, 0);
-  const completed = records.filter((r) => r.status === "Hoàn thành");
-  const inProgress = records.filter((r) => r.status === "Đang thực hiện");
+  const completed = records.filter((r) => r.status === "Ho\u00e0n th\u00e0nh");
+  const inProgress = records.filter((r) => r.status === "\u0110ang th\u1ef1c hi\u1ec7n");
   const canceled = records.filter((r) => r.status === "Cancel");
   const missingQuantity = records.filter((r) => r.quantity === 0);
 
@@ -167,47 +244,21 @@ function summarizePerson(records) {
   };
 }
 
-async function main() {
-  const response = await fetch(EXPORT_URL);
-  if (!response.ok) {
-    throw new Error(`Download failed: ${response.status} ${response.statusText}`);
-  }
-  const csvBytes = await response.arrayBuffer();
-  const csvText = new TextDecoder("utf-8").decode(csvBytes);
-  const rows = parseCsv(csvText);
-  const [headers, ...body] = rows;
-  if (!headers || headers.length === 0) {
-    throw new Error("No headers found in exported sheet.");
-  }
+function compactRecord(record) {
+  return {
+    row: record.row,
+    person: record.person,
+    channel: record.channel,
+    category: record.category,
+    status: record.status,
+    quantity: record.quantity,
+    month: record.month,
+    detail: record.detail
+  };
+}
 
-  const col = (name) => headers.findIndex((h) => normalizeText(h) === name);
-  const colChannel = col("Kênh");
-  const colDetail = col("NỘI DUNG ORDER");
-  const colQty = col("SỐ LƯỢNG");
-  const colDate = col("NGÀY ORDER");
-  const colCategory = col("HẠNG MỤC");
-  const colStatus = col("Trạng Thái");
-  const colPerson = col("NGƯỜI THIẾT KẾ");
-
-  const records = [];
-  for (let index = 0; index < body.length; index += 1) {
-    const row = body[index];
-    const rowNumber = index + 2;
-    const person = normalizePerson(row[colPerson]);
-    if (!person) continue;
-    records.push({
-      row: rowNumber,
-      person,
-      channel: normalizeChannel(row[colChannel]),
-      detail: normalizeText(row[colDetail]),
-      quantity: parseQuantity(row[colQty]),
-      month: extractMonth(row[colDate]),
-      category: normalizeText(row[colCategory]) || "(trong)",
-      status: normalizeStatus(row[colStatus])
-    });
-  }
-
-  const filtered = applyExclusions(records);
+function buildSnapshot(records, updateMode, activeMonth, activeRangeStartRow) {
+  const filtered = applyExclusions(records).sort((a, b) => a.row - b.row);
   const people = [...new Set(filtered.map((r) => r.person))].sort((a, b) => a.localeCompare(b));
   const byPerson = {};
   for (const person of people) {
@@ -218,18 +269,9 @@ async function main() {
     .slice()
     .sort((a, b) => b.row - a.row)
     .slice(0, 200)
-    .map((r) => ({
-      row: r.row,
-      person: r.person,
-      channel: r.channel,
-      category: r.category,
-      status: r.status,
-      quantity: r.quantity,
-      month: r.month,
-      detail: r.detail
-    }));
+    .map(compactRecord);
 
-  const snapshot = {
+  return {
     metadata: {
       generatedAt: new Date().toISOString(),
       timezone: TZ,
@@ -238,6 +280,12 @@ async function main() {
         sheetName: SHEET_NAME,
         gid: SHEET_GID
       },
+      incremental: {
+        mode: updateMode,
+        activeMonth,
+        activeRangeStartRow,
+        sheetMaxColumn: SHEET_MAX_COLUMN
+      },
       exclusions: Object.fromEntries(
         Object.entries(EXCLUDED_ROWS_BY_PERSON).map(([person, set]) => [person, [...set.values()]])
       ),
@@ -245,12 +293,65 @@ async function main() {
     },
     overview: summarizePerson(filtered),
     byPerson,
+    records: filtered.map(compactRecord),
     latestRows
   };
+}
+
+async function loadFullRecords() {
+  const rows = parseCsv(await fetchCsv());
+  const [headers, ...body] = rows;
+  if (!headers || headers.length === 0) {
+    throw new Error("No headers found in exported sheet.");
+  }
+  return recordsFromRows(headers, body, 2);
+}
+
+async function loadActiveMonthRecords(previousSnapshot, activeMonth) {
+  const previousRecords = Array.isArray(previousSnapshot?.records) ? previousSnapshot.records : [];
+  const activeRangeStartRow = previousSnapshot?.metadata?.incremental?.activeRangeStartRow;
+  const cachedMonth = previousSnapshot?.metadata?.incremental?.activeMonth;
+
+  if (FORCE_FULL_SNAPSHOT || !previousRecords.length || !activeRangeStartRow || cachedMonth !== activeMonth) {
+    const records = await loadFullRecords();
+    const monthRows = records.filter((record) => record.month === activeMonth).map((record) => record.row);
+    return {
+      records,
+      updateMode: FORCE_FULL_SNAPSHOT ? "full-forced" : "full-bootstrap",
+      activeRangeStartRow: monthRows.length ? Math.min(...monthRows) : null
+    };
+  }
+
+  const headerRows = parseCsv(await fetchCsv(`A1:${SHEET_MAX_COLUMN}1`));
+  const headers = headerRows[0];
+  if (!headers || headers.length === 0) {
+    throw new Error("No headers found in exported sheet.");
+  }
+
+  const rangeRows = parseCsv(await fetchCsv(`A${activeRangeStartRow}:${SHEET_MAX_COLUMN}`));
+  const refreshedActiveRecords = recordsFromRows(headers, rangeRows, activeRangeStartRow)
+    .filter((record) => record.month === activeMonth);
+  const records = [
+    ...previousRecords.filter((record) => record.month !== activeMonth),
+    ...refreshedActiveRecords
+  ];
+
+  return {
+    records,
+    updateMode: "active-month",
+    activeRangeStartRow
+  };
+}
+
+async function main() {
+  const activeMonth = currentMonthKey();
+  const previousSnapshot = await readPreviousSnapshot();
+  const { records, updateMode, activeRangeStartRow } = await loadActiveMonthRecords(previousSnapshot, activeMonth);
+  const snapshot = buildSnapshot(records, updateMode, activeMonth, activeRangeStartRow);
 
   await writeFile(snapshotPath, `${JSON.stringify(snapshot, null, 2)}\n`, "utf8");
   // eslint-disable-next-line no-console
-  console.log(`Snapshot updated: ${snapshotPath}`);
+  console.log(`Snapshot updated (${updateMode}): ${snapshotPath}`);
 }
 
 main().catch((error) => {

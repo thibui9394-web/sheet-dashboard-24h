@@ -1,8 +1,11 @@
 const personFilterEl = document.querySelector("#personFilter");
 const monthFilterEl = document.querySelector("#monthFilter");
 const updatedAtEl = document.querySelector("#updatedAt");
+const nextUpdateAtEl = document.querySelector("#nextUpdateAt");
 const totalRecordsEl = document.querySelector("#totalRecords");
 const reloadBtn = document.querySelector("#reloadBtn");
+const TIME_ZONE = "Asia/Ho_Chi_Minh";
+const UPDATE_MINUTES = [10, 40];
 
 let snapshot = null;
 let personList = [];
@@ -18,8 +21,43 @@ function formatDate(iso) {
   return new Intl.DateTimeFormat("vi-VN", {
     dateStyle: "medium",
     timeStyle: "short",
-    timeZone: "Asia/Bangkok"
+    timeZone: TIME_ZONE
   }).format(date);
+}
+
+function zonedParts(date) {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: TIME_ZONE,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hourCycle: "h23"
+  }).formatToParts(date);
+  return Object.fromEntries(parts.map((part) => [part.type, part.value]));
+}
+
+function nextScheduledUpdate() {
+  const now = new Date();
+  const parts = zonedParts(now);
+  const minute = Number(parts.minute);
+  const nextMinute = UPDATE_MINUTES.find((value) => value > minute);
+  const baseUtc = Date.UTC(
+    Number(parts.year),
+    Number(parts.month) - 1,
+    Number(parts.day),
+    Number(parts.hour) - 7,
+    0,
+    0
+  );
+
+  if (nextMinute !== undefined) {
+    return new Date(baseUtc + nextMinute * 60 * 1000);
+  }
+
+  return new Date(baseUtc + 60 * 60 * 1000 + UPDATE_MINUTES[0] * 60 * 1000);
 }
 
 function monthLabel(monthKey) {
@@ -34,6 +72,10 @@ function entries(obj) {
 
 function sumObjectValues(obj) {
   return entries(obj).reduce((sum, [, value]) => sum + Number(value || 0), 0);
+}
+
+function snapshotRows() {
+  return snapshot.records || snapshot.latestRows || [];
 }
 
 function createCell(value, className = "") {
@@ -67,11 +109,12 @@ function renderKpis(data) {
 
 function personSummaryRows(person, month) {
   const rows = [];
+  const allRows = snapshotRows();
   for (const [name, data] of Object.entries(snapshot.byPerson || {})) {
     const monthQty = month === "ALL" ? data.quantity : Number((data.byMonthQty || {})[month] || 0);
     const monthTasks = month === "ALL"
       ? data.tasks
-      : snapshot.latestRows.filter((r) => r.person === name && r.month === month).length;
+      : allRows.filter((r) => r.person === name && r.month === month).length;
     if (person !== "ALL" && name !== person) continue;
     rows.push({
       name,
@@ -80,13 +123,13 @@ function personSummaryRows(person, month) {
       avg: monthTasks ? Number((monthQty / monthTasks).toFixed(2)) : 0,
       completed: month === "ALL"
         ? data.completedTasks
-        : snapshot.latestRows.filter((r) => r.person === name && r.month === month && r.status === "Hoàn thành").length,
+        : allRows.filter((r) => r.person === name && r.month === month && r.status === "Hoàn thành").length,
       inProgress: month === "ALL"
         ? data.inProgressTasks
-        : snapshot.latestRows.filter((r) => r.person === name && r.month === month && r.status === "Đang thực hiện").length,
+        : allRows.filter((r) => r.person === name && r.month === month && r.status === "Đang thực hiện").length,
       canceled: month === "ALL"
         ? data.canceledTasks
-        : snapshot.latestRows.filter((r) => r.person === name && r.month === month && r.status === "Cancel").length
+        : allRows.filter((r) => r.person === name && r.month === month && r.status === "Cancel").length
     });
   }
   return rows.sort((a, b) => b.quantity - a.quantity);
@@ -109,7 +152,7 @@ function renderPersonTable(person, month) {
 }
 
 function aggregateRows(person, month) {
-  return snapshot.latestRows.filter((r) => {
+  return snapshotRows().filter((r) => {
     if (person !== "ALL" && r.person !== person) return false;
     if (month !== "ALL" && r.month !== month) return false;
     return true;
@@ -231,11 +274,12 @@ async function load() {
   const response = await fetch("./data/snapshot.json", { cache: "no-store" });
   snapshot = await response.json();
   personList = Object.keys(snapshot.byPerson || {}).sort((a, b) => a.localeCompare(b));
-  monthList = [...new Set(snapshot.latestRows.map((r) => r.month).filter((v) => v && v !== "(khong ngay)"))]
+  monthList = [...new Set(snapshotRows().map((r) => r.month).filter((v) => v && v !== "(khong ngay)"))]
     .sort((a, b) => a.localeCompare(b));
 
   updatedAtEl.textContent = `Cập nhật: ${formatDate(snapshot.metadata.generatedAt)}`;
   totalRecordsEl.textContent = `Tổng record: ${formatNumber(snapshot.metadata.totalRecords)}`;
+  nextUpdateAtEl.textContent = `Cập nhật tiếp theo dự kiến: ${formatDate(nextScheduledUpdate())}`;
   setFilters();
   render();
 }
