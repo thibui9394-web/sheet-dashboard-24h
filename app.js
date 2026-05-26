@@ -159,20 +159,31 @@ function aggregateRows(person, month) {
   });
 }
 
-function renderChannelCategoryTable(sourceMap) {
+function renderChannelCategoryTable(channelGroups) {
   const tbody = document.querySelector("#channelCategoryTable tbody");
   tbody.innerHTML = "";
-  for (const info of sourceMap) {
-    const tr = document.createElement("tr");
-    tr.appendChild(createCell(info.channel === "(trong)" ? "Trống" : info.channel));
-    tr.appendChild(createCell(info.category === "(trong)" ? "Trống" : info.category));
-    tr.appendChild(createCell(formatNumber(info.quantity), "num"));
-    tr.appendChild(createCell(formatNumber(info.tasks), "num"));
-    tbody.appendChild(tr);
+  for (const group of channelGroups) {
+    const totalRow = document.createElement("tr");
+    totalRow.className = "group-row";
+    totalRow.appendChild(createCell(group.channel === "(trong)" ? "Tr\u1ed1ng" : group.channel));
+    totalRow.appendChild(createCell("T\u1ed5ng k\u00eanh"));
+    totalRow.appendChild(createCell(formatNumber(group.quantity), "num"));
+    totalRow.appendChild(createCell(formatNumber(group.tasks), "num"));
+    tbody.appendChild(totalRow);
+
+    for (const info of group.categories) {
+      const tr = document.createElement("tr");
+      tr.className = "child-row";
+      tr.appendChild(createCell(""));
+      tr.appendChild(createCell(info.category === "(trong)" ? "Tr\u1ed1ng" : info.category));
+      tr.appendChild(createCell(formatNumber(info.quantity), "num"));
+      tr.appendChild(createCell(formatNumber(info.tasks), "num"));
+      tbody.appendChild(tr);
+    }
   }
-  if (sourceMap.length === 0) {
+  if (channelGroups.length === 0) {
     const tr = document.createElement("tr");
-    const td = createCell("Không có dữ liệu kênh + hạng mục");
+    const td = createCell("Kh\u00f4ng c\u00f3 d\u1eef li\u1ec7u k\u00eanh + h\u1ea1ng m\u1ee5c");
     td.colSpan = 4;
     tr.appendChild(td);
     tbody.appendChild(tr);
@@ -199,25 +210,43 @@ function renderTables(person, month) {
   const rows = aggregateRows(person, month);
   renderMonthTable(rows);
 
-  const channelCategory = new Map();
+  const channelGroups = new Map();
 
   for (const row of rows) {
-    const key = `${row.channel}\u0000${row.category}`;
-    if (!channelCategory.has(key)) {
-      channelCategory.set(key, { channel: row.channel, category: row.category, quantity: 0, tasks: 0 });
+    if (!channelGroups.has(row.channel)) {
+      channelGroups.set(row.channel, {
+        channel: row.channel,
+        quantity: 0,
+        tasks: 0,
+        categories: new Map()
+      });
     }
-    channelCategory.get(key).quantity += row.quantity;
-    channelCategory.get(key).tasks += 1;
+
+    const group = channelGroups.get(row.channel);
+    group.quantity += row.quantity;
+    group.tasks += 1;
+
+    if (!group.categories.has(row.category)) {
+      group.categories.set(row.category, { category: row.category, quantity: 0, tasks: 0 });
+    }
+    const category = group.categories.get(row.category);
+    category.quantity += row.quantity;
+    category.tasks += 1;
   }
 
-  const channelCategorySorted = [...channelCategory.values()]
+  const channelGroupsSorted = [...channelGroups.values()]
+    .map((group) => ({
+      ...group,
+      categories: [...group.categories.values()].sort((a, b) =>
+        b.quantity - a.quantity ||
+        a.category.localeCompare(b.category)
+      )
+    }))
     .sort((a, b) =>
       b.quantity - a.quantity ||
-      a.channel.localeCompare(b.channel) ||
-      a.category.localeCompare(b.category)
-    )
-    .slice(0, 20);
-  renderChannelCategoryTable(channelCategorySorted);
+      a.channel.localeCompare(b.channel)
+    );
+  renderChannelCategoryTable(channelGroupsSorted);
 }
 
 function renderMissingTable(person, month) {

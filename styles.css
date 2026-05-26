@@ -165,6 +165,20 @@ tbody tr:hover {
   background: #f8fafc;
 }
 
+.group-row {
+  background: #f0fdfa;
+  font-weight: 700;
+}
+
+.group-row td {
+  border-top: 1px solid #99f6e4;
+  border-bottom-color: #99f6e4;
+}
+
+.child-row td:first-child {
+  background: #f8fafc;
+}
+
 .num {
   text-align: right;
   font-variant-numeric: tabular-nums;
