@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-05-26T03:08:29.643Z",
+    "generatedAt": "2026-05-26T03:24:00.184Z",
     "timezone": "Asia/Bangkok",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -82,8 +82,8 @@
       "GIAO DIỆN": 1
     },
     "byChannelQty": {
-      "SHOPPE": 21559,
-      "FACEBOOK": 1376,
+      "SHOPPE": 21577,
+      "FACEBOOK": 1381,
       "(trong)": 595,
       "TIKTOK MB": 519,
       "WEB KG VIETNAM": 257,
@@ -92,19 +92,17 @@
       "WEB ARISTINO": 128,
       "ZALO OA/MINIAPP": 36,
       "WEB ISM": 29,
-      "Shopee": 18,
       "LAZADA": 11,
       "ZNS": 7,
-      "Facebook": 5,
       "WEB CHRISBELLA": 2,
       "WEB SALINA": 2,
       "ZALO BROADCAST": 1,
       "B2B": 1,
-      "Shopee MN": 1
+      "SHOPPE MN": 1
     },
     "byChannelTasks": {
-      "FACEBOOK": 194,
-      "SHOPPE": 152,
+      "FACEBOOK": 195,
+      "SHOPPE": 153,
       "TIKTOK MB": 76,
       "(trong)": 44,
       "WEB KG VIETNAM": 25,
@@ -119,9 +117,7 @@
       "WEB CHRISBELLA": 1,
       "WEB SALINA": 1,
       "B2B": 1,
-      "Shopee MN": 1,
-      "Shopee": 1,
-      "Facebook": 1
+      "SHOPPE MN": 1
     },
     "byMonthQty": {
       "2026-01": 8171,
@@ -192,7 +188,7 @@
         "ZALO OA/MINIAPP": 2,
         "WEB SALINA": 2,
         "ZALO BROADCAST": 1,
-        "Shopee MN": 1
+        "SHOPPE MN": 1
       },
       "byChannelTasks": {
         "SHOPPE": 70,
@@ -208,7 +204,7 @@
         "LAZADA": 1,
         "WEB SALINA": 1,
         "ZNS": 1,
-        "Shopee MN": 1
+        "SHOPPE MN": 1
       },
       "byMonthQty": {
         "2026-01": 603,
@@ -265,14 +261,12 @@
         "VIDEO": 1
       },
       "byChannelQty": {
-        "FACEBOOK": 986,
-        "SHOPPE": 410,
+        "FACEBOOK": 991,
+        "SHOPPE": 428,
         "(trong)": 176,
         "TIKTOK MB": 114,
         "WEB KG VIETNAM": 34,
         "WEB ARISTINO": 32,
-        "Shopee": 18,
-        "Facebook": 5,
         "ZNS": 3,
         "WEB CHRISBELLA": 2,
         "TIKTOK MN": 1,
@@ -280,8 +274,8 @@
         "B2B": 1
       },
       "byChannelTasks": {
-        "FACEBOOK": 117,
-        "SHOPPE": 45,
+        "FACEBOOK": 118,
+        "SHOPPE": 46,
         "TIKTOK MB": 12,
         "(trong)": 11,
         "WEB ARISTINO": 7,
@@ -290,9 +284,7 @@
         "ZNS": 1,
         "TIKTOK MN": 1,
         "ZALO OA/MINIAPP": 1,
-        "B2B": 1,
-        "Shopee": 1,
-        "Facebook": 1
+        "B2B": 1
       },
       "byMonthQty": {
         "2026-01": 380,
@@ -1440,7 +1432,7 @@
     {
       "row": 495,
       "person": "KHANG",
-      "channel": "Facebook",
+      "channel": "FACEBOOK",
       "category": "SOCIAL POST",
       "status": "Hoàn thành",
       "quantity": 5,
@@ -1530,7 +1522,7 @@
     {
       "row": 484,
       "person": "KHANG",
-      "channel": "Shopee",
+      "channel": "SHOPPE",
       "category": "HÌNH ẢNH",
       "status": "Hoàn thành",
       "quantity": 18,
@@ -1540,7 +1532,7 @@
     {
       "row": 483,
       "person": "ẨN",
-      "channel": "Shopee MN",
+      "channel": "SHOPPE MN",
       "category": "(trong)",
       "status": "Hoàn thành",
       "quantity": 1,

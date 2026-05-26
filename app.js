@@ -116,20 +116,41 @@ function aggregateRows(person, month) {
   });
 }
 
-function renderSimpleTable(targetId, sourceMap, keyLabel) {
-  const tbody = document.querySelector(`${targetId} tbody`);
+function renderCategoryTable(sourceMap) {
+  const tbody = document.querySelector("#categoryTable tbody");
   tbody.innerHTML = "";
-  for (const [key, info] of sourceMap) {
+  for (const [categoryName, info] of sourceMap) {
     const tr = document.createElement("tr");
-    tr.appendChild(createCell(key === "(trong)" ? "Trống" : key));
+    tr.appendChild(createCell(categoryName === "(trong)" ? "Trống" : categoryName));
+    tr.appendChild(createCell(info.topChannel === "(trong)" ? "Trống" : info.topChannel));
     tr.appendChild(createCell(formatNumber(info.quantity), "num"));
     tr.appendChild(createCell(formatNumber(info.tasks), "num"));
     tbody.appendChild(tr);
   }
   if (sourceMap.length === 0) {
     const tr = document.createElement("tr");
-    const td = createCell(`Không có dữ liệu ${keyLabel}`);
-    td.colSpan = 3;
+    const td = createCell("Không có dữ liệu hạng mục");
+    td.colSpan = 4;
+    tr.appendChild(td);
+    tbody.appendChild(tr);
+  }
+}
+
+function renderChannelTable(sourceMap) {
+  const tbody = document.querySelector("#channelTable tbody");
+  tbody.innerHTML = "";
+  for (const [channelName, info] of sourceMap) {
+    const tr = document.createElement("tr");
+    tr.appendChild(createCell(channelName === "(trong)" ? "Trống" : channelName));
+    tr.appendChild(createCell(info.topCategory === "(trong)" ? "Trống" : info.topCategory));
+    tr.appendChild(createCell(formatNumber(info.quantity), "num"));
+    tr.appendChild(createCell(formatNumber(info.tasks), "num"));
+    tbody.appendChild(tr);
+  }
+  if (sourceMap.length === 0) {
+    const tr = document.createElement("tr");
+    const td = createCell("Không có dữ liệu kênh");
+    td.colSpan = 4;
     tr.appendChild(td);
     tbody.appendChild(tr);
   }
@@ -159,18 +180,34 @@ function renderTables(person, month) {
   const channel = new Map();
 
   for (const row of rows) {
-    if (!category.has(row.category)) category.set(row.category, { quantity: 0, tasks: 0 });
-    if (!channel.has(row.channel)) channel.set(row.channel, { quantity: 0, tasks: 0 });
+    if (!category.has(row.category)) category.set(row.category, { quantity: 0, tasks: 0, byChannel: new Map() });
+    if (!channel.has(row.channel)) channel.set(row.channel, { quantity: 0, tasks: 0, byCategory: new Map() });
     category.get(row.category).quantity += row.quantity;
     category.get(row.category).tasks += 1;
+    const categoryChannel = category.get(row.category).byChannel;
+    categoryChannel.set(row.channel, (categoryChannel.get(row.channel) || 0) + row.quantity);
     channel.get(row.channel).quantity += row.quantity;
     channel.get(row.channel).tasks += 1;
+    const channelCategory = channel.get(row.channel).byCategory;
+    channelCategory.set(row.category, (channelCategory.get(row.category) || 0) + row.quantity);
+  }
+
+  for (const info of category.values()) {
+    info.topChannel = [...info.byChannel.entries()]
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0]?.[0] || "(trong)";
+    delete info.byChannel;
+  }
+
+  for (const info of channel.values()) {
+    info.topCategory = [...info.byCategory.entries()]
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0]?.[0] || "(trong)";
+    delete info.byCategory;
   }
 
   const categorySorted = [...category.entries()].sort((a, b) => b[1].quantity - a[1].quantity).slice(0, 12);
   const channelSorted = [...channel.entries()].sort((a, b) => b[1].quantity - a[1].quantity).slice(0, 12);
-  renderSimpleTable("#categoryTable", categorySorted, "hạng mục");
-  renderSimpleTable("#channelTable", channelSorted, "kênh");
+  renderCategoryTable(categorySorted);
+  renderChannelTable(channelSorted);
 }
 
 function renderMissingTable(person, month) {

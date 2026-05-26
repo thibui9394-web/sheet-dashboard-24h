@@ -77,6 +77,12 @@ function normalizePerson(value) {
   return normalizeText(value).toUpperCase();
 }
 
+function normalizeChannel(value) {
+  const channel = normalizeText(value).toUpperCase();
+  if (!channel) return "(trong)";
+  return channel.replace(/^SHOPEE\b/, "SHOPPE");
+}
+
 function parseQuantity(raw) {
   const source = normalizeText(raw).replace(/,/g, "");
   if (!source) return 0;
@@ -192,7 +198,7 @@ async function main() {
     records.push({
       row: rowNumber,
       person,
-      channel: normalizeText(row[colChannel]) || "(trong)",
+      channel: normalizeChannel(row[colChannel]),
       detail: normalizeText(row[colDetail]),
       quantity: parseQuantity(row[colQty]),
       month: extractMonth(row[colDate]),
