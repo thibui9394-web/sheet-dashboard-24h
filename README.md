@@ -1,11 +1,11 @@
-# Sheet Dashboard 30m
+# Sheet Dashboard
 
-Dashboard bao cao tu dong tu Google Sheet.
+Dashboard bao cao tu Google Sheet, cap nhat snapshot thu cong qua GitHub Actions.
 
 ## Muc tieu
 
 - Giao dien don gian, de nhin.
-- Du lieu cap nhat theo snapshot 30 phut.
+- Du lieu cap nhat theo snapshot khi chay workflow.
 - Public link de moi nguoi trong team xem.
 - Mui gio mac dinh: `Asia/Ho_Chi_Minh` (gio Viet Nam / Ha Noi).
 
@@ -24,15 +24,21 @@ npm run serve
 
 Mo: `http://localhost:4173`
 
-## Lich cap nhat 30 phut
+## Cap nhat snapshot
 
 Workflow co san tai:
 
 - [.github/workflows/update-snapshot.yml](E:\codex\sheet-dashboard-24h\.github\workflows\update-snapshot.yml)
 
-Cron dang set:
+Workflow chi chay thu cong bang `workflow_dispatch`.
 
-- `10,40 * * * *` (UTC) => chay vao phut 10 va 40 moi gio
+Cach cap nhat tren GitHub:
+
+1. Mo tab Actions.
+2. Chon workflow `Update Dashboard Snapshot`.
+3. Bam `Run workflow`.
+4. Chon branch `main`.
+5. Doi workflow va deploy Pages chay xong, sau do bam `Nap lai` tren dashboard.
 
 Moi lan chay, script uu tien che do incremental:
 
@@ -40,7 +46,7 @@ Moi lan chay, script uu tien che do incremental:
 - Neu van la thang hien tai da cache, chi tai lai range tu dong bat dau cua thang hien tai den cuoi sheet.
 - Khi chua co cache hoac sang thang moi, script full-bootstrap mot lan de tim lai dong bat dau cua thang hien tai.
 - Neu can quet lai toan bo sheet thu cong: `FORCE_FULL_SNAPSHOT=1 npm run update`.
-- Dashboard hien thoi diem cap nhat cuoi va lan cap nhat tiep theo du kien.
+- Dashboard hien thoi diem cap nhat cuoi.
 
 ## File quan trong
 

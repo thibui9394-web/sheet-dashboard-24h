@@ -1,13 +1,11 @@
 const personFilterEl = document.querySelector("#personFilter");
 const monthFilterEl = document.querySelector("#monthFilter");
 const updatedAtEl = document.querySelector("#updatedAt");
-const nextUpdateAtEl = document.querySelector("#nextUpdateAt");
 const totalRecordsEl = document.querySelector("#totalRecords");
 const weeklyProgressEl = document.querySelector("#weeklyProgress");
 const weeklyScopeEl = document.querySelector("#weeklyScope");
 const reloadBtn = document.querySelector("#reloadBtn");
 const TIME_ZONE = "Asia/Ho_Chi_Minh";
-const UPDATE_MINUTES = [10, 40];
 const WEEK_TASK_LIMIT = 8;
 
 let snapshot = null;
@@ -27,41 +25,6 @@ function formatDate(iso) {
     timeStyle: "short",
     timeZone: TIME_ZONE
   }).format(date);
-}
-
-function zonedParts(date) {
-  const parts = new Intl.DateTimeFormat("en-CA", {
-    timeZone: TIME_ZONE,
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    hourCycle: "h23"
-  }).formatToParts(date);
-  return Object.fromEntries(parts.map((part) => [part.type, part.value]));
-}
-
-function nextScheduledUpdate() {
-  const now = new Date();
-  const parts = zonedParts(now);
-  const minute = Number(parts.minute);
-  const nextMinute = UPDATE_MINUTES.find((value) => value > minute);
-  const baseUtc = Date.UTC(
-    Number(parts.year),
-    Number(parts.month) - 1,
-    Number(parts.day),
-    Number(parts.hour) - 7,
-    0,
-    0
-  );
-
-  if (nextMinute !== undefined) {
-    return new Date(baseUtc + nextMinute * 60 * 1000);
-  }
-
-  return new Date(baseUtc + 60 * 60 * 1000 + UPDATE_MINUTES[0] * 60 * 1000);
 }
 
 function monthLabel(monthKey) {
@@ -494,7 +457,6 @@ async function load() {
 
   updatedAtEl.textContent = `Cập nhật: ${formatDate(snapshot.metadata.generatedAt)}`;
   totalRecordsEl.textContent = `Tổng record: ${formatNumber(snapshot.metadata.totalRecords)}`;
-  nextUpdateAtEl.textContent = `Cập nhật tiếp theo dự kiến: ${formatDate(nextScheduledUpdate())}`;
   setFilters();
   render();
 }
