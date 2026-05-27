@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-05-27T03:48:30.410Z",
+    "generatedAt": "2026-05-27T03:51:34.329Z",
     "timezone": "Asia/Ho_Chi_Minh",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -18,18 +18,18 @@
         128
       ]
     },
-    "totalRecords": 576
+    "totalRecords": 577
   },
   "overview": {
-    "tasks": 576,
+    "tasks": 577,
     "quantity": 25160,
-    "avgQuantityPerTask": 43.68,
+    "avgQuantityPerTask": 43.6,
     "completedTasks": 557,
     "completedQuantity": 25073,
     "inProgressTasks": 9,
     "inProgressQuantity": 85,
     "canceledTasks": 2,
-    "missingQuantityTasks": 22,
+    "missingQuantityTasks": 23,
     "missingQuantityRows": [
       24,
       92,
@@ -52,13 +52,14 @@
       585,
       599,
       605,
-      606
+      606,
+      610
     ],
     "byStatusTasks": {
       "Hoàn thành": 557,
       "Đang thực hiện": 9,
+      "(trong)": 5,
       "Pending": 4,
-      "(trong)": 4,
       "Cancel": 2
     },
     "byCategoryQty": {
@@ -77,7 +78,7 @@
       "HÌNH ẢNH AI": 228,
       "HÌNH ẢNH": 156,
       "SOCIAL POST": 70,
-      "VIDEO": 51,
+      "VIDEO": 52,
       "KEY VISUAL": 19,
       "LANDINGPAGE": 18,
       "KEY VISUAL AI": 16,
@@ -106,7 +107,7 @@
     },
     "byChannelTasks": {
       "FACEBOOK": 195,
-      "SHOPPE": 158,
+      "SHOPPE": 159,
       "TIKTOK MB": 77,
       "(trong)": 44,
       "WEB KG VIETNAM": 25,
@@ -297,15 +298,15 @@
       }
     },
     "NHẬT THI": {
-      "tasks": 120,
+      "tasks": 121,
       "quantity": 20772,
-      "avgQuantityPerTask": 173.1,
+      "avgQuantityPerTask": 171.67,
       "completedTasks": 109,
       "completedQuantity": 20747,
       "inProgressTasks": 3,
       "inProgressQuantity": 24,
       "canceledTasks": 0,
-      "missingQuantityTasks": 13,
+      "missingQuantityTasks": 14,
       "missingQuantityRows": [
         24,
         92,
@@ -319,12 +320,13 @@
         427,
         430,
         599,
-        605
+        605,
+        610
       ],
       "byStatusTasks": {
         "Hoàn thành": 109,
+        "(trong)": 5,
         "Pending": 4,
-        "(trong)": 4,
         "Đang thực hiện": 3
       },
       "byCategoryQty": {
@@ -342,7 +344,7 @@
       "byCategoryTasks": {
         "HÌNH ẢNH AI": 53,
         "HÌNH ẢNH": 27,
-        "VIDEO": 11,
+        "VIDEO": 12,
         "KEY VISUAL AI": 9,
         "KEY VISUAL": 5,
         "VIDEO AI": 5,
@@ -364,7 +366,7 @@
         "LAZADA": 6
       },
       "byChannelTasks": {
-        "SHOPPE": 39,
+        "SHOPPE": 40,
         "FACEBOOK": 23,
         "AMAZON": 20,
         "WEB KG VIETNAM": 11,
@@ -7298,9 +7300,33 @@
       "orderDate": "2026-05-27",
       "weekOfMonth": 4,
       "detail": "CẮT VIDEO TỪ SOURCE LIVE\nhttps://1drv.ms/v/c/0e42e76836d493d2/IQDnHaSN_8hiS6LFAHkawJ5xAQHgrpNmo8Tr35DmFK47R-M?e=lUlBwy"
+    },
+    {
+      "row": 610,
+      "person": "NHẬT THI",
+      "channel": "SHOPPE",
+      "category": "VIDEO",
+      "status": "(trong)",
+      "quantity": 0,
+      "month": "2026-05",
+      "orderDate": "2026-05-27",
+      "weekOfMonth": 4,
+      "detail": "Cắt video từ source live ism: https://kgvn.sharepoint.com/sites/all/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2Fall%2FShared%20Documents%2FTMDT1%2FVIDEO%20TEAM%20TIKTOK%2FINSIDEMEN%2FCLIP%20TREO%20LIVE&viewid=edcd55f1%2D7f4c%2D4dd5%2D8d6d%2D1916cc831ba9&p=true"
     }
   ],
   "latestRows": [
+    {
+      "row": 610,
+      "person": "NHẬT THI",
+      "channel": "SHOPPE",
+      "category": "VIDEO",
+      "status": "(trong)",
+      "quantity": 0,
+      "month": "2026-05",
+      "orderDate": "2026-05-27",
+      "weekOfMonth": 4,
+      "detail": "Cắt video từ source live ism: https://kgvn.sharepoint.com/sites/all/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2Fall%2FShared%20Documents%2FTMDT1%2FVIDEO%20TEAM%20TIKTOK%2FINSIDEMEN%2FCLIP%20TREO%20LIVE&viewid=edcd55f1%2D7f4c%2D4dd5%2D8d6d%2D1916cc831ba9&p=true"
+    },
     {
       "row": 608,
       "person": "NHẬT THI",
@@ -9688,18 +9714,6 @@
       "orderDate": "2026-03-23",
       "weekOfMonth": 4,
       "detail": "Thumb ATT600EDP01\n\nhttps://www.figma.com/board/iaYXq8oFeoc0ppQm83kBPs/Untitled?node-id=28-14&t=KYmC8mCh3YgcZwSG-0"
-    },
-    {
-      "row": 402,
-      "person": "KHANG",
-      "channel": "FACEBOOK",
-      "category": "HÌNH ẢNH AI",
-      "status": "Hoàn thành",
-      "quantity": 3,
-      "month": "2026-03",
-      "orderDate": "2026-03-21",
-      "weekOfMonth": 3,
-      "detail": "Post ATT600EDP01\n\nhttps://www.figma.com/board/G8xEs751Z8wHEUOVkvgQxw/K-G-T3-2026?node-id=906-716&t=x1ybuLPOX4df9rzu-0"
     }
   ]
 }
