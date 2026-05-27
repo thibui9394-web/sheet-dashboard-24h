@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-05-27T06:06:56.355Z",
+    "generatedAt": "2026-05-27T06:43:21.591Z",
     "timezone": "Asia/Ho_Chi_Minh",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -24,10 +24,10 @@
     "tasks": 577,
     "quantity": 25480,
     "avgQuantityPerTask": 44.16,
-    "completedTasks": 558,
-    "completedQuantity": 25074,
-    "inProgressTasks": 9,
-    "inProgressQuantity": 404,
+    "completedTasks": 559,
+    "completedQuantity": 25394,
+    "inProgressTasks": 8,
+    "inProgressQuantity": 84,
     "canceledTasks": 2,
     "missingQuantityTasks": 22,
     "missingQuantityRows": [
@@ -55,8 +55,8 @@
       606
     ],
     "byStatusTasks": {
-      "Hoàn thành": 558,
-      "Đang thực hiện": 9,
+      "Hoàn thành": 559,
+      "Đang thực hiện": 8,
       "Pending": 4,
       "(trong)": 4,
       "Cancel": 2
@@ -219,26 +219,25 @@
       }
     },
     "KHANG": {
-      "tasks": 208,
+      "tasks": 207,
       "quantity": 1817,
-      "avgQuantityPerTask": 8.74,
+      "avgQuantityPerTask": 8.78,
       "completedTasks": 204,
       "completedQuantity": 1817,
-      "inProgressTasks": 3,
+      "inProgressTasks": 2,
       "inProgressQuantity": 0,
       "canceledTasks": 1,
-      "missingQuantityTasks": 6,
+      "missingQuantityTasks": 5,
       "missingQuantityRows": [
         223,
         237,
         426,
         473,
-        525,
-        605
+        525
       ],
       "byStatusTasks": {
         "Hoàn thành": 204,
-        "Đang thực hiện": 3,
+        "Đang thực hiện": 2,
         "Cancel": 1
       },
       "byCategoryQty": {
@@ -252,7 +251,7 @@
         "VIDEO": 0
       },
       "byCategoryTasks": {
-        "HÌNH ẢNH AI": 65,
+        "HÌNH ẢNH AI": 64,
         "SOCIAL POST": 64,
         "HÌNH ẢNH": 41,
         "LANDINGPAGE": 14,
@@ -272,8 +271,7 @@
         "WEB CHRISBELLA": 2,
         "TIKTOK MN": 1,
         "ZALO OA/MINIAPP": 1,
-        "B2B": 1,
-        "AMAZON": 0
+        "B2B": 1
       },
       "byChannelTasks": {
         "FACEBOOK": 118,
@@ -286,8 +284,7 @@
         "ZNS": 1,
         "TIKTOK MN": 1,
         "ZALO OA/MINIAPP": 1,
-        "B2B": 1,
-        "AMAZON": 1
+        "B2B": 1
       },
       "byMonthQty": {
         "2026-01": 380,
@@ -300,15 +297,15 @@
       }
     },
     "NHẬT THI": {
-      "tasks": 120,
+      "tasks": 121,
       "quantity": 21092,
-      "avgQuantityPerTask": 175.77,
-      "completedTasks": 109,
-      "completedQuantity": 20747,
+      "avgQuantityPerTask": 174.31,
+      "completedTasks": 110,
+      "completedQuantity": 21067,
       "inProgressTasks": 3,
-      "inProgressQuantity": 344,
+      "inProgressQuantity": 24,
       "canceledTasks": 0,
-      "missingQuantityTasks": 12,
+      "missingQuantityTasks": 13,
       "missingQuantityRows": [
         24,
         92,
@@ -321,10 +318,11 @@
         425,
         427,
         430,
-        599
+        599,
+        605
       ],
       "byStatusTasks": {
-        "Hoàn thành": 109,
+        "Hoàn thành": 110,
         "Pending": 4,
         "(trong)": 4,
         "Đang thực hiện": 3
@@ -342,7 +340,7 @@
         "(trong)": 0
       },
       "byCategoryTasks": {
-        "HÌNH ẢNH AI": 52,
+        "HÌNH ẢNH AI": 53,
         "HÌNH ẢNH": 27,
         "VIDEO": 12,
         "KEY VISUAL AI": 9,
@@ -368,7 +366,7 @@
       "byChannelTasks": {
         "SHOPPE": 40,
         "FACEBOOK": 23,
-        "AMAZON": 19,
+        "AMAZON": 20,
         "WEB KG VIETNAM": 11,
         "WEB ARISTINO": 10,
         "(trong)": 5,
@@ -7255,7 +7253,7 @@
     },
     {
       "row": 605,
-      "person": "KHANG",
+      "person": "NHẬT THI",
       "channel": "AMAZON",
       "category": "HÌNH ẢNH AI",
       "status": "Đang thực hiện",
@@ -7306,7 +7304,7 @@
       "person": "NHẬT THI",
       "channel": "SHOPPE",
       "category": "VIDEO",
-      "status": "Đang thực hiện",
+      "status": "Hoàn thành",
       "quantity": 320,
       "month": "2026-05",
       "orderDate": "2026-05-27",
@@ -7320,7 +7318,7 @@
       "person": "NHẬT THI",
       "channel": "SHOPPE",
       "category": "VIDEO",
-      "status": "Đang thực hiện",
+      "status": "Hoàn thành",
       "quantity": 320,
       "month": "2026-05",
       "orderDate": "2026-05-27",
@@ -7365,7 +7363,7 @@
     },
     {
       "row": 605,
-      "person": "KHANG",
+      "person": "NHẬT THI",
       "channel": "AMAZON",
       "category": "HÌNH ẢNH AI",
       "status": "Đang thực hiện",
