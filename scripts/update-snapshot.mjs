@@ -210,8 +210,15 @@ function columnIndex(headers, name) {
   return index;
 }
 
+function columnIndexWithFallback(headers, name, fallbackIndex) {
+  const index = headers.findIndex((header) => normalizeText(header) === name);
+  if (index !== -1) return index;
+  if (fallbackIndex >= 0 && fallbackIndex < headers.length) return fallbackIndex;
+  throw new Error(`Missing required column: ${name}`);
+}
+
 function recordsFromRows(headers, body, startRowNumber) {
-  const colChannel = columnIndex(headers, "K\u00eanh");
+  const colChannel = columnIndexWithFallback(headers, "K\u00eanh", 0);
   const colDetail = columnIndex(headers, "N\u1ed8I DUNG ORDER");
   const colQty = columnIndex(headers, "S\u1ed0 L\u01af\u1ee2NG");
   const colDate = columnIndex(headers, "NG\u00c0Y ORDER");
