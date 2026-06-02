@@ -4,6 +4,9 @@ const updatedAtEl = document.querySelector("#updatedAt");
 const totalRecordsEl = document.querySelector("#totalRecords");
 const weeklyProgressEl = document.querySelector("#weeklyProgress");
 const weeklyScopeEl = document.querySelector("#weeklyScope");
+const previousOpenScopeEl = document.querySelector("#previousOpenScope");
+const previousOpenSummaryEl = document.querySelector("#previousOpenSummary");
+const previousOpenTableBodyEl = document.querySelector("#previousOpenTable tbody");
 const reloadBtn = document.querySelector("#reloadBtn");
 const TIME_ZONE = "Asia/Ho_Chi_Minh";
 const WEEK_TASK_LIMIT = 8;
@@ -31,6 +34,23 @@ function monthLabel(monthKey) {
   if (!monthKey || monthKey === "(khong ngay)") return "Không ngày";
   const [year, month] = monthKey.split("-");
   return `${month}/${year}`;
+}
+
+function previousMonthKey() {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: TIME_ZONE,
+    year: "numeric",
+    month: "2-digit"
+  }).formatToParts(new Date());
+  let year = Number(parts.find((part) => part.type === "year")?.value);
+  let month = Number(parts.find((part) => part.type === "month")?.value) - 1;
+
+  if (month === 0) {
+    year -= 1;
+    month = 12;
+  }
+
+  return `${year}-${String(month).padStart(2, "0")}`;
 }
 
 function entries(obj) {
@@ -397,6 +417,51 @@ function renderWeeklyProgress(person, month) {
   }
 }
 
+function renderPreviousMonthOpenTasks(person) {
+  const targetMonth = previousMonthKey();
+  const rows = aggregateRows(person, targetMonth)
+    .filter((row) => statusKey(row.status) !== "completed")
+    .sort((a, b) =>
+      statusSortValue(a) - statusSortValue(b) ||
+      (a.orderDate || "").localeCompare(b.orderDate || "") ||
+      a.person.localeCompare(b.person) ||
+      a.row - b.row
+    );
+  const summary = summarizeWeek(rows);
+
+  previousOpenScopeEl.textContent = `\u0110ang xem ${monthLabel(targetMonth)}${person === "ALL" ? " | T\u1ea5t c\u1ea3 nh\u00e2n s\u1ef1" : ` | ${person}`}`;
+  previousOpenSummaryEl.innerHTML = "";
+  previousOpenSummaryEl.appendChild(createMetric("task ch\u01b0a xong", summary.tasks));
+  previousOpenSummaryEl.appendChild(createMetric("SL", summary.quantity));
+  previousOpenSummaryEl.appendChild(createMetric("\u0110ang", summary.inProgress));
+  previousOpenSummaryEl.appendChild(createMetric("Pending", summary.pending));
+  previousOpenSummaryEl.appendChild(createMetric("Cancel", summary.cancel));
+
+  previousOpenTableBodyEl.innerHTML = "";
+  if (rows.length === 0) {
+    const tr = document.createElement("tr");
+    const td = createCell(`Kh\u00f4ng c\u00f3 task ch\u01b0a ho\u00e0n th\u00e0nh trong ${monthLabel(targetMonth)}.`);
+    td.colSpan = 7;
+    tr.appendChild(td);
+    previousOpenTableBodyEl.appendChild(tr);
+    return;
+  }
+
+  for (const row of rows) {
+    const tr = document.createElement("tr");
+    const statusCell = document.createElement("td");
+    statusCell.appendChild(createStatusBadge(statusKey(row.status)));
+    tr.appendChild(statusCell);
+    tr.appendChild(createCell(row.detail || "(Kh\u00f4ng c\u00f3 n\u1ed9i dung)", "task-detail-cell"));
+    tr.appendChild(createCell(row.person));
+    tr.appendChild(createCell(row.channel === "(trong)" ? "Tr\u1ed1ng" : row.channel));
+    tr.appendChild(createCell(row.category === "(trong)" ? "Tr\u1ed1ng" : row.category));
+    tr.appendChild(createCell(formatNumber(row.quantity), "num"));
+    tr.appendChild(createCell(String(row.row), "num"));
+    previousOpenTableBodyEl.appendChild(tr);
+  }
+}
+
 function renderMissingTable(person, month) {
   const tbody = document.querySelector("#missingQtyTable tbody");
   tbody.innerHTML = "";
@@ -437,6 +502,7 @@ function render() {
   const month = monthFilterEl.value || "ALL";
   const kpi = computeScopeKpi(person, month);
   renderKpis(kpi);
+  renderPreviousMonthOpenTasks(person);
   renderPersonTable(person, month);
   renderTables(person, month);
   renderWeeklyProgress(person, month);

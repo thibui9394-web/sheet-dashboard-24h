@@ -113,6 +113,32 @@ button {
   margin-top: 14px;
 }
 
+.previous-open-section {
+  margin-top: 14px;
+}
+
+.open-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.open-summary span {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fbfdff;
+  padding: 8px 10px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.open-summary strong {
+  display: block;
+  color: var(--ink);
+  font-size: 18px;
+}
+
 .section-head {
   display: flex;
   justify-content: space-between;
@@ -326,6 +352,12 @@ tbody tr:hover {
 
 .child-row td:first-child {
   background: #f8fafc;
+}
+
+.task-detail-cell {
+  max-width: 520px;
+  white-space: normal;
+  line-height: 1.35;
 }
 
 .num {
