@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-06-02T11:21:20.694Z",
+    "generatedAt": "2026-06-03T03:59:04.295Z",
     "timezone": "Asia/Ho_Chi_Minh",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -8,7 +8,7 @@
       "gid": "131891982"
     },
     "incremental": {
-      "mode": "full-bootstrap",
+      "mode": "active-month",
       "activeMonth": "2026-06",
       "activeRangeStartRow": 624,
       "sheetMaxColumn": "Z"
@@ -18,18 +18,18 @@
         128
       ]
     },
-    "totalRecords": 593
+    "totalRecords": 595
   },
   "overview": {
-    "tasks": 593,
+    "tasks": 595,
     "quantity": 25797,
-    "avgQuantityPerTask": 43.5,
+    "avgQuantityPerTask": 43.36,
     "completedTasks": 570,
     "completedQuantity": 25709,
-    "inProgressTasks": 13,
+    "inProgressTasks": 15,
     "inProgressQuantity": 86,
     "canceledTasks": 2,
-    "missingQuantityTasks": 25,
+    "missingQuantityTasks": 27,
     "missingQuantityRows": [
       24,
       92,
@@ -55,11 +55,13 @@
       624,
       626,
       628,
-      629
+      629,
+      632,
+      633
     ],
     "byStatusTasks": {
       "Hoàn thành": 570,
-      "Đang thực hiện": 13,
+      "Đang thực hiện": 15,
       "Pending": 4,
       "(trong)": 4,
       "Cancel": 2
@@ -78,10 +80,10 @@
     },
     "byCategoryTasks": {
       "HÌNH ẢNH AI": 230,
-      "HÌNH ẢNH": 161,
+      "HÌNH ẢNH": 162,
       "SOCIAL POST": 72,
       "VIDEO": 54,
-      "KEY VISUAL": 24,
+      "KEY VISUAL": 25,
       "LANDINGPAGE": 18,
       "KEY VISUAL AI": 16,
       "(trong)": 10,
@@ -109,7 +111,7 @@
     },
     "byChannelTasks": {
       "FACEBOOK": 200,
-      "SHOPPE": 168,
+      "SHOPPE": 170,
       "TIKTOK MB": 79,
       "(trong)": 44,
       "WEB KG VIETNAM": 25,
@@ -225,15 +227,15 @@
       }
     },
     "KHANG": {
-      "tasks": 213,
+      "tasks": 214,
       "quantity": 1838,
-      "avgQuantityPerTask": 8.63,
+      "avgQuantityPerTask": 8.59,
       "completedTasks": 209,
       "completedQuantity": 1837,
-      "inProgressTasks": 3,
+      "inProgressTasks": 4,
       "inProgressQuantity": 1,
       "canceledTasks": 1,
-      "missingQuantityTasks": 7,
+      "missingQuantityTasks": 8,
       "missingQuantityRows": [
         223,
         237,
@@ -241,11 +243,12 @@
         525,
         612,
         622,
-        626
+        626,
+        632
       ],
       "byStatusTasks": {
         "Hoàn thành": 209,
-        "Đang thực hiện": 3,
+        "Đang thực hiện": 4,
         "Cancel": 1
       },
       "byCategoryQty": {
@@ -261,7 +264,7 @@
       "byCategoryTasks": {
         "SOCIAL POST": 66,
         "HÌNH ẢNH AI": 65,
-        "HÌNH ẢNH": 43,
+        "HÌNH ẢNH": 44,
         "LANDINGPAGE": 14,
         "KEY VISUAL": 14,
         "KEY VISUAL AI": 7,
@@ -283,7 +286,7 @@
       },
       "byChannelTasks": {
         "FACEBOOK": 121,
-        "SHOPPE": 50,
+        "SHOPPE": 51,
         "TIKTOK MB": 12,
         "(trong)": 11,
         "WEB ARISTINO": 7,
@@ -306,15 +309,15 @@
       }
     },
     "NHẬT THI": {
-      "tasks": 125,
+      "tasks": 126,
       "quantity": 21363,
-      "avgQuantityPerTask": 170.9,
+      "avgQuantityPerTask": 169.55,
       "completedTasks": 111,
       "completedQuantity": 21337,
-      "inProgressTasks": 6,
+      "inProgressTasks": 7,
       "inProgressQuantity": 25,
       "canceledTasks": 0,
-      "missingQuantityTasks": 13,
+      "missingQuantityTasks": 14,
       "missingQuantityRows": [
         24,
         92,
@@ -328,11 +331,12 @@
         605,
         618,
         628,
-        629
+        629,
+        633
       ],
       "byStatusTasks": {
         "Hoàn thành": 111,
-        "Đang thực hiện": 6,
+        "Đang thực hiện": 7,
         "Pending": 4,
         "(trong)": 4
       },
@@ -353,7 +357,7 @@
         "HÌNH ẢNH": 28,
         "VIDEO": 12,
         "KEY VISUAL AI": 9,
-        "KEY VISUAL": 7,
+        "KEY VISUAL": 8,
         "VIDEO AI": 5,
         "(trong)": 4,
         "LANDINGPAGE": 3,
@@ -373,7 +377,7 @@
         "LAZADA": 6
       },
       "byChannelTasks": {
-        "SHOPPE": 44,
+        "SHOPPE": 45,
         "FACEBOOK": 23,
         "AMAZON": 21,
         "WEB KG VIETNAM": 11,
@@ -7512,9 +7516,57 @@
       "orderDate": "2026-06-01",
       "weekOfMonth": 1,
       "detail": "KV ARISTINO BUSINESS 6.6\n\nhttps://www.figma.com/board/aDN94dH1TqFSXCzn8wxiFx/K-G-T6-2026?node-id=42-420&t=NWMdBEbJb93qcfob-0"
+    },
+    {
+      "row": 632,
+      "person": "KHANG",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH",
+      "status": "Đang thực hiện",
+      "quantity": 0,
+      "month": "2026-06",
+      "orderDate": "2026-06-02",
+      "weekOfMonth": 1,
+      "detail": "KV ARISTINO OFFICIAL T6\n\nAdapt từ KV Aristino Official 6.6 (full phiên bản: ngang - dọc - vuông - nội sàn - video)"
+    },
+    {
+      "row": 633,
+      "person": "NHẬT THI",
+      "channel": "SHOPPE",
+      "category": "KEY VISUAL",
+      "status": "Đang thực hiện",
+      "quantity": 0,
+      "month": "2026-06",
+      "orderDate": "2026-06-02",
+      "weekOfMonth": 1,
+      "detail": "KV SALINA 6.6 \n\nChi tiết tại: https://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=7412-979&t=PgNRUerU8oIIRwJb-0"
     }
   ],
   "latestRows": [
+    {
+      "row": 633,
+      "person": "NHẬT THI",
+      "channel": "SHOPPE",
+      "category": "KEY VISUAL",
+      "status": "Đang thực hiện",
+      "quantity": 0,
+      "month": "2026-06",
+      "orderDate": "2026-06-02",
+      "weekOfMonth": 1,
+      "detail": "KV SALINA 6.6 \n\nChi tiết tại: https://www.figma.com/board/zQfZXfRr6z5EyNTzH1yLlI/T8---Landingpage?node-id=7412-979&t=PgNRUerU8oIIRwJb-0"
+    },
+    {
+      "row": 632,
+      "person": "KHANG",
+      "channel": "SHOPPE",
+      "category": "HÌNH ẢNH",
+      "status": "Đang thực hiện",
+      "quantity": 0,
+      "month": "2026-06",
+      "orderDate": "2026-06-02",
+      "weekOfMonth": 1,
+      "detail": "KV ARISTINO OFFICIAL T6\n\nAdapt từ KV Aristino Official 6.6 (full phiên bản: ngang - dọc - vuông - nội sàn - video)"
+    },
     {
       "row": 629,
       "person": "NHẬT THI",
@@ -9890,30 +9942,6 @@
       "orderDate": "2026-03-30",
       "weekOfMonth": 4,
       "detail": "Thumb+USP sản phẩm: 6tr0070z\n\nhttps://www.figma.com/design/e26HiHq6G6VdFjgAYPWM7X/Untitled?node-id=2-2&t=ImI9tJf4TrQLJiQG-0"
-    },
-    {
-      "row": 420,
-      "person": "ẨN",
-      "channel": "TIKTOK MB",
-      "category": "HÌNH ẢNH AI",
-      "status": "Hoàn thành",
-      "quantity": 3,
-      "month": "2026-03",
-      "orderDate": "2026-03-30",
-      "weekOfMonth": 4,
-      "detail": "ẢNH AI: CHÂN ĐI MÃ TẤT CO08"
-    },
-    {
-      "row": 419,
-      "person": "ẨN",
-      "channel": "TIKTOK MB",
-      "category": "HÌNH ẢNH AI",
-      "status": "Hoàn thành",
-      "quantity": 3,
-      "month": "2026-03",
-      "orderDate": "2026-03-30",
-      "weekOfMonth": 4,
-      "detail": "BACK LIVESTREAM TIKTOK – ARISTINO ONLINE\n\nhttps://www.figma.com/board/iaYXq8oFeoc0ppQm83kBPs/Untitled?node-id=69-68&t=QeewJmP12SLh07J5-0"
     }
   ]
 }
