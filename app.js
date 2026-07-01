@@ -120,7 +120,7 @@ function renderKpis(data) {
     { title: "Tổng số lượng", value: formatNumber(data.quantity), highlight: true },
     { title: "TB số lượng/task", value: formatNumber(data.avgQuantityPerTask) },
     { title: "Hoàn thành", value: formatNumber(data.completedTasks), hint: `${formatNumber(data.completedQuantity)} SL` },
-    { title: "Đang làm", value: formatNumber(data.inProgressTasks), hint: `${formatNumber(data.inProgressQuantity)} SL` },
+    { title: "Đang làm", value: formatNumber(data.inProgressTasks), hint: `${formatNumber(data.inProgressQuantity)} SL`, pulse: true },
     { title: "Pending / trống", value: formatNumber(data.pendingTasks) },
     { title: "Cancel", value: formatNumber(data.canceledTasks) },
     { title: "Task thiếu số lượng", value: formatNumber(data.missingQuantityTasks), hint: "Không tính task Cancel" }
@@ -129,7 +129,8 @@ function renderKpis(data) {
   for (const item of kpis) {
     const card = document.createElement("article");
     card.className = `card kpi ${item.highlight ? "highlight" : ""}`.trim();
-    card.innerHTML = `<span class="title">${item.title}</span><span class="value">${item.value}</span><span class="hint">${item.hint || ""}</span>`;
+    const dotHtml = item.pulse ? `<span class="pulse-dot pulse-dot-dark"></span>` : "";
+    card.innerHTML = `<span class="title">${dotHtml}${item.title}</span><span class="value">${item.value}</span><span class="hint">${item.hint || ""}</span>`;
     container.appendChild(card);
   }
 }
@@ -253,21 +254,18 @@ function getEffectiveRecord(r, month) {
   };
   
   mapped.weekOfMonth = getEffectiveWeek(r, month);
-  
+
+  // Nhan ngay/thang don gian: hoan thanh thi ghi ngay hoan thanh,
+  // dang lam thi ghi ngay order. Dong/thang da co san o dong meta xam ben duoi.
   mapped.customLabel = "";
-  const curMonth = currentCalendarMonthKey();
-  
-  if (month === curMonth && statusKey(r.status) === "inProgress") {
-    if (r.month < month) {
-      const monthNum = Number(r.month.split("-")[1]);
-      const dateParts = r.orderDate ? r.orderDate.split("-") : [];
-      const dateLabel = dateParts.length >= 3 ? `${dateParts[2]}/${dateParts[1]}` : "";
-      mapped.customLabel = `[Nợ Tháng ${monthNum} - Dòng ${r.row} - Request ngày ${dateLabel}]`;
-    } else if (r.weekOfMonth < mapped.weekOfMonth) {
-      mapped.customLabel = `[Trễ Tuần ${r.weekOfMonth} - Dòng ${r.row}]`;
-    }
+  if (eff.status === "completed" && r.completionDate) {
+    const parts = r.completionDate.split("-");
+    if (parts.length >= 3) mapped.customLabel = `task ${parts[2]}/${parts[1]}`;
+  } else if (eff.status === "inProgress" && r.orderDate) {
+    const parts = r.orderDate.split("-");
+    if (parts.length >= 3) mapped.customLabel = `task ${parts[2]}/${parts[1]}`;
   }
-  
+
   return mapped;
 }
 
@@ -499,7 +497,12 @@ function createMetric(label, value) {
 function createStatusBadge(key) {
   const badge = document.createElement("span");
   badge.className = `status-badge ${statusClass(key)}`;
-  badge.textContent = statusLabel(key);
+  if (key === "inProgress") {
+    const dot = document.createElement("span");
+    dot.className = "pulse-dot pulse-dot-dark";
+    badge.appendChild(dot);
+  }
+  badge.appendChild(document.createTextNode(statusLabel(key)));
   return badge;
 }
 
@@ -512,13 +515,10 @@ function createTaskItem(row) {
   head.appendChild(createStatusBadge(statusKey(row.status)));
 
   if (row.customLabel) {
+    const isCompleted = statusKey(row.status) === "completed";
     const labelSpan = document.createElement("span");
-    labelSpan.className = "task-delay-label";
+    labelSpan.className = `task-delay-label ${isCompleted ? "task-delay-completed" : "task-delay-progress"}`;
     labelSpan.textContent = row.customLabel;
-    labelSpan.style.color = "#ef4444";
-    labelSpan.style.fontWeight = "700";
-    labelSpan.style.fontSize = "11px";
-    labelSpan.style.marginLeft = "8px";
     head.appendChild(labelSpan);
   }
 

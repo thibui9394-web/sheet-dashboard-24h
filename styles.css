@@ -275,6 +275,66 @@ button {
   background: #fee2e2;
 }
 
+.task-delay-label {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+.task-delay-completed {
+  color: #047857;
+  background: #d1fae5;
+}
+
+.task-delay-progress {
+  color: #fff;
+  background: #ef4444;
+}
+
+.pulse-dot {
+  display: inline-block;
+  position: relative;
+  width: 6px;
+  height: 6px;
+  margin-right: 5px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.pulse-dot::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #fff;
+  animation: pulse-dot-ring 1.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.pulse-dot-dark,
+.pulse-dot-dark::after {
+  background: #ef4444;
+}
+
+@keyframes pulse-dot-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
 .week-btn-group {
   display: flex;
   gap: 6px;
