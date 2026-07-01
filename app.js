@@ -174,7 +174,7 @@ function renderPersonTable(person, month) {
   tbody.innerHTML = "";
   for (const row of personSummaryRows(person, month)) {
     const tr = document.createElement("tr");
-    tr.appendChild(createCell(row.name));
+    tr.appendChild(createCell(row.name || "Tr\u1ed1ng"));
     tr.appendChild(createCell(formatNumber(row.tasks), "num"));
     tr.appendChild(createCell(formatNumber(row.quantity), "num"));
     tr.appendChild(createCell(formatNumber(row.avg), "num"));
@@ -380,7 +380,7 @@ function createTaskItem(row) {
 
   const meta = document.createElement("p");
   meta.className = "week-task-meta";
-  meta.textContent = `SL: ${formatNumber(row.quantity)} | ${row.person} | D\u00f2ng ${row.row}`;
+  meta.textContent = `SL: ${formatNumber(row.quantity)} | ${row.person || "Tr\u1ed1ng"} | D\u00f2ng ${row.row}`;
 
   item.appendChild(head);
   item.appendChild(detail);
@@ -518,7 +518,7 @@ function renderPreviousMonthOpenTasks(person) {
     statusCell.appendChild(createStatusBadge(statusKey(row.status)));
     tr.appendChild(statusCell);
     tr.appendChild(createCell(row.detail || "(Kh\u00f4ng c\u00f3 n\u1ed9i dung)", "task-detail-cell"));
-    tr.appendChild(createCell(row.person));
+    tr.appendChild(createCell(row.person || "Tr\u1ed1ng"));
     tr.appendChild(createCell(row.channel === "(trong)" ? "Tr\u1ed1ng" : row.channel));
     tr.appendChild(createCell(row.category === "(trong)" ? "Tr\u1ed1ng" : row.category));
     tr.appendChild(createCell(formatNumber(row.quantity), "num"));
@@ -534,7 +534,7 @@ function renderMissingTable(person, month) {
   for (const row of rows.slice(0, 200)) {
     const tr = document.createElement("tr");
     tr.appendChild(createCell(String(row.row), "num"));
-    tr.appendChild(createCell(row.person));
+    tr.appendChild(createCell(row.person || "Tr\u1ed1ng"));
     tr.appendChild(createCell(row.status));
     tr.appendChild(createCell(row.channel));
     tr.appendChild(createCell(row.category));
@@ -575,7 +575,7 @@ function render() {
 }
 
 function setFilters() {
-  personFilterEl.innerHTML = `<option value="ALL">Tất cả</option>${personList.map((p) => `<option value="${p}">${p}</option>`).join("")}`;
+  personFilterEl.innerHTML = `<option value="ALL">T\u1ea5t c\u1ea3</option>${personList.map((p) => `<option value="${p}">${p || "Tr\u1ed1ng"}</option>`).join("")}`;
   monthFilterEl.innerHTML = `<option value="ALL">Tất cả</option>${monthList.map((m) => `<option value="${m}">${monthLabel(m)}</option>`).join("")}`;
 }
 
