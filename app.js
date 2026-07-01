@@ -143,27 +143,19 @@ function renderKpis(data) {
 
 function personSummaryRows(person, month) {
   const rows = [];
-  const allRows = snapshotRows();
-  for (const [name, data] of Object.entries(snapshot.byPerson || {})) {
-    const monthQty = month === "ALL" ? data.quantity : Number((data.byMonthQty || {})[month] || 0);
-    const monthTasks = month === "ALL"
-      ? data.tasks
-      : allRows.filter((r) => r.person === name && r.month === month).length;
+  for (const name of Object.keys(snapshot.byPerson || {})) {
     if (person !== "ALL" && name !== person) continue;
+    const effectiveRows = aggregateRows(name, month);
+    const monthTasks = effectiveRows.length;
+    const monthQty = effectiveRows.reduce((sum, r) => sum + r.quantity, 0);
     rows.push({
       name,
       tasks: monthTasks,
       quantity: monthQty,
       avg: monthTasks ? Number((monthQty / monthTasks).toFixed(2)) : 0,
-      completed: month === "ALL"
-        ? data.completedTasks
-        : allRows.filter((r) => r.person === name && r.month === month && r.status === "Hoàn thành").length,
-      inProgress: month === "ALL"
-        ? data.inProgressTasks
-        : allRows.filter((r) => r.person === name && r.month === month && r.status === "Đang thực hiện").length,
-      canceled: month === "ALL"
-        ? data.canceledTasks
-        : allRows.filter((r) => r.person === name && r.month === month && r.status === "Cancel").length
+      completed: effectiveRows.filter((r) => r.status === "Hoàn thành").length,
+      inProgress: effectiveRows.filter((r) => r.status === "Đang thực hiện").length,
+      canceled: effectiveRows.filter((r) => r.status === "Cancel").length
     });
   }
   return rows.sort((a, b) => b.quantity - a.quantity);

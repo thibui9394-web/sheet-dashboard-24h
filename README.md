@@ -59,3 +59,9 @@ Moi lan chay, script uu tien che do incremental:
 
 - Da loai tru dong `128` cua `KHANG` trong tinh KPI (outlier da thong nhat).
 - Muon bo loai tru nay: sua `EXCLUDED_ROWS_BY_PERSON` trong script update.
+
+## Logic tinh KPI (thang/tuan hien tai luon "gom no dong")
+
+- Task da "Hoan thanh" duoc tinh vao thang/tuan **ngay hoan thanh thuc te** (`NGAY HOAN THANH`), khong phai thang order.
+- Task con "Dang thuc hien" ma chua xong se duoc coi la con no: no van hien o thang order goc cho toi thang hien tai, va trong thang hien tai no luon "nhay" theo tuan hien tai (tuan 1 -> 2 -> 3 -> 4) cho toi khi hoan thanh.
+- Toan bo dashboard (the KPI tong, bang "Theo nhan su", bang kenh/hang muc, tien do theo tuan) deu dung chung 1 cong thuc nay (`aggregateRows` trong `app.js`) de dam bao so lieu khop nhau o moi cho.
