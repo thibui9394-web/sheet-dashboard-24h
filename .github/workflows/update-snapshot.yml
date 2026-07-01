@@ -2,6 +2,11 @@ name: Update Dashboard Snapshot
 
 on:
   workflow_dispatch:
+    inputs:
+      force_full:
+        description: "Qu\u00e9t l\u1ea1i to\u00e0n b\u1ed9 l\u1ecbch s\u1eed (bao g\u1ed3m c\u1ea3 c\u00e1c th\u00e1ng c\u0169 nh\u01b0 th\u00e1ng 6)"
+        type: boolean
+        default: true
 
 permissions:
   contents: write
@@ -25,6 +30,7 @@ jobs:
           SHEET_ID: 1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM
           SHEET_GID: 131891982
           SHEET_NAME: 2026_Design_Team
+          FORCE_FULL_SNAPSHOT: ${{ inputs.force_full }}
 
       - name: Commit Snapshot
         run: |
