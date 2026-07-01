@@ -194,36 +194,141 @@ function aggregateRows(person, month) {
 }
 
 function renderChannelCategoryTable(channelGroups) {
+  const thead = document.querySelector("#channelCategoryTable thead");
   const tbody = document.querySelector("#channelCategoryTable tbody");
+  
+  thead.innerHTML = "";
   tbody.innerHTML = "";
-  for (const group of channelGroups) {
-    const totalRow = document.createElement("tr");
-    totalRow.className = "group-row";
-    const channelLabel = group.channel === "(trong)" ? `Tr\u1ed1ng (${formatRowList(group.rows)})` : group.channel;
-    totalRow.appendChild(createCell(channelLabel));
-    totalRow.appendChild(createCell("T\u1ed5ng k\u00eanh"));
-    totalRow.appendChild(createCell(formatNumber(group.quantity), "num"));
-    totalRow.appendChild(createCell(formatNumber(group.tasks), "num"));
-    tbody.appendChild(totalRow);
 
-    for (const info of group.categories) {
-      const tr = document.createElement("tr");
-      tr.className = "child-row";
-      tr.appendChild(createCell(""));
-      const categoryLabel = info.category === "(trong)" ? `Tr\u1ed1ng (${formatRowList(info.rows)})` : info.category;
-      tr.appendChild(createCell(categoryLabel));
-      tr.appendChild(createCell(formatNumber(info.quantity), "num"));
-      tr.appendChild(createCell(formatNumber(info.tasks), "num"));
-      tbody.appendChild(tr);
-    }
-  }
   if (channelGroups.length === 0) {
     const tr = document.createElement("tr");
-    const td = createCell("Kh\u00f4ng c\u00f3 d\u1eef li\u1ec7u k\u00eanh + h\u1ea1ng m\u1ee5c");
-    td.colSpan = 4;
+    const td = document.createElement("td");
+    td.textContent = "Kh\u00f4ng c\u00f3 d\u1eef li\u1ec7u k\u00eanh + h\u1ea1ng m\u1ee5c";
     tr.appendChild(td);
     tbody.appendChild(tr);
+    return;
   }
+
+  // Helper to create HTML cells
+  const createHtmlCell = (html, className = "") => {
+    const td = document.createElement("td");
+    if (className) td.className = className;
+    td.innerHTML = html;
+    return td;
+  };
+
+  const createThCell = (text, className = "") => {
+    const th = document.createElement("th");
+    if (className) th.className = className;
+    th.textContent = text;
+    return th;
+  };
+
+  // 1. Build Header Row
+  const headerTr = document.createElement("tr");
+  headerTr.appendChild(createThCell("H\u1ea1ng m\u1ee5c"));
+  for (const group of channelGroups) {
+    const channelName = group.channel === "(trong)" ? `Tr\u1ed1ng (${formatRowList(group.rows)})` : group.channel;
+    headerTr.appendChild(createThCell(channelName, "num"));
+  }
+  headerTr.appendChild(createThCell("T\u1ed5ng c\u1ed9ng", "num"));
+  thead.appendChild(headerTr);
+
+  // 2. Define category rows
+  const rowCategories = [
+    { key: "HINH_ANH", label: "H\u00ecnh \u1ea3nh" },
+    { key: "VIDEO", label: "Video" },
+    { key: "KEY_VISUAL", label: "Key Visual" },
+    { key: "LANDINGPAGE", label: "Landing Page" },
+    { key: "KHAC", label: "Kh\u00e1c / Tr\u1ed1ng" }
+  ];
+
+  const cellData = {};
+  for (const cat of rowCategories) {
+    cellData[cat.key] = {};
+    for (const group of channelGroups) {
+      cellData[cat.key][group.channel] = { quantity: 0, tasks: 0, emptyRows: [] };
+    }
+  }
+
+  const getCatKey = (catName) => {
+    const c = (catName || "").trim().toUpperCase();
+    if (c === "H\u00ccNH \u1ea2NH" || c === "H\u00ccNH \u1ea2NH AI") return "HINH_ANH";
+    if (c === "VIDEO" || c === "VIDEO AI") return "VIDEO";
+    if (c === "KEY VISUAL") return "KEY_VISUAL";
+    if (c === "LANDINGPAGE") return "LANDINGPAGE";
+    return "KHAC";
+  };
+
+  for (const group of channelGroups) {
+    for (const [catName, catObj] of group.categories.entries()) {
+      const catKey = getCatKey(catName);
+      const dataObj = cellData[catKey][group.channel];
+      dataObj.quantity += catObj.quantity;
+      dataObj.tasks += catObj.tasks;
+      if (catName === "(trong)" || catKey === "KHAC") {
+        dataObj.emptyRows.push(...catObj.rows);
+      }
+    }
+  }
+
+  // Render row for each category
+  for (const cat of rowCategories) {
+    const tr = document.createElement("tr");
+    tr.className = "child-row";
+    
+    // Header cell for category name
+    const th = document.createElement("td");
+    th.style.fontWeight = "700";
+    th.textContent = cat.label;
+    tr.appendChild(th);
+
+    let rowQtyTotal = 0;
+    let rowTasksTotal = 0;
+
+    for (const group of channelGroups) {
+      const data = cellData[cat.key][group.channel];
+      rowQtyTotal += data.quantity;
+      rowTasksTotal += data.tasks;
+
+      let html = "\u2014";
+      let className = "num";
+      if (data.quantity > 0 || data.tasks > 0) {
+        html = `<strong>${formatNumber(data.quantity)}</strong><br><small style="color: var(--muted);">${formatNumber(data.tasks)} task</small>`;
+        if (cat.key === "KHAC" && data.emptyRows && data.emptyRows.length > 0) {
+          html += `<br><small style="color: #ef4444; font-weight: 600;">(${formatRowList(data.emptyRows)})</small>`;
+        }
+      } else {
+        className += " cell-empty";
+      }
+      tr.appendChild(createHtmlCell(html, className));
+    }
+
+    // Total cell for the category row
+    tr.appendChild(createHtmlCell(`<strong>${formatNumber(rowQtyTotal)}</strong><br><small style="color: var(--muted);">${formatNumber(rowTasksTotal)} task</small>`, "num"));
+    tbody.appendChild(tr);
+  }
+
+  // 3. Render Total Row
+  const totalTr = document.createElement("tr");
+  totalTr.className = "group-row";
+  
+  const thTotal = document.createElement("td");
+  thTotal.style.fontWeight = "700";
+  thTotal.textContent = "T\u1ed5ng c\u1ed9ng";
+  totalTr.appendChild(thTotal);
+
+  let grandQtyTotal = 0;
+  let grandTasksTotal = 0;
+
+  for (const group of channelGroups) {
+    grandQtyTotal += group.quantity;
+    grandTasksTotal += group.tasks;
+    totalTr.appendChild(createHtmlCell(`<strong>${formatNumber(group.quantity)}</strong><br><small style="color: var(--muted);">${formatNumber(group.tasks)} task</small>`, "num"));
+  }
+
+  totalTr.appendChild(createHtmlCell(`<strong>${formatNumber(grandQtyTotal)}</strong><br><small style="color: var(--muted);">${formatNumber(grandTasksTotal)} task</small>`, "num"));
+  tbody.appendChild(totalTr);
 }
 
 function renderMonthTable(rows) {

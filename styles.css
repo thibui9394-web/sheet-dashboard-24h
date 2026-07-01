@@ -422,3 +422,7 @@ tbody tr:hover {
   font-size: 20px;
   color: var(--ink);
 }
+
+.cell-empty {
+  color: #cbd5e1 !important;
+}
