@@ -195,6 +195,7 @@ function aggregateRows(person, month) {
 
 function renderChannelCategoryTable(channelGroups) {
   const container = document.querySelector("#channelCategoryGrid");
+  if (!container) return;
   container.innerHTML = "";
 
   if (channelGroups.length === 0) {
