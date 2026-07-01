@@ -111,6 +111,58 @@ function createCell(value, className = "") {
   return td;
 }
 
+function renderBarChart(containerId, items, unit = "") {
+  const container = document.querySelector(containerId);
+  if (!container) return;
+  container.innerHTML = "";
+
+  if (items.length === 0) return;
+  const max = Math.max(1, ...items.map((item) => item.value));
+
+  if (unit) {
+    const unitLabel = document.createElement("div");
+    unitLabel.className = "bar-chart-unit";
+    unitLabel.textContent = `Đơn vị: ${unit}`;
+    container.appendChild(unitLabel);
+  }
+
+  for (const item of items) {
+    const row = document.createElement("div");
+    row.className = "bar-row";
+
+    const labelCol = document.createElement("div");
+    labelCol.className = "bar-label-col";
+    const label = document.createElement("span");
+    label.className = "bar-label";
+    label.textContent = item.label;
+    label.title = item.label;
+    labelCol.appendChild(label);
+    const hintLines = Array.isArray(item.hint) ? item.hint : (item.hint ? [item.hint] : []);
+    for (const line of hintLines) {
+      const hint = document.createElement("span");
+      hint.className = "bar-hint";
+      hint.textContent = line;
+      labelCol.appendChild(hint);
+    }
+
+    const track = document.createElement("div");
+    track.className = "bar-track";
+    const fill = document.createElement("div");
+    fill.className = "bar-fill";
+    fill.style.width = `${Math.max(2, Math.round((item.value / max) * 100))}%`;
+    track.appendChild(fill);
+
+    const value = document.createElement("span");
+    value.className = "bar-value";
+    value.textContent = formatNumber(item.value);
+
+    row.appendChild(labelCol);
+    row.appendChild(track);
+    row.appendChild(value);
+    container.appendChild(row);
+  }
+}
+
 function renderKpis(data) {
   const container = document.querySelector("#kpiGrid");
   container.innerHTML = "";
@@ -119,8 +171,8 @@ function renderKpis(data) {
     { title: "Tổng task", value: formatNumber(data.tasks) },
     { title: "Tổng số lượng", value: formatNumber(data.quantity), highlight: true },
     { title: "TB số lượng/task", value: formatNumber(data.avgQuantityPerTask) },
-    { title: "Hoàn thành", value: formatNumber(data.completedTasks), hint: `${formatNumber(data.completedQuantity)} SL` },
-    { title: "Đang làm", value: formatNumber(data.inProgressTasks), hint: `${formatNumber(data.inProgressQuantity)} SL`, pulse: true },
+    { title: "Hoàn thành", value: formatNumber(data.completedTasks), hint: `${formatNumber(data.completedQuantity)} Số lượng` },
+    { title: "Đang làm", value: formatNumber(data.inProgressTasks), hint: `${formatNumber(data.inProgressQuantity)} Số lượng`, pulse: true },
     { title: "Pending / trống", value: formatNumber(data.pendingTasks) },
     { title: "Cancel", value: formatNumber(data.canceledTasks) },
     { title: "Task thiếu số lượng", value: formatNumber(data.missingQuantityTasks), hint: "Không tính task Cancel" }
@@ -156,19 +208,23 @@ function personSummaryRows(person, month) {
 }
 
 function renderPersonTable(person, month) {
-  const tbody = document.querySelector("#personTable tbody");
-  tbody.innerHTML = "";
-  for (const row of personSummaryRows(person, month)) {
-    const tr = document.createElement("tr");
-    tr.appendChild(createCell(row.name || "Tr\u1ed1ng"));
-    tr.appendChild(createCell(formatNumber(row.tasks), "num"));
-    tr.appendChild(createCell(formatNumber(row.quantity), "num"));
-    tr.appendChild(createCell(formatNumber(row.avg), "num"));
-    tr.appendChild(createCell(formatNumber(row.completed), "num"));
-    tr.appendChild(createCell(formatNumber(row.inProgress), "num"));
-    tr.appendChild(createCell(formatNumber(row.canceled), "num"));
-    tbody.appendChild(tr);
-  }
+  const rows = personSummaryRows(person, month);
+  renderBarChart(
+    "#personChart",
+    rows
+      .filter((row) => row.name)
+      .map((row) => ({
+        label: row.name,
+        value: row.quantity,
+        hint: [
+          `${formatNumber(row.tasks)} task`,
+          `${formatNumber(row.completed)} Ho\u00e0n th\u00e0nh`,
+          `${formatNumber(row.inProgress)} \u0110ang l\u00e0m`,
+          `${formatNumber(row.canceled)} Cancel`
+        ]
+      })),
+    "Số lượng"
+  );
 }
 
 function getCompletionMonth(r) {
@@ -342,21 +398,13 @@ function renderChannelCategoryTable(channelGroups) {
 }
 
 function renderMonthTable(rows, month) {
-  const tbody = document.querySelector("#monthTable tbody");
-  tbody.innerHTML = "";
-
   if (month === "ALL") {
     const monthMap = new Map();
     for (const row of rows) {
       monthMap.set(row.month, (monthMap.get(row.month) || 0) + row.quantity);
     }
     const sorted = [...monthMap.entries()].sort((a, b) => a[0].localeCompare(b[0]));
-    for (const [m, qty] of sorted) {
-      const tr = document.createElement("tr");
-      tr.appendChild(createCell(monthLabel(m)));
-      tr.appendChild(createCell(formatNumber(qty), "num"));
-      tbody.appendChild(tr);
-    }
+    renderBarChart("#monthChart", sorted.map(([m, qty]) => ({ label: monthLabel(m), value: qty })), "Số lượng");
     return;
   }
 
@@ -367,15 +415,14 @@ function renderMonthTable(rows, month) {
   const newQty = newRows.reduce((sum, row) => sum + row.quantity, 0);
   const debtQty = debtRows.reduce((sum, row) => sum + row.quantity, 0);
 
-  const trNew = document.createElement("tr");
-  trNew.appendChild(createCell(`Mới trong ${monthLabel(month)}`));
-  trNew.appendChild(createCell(formatNumber(newQty), "num"));
-  tbody.appendChild(trNew);
-
-  const trDebt = document.createElement("tr");
-  trDebt.appendChild(createCell(`Nợ từ tháng trước (${debtRows.length} task)`));
-  trDebt.appendChild(createCell(formatNumber(debtQty), "num"));
-  tbody.appendChild(trDebt);
+  renderBarChart(
+    "#monthChart",
+    [
+      { label: `Mới ${monthLabel(month)}`, value: newQty },
+      { label: "Nợ tháng trước", value: debtQty, hint: `${debtRows.length} task` }
+    ],
+    "Số lượng"
+  );
 }
 
 function renderTables(person, month) {
@@ -529,7 +576,7 @@ function createTaskItem(row) {
 
   const meta = document.createElement("p");
   meta.className = "week-task-meta";
-  meta.textContent = `SL: ${formatNumber(row.quantity)} | ${row.person || "Tr\u1ed1ng"} | D\u00f2ng ${row.row}`;
+  meta.textContent = `S\u1ed1 l\u01b0\u1ee3ng: ${formatNumber(row.quantity)} | ${row.person || "Tr\u1ed1ng"} | D\u00f2ng ${row.row}`;
 
   item.appendChild(head);
   item.appendChild(detail);
@@ -569,9 +616,9 @@ function renderWeeklyProgress(person, month) {
     const metrics = document.createElement("div");
     metrics.className = "week-metrics";
     metrics.appendChild(createMetric("task", summary.tasks));
-    metrics.appendChild(createMetric("SL", summary.quantity));
-    metrics.appendChild(createMetric("HT", summary.completed));
-    metrics.appendChild(createMetric("\u0110ang", summary.inProgress));
+    metrics.appendChild(createMetric("Số lượng", summary.quantity));
+    metrics.appendChild(createMetric("Ho\u00e0n th\u00e0nh", summary.completed));
+    metrics.appendChild(createMetric("\u0110ang l\u00e0m", summary.inProgress));
     metrics.appendChild(createMetric("Pending", summary.pending));
     metrics.appendChild(createMetric("Cancel", summary.cancel));
 
@@ -649,8 +696,8 @@ function renderPreviousMonthOpenTasks(person) {
   previousOpenScopeEl.textContent = `\u0110ang xem ${monthLabel(targetMonth)}${person === "ALL" ? " | T\u1ea5t c\u1ea3 nh\u00e2n s\u1ef1" : ` | ${person}`}`;
   previousOpenSummaryEl.innerHTML = "";
   previousOpenSummaryEl.appendChild(createMetric("task ch\u01b0a xong", summary.tasks));
-  previousOpenSummaryEl.appendChild(createMetric("SL", summary.quantity));
-  previousOpenSummaryEl.appendChild(createMetric("\u0110ang", summary.inProgress));
+  previousOpenSummaryEl.appendChild(createMetric("Số lượng", summary.quantity));
+  previousOpenSummaryEl.appendChild(createMetric("\u0110ang l\u00e0m", summary.inProgress));
   previousOpenSummaryEl.appendChild(createMetric("Pending", summary.pending));
   previousOpenSummaryEl.appendChild(createMetric("Cancel", summary.cancel));
 

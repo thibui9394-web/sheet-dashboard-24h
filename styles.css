@@ -1,9 +1,10 @@
 :root {
-  --bg: #f5f7fb;
+  --bg: #f4f5f7;
   --card: #ffffff;
   --ink: #1f2937;
   --muted: #6b7280;
   --line: #e5e7eb;
+  --line-soft: #f1f3f5;
   --accent: #0f766e;
   --accent-soft: #ccfbf1;
 }
@@ -16,7 +17,7 @@ body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, sans-serif;
   color: var(--ink);
-  background: linear-gradient(170deg, #eef2ff 0%, #f5f7fb 45%, #ecfeff 100%);
+  background: var(--bg);
 }
 
 .app {
@@ -106,7 +107,8 @@ button {
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 10px;
-  padding: 14px;
+  padding: 16px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
 }
 
 .weekly-section {
@@ -127,7 +129,7 @@ button {
 .open-summary span {
   border: 1px solid var(--line);
   border-radius: 6px;
-  background: #fbfdff;
+  background: var(--line-soft);
   padding: 8px 10px;
   color: var(--muted);
   font-size: 12px;
@@ -162,7 +164,7 @@ button {
   min-width: 0;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: #fbfdff;
+  background: var(--line-soft);
   padding: 12px;
 }
 
@@ -232,8 +234,9 @@ button {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  overflow-wrap: anywhere;
   margin: 0;
-  line-height: 1.35;
+  line-height: 1.5;
   font-size: 13px;
 }
 
@@ -381,7 +384,7 @@ button {
 }
 
 .kpi.highlight {
-  background: linear-gradient(145deg, #f0fdfa, var(--accent-soft));
+  background: var(--accent-soft);
   border-color: #99f6e4;
 }
 
@@ -401,6 +404,7 @@ td {
   text-align: left;
   font-size: 14px;
   vertical-align: top;
+  overflow-wrap: anywhere;
 }
 
 th {
@@ -408,6 +412,7 @@ th {
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
 tbody tr:hover {
@@ -431,7 +436,8 @@ tbody tr:hover {
 .task-detail-cell {
   max-width: 520px;
   white-space: normal;
-  line-height: 1.35;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
 }
 
 .num {
@@ -485,4 +491,76 @@ tbody tr:hover {
 
 .cell-empty {
   color: #cbd5e1 !important;
+}
+
+.bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.bar-chart-unit {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: right;
+  margin-bottom: 2px;
+}
+
+.bar-row {
+  display: grid;
+  grid-template-columns: 170px 1fr 64px;
+  align-items: start;
+  gap: 10px;
+}
+
+.bar-row .bar-track {
+  margin-top: 4px;
+}
+
+.bar-row .bar-value {
+  margin-top: 2px;
+}
+
+.bar-label-col {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.bar-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bar-hint {
+  font-size: 11px;
+  color: var(--muted);
+  white-space: normal;
+  line-height: 1.4;
+}
+
+.bar-track {
+  background: var(--line-soft);
+  border-radius: 6px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  background: var(--accent);
+  height: 100%;
+  border-radius: 6px;
+}
+
+.bar-value {
+  font-size: 12px;
+  color: var(--ink);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
 }
