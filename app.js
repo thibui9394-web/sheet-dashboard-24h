@@ -363,9 +363,7 @@ function aggregateRows(person, month) {
     .map((r) => getEffectiveRecord(r, month));
 }
 
-function renderChannelCategoryTable(channelGroups) {
-  const tbody = document.querySelector("#channelCategoryTable tbody");
-  if (!tbody) return;
+function renderChannelCategoryGroup(tbody, channelGroups) {
   tbody.innerHTML = "";
   for (const group of channelGroups) {
     const totalRow = document.createElement("tr");
@@ -390,11 +388,37 @@ function renderChannelCategoryTable(channelGroups) {
   }
   if (channelGroups.length === 0) {
     const tr = document.createElement("tr");
-    const td = createCell("Kh\u00f4ng c\u00f3 d\u1eef li\u1ec7u k\u00eanh + h\u1ea1ng m\u1ee5c");
+    const td = createCell("Kh\u00f4ng c\u00f3 d\u1eef li\u1ec7u");
     td.colSpan = 4;
     tr.appendChild(td);
     tbody.appendChild(tr);
   }
+}
+
+function renderChannelCategoryTable(channelGroups) {
+  const tbodyA = document.querySelector("#channelCategoryTableA tbody");
+  const tbodyB = document.querySelector("#channelCategoryTableB tbody");
+  if (!tbodyA || !tbodyB) return;
+
+  // Chia 2 cot theo kieu greedy: kenh nao dang duyet se vao cot dang it dong hon,
+  // giup 2 cot can bang chieu cao thay vi chia deu theo so luong kenh.
+  const colA = [];
+  const colB = [];
+  let rowsA = 0;
+  let rowsB = 0;
+  for (const group of channelGroups) {
+    const rowCount = 1 + group.categories.length;
+    if (rowsA <= rowsB) {
+      colA.push(group);
+      rowsA += rowCount;
+    } else {
+      colB.push(group);
+      rowsB += rowCount;
+    }
+  }
+
+  renderChannelCategoryGroup(tbodyA, colA);
+  renderChannelCategoryGroup(tbodyB, colB);
 }
 
 function renderMonthTable(rows, month) {

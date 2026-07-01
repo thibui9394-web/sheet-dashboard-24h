@@ -453,6 +453,18 @@ tbody tr:hover {
   background: #f1f5f9;
 }
 
+.channel-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 900px) {
+  .channel-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 740px) {
   .app {
     padding: 14px;
