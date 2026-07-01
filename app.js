@@ -188,7 +188,8 @@ function renderChannelCategoryTable(channelGroups) {
   for (const group of channelGroups) {
     const totalRow = document.createElement("tr");
     totalRow.className = "group-row";
-    totalRow.appendChild(createCell(group.channel === "(trong)" ? "Tr\u1ed1ng" : group.channel));
+    const channelLabel = group.channel === "(trong)" ? `Tr\u1ed1ng (D\u00f2ng ${[...new Set(group.rows)].join(", ")})` : group.channel;
+    totalRow.appendChild(createCell(channelLabel));
     totalRow.appendChild(createCell("T\u1ed5ng k\u00eanh"));
     totalRow.appendChild(createCell(formatNumber(group.quantity), "num"));
     totalRow.appendChild(createCell(formatNumber(group.tasks), "num"));
@@ -198,7 +199,8 @@ function renderChannelCategoryTable(channelGroups) {
       const tr = document.createElement("tr");
       tr.className = "child-row";
       tr.appendChild(createCell(""));
-      tr.appendChild(createCell(info.category === "(trong)" ? "Tr\u1ed1ng" : info.category));
+      const categoryLabel = info.category === "(trong)" ? `Tr\u1ed1ng (D\u00f2ng ${[...new Set(info.rows)].join(", ")})` : info.category;
+      tr.appendChild(createCell(categoryLabel));
       tr.appendChild(createCell(formatNumber(info.quantity), "num"));
       tr.appendChild(createCell(formatNumber(info.tasks), "num"));
       tbody.appendChild(tr);
@@ -246,13 +248,15 @@ function renderTables(person, month) {
         channel: row.channel,
         quantity: 0,
         tasks: 0,
-        categories: new Map()
+        categories: new Map(),
+        rows: []
       });
     }
 
     const group = channelGroups.get(row.channel);
     group.quantity += row.quantity;
     group.tasks += 1;
+    group.rows.push(row.row);
 
     const qtyHinh = row.qtyHinh !== undefined ? row.qtyHinh : (isVideoCategory(row.category) ? 0 : row.quantity);
     const qtyVideo = row.qtyVideo !== undefined ? row.qtyVideo : (isVideoCategory(row.category) ? row.quantity : 0);
@@ -260,33 +264,36 @@ function renderTables(person, month) {
     if (qtyHinh > 0) {
       const imageCat = isVideoCategory(row.category) ? "HÌNH ẢNH" : row.category;
       if (!group.categories.has(imageCat)) {
-        group.categories.set(imageCat, { category: imageCat, quantity: 0, tasks: 0 });
+        group.categories.set(imageCat, { category: imageCat, quantity: 0, tasks: 0, rows: [] });
       }
       const categoryObj = group.categories.get(imageCat);
       categoryObj.quantity += qtyHinh;
       if (imageCat === row.category) {
         categoryObj.tasks += 1;
+        categoryObj.rows.push(row.row);
       }
     }
 
     if (qtyVideo > 0) {
       const videoCat = row.category === "VIDEO AI" ? "VIDEO AI" : "VIDEO";
       if (!group.categories.has(videoCat)) {
-        group.categories.set(videoCat, { category: videoCat, quantity: 0, tasks: 0 });
+        group.categories.set(videoCat, { category: videoCat, quantity: 0, tasks: 0, rows: [] });
       }
       const categoryObj = group.categories.get(videoCat);
       categoryObj.quantity += qtyVideo;
       if (videoCat === row.category) {
         categoryObj.tasks += 1;
+        categoryObj.rows.push(row.row);
       }
     }
 
     if (qtyHinh === 0 && qtyVideo === 0) {
       if (!group.categories.has(row.category)) {
-        group.categories.set(row.category, { category: row.category, quantity: 0, tasks: 0 });
+        group.categories.set(row.category, { category: row.category, quantity: 0, tasks: 0, rows: [] });
       }
       const categoryObj = group.categories.get(row.category);
       categoryObj.tasks += 1;
+      categoryObj.rows.push(row.row);
     }
   }
 
