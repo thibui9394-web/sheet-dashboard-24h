@@ -9,12 +9,13 @@ const previousOpenSummaryEl = document.querySelector("#previousOpenSummary");
 const previousOpenTableBodyEl = document.querySelector("#previousOpenTable tbody");
 const reloadBtn = document.querySelector("#reloadBtn");
 const TIME_ZONE = "Asia/Ho_Chi_Minh";
-const WEEK_TASK_LIMIT = 8;
+const WEEK_TASK_INITIAL_LIMIT = 2;
+const WEEK_TASK_EXPAND_STEP = 3;
 
 let snapshot = null;
 let personList = [];
 let monthList = [];
-let expandedWeeks = new Set();
+let weeklyTaskLimits = new Map();
 
 function formatNumber(value) {
   return new Intl.NumberFormat("vi-VN").format(Number(value || 0));
@@ -410,8 +411,8 @@ function renderWeeklyProgress(person, month) {
     const list = document.createElement("div");
     list.className = "week-task-list";
     const expandKey = `${person}|${targetMonth}|${week}`;
-    const expanded = expandedWeeks.has(expandKey);
-    const visibleRows = expanded ? weekRows : weekRows.slice(0, WEEK_TASK_LIMIT);
+    const currentLimit = weeklyTaskLimits.get(expandKey) || WEEK_TASK_INITIAL_LIMIT;
+    const visibleRows = weekRows.slice(0, currentLimit);
 
     if (visibleRows.length === 0) {
       const empty = document.createElement("p");
@@ -428,22 +429,35 @@ function renderWeeklyProgress(person, month) {
     card.appendChild(metrics);
     card.appendChild(list);
 
-    if (weekRows.length > WEEK_TASK_LIMIT) {
-      const toggle = document.createElement("button");
-      toggle.type = "button";
-      toggle.className = "week-toggle";
-      toggle.textContent = expanded
-        ? "Thu g\u1ecdn"
-        : `Xem th\u00eam ${formatNumber(weekRows.length - WEEK_TASK_LIMIT)} task`;
-      toggle.addEventListener("click", () => {
-        if (expandedWeeks.has(expandKey)) {
-          expandedWeeks.delete(expandKey);
-        } else {
-          expandedWeeks.add(expandKey);
-        }
-        renderWeeklyProgress(person, month);
-      });
-      card.appendChild(toggle);
+    if (weekRows.length > WEEK_TASK_INITIAL_LIMIT) {
+      const btnGroup = document.createElement("div");
+      btnGroup.className = "week-btn-group";
+
+      if (currentLimit < weekRows.length) {
+        const remaining = weekRows.length - currentLimit;
+        const expandStep = Math.min(WEEK_TASK_EXPAND_STEP, remaining);
+        const expandBtn = document.createElement("button");
+        expandBtn.type = "button";
+        expandBtn.textContent = `Xem th\u00eam ${expandStep} task (c\u00f2n ${remaining})`;
+        expandBtn.addEventListener("click", () => {
+          weeklyTaskLimits.set(expandKey, currentLimit + WEEK_TASK_EXPAND_STEP);
+          renderWeeklyProgress(person, month);
+        });
+        btnGroup.appendChild(expandBtn);
+      }
+
+      if (currentLimit > WEEK_TASK_INITIAL_LIMIT) {
+        const collapseBtn = document.createElement("button");
+        collapseBtn.type = "button";
+        collapseBtn.textContent = "Thu g\u1ecdn";
+        collapseBtn.addEventListener("click", () => {
+          weeklyTaskLimits.set(expandKey, WEEK_TASK_INITIAL_LIMIT);
+          renderWeeklyProgress(person, month);
+        });
+        btnGroup.appendChild(collapseBtn);
+      }
+
+      card.appendChild(btnGroup);
     }
 
     weeklyProgressEl.appendChild(card);

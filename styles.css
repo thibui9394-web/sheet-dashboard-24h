@@ -275,13 +275,27 @@ button {
   background: #fee2e2;
 }
 
-.week-toggle {
-  width: 100%;
+.week-btn-group {
+  display: flex;
+  gap: 6px;
   margin-top: 10px;
+}
+
+.week-btn-group button {
+  flex: 1;
+  cursor: pointer;
   background: white;
   color: var(--accent);
-  border-color: #99f6e4;
+  border: 1px solid #99f6e4;
+  border-radius: 6px;
+  padding: 6px 8px;
   font-weight: 700;
+  font-size: 11px;
+  transition: all 0.2s ease;
+}
+
+.week-btn-group button:hover {
+  background: var(--accent-soft);
 }
 
 .kpi {
