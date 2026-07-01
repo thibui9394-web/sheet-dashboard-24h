@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-07-01T09:35:08.354Z",
+    "generatedAt": "2026-07-01T09:38:29.416Z",
     "timezone": "Asia/Ho_Chi_Minh",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -8,7 +8,7 @@
       "gid": "131891982"
     },
     "incremental": {
-      "mode": "active-month",
+      "mode": "full-forced",
       "activeMonth": "2026-07",
       "activeRangeStartRow": 707,
       "sheetMaxColumn": "Z"
@@ -24,10 +24,10 @@
     "tasks": 689,
     "quantity": 28712,
     "avgQuantityPerTask": 41.67,
-    "completedTasks": 655,
-    "completedQuantity": 28561,
-    "inProgressTasks": 12,
-    "inProgressQuantity": 132,
+    "completedTasks": 657,
+    "completedQuantity": 28591,
+    "inProgressTasks": 10,
+    "inProgressQuantity": 102,
     "canceledTasks": 14,
     "missingQuantityTasks": 31,
     "missingQuantityRows": [
@@ -64,9 +64,9 @@
       708
     ],
     "byStatusTasks": {
-      "Hoàn thành": 655,
+      "Hoàn thành": 657,
       "Cancel": 14,
-      "Đang thực hiện": 12,
+      "Đang thực hiện": 10,
       "Pending": 4,
       "(trong)": 4
     },
@@ -215,10 +215,10 @@
       "tasks": 295,
       "quantity": 2939,
       "avgQuantityPerTask": 9.96,
-      "completedTasks": 290,
-      "completedQuantity": 2848,
-      "inProgressTasks": 4,
-      "inProgressQuantity": 90,
+      "completedTasks": 291,
+      "completedQuantity": 2878,
+      "inProgressTasks": 3,
+      "inProgressQuantity": 60,
       "canceledTasks": 1,
       "missingQuantityTasks": 4,
       "missingQuantityRows": [
@@ -228,8 +228,8 @@
         708
       ],
       "byStatusTasks": {
-        "Hoàn thành": 290,
-        "Đang thực hiện": 4,
+        "Hoàn thành": 291,
+        "Đang thực hiện": 3,
         "Cancel": 1
       },
       "byCategoryQty": {
@@ -303,9 +303,9 @@
       "tasks": 239,
       "quantity": 2105,
       "avgQuantityPerTask": 8.81,
-      "completedTasks": 234,
+      "completedTasks": 235,
       "completedQuantity": 2104,
-      "inProgressTasks": 4,
+      "inProgressTasks": 3,
       "inProgressQuantity": 1,
       "canceledTasks": 1,
       "missingQuantityTasks": 8,
@@ -320,8 +320,8 @@
         703
       ],
       "byStatusTasks": {
-        "Hoàn thành": 234,
-        "Đang thực hiện": 4,
+        "Hoàn thành": 235,
+        "Đang thực hiện": 3,
         "Cancel": 1
       },
       "byCategoryQty": {
@@ -9974,7 +9974,7 @@
       "person": "ẨN",
       "channel": "SHOPPE ARISTINO",
       "category": "VIDEO",
-      "status": "Đang thực hiện",
+      "status": "Hoàn thành",
       "quantity": 30,
       "qtyHinh": 0,
       "qtyVideo": 30,
@@ -10044,7 +10044,7 @@
       "person": "KHANG",
       "channel": "SHOPPE",
       "category": "KEY VISUAL",
-      "status": "Đang thực hiện",
+      "status": "Hoàn thành",
       "quantity": 0,
       "qtyHinh": 0,
       "qtyVideo": 0,
@@ -10200,7 +10200,7 @@
       "person": "KHANG",
       "channel": "SHOPPE",
       "category": "KEY VISUAL",
-      "status": "Đang thực hiện",
+      "status": "Hoàn thành",
       "quantity": 0,
       "qtyHinh": 0,
       "qtyVideo": 0,
@@ -10270,7 +10270,7 @@
       "person": "ẨN",
       "channel": "SHOPPE ARISTINO",
       "category": "VIDEO",
-      "status": "Đang thực hiện",
+      "status": "Hoàn thành",
       "quantity": 30,
       "qtyHinh": 0,
       "qtyVideo": 30,
