@@ -225,33 +225,88 @@ function recordsFromRows(headers, body, startRowNumber) {
   const colDate = findColumnIndex(headers, ["NGÀY ORDER"]);
   const colCategory = findColumnIndex(headers, ["HẠNG MỤC"]);
   const colStatus = findColumnIndex(headers, ["Trạng Thái"]);
-  const colPerson = findColumnIndex(headers, ["NGƯỜI THIẾT KẾ"]);
+  
+  const colPersonHinh = findColumnIndex(headers, ["THỰC HIỆN HÌNH ẢNH", "NGƯỜI THIẾT KẾ"]);
+  const colPersonVideo = findColumnIndex(headers, ["THỰC HIỆN VIDEO"], false);
 
   const records = [];
+  const isVideoCategory = (cat) => {
+    const c = (cat || "").trim().toUpperCase();
+    return c === "VIDEO" || c === "VIDEO AI";
+  };
+
   for (let index = 0; index < body.length; index += 1) {
     const row = body[index];
     const rowNumber = startRowNumber + index;
-    const person = normalizePerson(row[colPerson]);
-    if (!person) continue;
+    
+    const personHinh = normalizePerson(row[colPersonHinh]);
+    const personVideo = colPersonVideo !== -1 ? normalizePerson(row[colPersonVideo]) : "";
+    if (!personHinh && !personVideo) continue;
 
     const qtyHinh = parseQuantity(row[colQtyHinh]);
     const qtyVideo = colQtyVideo !== -1 ? parseQuantity(row[colQtyVideo]) : 0;
-    const totalQty = qtyHinh + qtyVideo;
+    
+    const channel = normalizeChannel(row[colChannel]);
+    const detail = normalizeText(row[colDetail]);
+    const month = extractMonth(row[colDate]);
+    const orderDate = formatOrderDate(row[colDate]);
+    const weekNum = weekOfMonth(row[colDate]);
+    const category = normalizeText(row[colCategory]) || "(trong)";
+    const status = normalizeStatus(row[colStatus]);
 
-    records.push({
-      row: rowNumber,
-      person,
-      channel: normalizeChannel(row[colChannel]),
-      detail: normalizeText(row[colDetail]),
-      quantity: totalQty,
-      qtyHinh,
-      qtyVideo,
-      month: extractMonth(row[colDate]),
-      orderDate: formatOrderDate(row[colDate]),
-      weekOfMonth: weekOfMonth(row[colDate]),
-      category: normalizeText(row[colCategory]) || "(trong)",
-      status: normalizeStatus(row[colStatus])
-    });
+    const actualPersonHinh = personHinh || personVideo;
+    const actualPersonVideo = personVideo || personHinh;
+
+    if (qtyHinh > 0 && qtyVideo > 0 && actualPersonHinh !== actualPersonVideo) {
+      // Split into two records
+      // 1. Image record
+      records.push({
+        row: rowNumber,
+        person: actualPersonHinh,
+        channel,
+        detail,
+        quantity: qtyHinh,
+        qtyHinh,
+        qtyVideo: 0,
+        month,
+        orderDate,
+        weekOfMonth: weekNum,
+        category: isVideoCategory(category) ? "HÌNH ẢNH" : category,
+        status
+      });
+      // 2. Video record
+      records.push({
+        row: rowNumber,
+        person: actualPersonVideo,
+        channel,
+        detail,
+        quantity: qtyVideo,
+        qtyHinh: 0,
+        qtyVideo,
+        month,
+        orderDate,
+        weekOfMonth: weekNum,
+        category: category === "VIDEO AI" ? "VIDEO AI" : "VIDEO",
+        status
+      });
+    } else {
+      // Single record
+      const person = personHinh || personVideo;
+      records.push({
+        row: rowNumber,
+        person,
+        channel,
+        detail,
+        quantity: qtyHinh + qtyVideo,
+        qtyHinh,
+        qtyVideo,
+        month,
+        orderDate,
+        weekOfMonth: weekNum,
+        category,
+        status
+      });
+    }
   }
 
   return records;
