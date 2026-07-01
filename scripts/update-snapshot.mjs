@@ -422,6 +422,7 @@ function compactRecord(record) {
     qtyVideo: record.qtyVideo,
     month: record.month,
     orderDate: record.orderDate || null,
+    completionDate: record.completionDate || "",
     weekOfMonth: record.weekOfMonth || null,
     detail: record.detail
   };
