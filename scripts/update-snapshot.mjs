@@ -7,7 +7,7 @@ const SHEET_GID = process.env.SHEET_GID || "131891982";
 const SHEET_NAME = process.env.SHEET_NAME || "2026_Design_Team";
 const TZ = process.env.TZ || "Asia/Ho_Chi_Minh";
 const SHEET_MAX_COLUMN = process.env.SHEET_MAX_COLUMN || "Z";
-const FORCE_FULL_SNAPSHOT = process.env.FORCE_FULL_SNAPSHOT === "1";
+const FORCE_FULL_SNAPSHOT = process.env.FORCE_FULL_SNAPSHOT === "1" || process.env.FORCE_FULL_SNAPSHOT === "true";
 
 // Exclusion setup for known outlier rows.
 const EXCLUDED_ROWS_BY_PERSON = {
@@ -505,7 +505,7 @@ async function loadActiveMonthRecords(previousSnapshot, activeMonth) {
 }
 
 async function main() {
-  const activeMonth = currentMonthKey();
+  const activeMonth = process.env.TARGET_MONTH || currentMonthKey();
   const previousSnapshot = await readPreviousSnapshot();
   const { records, updateMode, activeRangeStartRow } = await loadActiveMonthRecords(previousSnapshot, activeMonth);
   const snapshot = buildSnapshot(records, updateMode, activeMonth, activeRangeStartRow);
