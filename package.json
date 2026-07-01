@@ -6,6 +6,7 @@
   "scripts": {
     "update": "node ./scripts/update-snapshot.mjs",
     "serve": "node ./scripts/serve.mjs",
-    "start": "node ./scripts/serve.mjs"
+    "start": "node ./scripts/serve.mjs",
+    "test": "node --test"
   }
 }

@@ -11,6 +11,17 @@ const reloadBtn = document.querySelector("#reloadBtn");
 const TIME_ZONE = "Asia/Ho_Chi_Minh";
 const WEEK_TASK_INITIAL_LIMIT = 2;
 const WEEK_TASK_EXPAND_STEP = 3;
+const CHANNEL_ROW_DISPLAY_LIMIT = 5;
+
+// Dinh dang danh sach so dong: gioi han toi da CHANNEL_ROW_DISPLAY_LIMIT dong,
+// neu vuot qua them "+N dong khac" de tranh vo layout khi (trong) co qua nhieu dong.
+function formatRowList(rows) {
+  const uniqueRows = [...new Set(rows)].sort((a, b) => a - b);
+  const shown = uniqueRows.slice(0, CHANNEL_ROW_DISPLAY_LIMIT);
+  const rest = uniqueRows.length - shown.length;
+  const base = `D\u00f2ng ${shown.join(", ")}`;
+  return rest > 0 ? `${base} +${rest} dong khac` : base;
+}
 
 let snapshot = null;
 let personList = [];
@@ -188,7 +199,7 @@ function renderChannelCategoryTable(channelGroups) {
   for (const group of channelGroups) {
     const totalRow = document.createElement("tr");
     totalRow.className = "group-row";
-    const channelLabel = group.channel === "(trong)" ? `Tr\u1ed1ng (D\u00f2ng ${[...new Set(group.rows)].join(", ")})` : group.channel;
+    const channelLabel = group.channel === "(trong)" ? `Tr\u1ed1ng (${formatRowList(group.rows)})` : group.channel;
     totalRow.appendChild(createCell(channelLabel));
     totalRow.appendChild(createCell("T\u1ed5ng k\u00eanh"));
     totalRow.appendChild(createCell(formatNumber(group.quantity), "num"));
@@ -199,7 +210,7 @@ function renderChannelCategoryTable(channelGroups) {
       const tr = document.createElement("tr");
       tr.className = "child-row";
       tr.appendChild(createCell(""));
-      const categoryLabel = info.category === "(trong)" ? `Tr\u1ed1ng (D\u00f2ng ${[...new Set(info.rows)].join(", ")})` : info.category;
+      const categoryLabel = info.category === "(trong)" ? `Tr\u1ed1ng (${formatRowList(info.rows)})` : info.category;
       tr.appendChild(createCell(categoryLabel));
       tr.appendChild(createCell(formatNumber(info.quantity), "num"));
       tr.appendChild(createCell(formatNumber(info.tasks), "num"));

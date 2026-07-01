@@ -18,7 +18,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const snapshotPath = path.resolve(__dirname, "..", "data", "snapshot.json");
 
-function parseCsv(input) {
+export function parseCsv(input) {
   const rows = [];
   let row = [];
   let field = "";
@@ -70,21 +70,21 @@ function parseCsv(input) {
   return rows;
 }
 
-function normalizeText(value) {
+export function normalizeText(value) {
   return (value || "").trim();
 }
 
-function normalizePerson(value) {
+export function normalizePerson(value) {
   return normalizeText(value).toUpperCase();
 }
 
-function normalizeChannel(value) {
+export function normalizeChannel(value) {
   const channel = normalizeText(value).toUpperCase();
   if (!channel) return "(trong)";
   return channel.replace(/^SHOPEE\b/, "SHOPPE");
 }
 
-function parseQuantity(raw) {
+export function parseQuantity(raw) {
   const source = normalizeText(raw).replace(/,/g, "");
   if (!source) return 0;
   const matches = source.match(/\d+/g);
@@ -95,7 +95,7 @@ function parseQuantity(raw) {
   return Number(matches[0]);
 }
 
-function normalizeStatus(raw) {
+export function normalizeStatus(raw) {
   return normalizeText(raw) || "(trong)";
 }
 
@@ -107,7 +107,7 @@ function isValidDatePart(day, month) {
   return day >= 1 && day <= 31 && month >= 1 && month <= 12;
 }
 
-function parseOrderDate(raw) {
+export function parseOrderDate(raw) {
   const text = normalizeText(raw);
   const match = text.match(/(\d{1,2})[/-](\d{1,2})[/-](\d{4})/);
   if (!match) return null;
@@ -130,20 +130,20 @@ function parseOrderDate(raw) {
   return { year, month, day };
 }
 
-function extractMonth(raw) {
+export function extractMonth(raw) {
   const date = parseOrderDate(raw);
   if (!date) return "(khong ngay)";
   const { year, month } = date;
   return `${year}-${String(month).padStart(2, "0")}`;
 }
 
-function formatOrderDate(raw) {
+export function formatOrderDate(raw) {
   const date = parseOrderDate(raw);
   if (!date) return null;
   return `${date.year}-${String(date.month).padStart(2, "0")}-${String(date.day).padStart(2, "0")}`;
 }
 
-function weekOfMonth(raw) {
+export function weekOfMonth(raw) {
   const date = parseOrderDate(raw);
   if (!date) return null;
   return Math.min(4, Math.ceil(date.day / 7));
@@ -157,7 +157,7 @@ function toKeyedCounts(items) {
   );
 }
 
-function applyExclusions(records) {
+export function applyExclusions(records) {
   return records.filter((record) => {
     const excludedRows = EXCLUDED_ROWS_BY_PERSON[record.person] || new Set();
     return !excludedRows.has(record.row);
@@ -202,7 +202,7 @@ function currentMonthKey() {
   return `${year}-${month}`;
 }
 
-function findColumnIndex(headers, candidates, required = true) {
+export function findColumnIndex(headers, candidates, required = true) {
   const cleaned = (str) => (str || "").trim().toLowerCase().replace(/[\s\r\n]+/g, " ");
   for (const candidate of candidates) {
     const cleanCand = cleaned(candidate);
@@ -215,7 +215,37 @@ function findColumnIndex(headers, candidates, required = true) {
   return -1;
 }
 
-function recordsFromRows(headers, body, startRowNumber) {
+// Cac cot bat buoc phai co trong sheet. Neu thieu bat ky cot nao,
+// ETL se fail voi thong bao ro rang thay vi parse ra so lieu sai tham lang.
+const REQUIRED_COLUMN_GROUPS = [
+  { label: "NỘI DUNG ORDER", candidates: ["NỘI DUNG ORDER"] },
+  { label: "SL HÌNH / SỐ LƯỢNG", candidates: ["SL HÌNH", "SỐ LƯỢNG"] },
+  { label: "NGÀY ORDER", candidates: ["NGÀY ORDER"] },
+  { label: "HẠNG MỤC", candidates: ["HẠNG MỤC"] },
+  { label: "Trạng Thái", candidates: ["Trạng Thái"] },
+  { label: "THỰC HIỆN HÌNH ẢNH / NGƯỜI THIẾT KẾ", candidates: ["THỰC HIỆN HÌNH ẢNH", "NGƯỜI THIẾT KẾ"] }
+];
+
+export function validateHeaders(headers) {
+  if (!headers || headers.length === 0) {
+    throw new Error("Sheet khong co header (dong 1 rong).");
+  }
+  const missing = [];
+  for (const group of REQUIRED_COLUMN_GROUPS) {
+    const found = group.candidates.some(
+      (candidate) => findColumnIndex(headers, [candidate], false) !== -1
+    );
+    if (!found) missing.push(group.label);
+  }
+  if (missing.length > 0) {
+    throw new Error(
+      `Sheet thieu cac cot bat buoc:\n  - ${missing.join("\n  - ")}\n` +
+      `Header hien tai: ${JSON.stringify(headers)}`
+    );
+  }
+}
+
+export function recordsFromRows(headers, body, startRowNumber) {
   let colChannel = findColumnIndex(headers, ["Kênh"], false);
   if (colChannel === -1) colChannel = 0;
 
@@ -312,7 +342,7 @@ function recordsFromRows(headers, body, startRowNumber) {
   return records;
 }
 
-function summarizePerson(records) {
+export function summarizePerson(records) {
   const totalTasks = records.length;
   const totalQuantity = records.reduce((sum, r) => sum + r.quantity, 0);
   const completed = records.filter((r) => r.status === "Ho\u00e0n th\u00e0nh");
@@ -390,7 +420,7 @@ function compactRecord(record) {
   };
 }
 
-function buildSnapshot(records, updateMode, activeMonth, activeRangeStartRow) {
+export function buildSnapshot(records, updateMode, activeMonth, activeRangeStartRow) {
   const filtered = applyExclusions(records).sort((a, b) => a.row - b.row);
   const people = [...new Set(filtered.map((r) => r.person))].sort((a, b) => a.localeCompare(b));
   const byPerson = {};
@@ -434,9 +464,7 @@ function buildSnapshot(records, updateMode, activeMonth, activeRangeStartRow) {
 async function loadFullRecords() {
   const rows = parseCsv(await fetchCsv());
   const [headers, ...body] = rows;
-  if (!headers || headers.length === 0) {
-    throw new Error("No headers found in exported sheet.");
-  }
+  validateHeaders(headers);
   return recordsFromRows(headers, body, 2);
 }
 
@@ -457,9 +485,7 @@ async function loadActiveMonthRecords(previousSnapshot, activeMonth) {
 
   const headerRows = parseCsv(await fetchCsv(`A1:${SHEET_MAX_COLUMN}1`));
   const headers = headerRows[0];
-  if (!headers || headers.length === 0) {
-    throw new Error("No headers found in exported sheet.");
-  }
+  validateHeaders(headers);
 
   const rangeRows = parseCsv(await fetchCsv(`A${activeRangeStartRow}:${SHEET_MAX_COLUMN}`));
   const refreshedActiveRecords = recordsFromRows(headers, rangeRows, activeRangeStartRow)
@@ -483,12 +509,25 @@ async function main() {
   const snapshot = buildSnapshot(records, updateMode, activeMonth, activeRangeStartRow);
 
   await writeFile(snapshotPath, `${JSON.stringify(snapshot, null, 2)}\n`, "utf8");
+
   // eslint-disable-next-line no-console
-  console.log(`Snapshot updated (${updateMode}): ${snapshotPath}`);
+  const prevTotal = previousSnapshot?.metadata?.totalRecords ?? null;
+  const delta = prevTotal === null ? null : snapshot.metadata.totalRecords - prevTotal;
+  const deltaText = delta === null ? "(chua co snapshot cu)" : `${delta >= 0 ? "+" : ""}${delta}`;
+  console.log(
+    `Snapshot updated (${updateMode}): ${snapshotPath}\n` +
+    `  - Thang active: ${activeMonth} (range bat dau dong ${activeRangeStartRow ?? "?"})\n` +
+    `  - Tong record: ${snapshot.metadata.totalRecords} (truoc: ${prevTotal ?? "?"}, chenh lech ${deltaText})\n` +
+    `  - Nhan su: ${Object.keys(snapshot.byPerson).join(", ")}`
+  );
 }
 
-main().catch((error) => {
-  // eslint-disable-next-line no-console
-  console.error(error);
-  process.exit(1);
-});
+// Chi chay main() khi file duoc goi truc tiep (node .../update-snapshot.mjs),
+// khong chay khi import de test.
+if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
+  main().catch((error) => {
+    // eslint-disable-next-line no-console
+    console.error(error);
+    process.exit(1);
+  });
+}
