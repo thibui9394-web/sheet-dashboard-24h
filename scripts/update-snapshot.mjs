@@ -258,6 +258,7 @@ export function recordsFromRows(headers, body, startRowNumber) {
   
   const colPersonHinh = findColumnIndex(headers, ["THỰC HIỆN HÌNH ẢNH", "NGƯỜI THIẾT KẾ"]);
   const colPersonVideo = findColumnIndex(headers, ["THỰC HIỆN VIDEO"], false);
+  const colCompletionDate = findColumnIndex(headers, ["NGÀY HOÀN THÀNH"], false);
 
   const records = [];
   const isVideoCategory = (cat) => {
@@ -283,6 +284,7 @@ export function recordsFromRows(headers, body, startRowNumber) {
     const detail = normalizeText(row[colDetail]);
     const month = extractMonth(row[colDate]);
     const orderDate = formatOrderDate(row[colDate]);
+    const completionDate = colCompletionDate !== -1 ? formatOrderDate(row[colCompletionDate]) : "";
     const weekNum = weekOfMonth(row[colDate]);
     const category = normalizeText(row[colCategory]) || "(trong)";
 
@@ -302,6 +304,7 @@ export function recordsFromRows(headers, body, startRowNumber) {
         qtyVideo: 0,
         month,
         orderDate,
+        completionDate,
         weekOfMonth: weekNum,
         category: isVideoCategory(category) ? "HÌNH ẢNH" : category,
         status
@@ -317,6 +320,7 @@ export function recordsFromRows(headers, body, startRowNumber) {
         qtyVideo,
         month,
         orderDate,
+        completionDate,
         weekOfMonth: weekNum,
         category: category === "VIDEO AI" ? "VIDEO AI" : "VIDEO",
         status
@@ -334,6 +338,7 @@ export function recordsFromRows(headers, body, startRowNumber) {
         qtyVideo,
         month,
         orderDate,
+        completionDate,
         weekOfMonth: weekNum,
         category,
         status

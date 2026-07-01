@@ -425,3 +425,16 @@ test("recordsFromRows: khong co nguoi thiet ke nhung status la Cancel -> van giu
   assert.equal(records.length, 1);
   assert.equal(records[0].person, "");
 });
+
+test("recordsFromRows: ho tro parse cot NGAY HOAN THANH", () => {
+  const headersWithCompletion = [
+    ...HEADERS,
+    "NGÀY HOÀN THÀNH"
+  ];
+  const body = [
+    ["SHOPEE", "task completed", "5", "0", "29/06/2026", "KEY VISUAL", "Hoàn thành", "KHANG", "", "01/07/2026"]
+  ];
+  const records = recordsFromRows(headersWithCompletion, body, 2);
+  assert.equal(records.length, 1);
+  assert.equal(records[0].completionDate, "2026-07-01");
+});

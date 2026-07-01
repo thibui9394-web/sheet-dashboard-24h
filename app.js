@@ -185,12 +185,142 @@ function renderPersonTable(person, month) {
   }
 }
 
+function getCompletionMonth(r) {
+  if (r.completionDate) {
+    const parts = r.completionDate.split("-");
+    if (parts.length >= 2) {
+      return `${parts[0]}-${parts[1]}`;
+    }
+  }
+  return r.month;
+}
+
+function currentCalendarMonthKey() {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: TIME_ZONE,
+    year: "numeric",
+    month: "2-digit"
+  }).formatToParts(new Date());
+  const year = parts.find((part) => part.type === "year")?.value;
+  const month = parts.find((part) => part.type === "month")?.value;
+  return `${year}-${month}`;
+}
+
+function currentCalendarWeek() {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: TIME_ZONE,
+    day: "numeric"
+  }).formatToParts(new Date());
+  const day = Number(parts.find((part) => part.type === "day")?.value || 1);
+  if (day >= 1 && day <= 7) return 1;
+  if (day >= 8 && day <= 14) return 2;
+  if (day >= 15 && day <= 21) return 3;
+  return 4;
+}
+
+function getEffectiveWeek(r, targetMonth) {
+  if (r.completionDate && statusKey(r.status) === "completed") {
+    const parts = r.completionDate.split("-");
+    if (parts.length >= 3 && `${parts[0]}-${parts[1]}` === targetMonth) {
+      const day = Number(parts[2]);
+      if (day >= 1 && day <= 7) return 1;
+      if (day >= 8 && day <= 14) return 2;
+      if (day >= 15 && day <= 21) return 3;
+      return 4;
+    }
+  }
+  
+  if (statusKey(r.status) !== "completed" && statusKey(r.status) !== "cancel") {
+    const isAssigned = r.person && r.person !== "" && r.person !== "Tr\u1ed1ng";
+    if (isAssigned) {
+      const curMonth = currentCalendarMonthKey();
+      if (targetMonth === curMonth) {
+        return currentCalendarWeek();
+      }
+    }
+  }
+  
+  return r.weekOfMonth || 1;
+}
+
+function getEffectiveStatusAndQty(r, viewingMonth) {
+  const currentStatus = statusKey(r.status);
+  const compMonth = getCompletionMonth(r);
+  
+  if (viewingMonth === "ALL") {
+    return { status: currentStatus, quantity: r.quantity };
+  }
+  
+  if (currentStatus === "completed" && compMonth > viewingMonth) {
+    return { status: "inProgress", quantity: 0 };
+  }
+  
+  return { status: currentStatus, quantity: r.quantity };
+}
+
+function getEffectiveRecord(r, month) {
+  const eff = getEffectiveStatusAndQty(r, month);
+  const mapped = {
+    ...r,
+    status: eff.status === "completed" ? "Ho\u00e0n th\u00e0nh" : (eff.status === "inProgress" ? "\u0110ang th\u1ef1c hi\u1ec7n" : (eff.status === "cancel" ? "Cancel" : "Pending")),
+    quantity: eff.quantity,
+    originalRecord: r
+  };
+  
+  mapped.weekOfMonth = getEffectiveWeek(r, month);
+  
+  mapped.customLabel = "";
+  const curMonth = currentCalendarMonthKey();
+  
+  if (month === curMonth) {
+    if (r.month < month) {
+      const dateParts = r.orderDate ? r.orderDate.split("-") : [];
+      const dateLabel = dateParts.length >= 3 ? `${dateParts[2]}/${dateParts[1]}` : "";
+      mapped.customLabel = `[N\u1ee3 t\u1eeb th\u00e1ng tr\u01b0\u1edbc - Request ng\u00e0y ${dateLabel}]`;
+    } else if (r.weekOfMonth < mapped.weekOfMonth) {
+      mapped.customLabel = `[Tr\u1ec5 h\u1ea1n - Order t\u1eeb Tu\u1ea7n ${r.weekOfMonth}]`;
+    }
+  }
+  
+  return mapped;
+}
+
+function isRecordInMonth(r, month) {
+  if (month === "ALL") return true;
+
+  const compMonth = getCompletionMonth(r);
+  const status = statusKey(r.status);
+
+  if (status === "completed") {
+    if (compMonth === month) return true;
+    if (compMonth > month && r.month <= month) return true;
+    return false;
+  }
+
+  if (status === "cancel") {
+    return r.month === month;
+  }
+
+  const isAssigned = r.person && r.person !== "" && r.person !== "Tr\u1ed1ng";
+  if (isAssigned) {
+    const curMonth = currentCalendarMonthKey();
+    if (month === curMonth) {
+      return r.month <= month;
+    }
+    return r.month === month;
+  } else {
+    return r.month === month;
+  }
+}
+
 function aggregateRows(person, month) {
-  return snapshotRows().filter((r) => {
-    if (person !== "ALL" && r.person !== person) return false;
-    if (month !== "ALL" && r.month !== month) return false;
-    return true;
-  });
+  return snapshotRows()
+    .filter((r) => {
+      if (person !== "ALL" && r.person !== person) return false;
+      if (!isRecordInMonth(r, month)) return false;
+      return true;
+    })
+    .map((r) => getEffectiveRecord(r, month));
 }
 
 function renderChannelCategoryTable(channelGroups) {
@@ -373,6 +503,17 @@ function createTaskItem(row) {
   const head = document.createElement("div");
   head.className = "week-task-head";
   head.appendChild(createStatusBadge(statusKey(row.status)));
+
+  if (row.customLabel) {
+    const labelSpan = document.createElement("span");
+    labelSpan.className = "task-delay-label";
+    labelSpan.textContent = row.customLabel;
+    labelSpan.style.color = "#ef4444";
+    labelSpan.style.fontWeight = "700";
+    labelSpan.style.fontSize = "11px";
+    labelSpan.style.marginLeft = "8px";
+    head.appendChild(labelSpan);
+  }
 
   const detail = document.createElement("p");
   detail.className = "week-task-detail";
