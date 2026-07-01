@@ -202,29 +202,30 @@ function currentMonthKey() {
   return `${year}-${month}`;
 }
 
-function columnIndex(headers, name) {
-  const index = headers.findIndex((header) => normalizeText(header) === name);
-  if (index === -1) {
-    throw new Error(`Missing required column: ${name}`);
+function findColumnIndex(headers, candidates, required = true) {
+  const cleaned = (str) => (str || "").trim().toLowerCase().replace(/[\s\r\n]+/g, " ");
+  for (const candidate of candidates) {
+    const cleanCand = cleaned(candidate);
+    const index = headers.findIndex((h) => cleaned(h) === cleanCand);
+    if (index !== -1) return index;
   }
-  return index;
-}
-
-function columnIndexWithFallback(headers, name, fallbackIndex) {
-  const index = headers.findIndex((header) => normalizeText(header) === name);
-  if (index !== -1) return index;
-  if (fallbackIndex >= 0 && fallbackIndex < headers.length) return fallbackIndex;
-  throw new Error(`Missing required column: ${name}`);
+  if (required) {
+    throw new Error(`Missing required column matching: ${candidates.join(" or ")}`);
+  }
+  return -1;
 }
 
 function recordsFromRows(headers, body, startRowNumber) {
-  const colChannel = columnIndexWithFallback(headers, "K\u00eanh", 0);
-  const colDetail = columnIndex(headers, "N\u1ed8I DUNG ORDER");
-  const colQty = columnIndex(headers, "S\u1ed0 L\u01af\u1ee2NG");
-  const colDate = columnIndex(headers, "NG\u00c0Y ORDER");
-  const colCategory = columnIndex(headers, "H\u1ea0NG M\u1ee4C");
-  const colStatus = columnIndex(headers, "Tr\u1ea1ng Th\u00e1i");
-  const colPerson = columnIndex(headers, "NG\u01af\u1edcI THI\u1ebeT K\u1ebe");
+  let colChannel = findColumnIndex(headers, ["Kênh"], false);
+  if (colChannel === -1) colChannel = 0;
+
+  const colDetail = findColumnIndex(headers, ["NỘI DUNG ORDER"]);
+  const colQtyHinh = findColumnIndex(headers, ["SL HÌNH", "SỐ LƯỢNG"]);
+  const colQtyVideo = findColumnIndex(headers, ["SL VIDEO"], false);
+  const colDate = findColumnIndex(headers, ["NGÀY ORDER"]);
+  const colCategory = findColumnIndex(headers, ["HẠNG MỤC"]);
+  const colStatus = findColumnIndex(headers, ["Trạng Thái"]);
+  const colPerson = findColumnIndex(headers, ["NGƯỜI THIẾT KẾ"]);
 
   const records = [];
   for (let index = 0; index < body.length; index += 1) {
@@ -232,12 +233,19 @@ function recordsFromRows(headers, body, startRowNumber) {
     const rowNumber = startRowNumber + index;
     const person = normalizePerson(row[colPerson]);
     if (!person) continue;
+
+    const qtyHinh = parseQuantity(row[colQtyHinh]);
+    const qtyVideo = colQtyVideo !== -1 ? parseQuantity(row[colQtyVideo]) : 0;
+    const totalQty = qtyHinh + qtyVideo;
+
     records.push({
       row: rowNumber,
       person,
       channel: normalizeChannel(row[colChannel]),
       detail: normalizeText(row[colDetail]),
-      quantity: parseQuantity(row[colQty]),
+      quantity: totalQty,
+      qtyHinh,
+      qtyVideo,
       month: extractMonth(row[colDate]),
       orderDate: formatOrderDate(row[colDate]),
       weekOfMonth: weekOfMonth(row[colDate]),
@@ -264,8 +272,24 @@ function summarizePerson(records) {
   const byMonthQty = new Map();
   const byStatusTasks = new Map();
 
+  const isVideoCategory = (cat) => {
+    const c = (cat || "").trim().toUpperCase();
+    return c === "VIDEO" || c === "VIDEO AI";
+  };
+
   for (const record of records) {
-    byCategoryQty.set(record.category, (byCategoryQty.get(record.category) || 0) + record.quantity);
+    const qtyHinh = record.qtyHinh !== undefined ? record.qtyHinh : (isVideoCategory(record.category) ? 0 : record.quantity);
+    const qtyVideo = record.qtyVideo !== undefined ? record.qtyVideo : (isVideoCategory(record.category) ? record.quantity : 0);
+
+    if (qtyHinh > 0) {
+      const imageCat = isVideoCategory(record.category) ? "HÌNH ẢNH" : record.category;
+      byCategoryQty.set(imageCat, (byCategoryQty.get(imageCat) || 0) + qtyHinh);
+    }
+    if (qtyVideo > 0) {
+      const videoCat = record.category === "VIDEO AI" ? "VIDEO AI" : "VIDEO";
+      byCategoryQty.set(videoCat, (byCategoryQty.get(videoCat) || 0) + qtyVideo);
+    }
+
     byCategoryTasks.set(record.category, (byCategoryTasks.get(record.category) || 0) + 1);
     byChannelQty.set(record.channel, (byChannelQty.get(record.channel) || 0) + record.quantity);
     byChannelTasks.set(record.channel, (byChannelTasks.get(record.channel) || 0) + 1);
@@ -302,6 +326,8 @@ function compactRecord(record) {
     category: record.category,
     status: record.status,
     quantity: record.quantity,
+    qtyHinh: record.qtyHinh,
+    qtyVideo: record.qtyVideo,
     month: record.month,
     orderDate: record.orderDate || null,
     weekOfMonth: record.weekOfMonth || null,

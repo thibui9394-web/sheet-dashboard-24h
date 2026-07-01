@@ -234,6 +234,11 @@ function renderTables(person, month) {
 
   const channelGroups = new Map();
 
+  const isVideoCategory = (cat) => {
+    const c = (cat || "").trim().toUpperCase();
+    return c === "VIDEO" || c === "VIDEO AI";
+  };
+
   for (const row of rows) {
     if (!channelGroups.has(row.channel)) {
       channelGroups.set(row.channel, {
@@ -248,12 +253,40 @@ function renderTables(person, month) {
     group.quantity += row.quantity;
     group.tasks += 1;
 
-    if (!group.categories.has(row.category)) {
-      group.categories.set(row.category, { category: row.category, quantity: 0, tasks: 0 });
+    const qtyHinh = row.qtyHinh !== undefined ? row.qtyHinh : (isVideoCategory(row.category) ? 0 : row.quantity);
+    const qtyVideo = row.qtyVideo !== undefined ? row.qtyVideo : (isVideoCategory(row.category) ? row.quantity : 0);
+
+    if (qtyHinh > 0) {
+      const imageCat = isVideoCategory(row.category) ? "HÌNH ẢNH" : row.category;
+      if (!group.categories.has(imageCat)) {
+        group.categories.set(imageCat, { category: imageCat, quantity: 0, tasks: 0 });
+      }
+      const categoryObj = group.categories.get(imageCat);
+      categoryObj.quantity += qtyHinh;
+      if (imageCat === row.category) {
+        categoryObj.tasks += 1;
+      }
     }
-    const category = group.categories.get(row.category);
-    category.quantity += row.quantity;
-    category.tasks += 1;
+
+    if (qtyVideo > 0) {
+      const videoCat = row.category === "VIDEO AI" ? "VIDEO AI" : "VIDEO";
+      if (!group.categories.has(videoCat)) {
+        group.categories.set(videoCat, { category: videoCat, quantity: 0, tasks: 0 });
+      }
+      const categoryObj = group.categories.get(videoCat);
+      categoryObj.quantity += qtyVideo;
+      if (videoCat === row.category) {
+        categoryObj.tasks += 1;
+      }
+    }
+
+    if (qtyHinh === 0 && qtyVideo === 0) {
+      if (!group.categories.has(row.category)) {
+        group.categories.set(row.category, { category: row.category, quantity: 0, tasks: 0 });
+      }
+      const categoryObj = group.categories.get(row.category);
+      categoryObj.tasks += 1;
+    }
   }
 
   const channelGroupsSorted = [...channelGroups.values()]
