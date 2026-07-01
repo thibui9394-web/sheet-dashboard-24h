@@ -343,25 +343,46 @@ function renderChannelCategoryTable(channelGroups) {
   }
 }
 
-function renderMonthTable(rows) {
-  const monthMap = new Map();
-  for (const row of rows) {
-    monthMap.set(row.month, (monthMap.get(row.month) || 0) + row.quantity);
-  }
-  const sorted = [...monthMap.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+function renderMonthTable(rows, month) {
   const tbody = document.querySelector("#monthTable tbody");
   tbody.innerHTML = "";
-  for (const [month, qty] of sorted) {
-    const tr = document.createElement("tr");
-    tr.appendChild(createCell(monthLabel(month)));
-    tr.appendChild(createCell(formatNumber(qty), "num"));
-    tbody.appendChild(tr);
+
+  if (month === "ALL") {
+    const monthMap = new Map();
+    for (const row of rows) {
+      monthMap.set(row.month, (monthMap.get(row.month) || 0) + row.quantity);
+    }
+    const sorted = [...monthMap.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+    for (const [m, qty] of sorted) {
+      const tr = document.createElement("tr");
+      tr.appendChild(createCell(monthLabel(m)));
+      tr.appendChild(createCell(formatNumber(qty), "num"));
+      tbody.appendChild(tr);
+    }
+    return;
   }
+
+  // Khi loc 1 thang cu the: tach ro SL moi phat sinh trong thang nay
+  // voi SL cua task no dong tu cac thang truoc, tranh xoe nhieu thang gay roi.
+  const newRows = rows.filter((row) => row.month === month);
+  const debtRows = rows.filter((row) => row.month !== month);
+  const newQty = newRows.reduce((sum, row) => sum + row.quantity, 0);
+  const debtQty = debtRows.reduce((sum, row) => sum + row.quantity, 0);
+
+  const trNew = document.createElement("tr");
+  trNew.appendChild(createCell(`Mới trong ${monthLabel(month)}`));
+  trNew.appendChild(createCell(formatNumber(newQty), "num"));
+  tbody.appendChild(trNew);
+
+  const trDebt = document.createElement("tr");
+  trDebt.appendChild(createCell(`Nợ từ tháng trước (${debtRows.length} task)`));
+  trDebt.appendChild(createCell(formatNumber(debtQty), "num"));
+  tbody.appendChild(trDebt);
 }
 
 function renderTables(person, month) {
   const rows = aggregateRows(person, month);
-  renderMonthTable(rows);
+  renderMonthTable(rows, month);
 
   const channelGroups = new Map();
 
