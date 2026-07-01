@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-07-01T11:24:50.285Z",
+    "generatedAt": "2026-07-01T11:25:30.468Z",
     "timezone": "Asia/Ho_Chi_Minh",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -9,8 +9,8 @@
     },
     "incremental": {
       "mode": "full-bootstrap",
-      "activeMonth": "2026-06",
-      "activeRangeStartRow": 625,
+      "activeMonth": "2026-07",
+      "activeRangeStartRow": 707,
       "sheetMaxColumn": "Z"
     },
     "exclusions": {
