@@ -426,3 +426,20 @@ tbody tr:hover {
 .cell-empty {
   color: #cbd5e1 !important;
 }
+
+#channelCategoryTable th,
+#channelCategoryTable td {
+  border-right: 1px solid var(--line);
+}
+
+#channelCategoryTable th:last-child,
+#channelCategoryTable td:last-child {
+  border-right: none;
+  background: #f0fdfa;
+}
+
+#channelCategoryTable tbody tr:last-child td {
+  background: #f0fdfa;
+  border-top: 1px solid #99f6e4;
+  border-bottom: 2px solid #99f6e4;
+}
