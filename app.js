@@ -582,7 +582,7 @@ function setFilters() {
 async function load() {
   const response = await fetch("./data/snapshot.json", { cache: "no-store" });
   snapshot = await response.json();
-  personList = Object.keys(snapshot.byPerson || {}).sort((a, b) => a.localeCompare(b));
+  personList = Object.keys(snapshot.byPerson || {}).filter((p) => p && p !== "").sort((a, b) => a.localeCompare(b));
   monthList = [...new Set(snapshotRows().map((r) => r.month).filter((v) => v && v !== "(khong ngay)"))]
     .sort((a, b) => a.localeCompare(b));
 
