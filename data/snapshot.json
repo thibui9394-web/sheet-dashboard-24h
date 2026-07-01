@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-07-01T09:48:17.341Z",
+    "generatedAt": "2026-07-01T09:54:06.576Z",
     "timezone": "Asia/Ho_Chi_Minh",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -8,7 +8,7 @@
       "gid": "131891982"
     },
     "incremental": {
-      "mode": "active-month",
+      "mode": "full-forced",
       "activeMonth": "2026-07",
       "activeRangeStartRow": 707,
       "sheetMaxColumn": "Z"
@@ -71,11 +71,11 @@
       "(trong)": 4
     },
     "byCategoryQty": {
-      "HÌNH ẢNH": 24748,
+      "HÌNH ẢNH": 24678,
       "HÌNH ẢNH AI": 2419,
       "SOCIAL POST": 556,
+      "VIDEO": 356,
       "KEY VISUAL": 346,
-      "VIDEO": 286,
       "LANDINGPAGE": 187,
       "KEY VISUAL AI": 112,
       "(trong)": 38,
@@ -233,9 +233,9 @@
         "Cancel": 1
       },
       "byCategoryQty": {
-        "HÌNH ẢNH": 1453,
+        "HÌNH ẢNH": 1383,
         "HÌNH ẢNH AI": 1266,
-        "VIDEO": 131,
+        "VIDEO": 201,
         "SOCIAL POST": 39,
         "KEY VISUAL": 28,
         "LANDINGPAGE": 13,
@@ -9668,8 +9668,8 @@
       "category": "VIDEO",
       "status": "Hoàn thành",
       "quantity": 70,
-      "qtyHinh": 70,
-      "qtyVideo": 0,
+      "qtyHinh": 0,
+      "qtyVideo": 70,
       "month": "2026-06",
       "orderDate": "2026-06-15",
       "weekOfMonth": 3,
@@ -10580,8 +10580,8 @@
       "category": "VIDEO",
       "status": "Hoàn thành",
       "quantity": 70,
-      "qtyHinh": 70,
-      "qtyVideo": 0,
+      "qtyHinh": 0,
+      "qtyVideo": 70,
       "month": "2026-06",
       "orderDate": "2026-06-15",
       "weekOfMonth": 3,
