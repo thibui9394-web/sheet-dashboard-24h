@@ -30,7 +30,7 @@ jobs:
           SHEET_ID: 1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM
           SHEET_GID: 131891982
           SHEET_NAME: 2026_Design_Team
-          FORCE_FULL_SNAPSHOT: ${{ inputs.force_full }}
+          FORCE_FULL_SNAPSHOT: ${{ github.event.inputs.force_full || 'true' }}
 
       - name: Commit Snapshot
         run: |
