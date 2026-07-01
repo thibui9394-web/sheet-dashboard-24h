@@ -230,8 +230,8 @@ function getEffectiveWeek(r, targetMonth) {
     }
   }
   
-  if (statusKey(r.status) !== "completed" && statusKey(r.status) !== "cancel") {
-    const isAssigned = r.person && r.person !== "" && r.person !== "Tr\u1ed1ng";
+  if (statusKey(r.status) === "inProgress") {
+    const isAssigned = r.person && r.person !== "" && r.person !== "Trống";
     if (isAssigned) {
       const curMonth = currentCalendarMonthKey();
       if (targetMonth === curMonth) {
@@ -262,7 +262,7 @@ function getEffectiveRecord(r, month) {
   const eff = getEffectiveStatusAndQty(r, month);
   const mapped = {
     ...r,
-    status: eff.status === "completed" ? "Ho\u00e0n th\u00e0nh" : (eff.status === "inProgress" ? "\u0110ang th\u1ef1c hi\u1ec7n" : (eff.status === "cancel" ? "Cancel" : "Pending")),
+    status: eff.status === "completed" ? "Hoàn thành" : (eff.status === "inProgress" ? "Đang thực hiện" : (eff.status === "cancel" ? "Cancel" : "Pending")),
     quantity: eff.quantity,
     originalRecord: r
   };
@@ -272,13 +272,14 @@ function getEffectiveRecord(r, month) {
   mapped.customLabel = "";
   const curMonth = currentCalendarMonthKey();
   
-  if (month === curMonth) {
+  if (month === curMonth && statusKey(r.status) === "inProgress") {
     if (r.month < month) {
+      const monthNum = Number(r.month.split("-")[1]);
       const dateParts = r.orderDate ? r.orderDate.split("-") : [];
       const dateLabel = dateParts.length >= 3 ? `${dateParts[2]}/${dateParts[1]}` : "";
-      mapped.customLabel = `[N\u1ee3 t\u1eeb th\u00e1ng tr\u01b0\u1edbc - Request ng\u00e0y ${dateLabel}]`;
+      mapped.customLabel = `[Nợ Tháng ${monthNum} - Dòng ${r.row} - Request ngày ${dateLabel}]`;
     } else if (r.weekOfMonth < mapped.weekOfMonth) {
-      mapped.customLabel = `[Tr\u1ec5 h\u1ea1n - Order t\u1eeb Tu\u1ea7n ${r.weekOfMonth}]`;
+      mapped.customLabel = `[Trễ Tuần ${r.weekOfMonth} - Dòng ${r.row}]`;
     }
   }
   
@@ -301,8 +302,8 @@ function isRecordInMonth(r, month) {
     return r.month === month;
   }
 
-  const isAssigned = r.person && r.person !== "" && r.person !== "Tr\u1ed1ng";
-  if (isAssigned) {
+  const isAssigned = r.person && r.person !== "" && r.person !== "Trống";
+  if (isAssigned && status === "inProgress") {
     const curMonth = currentCalendarMonthKey();
     if (month === curMonth) {
       return r.month <= month;
