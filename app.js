@@ -486,7 +486,7 @@ function renderWeeklyProgress(person, month) {
 function renderPreviousMonthOpenTasks(person) {
   const targetMonth = previousMonthKey();
   const rows = aggregateRows(person, targetMonth)
-    .filter((row) => statusKey(row.status) !== "completed")
+    .filter((row) => statusKey(row.status) !== "completed" && statusKey(row.status) !== "cancel")
     .sort((a, b) =>
       statusSortValue(a) - statusSortValue(b) ||
       (a.orderDate || "").localeCompare(b.orderDate || "") ||
