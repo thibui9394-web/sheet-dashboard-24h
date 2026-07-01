@@ -416,3 +416,12 @@ test("summarizePerson: mang rong", () => {
   assert.equal(summary.quantity, 0);
   assert.equal(summary.avgQuantityPerTask, 0);
 });
+
+test("recordsFromRows: khong co nguoi thiet ke nhung status la Cancel -> van giu va assign cho (trong)", () => {
+  const body = [
+    makeRow("SHOPEE", "task Cancelled", 0, 0, "3/6/2026", "HÌNH ẢNH", "Cancel", "", "")
+  ];
+  const records = recordsFromRows(HEADERS, body, 2);
+  assert.equal(records.length, 1);
+  assert.equal(records[0].person, "");
+});

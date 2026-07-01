@@ -269,9 +269,12 @@ export function recordsFromRows(headers, body, startRowNumber) {
     const row = body[index];
     const rowNumber = startRowNumber + index;
     
+    const status = normalizeStatus(row[colStatus]);
+    const isCancel = status.toLowerCase() === "cancel";
+
     const personHinh = normalizePerson(row[colPersonHinh]);
     const personVideo = colPersonVideo !== -1 ? normalizePerson(row[colPersonVideo]) : "";
-    if (!personHinh && !personVideo) continue;
+    if (!personHinh && !personVideo && !isCancel) continue;
 
     const qtyHinh = parseQuantity(row[colQtyHinh]);
     const qtyVideo = colQtyVideo !== -1 ? parseQuantity(row[colQtyVideo]) : 0;
@@ -282,7 +285,6 @@ export function recordsFromRows(headers, body, startRowNumber) {
     const orderDate = formatOrderDate(row[colDate]);
     const weekNum = weekOfMonth(row[colDate]);
     const category = normalizeText(row[colCategory]) || "(trong)";
-    const status = normalizeStatus(row[colStatus]);
 
     const actualPersonHinh = personHinh || personVideo;
     const actualPersonVideo = personVideo || personHinh;
