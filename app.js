@@ -65,14 +65,6 @@ function previousMonthKey() {
   return `${year}-${String(month).padStart(2, "0")}`;
 }
 
-function entries(obj) {
-  return Object.entries(obj || {});
-}
-
-function sumObjectValues(obj) {
-  return entries(obj).reduce((sum, [, value]) => sum + Number(value || 0), 0);
-}
-
 function snapshotRows() {
   return snapshot.records || snapshot.latestRows || [];
 }
@@ -129,8 +121,9 @@ function renderKpis(data) {
     { title: "TB số lượng/task", value: formatNumber(data.avgQuantityPerTask) },
     { title: "Hoàn thành", value: formatNumber(data.completedTasks), hint: `${formatNumber(data.completedQuantity)} SL` },
     { title: "Đang làm", value: formatNumber(data.inProgressTasks), hint: `${formatNumber(data.inProgressQuantity)} SL` },
+    { title: "Pending / trống", value: formatNumber(data.pendingTasks) },
     { title: "Cancel", value: formatNumber(data.canceledTasks) },
-    { title: "Task thiếu số lượng", value: formatNumber(data.missingQuantityTasks) }
+    { title: "Task thiếu số lượng", value: formatNumber(data.missingQuantityTasks), hint: "Không tính task Cancel" }
   ];
 
   for (const item of kpis) {
@@ -668,7 +661,7 @@ function renderPreviousMonthOpenTasks(person) {
 function renderMissingTable(person, month) {
   const tbody = document.querySelector("#missingQtyTable tbody");
   tbody.innerHTML = "";
-  const rows = aggregateRows(person, month).filter((r) => r.quantity === 0);
+  const rows = aggregateRows(person, month).filter((r) => r.quantity === 0 && r.status !== "Cancel");
   for (const row of rows.slice(0, 200)) {
     const tr = document.createElement("tr");
     tr.appendChild(createCell(String(row.row), "num"));
@@ -686,7 +679,8 @@ function computeScopeKpi(person, month) {
   const completedRows = rows.filter((r) => r.status === "Hoàn thành");
   const inProgressRows = rows.filter((r) => r.status === "Đang thực hiện");
   const canceledRows = rows.filter((r) => r.status === "Cancel");
-  const quantity = sumObjectValues({ total: rows.reduce((sum, r) => sum + r.quantity, 0) });
+  const pendingRows = rows.filter((r) => r.status === "Pending");
+  const quantity = rows.reduce((sum, r) => sum + r.quantity, 0);
   return {
     tasks: rows.length,
     quantity,
@@ -696,7 +690,8 @@ function computeScopeKpi(person, month) {
     inProgressTasks: inProgressRows.length,
     inProgressQuantity: inProgressRows.reduce((sum, r) => sum + r.quantity, 0),
     canceledTasks: canceledRows.length,
-    missingQuantityTasks: rows.filter((r) => r.quantity === 0).length
+    pendingTasks: pendingRows.length,
+    missingQuantityTasks: rows.filter((r) => r.quantity === 0 && r.status !== "Cancel").length
   };
 }
 
