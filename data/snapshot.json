@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-07-01T11:25:30.468Z",
+    "generatedAt": "2026-07-01T11:34:18.516Z",
     "timezone": "Asia/Ho_Chi_Minh",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -8,7 +8,7 @@
       "gid": "131891982"
     },
     "incremental": {
-      "mode": "full-bootstrap",
+      "mode": "full-forced",
       "activeMonth": "2026-07",
       "activeRangeStartRow": 707,
       "sheetMaxColumn": "Z"
@@ -24,10 +24,10 @@
     "tasks": 689,
     "quantity": 28722,
     "avgQuantityPerTask": 41.69,
-    "completedTasks": 656,
-    "completedQuantity": 28591,
-    "inProgressTasks": 11,
-    "inProgressQuantity": 112,
+    "completedTasks": 657,
+    "completedQuantity": 28596,
+    "inProgressTasks": 10,
+    "inProgressQuantity": 107,
     "canceledTasks": 14,
     "missingQuantityTasks": 29,
     "missingQuantityRows": [
@@ -62,9 +62,9 @@
       707
     ],
     "byStatusTasks": {
-      "Hoàn thành": 656,
+      "Hoàn thành": 657,
       "Cancel": 14,
-      "Đang thực hiện": 11,
+      "Đang thực hiện": 10,
       "Pending": 4,
       "(trong)": 4
     },
@@ -301,10 +301,10 @@
       "tasks": 239,
       "quantity": 2115,
       "avgQuantityPerTask": 8.85,
-      "completedTasks": 234,
-      "completedQuantity": 2104,
-      "inProgressTasks": 4,
-      "inProgressQuantity": 11,
+      "completedTasks": 235,
+      "completedQuantity": 2109,
+      "inProgressTasks": 3,
+      "inProgressQuantity": 6,
       "canceledTasks": 1,
       "missingQuantityTasks": 6,
       "missingQuantityRows": [
@@ -316,8 +316,8 @@
         622
       ],
       "byStatusTasks": {
-        "Hoàn thành": 234,
-        "Đang thực hiện": 4,
+        "Hoàn thành": 235,
+        "Đang thực hiện": 3,
         "Cancel": 1
       },
       "byCategoryQty": {
@@ -10040,7 +10040,7 @@
       "person": "KHANG",
       "channel": "SHOPPE",
       "category": "KEY VISUAL",
-      "status": "Đang thực hiện",
+      "status": "Hoàn thành",
       "quantity": 5,
       "qtyHinh": 5,
       "qtyVideo": 0,
@@ -10196,7 +10196,7 @@
       "person": "KHANG",
       "channel": "SHOPPE",
       "category": "KEY VISUAL",
-      "status": "Đang thực hiện",
+      "status": "Hoàn thành",
       "quantity": 5,
       "qtyHinh": 5,
       "qtyVideo": 0,
