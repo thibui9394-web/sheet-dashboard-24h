@@ -194,91 +194,36 @@ function aggregateRows(person, month) {
 }
 
 function renderChannelCategoryTable(channelGroups) {
-  const container = document.querySelector("#channelCategoryGrid");
-  if (!container) return;
-  container.innerHTML = "";
-
-  if (channelGroups.length === 0) {
-    const empty = document.createElement("p");
-    empty.className = "week-empty";
-    empty.textContent = "Kh\u00f4ng c\u00f3 d\u1eef li\u1ec7u k\u00eanh + h\u1ea1ng m\u1ee5c";
-    container.appendChild(empty);
-    return;
-  }
-
-  const getCatLabel = (catName) => {
-    const c = (catName || "").trim().toUpperCase();
-    if (c === "H\u00ccNH \u1ea2NH" || c === "H\u00ccNH \u1ea2NH AI") return "H\u00ecnh \u1ea3nh";
-    if (c === "VIDEO" || c === "VIDEO AI") return "Video";
-    if (c === "KEY VISUAL") return "Key Visual";
-    if (c === "LANDINGPAGE") return "Landing Page";
-    return "Kh\u00e1c / Tr\u1ed1ng";
-  };
-
+  const tbody = document.querySelector("#channelCategoryTable tbody");
+  if (!tbody) return;
+  tbody.innerHTML = "";
   for (const group of channelGroups) {
-    const card = document.createElement("div");
-    card.className = "channel-card";
+    const totalRow = document.createElement("tr");
+    totalRow.className = "group-row";
+    const channelLabel = group.channel === "(trong)" ? `Tr\u1ed1ng (${formatRowList(group.rows)})` : group.channel;
+    totalRow.appendChild(createCell(channelLabel));
+    totalRow.appendChild(createCell("T\u1ed5ng k\u00eanh"));
+    totalRow.appendChild(createCell(formatNumber(group.quantity), "num"));
+    totalRow.appendChild(createCell(formatNumber(group.tasks), "num"));
+    tbody.appendChild(totalRow);
 
-    const header = document.createElement("div");
-    header.className = "channel-card-head";
-    
-    const title = document.createElement("span");
-    title.className = "channel-card-title";
-    title.textContent = group.channel === "(trong)" ? `Tr\u1ed1ng (${formatRowList(group.rows)})` : group.channel;
-    
-    const meta = document.createElement("strong");
-    meta.textContent = `${formatNumber(group.quantity)} SL / ${formatNumber(group.tasks)} task`;
-
-    header.appendChild(title);
-    header.appendChild(meta);
-    card.appendChild(header);
-
-    const catDataMap = new Map();
-    const catOrder = ["H\u00ecnh \u1ea3nh", "Video", "Key Visual", "Landing Page", "Kh\u00e1c / Tr\u1ed1ng"];
-    for (const key of catOrder) {
-      catDataMap.set(key, { quantity: 0, tasks: 0, emptyRows: [] });
+    for (const info of group.categories) {
+      const tr = document.createElement("tr");
+      tr.className = "child-row";
+      tr.appendChild(createCell(""));
+      const categoryLabel = info.category === "(trong)" ? `Tr\u1ed1ng (${formatRowList(info.rows)})` : info.category;
+      tr.appendChild(createCell(categoryLabel));
+      tr.appendChild(createCell(formatNumber(info.quantity), "num"));
+      tr.appendChild(createCell(formatNumber(info.tasks), "num"));
+      tbody.appendChild(tr);
     }
-
-    for (const [catName, catObj] of group.categories.entries()) {
-      const label = getCatLabel(catName);
-      const obj = catDataMap.get(label);
-      obj.quantity += catObj.quantity;
-      obj.tasks += catObj.tasks;
-      if (catName === "(trong)" || label === "Kh\u00e1c / Tr\u1ed1ng") {
-        obj.emptyRows.push(...catObj.rows);
-      }
-    }
-
-    const list = document.createElement("ul");
-    list.className = "channel-cat-list";
-
-    for (const label of catOrder) {
-      const data = catDataMap.get(label);
-      if (data.quantity === 0 && data.tasks === 0) continue;
-
-      const li = document.createElement("li");
-      li.className = "channel-cat-item";
-
-      const nameSpan = document.createElement("span");
-      nameSpan.className = "cat-name";
-      nameSpan.textContent = label;
-
-      const valSpan = document.createElement("span");
-      valSpan.className = "cat-value";
-      
-      let valText = `<strong>${formatNumber(data.quantity)}</strong> <small>SL</small> (${formatNumber(data.tasks)} task)`;
-      if (label === "Kh\u00e1c / Tr\u1ed1ng" && data.emptyRows && data.emptyRows.length > 0) {
-        valText += ` <small style="color: #ef4444; font-weight: 600;">(${formatRowList(data.emptyRows)})</small>`;
-      }
-      valSpan.innerHTML = valText;
-
-      li.appendChild(nameSpan);
-      li.appendChild(valSpan);
-      list.appendChild(li);
-    }
-
-    card.appendChild(list);
-    container.appendChild(card);
+  }
+  if (channelGroups.length === 0) {
+    const tr = document.createElement("tr");
+    const td = createCell("Kh\u00f4ng c\u00f3 d\u1eef li\u1ec7u k\u00eanh + h\u1ea1ng m\u1ee5c");
+    td.colSpan = 4;
+    tr.appendChild(td);
+    tbody.appendChild(tr);
   }
 }
 
