@@ -3,25 +3,71 @@ name: Update Dashboard Snapshot
 on:
   workflow_dispatch:
     inputs:
-      scan_scope:
-        description: "Chọn phạm vi quét dữ liệu"
-        type: choice
-        required: true
-        default: "Toàn bộ lịch sử (Quét tất cả)"
-        options:
-          - "Toàn bộ lịch sử (Quét tất cả)"
-          - "Chỉ quét Tháng 12/2026"
-          - "Chỉ quét Tháng 11/2026"
-          - "Chỉ quét Tháng 10/2026"
-          - "Chỉ quét Tháng 09/2026"
-          - "Chỉ quét Tháng 08/2026"
-          - "Chỉ quét Tháng 07/2026"
-          - "Chỉ quét Tháng 06/2026"
-          - "Chỉ quét Tháng 05/2026"
-          - "Chỉ quét Tháng 04/2026"
-          - "Chỉ quét Tháng 03/2026"
-          - "Chỉ quét Tháng 02/2026"
-          - "Chỉ quét Tháng 01/2026"
+      scan_all:
+        description: "Quét toàn bộ lịch sử (Quét tất cả)"
+        type: boolean
+        required: false
+        default: false
+      scan_jan:
+        description: "Quét Tháng 01/2026"
+        type: boolean
+        required: false
+        default: false
+      scan_feb:
+        description: "Quét Tháng 02/2026"
+        type: boolean
+        required: false
+        default: false
+      scan_mar:
+        description: "Quét Tháng 03/2026"
+        type: boolean
+        required: false
+        default: false
+      scan_apr:
+        description: "Quét Tháng 04/2026"
+        type: boolean
+        required: false
+        default: false
+      scan_may:
+        description: "Quét Tháng 05/2026"
+        type: boolean
+        required: false
+        default: false
+      scan_jun:
+        description: "Quét Tháng 06/2026"
+        type: boolean
+        required: false
+        default: false
+      scan_jul:
+        description: "Quét Tháng 07/2026"
+        type: boolean
+        required: false
+        default: false
+      scan_aug:
+        description: "Quét Tháng 08/2026"
+        type: boolean
+        required: false
+        default: false
+      scan_sep:
+        description: "Quét Tháng 09/2026"
+        type: boolean
+        required: false
+        default: false
+      scan_oct:
+        description: "Quét Tháng 10/2026"
+        type: boolean
+        required: false
+        default: false
+      scan_nov:
+        description: "Quét Tháng 11/2026"
+        type: boolean
+        required: false
+        default: false
+      scan_dec:
+        description: "Quét Tháng 12/2026"
+        type: boolean
+        required: false
+        default: false
 
 permissions:
   contents: write
@@ -40,20 +86,46 @@ jobs:
 
       - name: Parse Scan Scope
         run: |
-          input_val="${{ github.event.inputs.scan_scope }}"
-          if [[ "$input_val" =~ "Chỉ quét Tháng "([0-9]{2})\/([0-9]{4}) ]]; then
-            month="${BASH_REMATCH[1]}"
-            year="${BASH_REMATCH[2]}"
-            echo "FORCE_FULL_SNAPSHOT=false" >> $GITHUB_ENV
-            echo "TARGET_MONTH=$year-$month" >> $GITHUB_ENV
-          else
-            echo "FORCE_FULL_SNAPSHOT=true" >> $GITHUB_ENV
-            echo "TARGET_MONTH=" >> $GITHUB_ENV
+          FORCE_FULL=false
+          MONTHS=()
+          
+          if [ "${{ github.event.inputs.scan_all }}" = "true" ]; then
+            FORCE_FULL=true
           fi
+          if [ "${{ github.event.inputs.scan_jan }}" = "true" ]; then MONTHS+=("2026-01"); fi
+          if [ "${{ github.event.inputs.scan_feb }}" = "true" ]; then MONTHS+=("2026-02"); fi
+          if [ "${{ github.event.inputs.scan_mar }}" = "true" ]; then MONTHS+=("2026-03"); fi
+          if [ "${{ github.event.inputs.scan_apr }}" = "true" ]; then MONTHS+=("2026-04"); fi
+          if [ "${{ github.event.inputs.scan_may }}" = "true" ]; then MONTHS+=("2026-05"); fi
+          if [ "${{ github.event.inputs.scan_jun }}" = "true" ]; then MONTHS+=("2026-06"); fi
+          if [ "${{ github.event.inputs.scan_jul }}" = "true" ]; then MONTHS+=("2026-07"); fi
+          if [ "${{ github.event.inputs.scan_aug }}" = "true" ]; then MONTHS+=("2026-08"); fi
+          if [ "${{ github.event.inputs.scan_sep }}" = "true" ]; then MONTHS+=("2026-09"); fi
+          if [ "${{ github.event.inputs.scan_oct }}" = "true" ]; then MONTHS+=("2026-10"); fi
+          if [ "${{ github.event.inputs.scan_nov }}" = "true" ]; then MONTHS+=("2026-11"); fi
+          if [ "${{ github.event.inputs.scan_dec }}" = "true" ]; then MONTHS+=("2026-12"); fi
+          
+          IFS=',' eval 'MONTHS_STR="${MONTHS[*]}"'
+          
+          echo "FORCE_FULL_SNAPSHOT=$FORCE_FULL" >> $GITHUB_ENV
+          echo "TARGET_MONTHS=$MONTHS_STR" >> $GITHUB_ENV
         shell: bash
 
       - name: Build Snapshot
-        run: node ./scripts/update-snapshot.mjs
+        run: |
+          if [ "$FORCE_FULL_SNAPSHOT" = "true" ]; then
+            echo "Running full snapshot update..."
+            FORCE_FULL_SNAPSHOT=true node ./scripts/update-snapshot.mjs
+          elif [ -n "$TARGET_MONTHS" ]; then
+            IFS=',' read -ra ADDR <<< "$TARGET_MONTHS"
+            for m in "${ADDR[@]}"; do
+              echo "Running snapshot update for target month: $m..."
+              TARGET_MONTH="$m" node ./scripts/update-snapshot.mjs
+            done
+          else
+            echo "Running active-month snapshot update..."
+            node ./scripts/update-snapshot.mjs
+          fi
         env:
           TZ: Asia/Ho_Chi_Minh
           SHEET_ID: 1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM
