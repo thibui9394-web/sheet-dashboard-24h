@@ -311,6 +311,9 @@ function getEffectiveRecord(r, month) {
   
   mapped.weekOfMonth = getEffectiveWeek(r, month);
 
+  const targetMonth = month === "ALL" ? latestMonth() : month;
+  mapped.isDebt = !!(targetMonth && r.month && r.month !== "(khong ngay)" && r.month < targetMonth);
+
   // Nhan ngay/thang don gian: hoan thanh thi ghi ngay hoan thanh,
   // dang lam thi ghi ngay order. Dong/thang da co san o dong meta xam ben duoi.
   mapped.customLabel = "";
@@ -583,7 +586,18 @@ function createTaskItem(row) {
 
   const head = document.createElement("div");
   head.className = "week-task-head";
-  head.appendChild(createStatusBadge(statusKey(row.status)));
+
+  const badgesGroup = document.createElement("div");
+  badgesGroup.className = "week-task-badges";
+  badgesGroup.appendChild(createStatusBadge(statusKey(row.status)));
+
+  if (row.isDebt) {
+    const debtBadge = document.createElement("span");
+    debtBadge.className = "task-debt-badge";
+    debtBadge.innerHTML = "\u23f3 N\u1ee3";
+    badgesGroup.appendChild(debtBadge);
+  }
+  head.appendChild(badgesGroup);
 
   if (row.customLabel) {
     const isCompleted = statusKey(row.status) === "completed";
