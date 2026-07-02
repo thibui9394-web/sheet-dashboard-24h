@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-07-02T02:48:56.827Z",
+    "generatedAt": "2026-07-02T04:34:16.979Z",
     "timezone": "Asia/Ho_Chi_Minh",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -18,18 +18,18 @@
         128
       ]
     },
-    "totalRecords": 708
+    "totalRecords": 709
   },
   "overview": {
-    "tasks": 708,
+    "tasks": 709,
     "quantity": 28743,
-    "avgQuantityPerTask": 40.6,
+    "avgQuantityPerTask": 40.54,
     "completedTasks": 658,
     "completedQuantity": 28609,
     "inProgressTasks": 4,
     "inProgressQuantity": 16,
     "canceledTasks": 20,
-    "missingQuantityTasks": 45,
+    "missingQuantityTasks": 46,
     "missingQuantityRows": [
       24,
       92,
@@ -75,13 +75,14 @@
       687,
       704,
       709,
-      710
+      710,
+      711
     ],
     "byStatusTasks": {
       "Hoàn thành": 658,
       "Cancel": 20,
+      "(trong)": 14,
       "Pending": 13,
-      "(trong)": 13,
       "Đang thực hiện": 4
     },
     "byCategoryQty": {
@@ -97,7 +98,7 @@
     },
     "byCategoryTasks": {
       "HÌNH ẢNH AI": 236,
-      "HÌNH ẢNH": 219,
+      "HÌNH ẢNH": 220,
       "VIDEO": 80,
       "SOCIAL POST": 77,
       "KEY VISUAL": 37,
@@ -134,7 +135,7 @@
       "SHOPPE": 174,
       "TIKTOK MB": 92,
       "(trong)": 46,
-      "SHOPPE ARISTINO": 35,
+      "SHOPPE ARISTINO": 36,
       "WEB KG VIETNAM": 30,
       "WEB ARISTINO": 29,
       "AMAZON": 22,
@@ -344,15 +345,15 @@
       }
     },
     "KHANG": {
-      "tasks": 240,
+      "tasks": 241,
       "quantity": 2115,
-      "avgQuantityPerTask": 8.81,
+      "avgQuantityPerTask": 8.78,
       "completedTasks": 236,
       "completedQuantity": 2114,
       "inProgressTasks": 1,
       "inProgressQuantity": 0,
       "canceledTasks": 3,
-      "missingQuantityTasks": 7,
+      "missingQuantityTasks": 8,
       "missingQuantityRows": [
         223,
         237,
@@ -360,12 +361,14 @@
         525,
         618,
         622,
-        710
+        710,
+        711
       ],
       "byStatusTasks": {
         "Hoàn thành": 236,
         "Cancel": 3,
-        "Đang thực hiện": 1
+        "Đang thực hiện": 1,
+        "(trong)": 1
       },
       "byCategoryQty": {
         "HÌNH ẢNH": 592,
@@ -379,7 +382,7 @@
       "byCategoryTasks": {
         "SOCIAL POST": 67,
         "HÌNH ẢNH AI": 66,
-        "HÌNH ẢNH": 58,
+        "HÌNH ẢNH": 59,
         "KEY VISUAL": 22,
         "LANDINGPAGE": 15,
         "KEY VISUAL AI": 7,
@@ -405,8 +408,8 @@
         "FACEBOOK": 132,
         "SHOPPE": 51,
         "TIKTOK MB": 13,
+        "SHOPPE ARISTINO": 12,
         "(trong)": 11,
-        "SHOPPE ARISTINO": 11,
         "WEB KG VIETNAM": 8,
         "WEB ARISTINO": 7,
         "SHOPPE CECINA": 2,
@@ -11110,7 +11113,7 @@
       "orderDate": "2026-07-01",
       "completionDate": "",
       "weekOfMonth": 1,
-      "detail": "https://drive.google.com/drive/folders/1k_gy_gIcG658F8IxTD3szab5rUHGOjDQ\nVideo đăng reels shopee"
+      "detail": "Video đăng reels shopee\nhttps://drive.google.com/drive/folders/1k_gy_gIcG658F8IxTD3szab5rUHGOjDQ"
     },
     {
       "row": 709,
@@ -11125,7 +11128,7 @@
       "orderDate": "2026-07-01",
       "completionDate": "",
       "weekOfMonth": 1,
-      "detail": "Thumb ism active ( làm như mẫu trg link): https://docs.google.com/spreadsheets/d/11EtLdwvCEga963ASDojtkQZpFQ9Dxj9IyWFVvfBAW9o/edit?gid=1533085567#gid=1533085567"
+      "detail": "Thumb ism active\n( làm như mẫu trg link): https://docs.google.com/spreadsheets/d/11EtLdwvCEga963ASDojtkQZpFQ9Dxj9IyWFVvfBAW9o/edit?gid=1533085567#gid=1533085567"
     },
     {
       "row": 710,
@@ -11141,10 +11144,40 @@
       "completionDate": "",
       "weekOfMonth": 1,
       "detail": "Ưu đãi tháng 7 - ảnh\n\nhttps://www.figma.com/board/eELTqOYZukwzn4KkcUHqON/K-G-T7-2026?node-id=113-113&t=iG24tvYjPgm09LL3-0"
+    },
+    {
+      "row": 711,
+      "person": "KHANG",
+      "channel": "SHOPPE ARISTINO",
+      "category": "HÌNH ẢNH",
+      "status": "(trong)",
+      "quantity": 0,
+      "qtyHinh": 0,
+      "qtyVideo": 0,
+      "month": "2026-07",
+      "orderDate": "2026-07-02",
+      "completionDate": "",
+      "weekOfMonth": 1,
+      "detail": "Loyalty T7 Aris Off\n\nhttps://www.figma.com/board/eELTqOYZukwzn4KkcUHqON/K-G-T7-2026?node-id=122-118&t=qynwBD0V0Z6kUekj-0"
     }
   ],
   "latestRows": [
     {
+      "row": 711,
+      "person": "KHANG",
+      "channel": "SHOPPE ARISTINO",
+      "category": "HÌNH ẢNH",
+      "status": "(trong)",
+      "quantity": 0,
+      "qtyHinh": 0,
+      "qtyVideo": 0,
+      "month": "2026-07",
+      "orderDate": "2026-07-02",
+      "completionDate": "",
+      "weekOfMonth": 1,
+      "detail": "Loyalty T7 Aris Off\n\nhttps://www.figma.com/board/eELTqOYZukwzn4KkcUHqON/K-G-T7-2026?node-id=122-118&t=qynwBD0V0Z6kUekj-0"
+    },
+    {
       "row": 710,
       "person": "KHANG",
       "channel": "FACEBOOK",
@@ -11172,7 +11205,7 @@
       "orderDate": "2026-07-01",
       "completionDate": "",
       "weekOfMonth": 1,
-      "detail": "Thumb ism active ( làm như mẫu trg link): https://docs.google.com/spreadsheets/d/11EtLdwvCEga963ASDojtkQZpFQ9Dxj9IyWFVvfBAW9o/edit?gid=1533085567#gid=1533085567"
+      "detail": "Thumb ism active\n( làm như mẫu trg link): https://docs.google.com/spreadsheets/d/11EtLdwvCEga963ASDojtkQZpFQ9Dxj9IyWFVvfBAW9o/edit?gid=1533085567#gid=1533085567"
     },
     {
       "row": 708,
@@ -11187,7 +11220,7 @@
       "orderDate": "2026-07-01",
       "completionDate": "",
       "weekOfMonth": 1,
-      "detail": "https://drive.google.com/drive/folders/1k_gy_gIcG658F8IxTD3szab5rUHGOjDQ\nVideo đăng reels shopee"
+      "detail": "Video đăng reels shopee\nhttps://drive.google.com/drive/folders/1k_gy_gIcG658F8IxTD3szab5rUHGOjDQ"
     },
     {
       "row": 707,
@@ -14128,21 +14161,6 @@
       "completionDate": "",
       "weekOfMonth": 4,
       "detail": "LDP ARISTINO BUSINESS T5\n\nhttps://www.figma.com/board/X1EFJMFhcec1Z7umL00nkg/K-G-T5-2026?node-id=22-171&t=B6z2X0XuvMLcigYW-0"
-    },
-    {
-      "row": 518,
-      "person": "KHANG",
-      "channel": "SHOPPE",
-      "category": "LANDINGPAGE",
-      "status": "Hoàn thành",
-      "quantity": 9,
-      "qtyHinh": 9,
-      "qtyVideo": 0,
-      "month": "2026-04",
-      "orderDate": "2026-04-28",
-      "completionDate": "",
-      "weekOfMonth": 4,
-      "detail": "LDP  ARISTINO MN T5\n\nhttps://www.figma.com/board/X1EFJMFhcec1Z7umL00nkg/K-G-T5-2026?node-id=22-172&t=B6z2X0XuvMLcigYW-0"
     }
   ]
 }
