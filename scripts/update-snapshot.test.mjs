@@ -334,12 +334,13 @@ test("recordsFromRows: ca hinh + video KHAC nguoi -> SPLIT 2 record", () => {
   assert.equal(videoRec.qtyVideo, 5);
 });
 
-test("recordsFromRows: khong co nguoi nao -> bo qua dong", () => {
+test("recordsFromRows: khong co nguoi nao -> van nhan record voi person rong", () => {
   const body = [
     makeRow("SHOPEE", "task E", 10, 0, "3/6/2026", "HÌNH ẢNH", "Hoàn thành", "", "")
   ];
   const records = recordsFromRows(HEADERS, body, 2);
-  assert.equal(records.length, 0);
+  assert.equal(records.length, 1);
+  assert.equal(records[0].person, "");
 });
 
 test("recordsFromRows: qtyHinh=0, qtyVideo=0 -> 1 record quantity=0", () => {

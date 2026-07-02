@@ -270,20 +270,21 @@ export function recordsFromRows(headers, body, startRowNumber) {
     const row = body[index];
     const rowNumber = startRowNumber + index;
     
+    const detail = normalizeText(row[colDetail]);
+    const orderDate = formatOrderDate(row[colDate]);
+    if (!detail && !orderDate) continue;
+
     const status = normalizeStatus(row[colStatus]);
     const isCancel = status.toLowerCase() === "cancel";
 
     const personHinh = normalizePerson(row[colPersonHinh]);
     const personVideo = colPersonVideo !== -1 ? normalizePerson(row[colPersonVideo]) : "";
-    if (!personHinh && !personVideo && !isCancel) continue;
 
     const qtyHinh = parseQuantity(row[colQtyHinh]);
     const qtyVideo = colQtyVideo !== -1 ? parseQuantity(row[colQtyVideo]) : 0;
     
     const channel = normalizeChannel(row[colChannel]);
-    const detail = normalizeText(row[colDetail]);
     const month = extractMonth(row[colDate]);
-    const orderDate = formatOrderDate(row[colDate]);
     const completionDate = colCompletionDate !== -1 ? formatOrderDate(row[colCompletionDate]) : "";
     const weekNum = weekOfMonth(row[colDate]);
     const category = normalizeText(row[colCategory]) || "(trong)";
