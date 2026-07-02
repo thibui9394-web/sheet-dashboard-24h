@@ -521,6 +521,7 @@ tbody tr:hover {
     grid-template-columns: 1fr auto;
     gap: 6px 10px;
     margin-bottom: 12px;
+    width: 100%;
   }
   .bar-row .bar-label-col {
     grid-column: 1 / 2;
