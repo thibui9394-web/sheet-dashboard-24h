@@ -829,7 +829,7 @@ async function load() {
   monthList = [...new Set(snapshotRows().map((r) => r.month).filter((v) => v && v !== "(khong ngay)"))]
     .sort((a, b) => a.localeCompare(b));
 
-  updatedAtEl.textContent = `Cập nhật: ${formatDate(snapshot.metadata.generatedAt)}`;
+  updatedAtEl.textContent = `Đã cập nhật lúc: ${formatDate(snapshot.metadata.generatedAt)}`;
   totalRecordsEl.textContent = `Tổng record: ${formatNumber(snapshot.metadata.totalRecords)}`;
   setFilters();
   render();
