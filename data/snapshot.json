@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-07-02T07:39:45.724Z",
+    "generatedAt": "2026-07-02T16:36:39.893Z",
     "timezone": "Asia/Ho_Chi_Minh",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -18,18 +18,18 @@
         128
       ]
     },
-    "totalRecords": 710
+    "totalRecords": 713
   },
   "overview": {
-    "tasks": 710,
+    "tasks": 713,
     "quantity": 28743,
-    "avgQuantityPerTask": 40.48,
+    "avgQuantityPerTask": 40.31,
     "completedTasks": 658,
     "completedQuantity": 28609,
     "inProgressTasks": 4,
     "inProgressQuantity": 16,
     "canceledTasks": 20,
-    "missingQuantityTasks": 47,
+    "missingQuantityTasks": 50,
     "missingQuantityRows": [
       24,
       92,
@@ -77,12 +77,15 @@
       709,
       710,
       711,
-      712
+      712,
+      713,
+      714,
+      715
     ],
     "byStatusTasks": {
       "Hoàn thành": 658,
       "Cancel": 20,
-      "(trong)": 15,
+      "(trong)": 18,
       "Pending": 13,
       "Đang thực hiện": 4
     },
@@ -99,13 +102,13 @@
     },
     "byCategoryTasks": {
       "HÌNH ẢNH AI": 236,
-      "HÌNH ẢNH": 221,
+      "HÌNH ẢNH": 223,
       "VIDEO": 80,
       "SOCIAL POST": 77,
       "KEY VISUAL": 37,
       "LANDINGPAGE": 20,
       "KEY VISUAL AI": 16,
-      "(trong)": 15,
+      "(trong)": 16,
       "VIDEO AI": 7,
       "GIAO DIỆN": 1
     },
@@ -135,8 +138,8 @@
       "FACEBOOK": 225,
       "SHOPPE": 174,
       "TIKTOK MB": 92,
-      "(trong)": 46,
-      "SHOPPE ARISTINO": 37,
+      "(trong)": 47,
+      "SHOPPE ARISTINO": 39,
       "WEB KG VIETNAM": 30,
       "WEB ARISTINO": 29,
       "AMAZON": 22,
@@ -168,15 +171,15 @@
   },
   "byPerson": {
     "": {
-      "tasks": 31,
+      "tasks": 34,
       "quantity": 30,
-      "avgQuantityPerTask": 0.97,
+      "avgQuantityPerTask": 0.88,
       "completedTasks": 0,
       "completedQuantity": 0,
       "inProgressTasks": 0,
       "inProgressQuantity": 0,
       "canceledTasks": 12,
-      "missingQuantityTasks": 26,
+      "missingQuantityTasks": 29,
       "missingQuantityRows": [
         129,
         130,
@@ -203,11 +206,14 @@
         686,
         687,
         709,
-        712
+        712,
+        713,
+        714,
+        715
       ],
       "byStatusTasks": {
+        "(trong)": 13,
         "Cancel": 12,
-        "(trong)": 10,
         "Pending": 9
       },
       "byCategoryQty": {
@@ -215,8 +221,8 @@
         "HÌNH ẢNH AI": 1
       },
       "byCategoryTasks": {
-        "HÌNH ẢNH": 20,
-        "(trong)": 3,
+        "HÌNH ẢNH": 22,
+        "(trong)": 4,
         "SOCIAL POST": 3,
         "HÌNH ẢNH AI": 3,
         "VIDEO": 1,
@@ -242,13 +248,13 @@
         "WEB KG VIETNAM": 3,
         "WEB ARISTINO": 3,
         "SHOPPE": 3,
-        "(trong)": 2,
+        "(trong)": 3,
+        "SHOPPE ARISTINO": 3,
         "ZNS": 1,
         "ZALO OA/MINIAPP": 1,
         "TIKTOK MN": 1,
         "LAZADA": 1,
-        "SHOPPE ISM": 1,
-        "SHOPPE ARISTINO": 1
+        "SHOPPE ISM": 1
       },
       "byMonthQty": {
         "2026-05": 12,
@@ -11178,9 +11184,99 @@
       "completionDate": "",
       "weekOfMonth": 1,
       "detail": "Mua 1 tặng 1 - Aris Business\n- Banner ads\n- Social post\n\nhttps://www.figma.com/board/eELTqOYZukwzn4KkcUHqON/K-G-T7-2026?node-id=122-155&t=qynwBD0V0Z6kUekj-0"
+    },
+    {
+      "row": 713,
+      "person": "",
+      "channel": "(trong)",
+      "category": "(trong)",
+      "status": "(trong)",
+      "quantity": 0,
+      "qtyHinh": 0,
+      "qtyVideo": 0,
+      "month": "2026-07",
+      "orderDate": "2026-07-02",
+      "completionDate": "",
+      "weekOfMonth": 1,
+      "detail": "INSIDEMEN - CTKM QUÀ TẶNG HÀNG ACTIVE \n\n- Ảnh này là chương trình của MT, Ecom cũng nội dung tương tự. nên cần resize kích thước để chạy chương trình.  \nResize lại từ file này: Z:\\Insidemen\\2026\\Tháng 5\\In Ấn\\5_25_POSM_Worldcup_kenh MT \n- 1 ảnh ngang - dọc - vuông: chạy click to web - đăng fanpage \n- 1 ảnh banner website ISM - 1 ảnh banner web K&G \n- 1 Video dọc chạy các element trên ảnh khoảng 10-15s"
+    },
+    {
+      "row": 714,
+      "person": "",
+      "channel": "SHOPPE ARISTINO",
+      "category": "HÌNH ẢNH",
+      "status": "(trong)",
+      "quantity": 0,
+      "qtyHinh": 0,
+      "qtyVideo": 0,
+      "month": "2026-07",
+      "orderDate": "2026-07-02",
+      "completionDate": "",
+      "weekOfMonth": 1,
+      "detail": "Mua 1 tặng 1 - Sơ mi tặng Tanktop - Aris Business\n- Banner ads\n- Video reels\n\nhttps://www.figma.com/board/eELTqOYZukwzn4KkcUHqON/K-G-T7-2026?node-id=139-675&t=qynwBD0V0Z6kUekj-0"
+    },
+    {
+      "row": 715,
+      "person": "",
+      "channel": "SHOPPE ARISTINO",
+      "category": "HÌNH ẢNH",
+      "status": "(trong)",
+      "quantity": 0,
+      "qtyHinh": 0,
+      "qtyVideo": 0,
+      "month": "2026-07",
+      "orderDate": "2026-07-02",
+      "completionDate": "",
+      "weekOfMonth": 1,
+      "detail": "Mua 1 tặng 1 - Quần âu tặng Tất vớ - Aris Business\n- Banner ads\n- Video Reels\n\nhttps://www.figma.com/board/eELTqOYZukwzn4KkcUHqON/K-G-T7-2026?node-id=141-952&t=qynwBD0V0Z6kUekj-0"
     }
   ],
   "latestRows": [
+    {
+      "row": 715,
+      "person": "",
+      "channel": "SHOPPE ARISTINO",
+      "category": "HÌNH ẢNH",
+      "status": "(trong)",
+      "quantity": 0,
+      "qtyHinh": 0,
+      "qtyVideo": 0,
+      "month": "2026-07",
+      "orderDate": "2026-07-02",
+      "completionDate": "",
+      "weekOfMonth": 1,
+      "detail": "Mua 1 tặng 1 - Quần âu tặng Tất vớ - Aris Business\n- Banner ads\n- Video Reels\n\nhttps://www.figma.com/board/eELTqOYZukwzn4KkcUHqON/K-G-T7-2026?node-id=141-952&t=qynwBD0V0Z6kUekj-0"
+    },
+    {
+      "row": 714,
+      "person": "",
+      "channel": "SHOPPE ARISTINO",
+      "category": "HÌNH ẢNH",
+      "status": "(trong)",
+      "quantity": 0,
+      "qtyHinh": 0,
+      "qtyVideo": 0,
+      "month": "2026-07",
+      "orderDate": "2026-07-02",
+      "completionDate": "",
+      "weekOfMonth": 1,
+      "detail": "Mua 1 tặng 1 - Sơ mi tặng Tanktop - Aris Business\n- Banner ads\n- Video reels\n\nhttps://www.figma.com/board/eELTqOYZukwzn4KkcUHqON/K-G-T7-2026?node-id=139-675&t=qynwBD0V0Z6kUekj-0"
+    },
+    {
+      "row": 713,
+      "person": "",
+      "channel": "(trong)",
+      "category": "(trong)",
+      "status": "(trong)",
+      "quantity": 0,
+      "qtyHinh": 0,
+      "qtyVideo": 0,
+      "month": "2026-07",
+      "orderDate": "2026-07-02",
+      "completionDate": "",
+      "weekOfMonth": 1,
+      "detail": "INSIDEMEN - CTKM QUÀ TẶNG HÀNG ACTIVE \n\n- Ảnh này là chương trình của MT, Ecom cũng nội dung tương tự. nên cần resize kích thước để chạy chương trình.  \nResize lại từ file này: Z:\\Insidemen\\2026\\Tháng 5\\In Ấn\\5_25_POSM_Worldcup_kenh MT \n- 1 ảnh ngang - dọc - vuông: chạy click to web - đăng fanpage \n- 1 ảnh banner website ISM - 1 ảnh banner web K&G \n- 1 Video dọc chạy các element trên ảnh khoảng 10-15s"
+    },
     {
       "row": 712,
       "person": "",
@@ -14135,51 +14231,6 @@
       "completionDate": "",
       "weekOfMonth": 4,
       "detail": "KV ISM và Aristino MN - MB - Business 5.5\n\nThêm 1 phiên bản video vuông - motion"
-    },
-    {
-      "row": 522,
-      "person": "ẨN",
-      "channel": "SHOPPE",
-      "category": "LANDINGPAGE",
-      "status": "Hoàn thành",
-      "quantity": 6,
-      "qtyHinh": 6,
-      "qtyVideo": 0,
-      "month": "2026-04",
-      "orderDate": "2026-04-29",
-      "completionDate": "",
-      "weekOfMonth": 4,
-      "detail": "LDP ISM T5\n\nhttps://www.figma.com/board/X1EFJMFhcec1Z7umL00nkg/K-G-T5-2026?node-id=59-187&t=c0jGyZv5H0TAWcGC-0"
-    },
-    {
-      "row": 521,
-      "person": "ẨN",
-      "channel": "TIKTOK MB",
-      "category": "HÌNH ẢNH",
-      "status": "Hoàn thành",
-      "quantity": 5,
-      "qtyHinh": 5,
-      "qtyVideo": 0,
-      "month": "2026-05",
-      "orderDate": "2026-05-01",
-      "completionDate": "",
-      "weekOfMonth": 1,
-      "detail": "BACK LIVESTREAM ARISTINO ONLINE Tháng 5\nhttps://www.figma.com/board/iaYXq8oFeoc0ppQm83kBPs/Untitled?node-id=277-190&t=LPuKfpTngAFnWLqf-0"
-    },
-    {
-      "row": 520,
-      "person": "ẨN",
-      "channel": "SHOPPE",
-      "category": "HÌNH ẢNH AI",
-      "status": "Hoàn thành",
-      "quantity": 8,
-      "qtyHinh": 8,
-      "qtyVideo": 0,
-      "month": "2026-04",
-      "orderDate": "2026-04-29",
-      "completionDate": "",
-      "weekOfMonth": 4,
-      "detail": "KV  ISM 5.5\n\nhttps://www.figma.com/board/X1EFJMFhcec1Z7umL00nkg/K-G-T5-2026?node-id=53-161&t=c0jGyZv5H0TAWcGC-0"
     }
   ]
 }
