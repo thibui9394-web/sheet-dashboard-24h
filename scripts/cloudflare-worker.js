@@ -1,12 +1,12 @@
 export default {
   async fetch(request, env, ctx) {
-    // 1. Xử lý CORS preflight (cho phép gọi API trực tiếp từ trình duyệt bất kỳ tên miền nào)
+    // 1. Xử lý CORS preflight (cho phép gửi header tùy chỉnh X-Sync-Passcode)
     if (request.method === "OPTIONS") {
       return new Response(null, {
         headers: {
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Methods": "POST, OPTIONS",
-          "Access-Control-Allow-Headers": "Content-Type, Authorization",
+          "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Sync-Passcode",
         },
       });
     }
@@ -16,12 +16,28 @@ export default {
     }
 
     try {
-      // 2. Lấy thông tin cấu hình từ Environment Variables của Worker
-      // Mặc định cấu hình cho tài khoản của bạn, bạn có thể đổi lại trong dashboard của Cloudflare
+      // 2. Xác thực mật mã bảo vệ (SYNC_PASSCODE) được cấu hình trên Cloudflare
+      const clientPasscode = request.headers.get("X-Sync-Passcode");
+      const serverPasscode = env.SYNC_PASSCODE; // Cần cấu hình trong Cloudflare settings
+
+      if (serverPasscode && clientPasscode !== serverPasscode) {
+        return new Response(
+          JSON.stringify({ success: false, error: "Mật mã không chính xác. Bạn không có quyền đồng bộ." }),
+          {
+            status: 401,
+            headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+            },
+          }
+        );
+      }
+
+      // 3. Lấy thông tin cấu hình từ Environment Variables của Worker
       const owner = env.GITHUB_OWNER || "thibui9394-web";
       const repo = env.GITHUB_REPO || "sheet-dashboard-24h";
       const workflowId = env.GITHUB_WORKFLOW_ID || "update-snapshot.yml";
-      const githubToken = env.GITHUB_TOKEN; // Cần được cấu hình làm Secret trong Cloudflare Worker
+      const githubToken = env.GITHUB_TOKEN;
 
       if (!githubToken) {
         return new Response(
@@ -36,7 +52,7 @@ export default {
         );
       }
 
-      // 3. Gửi lệnh Dispatch sang GitHub Actions để bắt đầu quét dữ liệu
+      // 4. Gửi lệnh sang GitHub
       const githubResponse = await fetch(
         `https://api.github.com/repos/${owner}/${repo}/actions/workflows/${workflowId}/dispatches`,
         {
@@ -48,12 +64,11 @@ export default {
             "User-Agent": "Cloudflare-Worker-Dashboard-Sync",
           },
           body: JSON.stringify({
-            ref: "main", // Chạy trên nhánh chính
+            ref: "main",
           }),
         }
       );
 
-      // GitHub API trả về 204 No Content khi kích hoạt thành công
       if (githubResponse.status === 204) {
         return new Response(
           JSON.stringify({ success: true, message: "Kích hoạt đồng bộ thành công!" }),

@@ -841,6 +841,9 @@ monthFilterEl.addEventListener("change", render);
 reloadBtn.addEventListener("click", load);
 
 syncBtn.addEventListener("click", async () => {
+  const passcode = prompt("Vui lòng nhập mật mã để đồng bộ dữ liệu:");
+  if (passcode === null) return;
+
   const workerUrl = "https://designsheet-dashboard-sync.thi-bui9394.workers.dev";
   const originalText = syncBtn.textContent;
   syncBtn.disabled = true;
@@ -848,7 +851,10 @@ syncBtn.addEventListener("click", async () => {
 
   try {
     const response = await fetch(workerUrl, {
-      method: "POST"
+      method: "POST",
+      headers: {
+        "X-Sync-Passcode": passcode
+      }
     });
     const result = await response.json();
     
