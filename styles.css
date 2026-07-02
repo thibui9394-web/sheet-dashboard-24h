@@ -582,11 +582,11 @@ tbody tr:hover {
 }
 
 .bar-chart-unit {
-  position: absolute;
-  top: 18px;
-  right: 16px;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--muted);
+  text-align: left;
+  margin-bottom: 12px;
+  margin-top: -4px;
 }
 
 .bar-row {
