@@ -366,6 +366,7 @@ button {
   flex-direction: column;
   gap: 6px;
   min-height: 108px;
+  height: 100%;
 }
 
 .kpi .title {
