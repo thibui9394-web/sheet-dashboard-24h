@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-07-02T04:36:00.080Z",
+    "generatedAt": "2026-07-02T07:39:27.126Z",
     "timezone": "Asia/Ho_Chi_Minh",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -18,18 +18,18 @@
         128
       ]
     },
-    "totalRecords": 709
+    "totalRecords": 710
   },
   "overview": {
-    "tasks": 709,
+    "tasks": 710,
     "quantity": 28743,
-    "avgQuantityPerTask": 40.54,
+    "avgQuantityPerTask": 40.48,
     "completedTasks": 658,
     "completedQuantity": 28609,
     "inProgressTasks": 4,
     "inProgressQuantity": 16,
     "canceledTasks": 20,
-    "missingQuantityTasks": 46,
+    "missingQuantityTasks": 47,
     "missingQuantityRows": [
       24,
       92,
@@ -76,12 +76,13 @@
       704,
       709,
       710,
-      711
+      711,
+      712
     ],
     "byStatusTasks": {
       "Hoàn thành": 658,
       "Cancel": 20,
-      "(trong)": 14,
+      "(trong)": 15,
       "Pending": 13,
       "Đang thực hiện": 4
     },
@@ -98,7 +99,7 @@
     },
     "byCategoryTasks": {
       "HÌNH ẢNH AI": 236,
-      "HÌNH ẢNH": 220,
+      "HÌNH ẢNH": 221,
       "VIDEO": 80,
       "SOCIAL POST": 77,
       "KEY VISUAL": 37,
@@ -135,7 +136,7 @@
       "SHOPPE": 174,
       "TIKTOK MB": 92,
       "(trong)": 46,
-      "SHOPPE ARISTINO": 36,
+      "SHOPPE ARISTINO": 37,
       "WEB KG VIETNAM": 30,
       "WEB ARISTINO": 29,
       "AMAZON": 22,
@@ -167,15 +168,15 @@
   },
   "byPerson": {
     "": {
-      "tasks": 30,
+      "tasks": 31,
       "quantity": 30,
-      "avgQuantityPerTask": 1,
+      "avgQuantityPerTask": 0.97,
       "completedTasks": 0,
       "completedQuantity": 0,
       "inProgressTasks": 0,
       "inProgressQuantity": 0,
       "canceledTasks": 12,
-      "missingQuantityTasks": 25,
+      "missingQuantityTasks": 26,
       "missingQuantityRows": [
         129,
         130,
@@ -201,19 +202,20 @@
         685,
         686,
         687,
-        709
+        709,
+        712
       ],
       "byStatusTasks": {
         "Cancel": 12,
-        "Pending": 9,
-        "(trong)": 9
+        "(trong)": 10,
+        "Pending": 9
       },
       "byCategoryQty": {
         "HÌNH ẢNH": 29,
         "HÌNH ẢNH AI": 1
       },
       "byCategoryTasks": {
-        "HÌNH ẢNH": 19,
+        "HÌNH ẢNH": 20,
         "(trong)": 3,
         "SOCIAL POST": 3,
         "HÌNH ẢNH AI": 3,
@@ -231,7 +233,8 @@
         "ZNS": 0,
         "ZALO OA/MINIAPP": 0,
         "(trong)": 0,
-        "SHOPPE ISM": 0
+        "SHOPPE ISM": 0,
+        "SHOPPE ARISTINO": 0
       },
       "byChannelTasks": {
         "TIKTOK MB": 9,
@@ -244,7 +247,8 @@
         "ZALO OA/MINIAPP": 1,
         "TIKTOK MN": 1,
         "LAZADA": 1,
-        "SHOPPE ISM": 1
+        "SHOPPE ISM": 1,
+        "SHOPPE ARISTINO": 1
       },
       "byMonthQty": {
         "2026-05": 12,
@@ -11159,9 +11163,39 @@
       "completionDate": "",
       "weekOfMonth": 1,
       "detail": "Loyalty T7 Aris Off\n\nhttps://www.figma.com/board/eELTqOYZukwzn4KkcUHqON/K-G-T7-2026?node-id=122-118&t=qynwBD0V0Z6kUekj-0"
+    },
+    {
+      "row": 712,
+      "person": "",
+      "channel": "SHOPPE ARISTINO",
+      "category": "HÌNH ẢNH",
+      "status": "(trong)",
+      "quantity": 0,
+      "qtyHinh": 0,
+      "qtyVideo": 0,
+      "month": "2026-07",
+      "orderDate": "2026-07-02",
+      "completionDate": "",
+      "weekOfMonth": 1,
+      "detail": "Mua 1 tặng 1 - Aris Business\n- Banner ads\n- Social post\n\nhttps://www.figma.com/board/eELTqOYZukwzn4KkcUHqON/K-G-T7-2026?node-id=122-155&t=qynwBD0V0Z6kUekj-0"
     }
   ],
   "latestRows": [
+    {
+      "row": 712,
+      "person": "",
+      "channel": "SHOPPE ARISTINO",
+      "category": "HÌNH ẢNH",
+      "status": "(trong)",
+      "quantity": 0,
+      "qtyHinh": 0,
+      "qtyVideo": 0,
+      "month": "2026-07",
+      "orderDate": "2026-07-02",
+      "completionDate": "",
+      "weekOfMonth": 1,
+      "detail": "Mua 1 tặng 1 - Aris Business\n- Banner ads\n- Social post\n\nhttps://www.figma.com/board/eELTqOYZukwzn4KkcUHqON/K-G-T7-2026?node-id=122-155&t=qynwBD0V0Z6kUekj-0"
+    },
     {
       "row": 711,
       "person": "KHANG",
@@ -14146,21 +14180,6 @@
       "completionDate": "",
       "weekOfMonth": 4,
       "detail": "KV  ISM 5.5\n\nhttps://www.figma.com/board/X1EFJMFhcec1Z7umL00nkg/K-G-T5-2026?node-id=53-161&t=c0jGyZv5H0TAWcGC-0"
-    },
-    {
-      "row": 519,
-      "person": "KHANG",
-      "channel": "SHOPPE",
-      "category": "LANDINGPAGE",
-      "status": "Hoàn thành",
-      "quantity": 15,
-      "qtyHinh": 15,
-      "qtyVideo": 0,
-      "month": "2026-04",
-      "orderDate": "2026-04-28",
-      "completionDate": "",
-      "weekOfMonth": 4,
-      "detail": "LDP ARISTINO BUSINESS T5\n\nhttps://www.figma.com/board/X1EFJMFhcec1Z7umL00nkg/K-G-T5-2026?node-id=22-171&t=B6z2X0XuvMLcigYW-0"
     }
   ]
 }
