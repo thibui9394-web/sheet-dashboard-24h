@@ -298,7 +298,7 @@ function getEffectiveStatusAndQty(r, viewingMonth) {
   }
   
   if (currentStatus === "completed" && compMonth > viewingMonth) {
-    return { status: "inProgress", quantity: 0 };
+    return { status: "completed", quantity: 0 };
   }
   
   return { status: currentStatus, quantity: r.quantity };
