@@ -481,12 +481,18 @@ async function loadActiveMonthRecords(previousSnapshot, activeMonth) {
   const activeRangeStartRow = previousSnapshot?.metadata?.incremental?.activeRangeStartRow;
   const cachedMonth = previousSnapshot?.metadata?.incremental?.activeMonth;
 
-  if (FORCE_FULL_SNAPSHOT || !previousRecords.length || !activeRangeStartRow || cachedMonth !== activeMonth) {
+  const hasOpenTasksInPreviousMonths = previousRecords.some(
+    (record) => record.month !== activeMonth &&
+                record.status !== "Hoàn thành" &&
+                record.status !== "Cancel"
+  );
+
+  if (FORCE_FULL_SNAPSHOT || !previousRecords.length || !activeRangeStartRow || cachedMonth !== activeMonth || hasOpenTasksInPreviousMonths) {
     const records = await loadFullRecords();
     const monthRows = records.filter((record) => record.month === activeMonth).map((record) => record.row);
     return {
       records,
-      updateMode: FORCE_FULL_SNAPSHOT ? "full-forced" : "full-bootstrap",
+      updateMode: FORCE_FULL_SNAPSHOT ? "full-forced" : (hasOpenTasksInPreviousMonths ? "full-open-tasks" : "full-bootstrap"),
       activeRangeStartRow: monthRows.length ? Math.min(...monthRows) : null
     };
   }

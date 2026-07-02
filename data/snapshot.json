@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-07-02T02:06:17.250Z",
+    "generatedAt": "2026-07-02T02:15:20.211Z",
     "timezone": "Asia/Ho_Chi_Minh",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -8,7 +8,7 @@
       "gid": "131891982"
     },
     "incremental": {
-      "mode": "full-forced",
+      "mode": "full-open-tasks",
       "activeMonth": "2026-07",
       "activeRangeStartRow": 707,
       "sheetMaxColumn": "Z"
@@ -26,9 +26,9 @@
     "avgQuantityPerTask": 41.69,
     "completedTasks": 657,
     "completedQuantity": 28596,
-    "inProgressTasks": 6,
-    "inProgressQuantity": 46,
-    "canceledTasks": 18,
+    "inProgressTasks": 4,
+    "inProgressQuantity": 21,
+    "canceledTasks": 20,
     "missingQuantityTasks": 29,
     "missingQuantityRows": [
       24,
@@ -63,10 +63,10 @@
     ],
     "byStatusTasks": {
       "Hoàn thành": 657,
-      "Cancel": 18,
-      "Đang thực hiện": 6,
+      "Cancel": 20,
       "Pending": 4,
-      "(trong)": 4
+      "(trong)": 4,
+      "Đang thực hiện": 4
     },
     "byCategoryQty": {
       "HÌNH ẢNH": 24678,
@@ -386,9 +386,9 @@
       "avgQuantityPerTask": 165.39,
       "completedTasks": 131,
       "completedQuantity": 23609,
-      "inProgressTasks": 4,
-      "inProgressQuantity": 41,
-      "canceledTasks": 0,
+      "inProgressTasks": 2,
+      "inProgressQuantity": 16,
+      "canceledTasks": 2,
       "missingQuantityTasks": 10,
       "missingQuantityRows": [
         24,
@@ -405,8 +405,9 @@
       "byStatusTasks": {
         "Hoàn thành": 131,
         "Pending": 4,
-        "Đang thực hiện": 4,
-        "(trong)": 4
+        "(trong)": 4,
+        "Cancel": 2,
+        "Đang thực hiện": 2
       },
       "byCategoryQty": {
         "HÌNH ẢNH": 22687,
@@ -1168,7 +1169,7 @@
       "person": "NHẬT THI",
       "channel": "WEB KG VIETNAM",
       "category": "HÌNH ẢNH",
-      "status": "Đang thực hiện",
+      "status": "Cancel",
       "quantity": 24,
       "qtyHinh": 24,
       "qtyVideo": 0,
@@ -6553,7 +6554,7 @@
       "person": "NHẬT THI",
       "channel": "WEB ARISTINO",
       "category": "LANDINGPAGE",
-      "status": "Đang thực hiện",
+      "status": "Cancel",
       "quantity": 1,
       "qtyHinh": 1,
       "qtyVideo": 0,
