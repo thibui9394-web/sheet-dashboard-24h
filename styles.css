@@ -104,6 +104,7 @@ button {
 }
 
 .card {
+  position: relative;
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -581,10 +582,11 @@ tbody tr:hover {
 }
 
 .bar-chart-unit {
+  position: absolute;
+  top: 18px;
+  right: 16px;
   font-size: 11px;
   color: var(--muted);
-  text-align: right;
-  margin-bottom: 2px;
 }
 
 .bar-row {
