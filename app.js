@@ -82,8 +82,8 @@ function statusLabel(key) {
     completed: "Ho\u00e0n th\u00e0nh",
     inProgress: "\u0110ang l\u00e0m",
     cancel: "Cancel",
-    pending: "Pending"
-  }[key] || "Pending";
+    pending: "Ch\u1edd x\u1eed l\u00fd"
+  }[key] || "Ch\u1edd x\u1eed l\u00fd";
 }
 
 function statusClass(key) {
@@ -289,6 +289,10 @@ function getEffectiveStatusAndQty(r, viewingMonth) {
   const currentStatus = statusKey(r.status);
   const compMonth = getCompletionMonth(r);
   
+  if (currentStatus === "cancel" || currentStatus === "pending") {
+    return { status: currentStatus, quantity: 0 };
+  }
+
   if (viewingMonth === "ALL") {
     return { status: currentStatus, quantity: r.quantity };
   }
