@@ -841,14 +841,7 @@ monthFilterEl.addEventListener("change", render);
 reloadBtn.addEventListener("click", load);
 
 syncBtn.addEventListener("click", async () => {
-  let workerUrl = localStorage.getItem("cloudflare_worker_url");
-  if (!workerUrl) {
-    workerUrl = prompt("Vui lòng nhập URL của Cloudflare Worker bạn đã tạo (ví dụ: https://xxxx.workers.dev):");
-    if (!workerUrl) return;
-    workerUrl = workerUrl.trim().replace(/\/$/, "");
-    localStorage.setItem("cloudflare_worker_url", workerUrl);
-  }
-
+  const workerUrl = "https://designsheet-dashboard-sync.thi-bui9394.workers.dev";
   const originalText = syncBtn.textContent;
   syncBtn.disabled = true;
   syncBtn.textContent = "Đang gửi yêu cầu...";
@@ -867,10 +860,7 @@ syncBtn.addEventListener("click", async () => {
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error(error);
-    const changeUrl = confirm(`Lỗi kết nối: ${error.message}\n\nBạn có muốn nhập lại URL của Cloudflare Worker không?`);
-    if (changeUrl) {
-      localStorage.removeItem("cloudflare_worker_url");
-    }
+    alert(`Lỗi kết nối: ${error.message}`);
   } finally {
     syncBtn.disabled = false;
     syncBtn.textContent = originalText;
