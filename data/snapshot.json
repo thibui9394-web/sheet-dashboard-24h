@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-07-01T14:58:43.090Z",
+    "generatedAt": "2026-07-02T02:06:17.250Z",
     "timezone": "Asia/Ho_Chi_Minh",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -8,7 +8,7 @@
       "gid": "131891982"
     },
     "incremental": {
-      "mode": "active-month",
+      "mode": "full-forced",
       "activeMonth": "2026-07",
       "activeRangeStartRow": 707,
       "sheetMaxColumn": "Z"
@@ -26,9 +26,9 @@
     "avgQuantityPerTask": 41.69,
     "completedTasks": 657,
     "completedQuantity": 28596,
-    "inProgressTasks": 10,
-    "inProgressQuantity": 107,
-    "canceledTasks": 14,
+    "inProgressTasks": 6,
+    "inProgressQuantity": 46,
+    "canceledTasks": 18,
     "missingQuantityTasks": 29,
     "missingQuantityRows": [
       24,
@@ -63,8 +63,8 @@
     ],
     "byStatusTasks": {
       "Hoàn thành": 657,
-      "Cancel": 14,
-      "Đang thực hiện": 10,
+      "Cancel": 18,
+      "Đang thực hiện": 6,
       "Pending": 4,
       "(trong)": 4
     },
@@ -215,9 +215,9 @@
       "avgQuantityPerTask": 9.96,
       "completedTasks": 291,
       "completedQuantity": 2878,
-      "inProgressTasks": 3,
-      "inProgressQuantity": 60,
-      "canceledTasks": 1,
+      "inProgressTasks": 1,
+      "inProgressQuantity": 0,
+      "canceledTasks": 3,
       "missingQuantityTasks": 4,
       "missingQuantityRows": [
         456,
@@ -227,8 +227,8 @@
       ],
       "byStatusTasks": {
         "Hoàn thành": 291,
-        "Đang thực hiện": 3,
-        "Cancel": 1
+        "Cancel": 3,
+        "Đang thực hiện": 1
       },
       "byCategoryQty": {
         "HÌNH ẢNH": 1383,
@@ -303,9 +303,9 @@
       "avgQuantityPerTask": 8.85,
       "completedTasks": 235,
       "completedQuantity": 2109,
-      "inProgressTasks": 3,
-      "inProgressQuantity": 6,
-      "canceledTasks": 1,
+      "inProgressTasks": 1,
+      "inProgressQuantity": 5,
+      "canceledTasks": 3,
       "missingQuantityTasks": 6,
       "missingQuantityRows": [
         223,
@@ -317,8 +317,8 @@
       ],
       "byStatusTasks": {
         "Hoàn thành": 235,
-        "Đang thực hiện": 3,
-        "Cancel": 1
+        "Cancel": 3,
+        "Đang thực hiện": 1
       },
       "byCategoryQty": {
         "HÌNH ẢNH": 592,
@@ -6538,7 +6538,7 @@
       "person": "KHANG",
       "channel": "FACEBOOK",
       "category": "VIDEO",
-      "status": "Đang thực hiện",
+      "status": "Cancel",
       "quantity": 1,
       "qtyHinh": 1,
       "qtyVideo": 0,
@@ -6958,7 +6958,7 @@
       "person": "ẨN",
       "channel": "SHOPPE",
       "category": "(trong)",
-      "status": "Đang thực hiện",
+      "status": "Cancel",
       "quantity": 0,
       "qtyHinh": 0,
       "qtyVideo": 0,
@@ -7168,7 +7168,7 @@
       "person": "ẨN",
       "channel": "TIKTOK MN",
       "category": "HÌNH ẢNH",
-      "status": "Đang thực hiện",
+      "status": "Cancel",
       "quantity": 60,
       "qtyHinh": 60,
       "qtyVideo": 0,
@@ -7198,7 +7198,7 @@
       "person": "KHANG",
       "channel": "(trong)",
       "category": "SOCIAL POST",
-      "status": "Đang thực hiện",
+      "status": "Cancel",
       "quantity": 0,
       "qtyHinh": 0,
       "qtyVideo": 0,
