@@ -594,7 +594,7 @@ function createTaskItem(row) {
   if (row.isDebt) {
     const debtBadge = document.createElement("span");
     debtBadge.className = "task-debt-badge";
-    debtBadge.innerHTML = "\u23f3 T\u1ed3n \u0111\u1ecdng";
+    debtBadge.innerHTML = "\u23f3 T\u1ed3n";
     badgesGroup.appendChild(debtBadge);
   }
   head.appendChild(badgesGroup);
