@@ -8,6 +8,7 @@ const previousOpenScopeEl = document.querySelector("#previousOpenScope");
 const previousOpenSummaryEl = document.querySelector("#previousOpenSummary");
 const previousOpenTableBodyEl = document.querySelector("#previousOpenTable tbody");
 const reloadBtn = document.querySelector("#reloadBtn");
+const syncBtn = document.querySelector("#syncBtn");
 const TIME_ZONE = "Asia/Ho_Chi_Minh";
 const WEEK_TASK_INITIAL_LIMIT = 2;
 const WEEK_TASK_EXPAND_STEP = 3;
@@ -838,6 +839,43 @@ async function load() {
 personFilterEl.addEventListener("change", render);
 monthFilterEl.addEventListener("change", render);
 reloadBtn.addEventListener("click", load);
+
+syncBtn.addEventListener("click", async () => {
+  let workerUrl = localStorage.getItem("cloudflare_worker_url");
+  if (!workerUrl) {
+    workerUrl = prompt("Vui lòng nhập URL của Cloudflare Worker bạn đã tạo (ví dụ: https://xxxx.workers.dev):");
+    if (!workerUrl) return;
+    workerUrl = workerUrl.trim().replace(/\/$/, "");
+    localStorage.setItem("cloudflare_worker_url", workerUrl);
+  }
+
+  const originalText = syncBtn.textContent;
+  syncBtn.disabled = true;
+  syncBtn.textContent = "Đang gửi yêu cầu...";
+
+  try {
+    const response = await fetch(workerUrl, {
+      method: "POST"
+    });
+    const result = await response.json();
+    
+    if (result.success) {
+      alert("Đã gửi lệnh đồng bộ thành công! Robot trên GitHub đang bắt đầu quét Google Sheet của bạn.\n\nVui lòng chờ khoảng 1 - 2 phút rồi nhấn nút 'Nạp lại' để cập nhật dữ liệu mới.");
+    } else {
+      throw new Error(result.error || "Không thể kích hoạt đồng bộ.");
+    }
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error);
+    const changeUrl = confirm(`Lỗi kết nối: ${error.message}\n\nBạn có muốn nhập lại URL của Cloudflare Worker không?`);
+    if (changeUrl) {
+      localStorage.removeItem("cloudflare_worker_url");
+    }
+  } finally {
+    syncBtn.disabled = false;
+    syncBtn.textContent = originalText;
+  }
+});
 
 load().catch((error) => {
   // eslint-disable-next-line no-console
