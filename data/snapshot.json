@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-07-06T01:46:16.613Z",
+    "generatedAt": "2026-07-06T04:25:41.739Z",
     "timezone": "Asia/Ho_Chi_Minh",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -18,18 +18,18 @@
         128
       ]
     },
-    "totalRecords": 721
+    "totalRecords": 722
   },
   "overview": {
-    "tasks": 721,
+    "tasks": 722,
     "quantity": 28819,
-    "avgQuantityPerTask": 39.97,
-    "completedTasks": 662,
+    "avgQuantityPerTask": 39.92,
+    "completedTasks": 663,
     "completedQuantity": 28679,
-    "inProgressTasks": 6,
+    "inProgressTasks": 7,
     "inProgressQuantity": 22,
     "canceledTasks": 20,
-    "missingQuantityTasks": 56,
+    "missingQuantityTasks": 57,
     "missingQuantityRows": [
       24,
       92,
@@ -86,14 +86,15 @@
       720,
       721,
       722,
-      723
+      723,
+      724
     ],
     "byStatusTasks": {
-      "Hoàn thành": 662,
+      "Hoàn thành": 663,
       "Cancel": 20,
-      "(trong)": 19,
+      "(trong)": 18,
       "Pending": 14,
-      "Đang thực hiện": 6
+      "Đang thực hiện": 7
     },
     "byCategoryQty": {
       "HÌNH ẢNH": 24769,
@@ -108,7 +109,7 @@
     },
     "byCategoryTasks": {
       "HÌNH ẢNH AI": 236,
-      "HÌNH ẢNH": 228,
+      "HÌNH ẢNH": 229,
       "VIDEO": 82,
       "SOCIAL POST": 77,
       "KEY VISUAL": 37,
@@ -138,7 +139,8 @@
       "WEB SALINA": 2,
       "ZALO BROADCAST": 1,
       "B2B": 1,
-      "SHOPPE MN": 1
+      "SHOPPE MN": 1,
+      "SHOPPE SALINA": 0
     },
     "byChannelTasks": {
       "FACEBOOK": 227,
@@ -160,7 +162,8 @@
       "WEB CHRISBELLA": 1,
       "WEB SALINA": 1,
       "B2B": 1,
-      "SHOPPE MN": 1
+      "SHOPPE MN": 1,
+      "SHOPPE SALINA": 1
     },
     "byMonthQty": {
       "2026-01": 10297,
@@ -177,15 +180,15 @@
   },
   "byPerson": {
     "": {
-      "tasks": 35,
+      "tasks": 34,
       "quantity": 30,
-      "avgQuantityPerTask": 0.86,
+      "avgQuantityPerTask": 0.88,
       "completedTasks": 0,
       "completedQuantity": 0,
       "inProgressTasks": 0,
       "inProgressQuantity": 0,
       "canceledTasks": 12,
-      "missingQuantityTasks": 30,
+      "missingQuantityTasks": 29,
       "missingQuantityRows": [
         129,
         130,
@@ -215,11 +218,10 @@
         715,
         716,
         717,
-        722,
-        723
+        724
       ],
       "byStatusTasks": {
-        "(trong)": 14,
+        "(trong)": 13,
         "Cancel": 12,
         "Pending": 9
       },
@@ -232,7 +234,7 @@
         "(trong)": 4,
         "SOCIAL POST": 3,
         "HÌNH ẢNH AI": 3,
-        "VIDEO": 2,
+        "VIDEO": 1,
         "KEY VISUAL": 1
       },
       "byChannelQty": {
@@ -247,12 +249,12 @@
         "ZALO OA/MINIAPP": 0,
         "(trong)": 0,
         "SHOPPE ARISTINO": 0,
-        "SHOPPE ISM": 0
+        "SHOPPE SALINA": 0
       },
       "byChannelTasks": {
         "TIKTOK MB": 9,
-        "FACEBOOK": 6,
         "WEB KG VIETNAM": 5,
+        "FACEBOOK": 5,
         "WEB ARISTINO": 3,
         "SHOPPE": 3,
         "(trong)": 2,
@@ -261,7 +263,7 @@
         "ZALO OA/MINIAPP": 1,
         "TIKTOK MN": 1,
         "LAZADA": 1,
-        "SHOPPE ISM": 1
+        "SHOPPE SALINA": 1
       },
       "byMonthQty": {
         "2026-05": 12,
@@ -275,26 +277,29 @@
       }
     },
     "ẨN": {
-      "tasks": 298,
+      "tasks": 300,
       "quantity": 3023,
-      "avgQuantityPerTask": 10.14,
+      "avgQuantityPerTask": 10.08,
       "completedTasks": 293,
       "completedQuantity": 2956,
-      "inProgressTasks": 1,
+      "inProgressTasks": 2,
       "inProgressQuantity": 6,
       "canceledTasks": 3,
-      "missingQuantityTasks": 4,
+      "missingQuantityTasks": 6,
       "missingQuantityRows": [
         456,
         515,
         709,
-        719
+        719,
+        722,
+        723
       ],
       "byStatusTasks": {
         "Hoàn thành": 293,
         "Cancel": 3,
+        "Đang thực hiện": 2,
         "Pending": 1,
-        "Đang thực hiện": 1
+        "(trong)": 1
       },
       "byCategoryQty": {
         "HÌNH ẢNH": 1461,
@@ -307,8 +312,8 @@
       },
       "byCategoryTasks": {
         "HÌNH ẢNH AI": 113,
-        "HÌNH ẢNH": 105,
-        "VIDEO": 63,
+        "HÌNH ẢNH": 106,
+        "VIDEO": 64,
         "SOCIAL POST": 5,
         "(trong)": 4,
         "KEY VISUAL": 4,
@@ -336,10 +341,10 @@
       "byChannelTasks": {
         "SHOPPE": 76,
         "TIKTOK MB": 66,
-        "FACEBOOK": 65,
+        "FACEBOOK": 66,
         "(trong)": 28,
         "SHOPPE ARISTINO": 17,
-        "SHOPPE ISM": 11,
+        "SHOPPE ISM": 12,
         "TIKTOK MN": 10,
         "WEB ARISTINO": 8,
         "WEB KG VIETNAM": 8,
@@ -367,9 +372,9 @@
       "tasks": 244,
       "quantity": 2115,
       "avgQuantityPerTask": 8.67,
-      "completedTasks": 238,
+      "completedTasks": 239,
       "completedQuantity": 2114,
-      "inProgressTasks": 3,
+      "inProgressTasks": 2,
       "inProgressQuantity": 0,
       "canceledTasks": 3,
       "missingQuantityTasks": 11,
@@ -387,9 +392,9 @@
         720
       ],
       "byStatusTasks": {
-        "Hoàn thành": 238,
+        "Hoàn thành": 239,
         "Cancel": 3,
-        "Đang thực hiện": 3
+        "Đang thực hiện": 2
       },
       "byCategoryQty": {
         "HÌNH ẢNH": 592,
@@ -458,7 +463,7 @@
       "avgQuantityPerTask": 164.24,
       "completedTasks": 131,
       "completedQuantity": 23609,
-      "inProgressTasks": 2,
+      "inProgressTasks": 3,
       "inProgressQuantity": 16,
       "canceledTasks": 2,
       "missingQuantityTasks": 11,
@@ -477,10 +482,10 @@
       ],
       "byStatusTasks": {
         "Hoàn thành": 131,
-        "(trong)": 5,
         "Pending": 4,
-        "Cancel": 2,
-        "Đang thực hiện": 2
+        "(trong)": 4,
+        "Đang thực hiện": 3,
+        "Cancel": 2
       },
       "byCategoryQty": {
         "HÌNH ẢNH": 22687,
@@ -11278,13 +11283,13 @@
       "person": "KHANG",
       "channel": "WEB KG VIETNAM",
       "category": "HÌNH ẢNH",
-      "status": "Đang thực hiện",
+      "status": "Hoàn thành",
       "quantity": 0,
       "qtyHinh": 0,
       "qtyVideo": 0,
       "month": "2026-07",
       "orderDate": "2026-07-03",
-      "completionDate": "",
+      "completionDate": "2026-07-06",
       "weekOfMonth": 1,
       "detail": "Resize lại dung lượng ảnh banner xuống còn dưới 300KB 2 ảnh mobi và PC từ file này: \nN:\\6. TEAM WEB\\BANNER WEB\\Banner web T7"
     },
@@ -11323,7 +11328,7 @@
       "person": "NHẬT THI",
       "channel": "SHOPPE ISM",
       "category": "HÌNH ẢNH",
-      "status": "(trong)",
+      "status": "Đang thực hiện",
       "quantity": 0,
       "qtyHinh": 0,
       "qtyVideo": 0,
@@ -11335,7 +11340,7 @@
     },
     {
       "row": 722,
-      "person": "",
+      "person": "ẨN",
       "channel": "FACEBOOK",
       "category": "VIDEO",
       "status": "(trong)",
@@ -11350,10 +11355,10 @@
     },
     {
       "row": 723,
-      "person": "",
+      "person": "ẨN",
       "channel": "SHOPPE ISM",
-      "category": "(trong)",
-      "status": "(trong)",
+      "category": "HÌNH ẢNH",
+      "status": "Đang thực hiện",
       "quantity": 0,
       "qtyHinh": 0,
       "qtyVideo": 0,
@@ -11361,16 +11366,46 @@
       "orderDate": "2026-07-04",
       "completionDate": "",
       "weekOfMonth": 1,
-      "detail": "Banner ctkm ism    https://docs.google.com/spreadsheets/d/11EtLdwvCEga963ASDojtkQZpFQ9Dxj9IyWFVvfBAW9o/edit?gid=1913101739#gid=1913101739"
+      "detail": "Banner ctkm ism\n https://docs.google.com/spreadsheets/d/11EtLdwvCEga963ASDojtkQZpFQ9Dxj9IyWFVvfBAW9o/edit?gid=1913101739#gid=1913101739"
+    },
+    {
+      "row": 724,
+      "person": "",
+      "channel": "SHOPPE SALINA",
+      "category": "(trong)",
+      "status": "(trong)",
+      "quantity": 0,
+      "qtyHinh": 0,
+      "qtyVideo": 0,
+      "month": "2026-07",
+      "orderDate": "2026-07-06",
+      "completionDate": "",
+      "weekOfMonth": 1,
+      "detail": "Thiết thế thumb theo layout\n https://canva.link/rllegfuofjkr12b"
     }
   ],
   "latestRows": [
     {
-      "row": 723,
+      "row": 724,
       "person": "",
-      "channel": "SHOPPE ISM",
+      "channel": "SHOPPE SALINA",
       "category": "(trong)",
       "status": "(trong)",
+      "quantity": 0,
+      "qtyHinh": 0,
+      "qtyVideo": 0,
+      "month": "2026-07",
+      "orderDate": "2026-07-06",
+      "completionDate": "",
+      "weekOfMonth": 1,
+      "detail": "Thiết thế thumb theo layout\n https://canva.link/rllegfuofjkr12b"
+    },
+    {
+      "row": 723,
+      "person": "ẨN",
+      "channel": "SHOPPE ISM",
+      "category": "HÌNH ẢNH",
+      "status": "Đang thực hiện",
       "quantity": 0,
       "qtyHinh": 0,
       "qtyVideo": 0,
@@ -11378,11 +11413,11 @@
       "orderDate": "2026-07-04",
       "completionDate": "",
       "weekOfMonth": 1,
-      "detail": "Banner ctkm ism    https://docs.google.com/spreadsheets/d/11EtLdwvCEga963ASDojtkQZpFQ9Dxj9IyWFVvfBAW9o/edit?gid=1913101739#gid=1913101739"
+      "detail": "Banner ctkm ism\n https://docs.google.com/spreadsheets/d/11EtLdwvCEga963ASDojtkQZpFQ9Dxj9IyWFVvfBAW9o/edit?gid=1913101739#gid=1913101739"
     },
     {
       "row": 722,
-      "person": "",
+      "person": "ẨN",
       "channel": "FACEBOOK",
       "category": "VIDEO",
       "status": "(trong)",
@@ -11400,7 +11435,7 @@
       "person": "NHẬT THI",
       "channel": "SHOPPE ISM",
       "category": "HÌNH ẢNH",
-      "status": "(trong)",
+      "status": "Đang thực hiện",
       "quantity": 0,
       "qtyHinh": 0,
       "qtyVideo": 0,
@@ -11445,13 +11480,13 @@
       "person": "KHANG",
       "channel": "WEB KG VIETNAM",
       "category": "HÌNH ẢNH",
-      "status": "Đang thực hiện",
+      "status": "Hoàn thành",
       "quantity": 0,
       "qtyHinh": 0,
       "qtyVideo": 0,
       "month": "2026-07",
       "orderDate": "2026-07-03",
-      "completionDate": "",
+      "completionDate": "2026-07-06",
       "weekOfMonth": 1,
       "detail": "Resize lại dung lượng ảnh banner xuống còn dưới 300KB 2 ảnh mobi và PC từ file này: \nN:\\6. TEAM WEB\\BANNER WEB\\Banner web T7"
     },
@@ -14349,21 +14384,6 @@
       "completionDate": "",
       "weekOfMonth": 1,
       "detail": "KV Salina \nhttps://www.canva.com/design/DAHIqqbx9M4/mbFW6gnJrpHA-0SJZlFTvA/edit?ui=eyJEIjp7IkoiOnsiRCI6eyJBPyI6IkEifX0sIlMiOnRydWV9fQ"
-    },
-    {
-      "row": 532,
-      "person": "",
-      "channel": "TIKTOK MB",
-      "category": "HÌNH ẢNH",
-      "status": "Cancel",
-      "quantity": 0,
-      "qtyHinh": 0,
-      "qtyVideo": 0,
-      "month": "2026-05",
-      "orderDate": "2026-05-03",
-      "completionDate": "",
-      "weekOfMonth": 1,
-      "detail": "BACK LIVESTREAM ARISTINO ONLINE - TRI ÂN SN CHỦ TỊCH HCM\n\nhttps://www.figma.com/board/iaYXq8oFeoc0ppQm83kBPs/Untitled?node-id=287-202&t=6UDV41IE8BsJ4LP5-0"
     }
   ]
 }
