@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-07-06T04:25:41.739Z",
+    "generatedAt": "2026-07-06T08:09:17.242Z",
     "timezone": "Asia/Ho_Chi_Minh",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -18,18 +18,18 @@
         128
       ]
     },
-    "totalRecords": 722
+    "totalRecords": 723
   },
   "overview": {
-    "tasks": 722,
+    "tasks": 723,
     "quantity": 28819,
-    "avgQuantityPerTask": 39.92,
+    "avgQuantityPerTask": 39.86,
     "completedTasks": 663,
     "completedQuantity": 28679,
     "inProgressTasks": 7,
     "inProgressQuantity": 22,
     "canceledTasks": 20,
-    "missingQuantityTasks": 57,
+    "missingQuantityTasks": 58,
     "missingQuantityRows": [
       24,
       92,
@@ -87,12 +87,13 @@
       721,
       722,
       723,
-      724
+      724,
+      725
     ],
     "byStatusTasks": {
       "Hoàn thành": 663,
       "Cancel": 20,
-      "(trong)": 18,
+      "(trong)": 19,
       "Pending": 14,
       "Đang thực hiện": 7
     },
@@ -114,7 +115,7 @@
       "SOCIAL POST": 77,
       "KEY VISUAL": 37,
       "LANDINGPAGE": 20,
-      "(trong)": 17,
+      "(trong)": 18,
       "KEY VISUAL AI": 16,
       "VIDEO AI": 7,
       "GIAO DIỆN": 1
@@ -151,7 +152,7 @@
       "WEB KG VIETNAM": 33,
       "WEB ARISTINO": 30,
       "AMAZON": 22,
-      "SHOPPE ISM": 16,
+      "SHOPPE ISM": 17,
       "TIKTOK MN": 14,
       "ZALO OA/MINIAPP": 8,
       "SHOPPE CECINA": 6,
@@ -180,15 +181,15 @@
   },
   "byPerson": {
     "": {
-      "tasks": 34,
+      "tasks": 35,
       "quantity": 30,
-      "avgQuantityPerTask": 0.88,
+      "avgQuantityPerTask": 0.86,
       "completedTasks": 0,
       "completedQuantity": 0,
       "inProgressTasks": 0,
       "inProgressQuantity": 0,
       "canceledTasks": 12,
-      "missingQuantityTasks": 29,
+      "missingQuantityTasks": 30,
       "missingQuantityRows": [
         129,
         130,
@@ -218,10 +219,11 @@
         715,
         716,
         717,
-        724
+        724,
+        725
       ],
       "byStatusTasks": {
-        "(trong)": 13,
+        "(trong)": 14,
         "Cancel": 12,
         "Pending": 9
       },
@@ -231,7 +233,7 @@
       },
       "byCategoryTasks": {
         "HÌNH ẢNH": 22,
-        "(trong)": 4,
+        "(trong)": 5,
         "SOCIAL POST": 3,
         "HÌNH ẢNH AI": 3,
         "VIDEO": 1,
@@ -249,7 +251,8 @@
         "ZALO OA/MINIAPP": 0,
         "(trong)": 0,
         "SHOPPE ARISTINO": 0,
-        "SHOPPE SALINA": 0
+        "SHOPPE SALINA": 0,
+        "SHOPPE ISM": 0
       },
       "byChannelTasks": {
         "TIKTOK MB": 9,
@@ -263,7 +266,8 @@
         "ZALO OA/MINIAPP": 1,
         "TIKTOK MN": 1,
         "LAZADA": 1,
-        "SHOPPE SALINA": 1
+        "SHOPPE SALINA": 1,
+        "SHOPPE ISM": 1
       },
       "byMonthQty": {
         "2026-05": 12,
@@ -11382,9 +11386,39 @@
       "completionDate": "",
       "weekOfMonth": 1,
       "detail": "Thiết thế thumb theo layout\n https://canva.link/rllegfuofjkr12b"
+    },
+    {
+      "row": 725,
+      "person": "",
+      "channel": "SHOPPE ISM",
+      "category": "(trong)",
+      "status": "(trong)",
+      "quantity": 0,
+      "qtyHinh": 0,
+      "qtyVideo": 0,
+      "month": "2026-07",
+      "orderDate": "2026-07-06",
+      "completionDate": "",
+      "weekOfMonth": 1,
+      "detail": "Cắt video từ live\nhttps://kgvn.sharepoint.com/:v:/s/all/IQDB5N01lHDASLaxeSO1bR2rAbjZa2xdNRnTmYP0Z7eejfs?e=tcGYnc\nhttps://kgvn.sharepoint.com/:v:/s/all/IQCa33_y7FaiSoXgfmbV4jmOAby8dJW0lFPU3xptdjKFyxc?e=s855k2"
     }
   ],
   "latestRows": [
+    {
+      "row": 725,
+      "person": "",
+      "channel": "SHOPPE ISM",
+      "category": "(trong)",
+      "status": "(trong)",
+      "quantity": 0,
+      "qtyHinh": 0,
+      "qtyVideo": 0,
+      "month": "2026-07",
+      "orderDate": "2026-07-06",
+      "completionDate": "",
+      "weekOfMonth": 1,
+      "detail": "Cắt video từ live\nhttps://kgvn.sharepoint.com/:v:/s/all/IQDB5N01lHDASLaxeSO1bR2rAbjZa2xdNRnTmYP0Z7eejfs?e=tcGYnc\nhttps://kgvn.sharepoint.com/:v:/s/all/IQCa33_y7FaiSoXgfmbV4jmOAby8dJW0lFPU3xptdjKFyxc?e=s855k2"
+    },
     {
       "row": 724,
       "person": "",
@@ -14369,21 +14403,6 @@
       "completionDate": "",
       "weekOfMonth": 1,
       "detail": "KV ISM DAILY THÁNG 5: Sửa Text Double day 5.5 sang THÁNG 5\n\nCác phiên bản yêu cầu: NGAG - DỌC - VUÔNG - NỘI SÀN - VIDEO VUÔNG"
-    },
-    {
-      "row": 533,
-      "person": "ẨN",
-      "channel": "SHOPPE",
-      "category": "HÌNH ẢNH AI",
-      "status": "Hoàn thành",
-      "quantity": 3,
-      "qtyHinh": 3,
-      "qtyVideo": 0,
-      "month": "2026-05",
-      "orderDate": "2026-05-04",
-      "completionDate": "",
-      "weekOfMonth": 1,
-      "detail": "KV Salina \nhttps://www.canva.com/design/DAHIqqbx9M4/mbFW6gnJrpHA-0SJZlFTvA/edit?ui=eyJEIjp7IkoiOnsiRCI6eyJBPyI6IkEifX0sIlMiOnRydWV9fQ"
     }
   ]
 }
