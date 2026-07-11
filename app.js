@@ -619,7 +619,8 @@ function createTaskItem(row) {
   if (row.isDebt) {
     const debtBadge = document.createElement("span");
     debtBadge.className = "task-debt-badge";
-    debtBadge.innerHTML = "\u23f3 T\u1ed3n";
+    const orderMonth = row.originalRecord ? row.originalRecord.month : row.month;
+    debtBadge.innerHTML = `\u23f3 T\u1ed3n ${monthLabel(orderMonth)}`;
     badgesGroup.appendChild(debtBadge);
   }
   head.appendChild(badgesGroup);
