@@ -324,10 +324,10 @@ function getEffectiveRecord(r, month) {
   mapped.customLabel = "";
   if (eff.status === "completed" && r.completionDate) {
     const parts = r.completionDate.split("-");
-    if (parts.length >= 3) mapped.customLabel = `task ${parts[2]}/${parts[1]}`;
+    if (parts.length >= 3) mapped.customLabel = `${parts[2]}/${parts[1]}`;
   } else if (eff.status === "inProgress" && r.orderDate) {
     const parts = r.orderDate.split("-");
-    if (parts.length >= 3) mapped.customLabel = `task ${parts[2]}/${parts[1]}`;
+    if (parts.length >= 3) mapped.customLabel = `${parts[2]}/${parts[1]}`;
   }
 
   return mapped;
