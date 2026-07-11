@@ -16,7 +16,8 @@ import {
   findColumnIndex,
   validateHeaders,
   recordsFromRows,
-  summarizePerson
+  summarizePerson,
+  buildSnapshot
 } from "./update-snapshot.mjs";
 
 // ============================================================
@@ -312,26 +313,20 @@ test("recordsFromRows: ca hinh + video CUNG nguoi -> 1 record gop", () => {
   assert.equal(records[0].qtyVideo, 3);
 });
 
-test("recordsFromRows: ca hinh + video KHAC nguoi -> SPLIT 2 record", () => {
+test("recordsFromRows: ca hinh + video KHAC nguoi -> 1 record gop 2 ten", () => {
   const body = [
     makeRow("SHOPEE", "task D", 10, 5, "3/6/2026", "HÌNH ẢNH", "Hoàn thành", "KHANG", "NHẬT THI")
   ];
   const records = recordsFromRows(HEADERS, body, 2);
-  assert.equal(records.length, 2);
+  assert.equal(records.length, 1);
 
-  // Record hinh
-  const hinhRec = records.find((r) => r.person === "KHANG");
-  assert.ok(hinhRec, "Phai co record cua KHANG");
-  assert.equal(hinhRec.quantity, 10);
-  assert.equal(hinhRec.qtyHinh, 10);
-  assert.equal(hinhRec.qtyVideo, 0);
-
-  // Record video
-  const videoRec = records.find((r) => r.person === "NHẬT THI");
-  assert.ok(videoRec, "Phai co record cua NHAT THI");
-  assert.equal(videoRec.quantity, 5);
-  assert.equal(videoRec.qtyHinh, 0);
-  assert.equal(videoRec.qtyVideo, 5);
+  const rec = records[0];
+  assert.equal(rec.person, "KHANG, NHẬT THI");
+  assert.equal(rec.personHinh, "KHANG");
+  assert.equal(rec.personVideo, "NHẬT THI");
+  assert.equal(rec.quantity, 15);
+  assert.equal(rec.qtyHinh, 10);
+  assert.equal(rec.qtyVideo, 5);
 });
 
 test("recordsFromRows: khong co nguoi nao -> van nhan record voi person rong", () => {
@@ -361,16 +356,17 @@ test("recordsFromRows: row number bat dau tu startRowNumber", () => {
   assert.equal(records[0].row, 100);
 });
 
-test("recordsFromRows: bo duong split giu nguyen category VIDEO AI cho video", () => {
+test("recordsFromRows: 2 nguoi khac nhau VIDEO AI giu nguyen category goc", () => {
   const body = [
     makeRow("SHOPEE", "task G", 10, 5, "3/6/2026", "VIDEO AI", "Hoàn thành", "KHANG", "NHẬT THI")
   ];
   const records = recordsFromRows(HEADERS, body, 2);
-  assert.equal(records.length, 2);
-  const hinhRec = records.find((r) => r.person === "KHANG");
-  assert.equal(hinhRec.category, "HÌNH ẢNH");
-  const videoRec = records.find((r) => r.person === "NHẬT THI");
-  assert.equal(videoRec.category, "VIDEO AI");
+  assert.equal(records.length, 1);
+  const rec = records[0];
+  assert.equal(rec.person, "KHANG, NHẬT THI");
+  assert.equal(rec.category, "VIDEO AI");
+  assert.equal(rec.qtyHinh, 10);
+  assert.equal(rec.qtyVideo, 5);
 });
 
 // ============================================================
@@ -438,4 +434,50 @@ test("recordsFromRows: ho tro parse cot NGAY HOAN THANH", () => {
   const records = recordsFromRows(headersWithCompletion, body, 2);
   assert.equal(records.length, 1);
   assert.equal(records[0].completionDate, "2026-07-01");
+});
+
+// ============================================================
+// buildSnapshot — person-specific KPI for multi-person records
+// ============================================================
+test("buildSnapshot: multi-person record tinh dung qty cho tung nguoi", () => {
+  const records = [
+    {
+      row: 2, person: "KHANG, NHẬT THI", personHinh: "KHANG", personVideo: "NHẬT THI",
+      channel: "SHOPPE", detail: "task D", category: "HÌNH ẢNH", status: "Hoàn thành",
+      quantity: 15, qtyHinh: 10, qtyVideo: 5, month: "2026-06",
+      orderDate: "2026-06-03", completionDate: "", weekOfMonth: 1
+    }
+  ];
+  const snap = buildSnapshot(records, "test", "2026-06", 2);
+
+  // KHANG should get qtyHinh = 10
+  assert.ok(snap.byPerson["KHANG"], "byPerson phai co KHANG");
+  assert.equal(snap.byPerson["KHANG"].quantity, 10);
+  assert.equal(snap.byPerson["KHANG"].tasks, 1);
+
+  // NHAT THI should get qtyVideo = 5
+  assert.ok(snap.byPerson["NHẬT THI"], "byPerson phai co NHAT THI");
+  assert.equal(snap.byPerson["NHẬT THI"].quantity, 5);
+  assert.equal(snap.byPerson["NHẬT THI"].tasks, 1);
+
+  // Overview should have total = 15
+  assert.equal(snap.overview.quantity, 15);
+  assert.equal(snap.overview.tasks, 1);
+});
+
+test("buildSnapshot: same-person record giu nguyen full qty", () => {
+  const records = [
+    {
+      row: 2, person: "KHANG", personHinh: "KHANG", personVideo: "KHANG",
+      channel: "SHOPPE", detail: "task E", category: "HÌNH ẢNH", status: "Hoàn thành",
+      quantity: 15, qtyHinh: 10, qtyVideo: 5, month: "2026-06",
+      orderDate: "2026-06-03", completionDate: "", weekOfMonth: 1
+    }
+  ];
+  const snap = buildSnapshot(records, "test", "2026-06", 2);
+  assert.ok(snap.byPerson["KHANG"]);
+  assert.equal(snap.byPerson["KHANG"].quantity, 15);
+  assert.equal(snap.byPerson["KHANG"].tasks, 1);
+  // Should NOT have a combined entry
+  assert.equal(Object.keys(snap.byPerson).length, 1);
 });

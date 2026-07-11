@@ -293,45 +293,32 @@ export function recordsFromRows(headers, body, startRowNumber) {
     const actualPersonVideo = personVideo || personHinh;
 
     if (qtyHinh > 0 && qtyVideo > 0 && actualPersonHinh !== actualPersonVideo) {
-      // Split into two records
-      // 1. Image record
+      // Two different people — single merged record with both names
       records.push({
         row: rowNumber,
-        person: actualPersonHinh,
+        person: `${actualPersonHinh}, ${actualPersonVideo}`,
+        personHinh: actualPersonHinh,
+        personVideo: actualPersonVideo,
         channel,
         detail,
-        quantity: qtyHinh,
+        quantity: qtyHinh + qtyVideo,
         qtyHinh,
-        qtyVideo: 0,
-        month,
-        orderDate,
-        completionDate,
-        weekOfMonth: weekNum,
-        category: isVideoCategory(category) ? "HÌNH ẢNH" : category,
-        status
-      });
-      // 2. Video record
-      records.push({
-        row: rowNumber,
-        person: actualPersonVideo,
-        channel,
-        detail,
-        quantity: qtyVideo,
-        qtyHinh: 0,
         qtyVideo,
         month,
         orderDate,
         completionDate,
         weekOfMonth: weekNum,
-        category: category === "VIDEO AI" ? "VIDEO AI" : "VIDEO",
+        category,
         status
       });
     } else {
-      // Single record
+      // Single person (or same person for both roles)
       const person = personHinh || personVideo;
       records.push({
         row: rowNumber,
         person,
+        personHinh: person,
+        personVideo: person,
         channel,
         detail,
         quantity: qtyHinh + qtyVideo,
@@ -415,6 +402,8 @@ function compactRecord(record) {
   return {
     row: record.row,
     person: record.person,
+    personHinh: record.personHinh || record.person,
+    personVideo: record.personVideo || record.person,
     channel: record.channel,
     category: record.category,
     status: record.status,
@@ -431,10 +420,37 @@ function compactRecord(record) {
 
 export function buildSnapshot(records, updateMode, activeMonth, activeRangeStartRow) {
   const filtered = applyExclusions(records).sort((a, b) => a.row - b.row);
-  const people = [...new Set(filtered.map((r) => r.person))].sort((a, b) => a.localeCompare(b));
+
+  // Extract individual person names from personHinh/personVideo fields
+  const personSet = new Set();
+  for (const r of filtered) {
+    const ph = r.personHinh || r.person || "";
+    const pv = r.personVideo || r.person || "";
+    if (ph) personSet.add(ph);
+    if (pv && pv !== ph) personSet.add(pv);
+  }
+  const people = [...personSet].sort((a, b) => a.localeCompare(b));
+
   const byPerson = {};
   for (const person of people) {
-    byPerson[person] = summarizePerson(filtered.filter((r) => r.person === person));
+    // Create virtual records with person-specific quantities
+    const personRecords = filtered
+      .filter((r) => {
+        const ph = r.personHinh || r.person || "";
+        const pv = r.personVideo || r.person || "";
+        return ph === person || pv === person;
+      })
+      .map((r) => {
+        const ph = r.personHinh || r.person || "";
+        const pv = r.personVideo || r.person || "";
+        // Both roles belong to this person — use full quantities
+        if (ph === person && pv === person) return r;
+        // Person only does hình
+        if (ph === person) return { ...r, quantity: r.qtyHinh || 0, qtyVideo: 0 };
+        // Person only does video
+        return { ...r, quantity: r.qtyVideo || 0, qtyHinh: 0 };
+      });
+    byPerson[person] = summarizePerson(personRecords);
   }
 
   const latestRows = filtered

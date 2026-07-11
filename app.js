@@ -361,14 +361,34 @@ function isRecordInMonth(r, month) {
   }
 }
 
+function recordMatchesPerson(r, person) {
+  if (person === "ALL") return true;
+  const ph = r.personHinh || r.person || "";
+  const pv = r.personVideo || r.person || "";
+  return ph === person || pv === person;
+}
+
+function adjustRecordForPerson(r, person) {
+  if (person === "ALL") return r;
+  const ph = r.personHinh || r.person || "";
+  const pv = r.personVideo || r.person || "";
+  // Both roles belong to this person — keep full quantities
+  if (ph === person && pv === person) return r;
+  // Person only does hình
+  if (ph === person) return { ...r, quantity: r.qtyHinh || 0, qtyVideo: 0 };
+  // Person only does video
+  if (pv === person) return { ...r, quantity: r.qtyVideo || 0, qtyHinh: 0 };
+  return r;
+}
+
 function aggregateRows(person, month) {
   return snapshotRows()
     .filter((r) => {
-      if (person !== "ALL" && r.person !== person) return false;
+      if (!recordMatchesPerson(r, person)) return false;
       if (!isRecordInMonth(r, month)) return false;
       return true;
     })
-    .map((r) => getEffectiveRecord(r, month));
+    .map((r) => getEffectiveRecord(adjustRecordForPerson(r, person), month));
 }
 
 function renderChannelCategoryGroup(tbody, channelGroups) {
