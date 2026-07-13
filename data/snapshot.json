@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-07-13T08:05:41.350Z",
+    "generatedAt": "2026-07-13T10:43:37.480Z",
     "timezone": "Asia/Ho_Chi_Minh",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -18,18 +18,18 @@
         128
       ]
     },
-    "totalRecords": 724
+    "totalRecords": 727
   },
   "overview": {
-    "tasks": 724,
+    "tasks": 727,
     "quantity": 29336,
-    "avgQuantityPerTask": 40.52,
-    "completedTasks": 669,
-    "completedQuantity": 29134,
+    "avgQuantityPerTask": 40.35,
+    "completedTasks": 670,
+    "completedQuantity": 29150,
     "inProgressTasks": 6,
-    "inProgressQuantity": 66,
+    "inProgressQuantity": 56,
     "canceledTasks": 20,
-    "missingQuantityTasks": 47,
+    "missingQuantityTasks": 50,
     "missingQuantityRows": [
       24,
       92,
@@ -77,13 +77,16 @@
       728,
       733,
       735,
-      736
+      736,
+      738,
+      739,
+      740
     ],
     "byStatusTasks": {
-      "Hoàn thành": 669,
+      "Hoàn thành": 670,
       "Cancel": 20,
-      "Pending": 15,
-      "(trong)": 14,
+      "(trong)": 17,
+      "Pending": 14,
       "Đang thực hiện": 6
     },
     "byCategoryQty": {
@@ -103,7 +106,7 @@
       "SOCIAL POST": 77,
       "VIDEO": 76,
       "KEY VISUAL": 37,
-      "(trong)": 21,
+      "(trong)": 24,
       "LANDINGPAGE": 20,
       "KEY VISUAL AI": 16,
       "VIDEO AI": 7,
@@ -133,7 +136,7 @@
       "SHOPPE SALINA": 0
     },
     "byChannelTasks": {
-      "FACEBOOK": 226,
+      "FACEBOOK": 229,
       "SHOPPE": 174,
       "TIKTOK MB": 94,
       "(trong)": 46,
@@ -175,8 +178,8 @@
       "avgQuantityPerTask": 10.3,
       "completedTasks": 300,
       "completedQuantity": 3024,
-      "inProgressTasks": 1,
-      "inProgressQuantity": 50,
+      "inProgressTasks": 2,
+      "inProgressQuantity": 56,
       "canceledTasks": 3,
       "missingQuantityTasks": 2,
       "missingQuantityRows": [
@@ -186,8 +189,8 @@
       "byStatusTasks": {
         "Hoàn thành": 300,
         "Cancel": 3,
-        "Pending": 2,
-        "Đang thực hiện": 1
+        "Đang thực hiện": 2,
+        "Pending": 1
       },
       "byCategoryQty": {
         "HÌNH ẢNH": 1517,
@@ -344,15 +347,15 @@
       }
     },
     "NHẬT THI": {
-      "tasks": 147,
+      "tasks": 148,
       "quantity": 23996,
-      "avgQuantityPerTask": 163.24,
-      "completedTasks": 135,
-      "completedQuantity": 23954,
-      "inProgressTasks": 2,
-      "inProgressQuantity": 16,
+      "avgQuantityPerTask": 162.14,
+      "completedTasks": 136,
+      "completedQuantity": 23970,
+      "inProgressTasks": 1,
+      "inProgressQuantity": 0,
       "canceledTasks": 2,
-      "missingQuantityTasks": 10,
+      "missingQuantityTasks": 11,
       "missingQuantityRows": [
         24,
         92,
@@ -363,14 +366,15 @@
         176,
         430,
         599,
-        643
+        643,
+        740
       ],
       "byStatusTasks": {
-        "Hoàn thành": 135,
+        "Hoàn thành": 136,
+        "(trong)": 5,
         "Pending": 4,
-        "(trong)": 4,
         "Cancel": 2,
-        "Đang thực hiện": 2
+        "Đang thực hiện": 1
       },
       "byCategoryQty": {
         "HÌNH ẢNH": 22752,
@@ -388,7 +392,7 @@
         "VIDEO": 18,
         "KEY VISUAL": 10,
         "KEY VISUAL AI": 9,
-        "(trong)": 5,
+        "(trong)": 6,
         "VIDEO AI": 5,
         "LANDINGPAGE": 3,
         "SOCIAL POST": 2,
@@ -411,7 +415,7 @@
       },
       "byChannelTasks": {
         "SHOPPE": 44,
-        "FACEBOOK": 25,
+        "FACEBOOK": 26,
         "AMAZON": 22,
         "WEB KG VIETNAM": 11,
         "WEB ARISTINO": 11,
@@ -10543,13 +10547,13 @@
       "personVideo": "NHẬT THI",
       "channel": "AMAZON",
       "category": "HÌNH ẢNH AI",
-      "status": "Đang thực hiện",
+      "status": "Hoàn thành",
       "quantity": 16,
       "qtyHinh": 16,
       "qtyVideo": 0,
       "month": "2026-05",
       "orderDate": "2026-05-26",
-      "completionDate": "",
+      "completionDate": "2026-07-13",
       "weekOfMonth": 4,
       "detail": "ISM - Creative\n\nAnh làm giúp em bộ hình cho Store mới Insidemen\n- Storefront\n- Listing: 3 mã (2 đồ lót, 1 polo) \n- Content A+: 3 mã (2 đồ lót, 1 polo)"
     },
@@ -12328,7 +12332,7 @@
       "personVideo": "ẨN",
       "channel": "FACEBOOK",
       "category": "HÌNH ẢNH",
-      "status": "Pending",
+      "status": "Đang thực hiện",
       "quantity": 6,
       "qtyHinh": 5,
       "qtyVideo": 1,
@@ -12336,7 +12340,7 @@
       "orderDate": "2026-07-02",
       "completionDate": "",
       "weekOfMonth": 1,
-      "detail": "INSIDEMEN - CTKM QUÀ TẶNG HÀNG ACTIVE \n\n- Ảnh này là chương trình của MT, Ecom cũng nội dung tương tự. nên cần resize kích thước để chạy chương trình.  \nResize lại từ file này: Z:\\Insidemen\\2026\\Tháng 5\\In Ấn\\5_25_POSM_Worldcup_kenh MT \n- 1 ảnh ngang - dọc - vuông: chạy click to web - đăng fanpage \n- 1 ảnh banner website ISM - 1 ảnh banner web K&G \n- 1 Video dọc chạy các element trên ảnh khoảng 10-15s"
+      "detail": "INSIDEMEN - CTKM QUÀ TẶNG HÀNG ACTIVE \n\n- Ảnh này là chương trình của MT, Ecom cũng nội dung tương tự. nên cần resize kích thước để chạy chương trình.  \nResize lại từ file này: Z:\\Insidemen\\2026\\Tháng 5\\In Ấn\\5_25_POSM_Worldcup_kenh MT \n- 1 ảnh ngang - dọc - vuông: chạy click to web - đăng fanpage \n- 1 ảnh banner website ISM - 1 ảnh banner web K&G \n- 1 Video dọc chạy các element trên ảnh khoảng 10-15s\n\nThêm 1 option cho shopee: Banner ngang - dọc - vuông điều chỉnh chương trình về hóa đơn: \nTặng 1 Đôi tất Insidemen Active -> Cho hóa đơn từ 399K\nTặng 1 Khăn Thể Thao -> Cho hóa đơn từ 599K\nTặng 1 Bình nước thể thao -> Cho hóa đơn từ 999K"
     },
     {
       "row": 714,
@@ -12727,7 +12731,7 @@
       "orderDate": "2026-07-13",
       "completionDate": "",
       "weekOfMonth": 2,
-      "detail": "KV chạy Idol live Shopee Aristino Official \nMã áo: APS115EDP01; APS205AS0E; APS211AS0E\nKhung: vuông\nSl: 1\nContent: \nAristino – Đồng hành cùng quý ông kiến tạo phong cách lịch lãm.\nSuper Idol Live duy nhất 5.8 cùng nhiều ưu đãi hấp dẫn\nMẫu: https://drive.google.com/file/d/1VKO_JUYCz4qPqNubfpAMW9Tx3jaUU6ig/view\nDeadline: 17h hôm nay"
+      "detail": "KV chạy Idol live Shopee Aristino Official \nMã áo: APS115EDP01; APS205AS0E; APS211AS0E\nKhung: vuông\nSl: 1\nContent: \nAristino – cùng quý ông kiến tạo phong cách lịch lãm.\nSuper Idol Live 5.8 cùng nhiều ưu đãi hấp dẫn\nMẫu: https://drive.google.com/file/d/1VKO_JUYCz4qPqNubfpAMW9Tx3jaUU6ig/view\nDeadline: 17h hôm nay"
     },
     {
       "row": 737,
@@ -12745,9 +12749,111 @@
       "completionDate": "2026-07-13",
       "weekOfMonth": 2,
       "detail": "Cắt Live ISM\nNguồn: https://kgvn.sharepoint.com/sites/all/_layouts/15/stream.aspx?id=%2Fsites%2Fall%2FShared%20Documents%2FTMDT%2FVIDEO%20TEAM%20TIKTOK%2FINSIDEMEN%2Fclip%20sp%20l%E1%BA%A5y%2F10%2E7%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E3025b6e4%2D7688%2D4551%2Db942%2D6cfe96dce247"
+    },
+    {
+      "row": 738,
+      "person": "",
+      "personHinh": "",
+      "personVideo": "",
+      "channel": "FACEBOOK",
+      "category": "(trong)",
+      "status": "(trong)",
+      "quantity": 0,
+      "qtyHinh": 0,
+      "qtyVideo": 0,
+      "month": "2026-07",
+      "orderDate": "2026-07-13",
+      "completionDate": "",
+      "weekOfMonth": 2,
+      "detail": "Sơ mi new T7\n- Banner ads\n- Video reels\n\nhttps://www.figma.com/board/eELTqOYZukwzn4KkcUHqON/K-G-T7-2026?node-id=434-340&t=jV23HjwoBjT3Y9Xd-0"
+    },
+    {
+      "row": 739,
+      "person": "",
+      "personHinh": "",
+      "personVideo": "",
+      "channel": "FACEBOOK",
+      "category": "(trong)",
+      "status": "(trong)",
+      "quantity": 0,
+      "qtyHinh": 0,
+      "qtyVideo": 0,
+      "month": "2026-07",
+      "orderDate": "2026-07-13",
+      "completionDate": "",
+      "weekOfMonth": 2,
+      "detail": "Polo new T7\n- Banner ads\n- Social Post\n\nhttps://www.figma.com/board/eELTqOYZukwzn4KkcUHqON/K-G-T7-2026?node-id=458-542&t=jV23HjwoBjT3Y9Xd-0"
+    },
+    {
+      "row": 740,
+      "person": "NHẬT THI",
+      "personHinh": "NHẬT THI",
+      "personVideo": "NHẬT THI",
+      "channel": "FACEBOOK",
+      "category": "(trong)",
+      "status": "(trong)",
+      "quantity": 0,
+      "qtyHinh": 0,
+      "qtyVideo": 0,
+      "month": "2026-07",
+      "orderDate": "2026-07-13",
+      "completionDate": "",
+      "weekOfMonth": 2,
+      "detail": "CTKM Lũy tiến\n- Banner ads\n- Social post\n\nhttps://www.figma.com/board/eELTqOYZukwzn4KkcUHqON/K-G-T7-2026?node-id=239-904&t=jV23HjwoBjT3Y9Xd-0"
     }
   ],
   "latestRows": [
+    {
+      "row": 740,
+      "person": "NHẬT THI",
+      "personHinh": "NHẬT THI",
+      "personVideo": "NHẬT THI",
+      "channel": "FACEBOOK",
+      "category": "(trong)",
+      "status": "(trong)",
+      "quantity": 0,
+      "qtyHinh": 0,
+      "qtyVideo": 0,
+      "month": "2026-07",
+      "orderDate": "2026-07-13",
+      "completionDate": "",
+      "weekOfMonth": 2,
+      "detail": "CTKM Lũy tiến\n- Banner ads\n- Social post\n\nhttps://www.figma.com/board/eELTqOYZukwzn4KkcUHqON/K-G-T7-2026?node-id=239-904&t=jV23HjwoBjT3Y9Xd-0"
+    },
+    {
+      "row": 739,
+      "person": "",
+      "personHinh": "",
+      "personVideo": "",
+      "channel": "FACEBOOK",
+      "category": "(trong)",
+      "status": "(trong)",
+      "quantity": 0,
+      "qtyHinh": 0,
+      "qtyVideo": 0,
+      "month": "2026-07",
+      "orderDate": "2026-07-13",
+      "completionDate": "",
+      "weekOfMonth": 2,
+      "detail": "Polo new T7\n- Banner ads\n- Social Post\n\nhttps://www.figma.com/board/eELTqOYZukwzn4KkcUHqON/K-G-T7-2026?node-id=458-542&t=jV23HjwoBjT3Y9Xd-0"
+    },
+    {
+      "row": 738,
+      "person": "",
+      "personHinh": "",
+      "personVideo": "",
+      "channel": "FACEBOOK",
+      "category": "(trong)",
+      "status": "(trong)",
+      "quantity": 0,
+      "qtyHinh": 0,
+      "qtyVideo": 0,
+      "month": "2026-07",
+      "orderDate": "2026-07-13",
+      "completionDate": "",
+      "weekOfMonth": 2,
+      "detail": "Sơ mi new T7\n- Banner ads\n- Video reels\n\nhttps://www.figma.com/board/eELTqOYZukwzn4KkcUHqON/K-G-T7-2026?node-id=434-340&t=jV23HjwoBjT3Y9Xd-0"
+    },
     {
       "row": 737,
       "person": "ẨN",
@@ -12780,7 +12886,7 @@
       "orderDate": "2026-07-13",
       "completionDate": "",
       "weekOfMonth": 2,
-      "detail": "KV chạy Idol live Shopee Aristino Official \nMã áo: APS115EDP01; APS205AS0E; APS211AS0E\nKhung: vuông\nSl: 1\nContent: \nAristino – Đồng hành cùng quý ông kiến tạo phong cách lịch lãm.\nSuper Idol Live duy nhất 5.8 cùng nhiều ưu đãi hấp dẫn\nMẫu: https://drive.google.com/file/d/1VKO_JUYCz4qPqNubfpAMW9Tx3jaUU6ig/view\nDeadline: 17h hôm nay"
+      "detail": "KV chạy Idol live Shopee Aristino Official \nMã áo: APS115EDP01; APS205AS0E; APS211AS0E\nKhung: vuông\nSl: 1\nContent: \nAristino – cùng quý ông kiến tạo phong cách lịch lãm.\nSuper Idol Live 5.8 cùng nhiều ưu đãi hấp dẫn\nMẫu: https://drive.google.com/file/d/1VKO_JUYCz4qPqNubfpAMW9Tx3jaUU6ig/view\nDeadline: 17h hôm nay"
     },
     {
       "row": 735,
@@ -13163,7 +13269,7 @@
       "personVideo": "ẨN",
       "channel": "FACEBOOK",
       "category": "HÌNH ẢNH",
-      "status": "Pending",
+      "status": "Đang thực hiện",
       "quantity": 6,
       "qtyHinh": 5,
       "qtyVideo": 1,
@@ -13171,7 +13277,7 @@
       "orderDate": "2026-07-02",
       "completionDate": "",
       "weekOfMonth": 1,
-      "detail": "INSIDEMEN - CTKM QUÀ TẶNG HÀNG ACTIVE \n\n- Ảnh này là chương trình của MT, Ecom cũng nội dung tương tự. nên cần resize kích thước để chạy chương trình.  \nResize lại từ file này: Z:\\Insidemen\\2026\\Tháng 5\\In Ấn\\5_25_POSM_Worldcup_kenh MT \n- 1 ảnh ngang - dọc - vuông: chạy click to web - đăng fanpage \n- 1 ảnh banner website ISM - 1 ảnh banner web K&G \n- 1 Video dọc chạy các element trên ảnh khoảng 10-15s"
+      "detail": "INSIDEMEN - CTKM QUÀ TẶNG HÀNG ACTIVE \n\n- Ảnh này là chương trình của MT, Ecom cũng nội dung tương tự. nên cần resize kích thước để chạy chương trình.  \nResize lại từ file này: Z:\\Insidemen\\2026\\Tháng 5\\In Ấn\\5_25_POSM_Worldcup_kenh MT \n- 1 ảnh ngang - dọc - vuông: chạy click to web - đăng fanpage \n- 1 ảnh banner website ISM - 1 ảnh banner web K&G \n- 1 Video dọc chạy các element trên ảnh khoảng 10-15s\n\nThêm 1 option cho shopee: Banner ngang - dọc - vuông điều chỉnh chương trình về hóa đơn: \nTặng 1 Đôi tất Insidemen Active -> Cho hóa đơn từ 399K\nTặng 1 Khăn Thể Thao -> Cho hóa đơn từ 599K\nTặng 1 Bình nước thể thao -> Cho hóa đơn từ 999K"
     },
     {
       "row": 712,
@@ -14948,13 +15054,13 @@
       "personVideo": "NHẬT THI",
       "channel": "AMAZON",
       "category": "HÌNH ẢNH AI",
-      "status": "Đang thực hiện",
+      "status": "Hoàn thành",
       "quantity": 16,
       "qtyHinh": 16,
       "qtyVideo": 0,
       "month": "2026-05",
       "orderDate": "2026-05-26",
-      "completionDate": "",
+      "completionDate": "2026-07-13",
       "weekOfMonth": 4,
       "detail": "ISM - Creative\n\nAnh làm giúp em bộ hình cho Store mới Insidemen\n- Storefront\n- Listing: 3 mã (2 đồ lót, 1 polo) \n- Content A+: 3 mã (2 đồ lót, 1 polo)"
     },
@@ -16096,57 +16202,6 @@
       "completionDate": "",
       "weekOfMonth": 1,
       "detail": "KV ARIS GIỮA THÁNG 15.5: Shop Aris MN, Aris MB, Aris Business \n\n- (Riêng Aris Business): Sửa thêm mục Voucher 50K => Voucher 70K\n- Sửa Text Double day 5.5 sang 15.5\n\nCác phiên bản yêu cầu: NGAG - DỌC - VUÔNG - NỘI SÀN - VIDEO VUÔNG"
-    },
-    {
-      "row": 537,
-      "person": "KHANG",
-      "personHinh": "KHANG",
-      "personVideo": "KHANG",
-      "channel": "SHOPPE",
-      "category": "HÌNH ẢNH",
-      "status": "Hoàn thành",
-      "quantity": 18,
-      "qtyHinh": 18,
-      "qtyVideo": 0,
-      "month": "2026-05",
-      "orderDate": "2026-05-05",
-      "completionDate": "",
-      "weekOfMonth": 1,
-      "detail": "KV ARIS DAILY THÁNG 5: Shop Aris MN, Aris MB, Aris Business \n\n- (Riêng Aris Business): Sửa thêm mục Voucher 50K => Voucher 70K\n- Sửa Text Double day 5.5 sang THÁNG 5\n\nCác phiên bản yêu cầu: NGAG - DỌC - VUÔNG - NỘI SÀN - VIDEO VUÔNG"
-    },
-    {
-      "row": 536,
-      "person": "ẨN",
-      "personHinh": "ẨN",
-      "personVideo": "ẨN",
-      "channel": "SHOPPE",
-      "category": "HÌNH ẢNH",
-      "status": "Hoàn thành",
-      "quantity": 5,
-      "qtyHinh": 5,
-      "qtyVideo": 0,
-      "month": "2026-05",
-      "orderDate": "2026-05-05",
-      "completionDate": "",
-      "weekOfMonth": 1,
-      "detail": "KV ISM CUỐI THÁNG 25.5: Sửa Text Double day 5.5 sang 25.5\n\nCác phiên bản yêu cầu: NGAG - DỌC - VUÔNG - NỘI SÀN - VIDEO VUÔNG"
-    },
-    {
-      "row": 535,
-      "person": "ẨN",
-      "personHinh": "ẨN",
-      "personVideo": "ẨN",
-      "channel": "SHOPPE",
-      "category": "HÌNH ẢNH",
-      "status": "Hoàn thành",
-      "quantity": 5,
-      "qtyHinh": 5,
-      "qtyVideo": 0,
-      "month": "2026-05",
-      "orderDate": "2026-05-05",
-      "completionDate": "",
-      "weekOfMonth": 1,
-      "detail": "KV ISM GIỮA THÁNG 15.5: Sửa Text Double day 5.5 sang 15.5\n\nCác phiên bản yêu cầu: NGAG - DỌC - VUÔNG - NỘI SÀN - VIDEO VUÔNG"
     }
   ]
 }
