@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-07-31T07:35:11.690Z",
+    "generatedAt": "2026-07-31T09:36:31.183Z",
     "timezone": "Asia/Ho_Chi_Minh",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -22,12 +22,12 @@
   },
   "overview": {
     "tasks": 770,
-    "quantity": 30445,
-    "avgQuantityPerTask": 39.54,
-    "completedTasks": 712,
-    "completedQuantity": 30290,
-    "inProgressTasks": 8,
-    "inProgressQuantity": 25,
+    "quantity": 30431,
+    "avgQuantityPerTask": 39.52,
+    "completedTasks": 713,
+    "completedQuantity": 30301,
+    "inProgressTasks": 7,
+    "inProgressQuantity": 0,
     "canceledTasks": 22,
     "missingQuantityTasks": 57,
     "missingQuantityRows": [
@@ -90,16 +90,16 @@
       781
     ],
     "byStatusTasks": {
-      "Hoàn thành": 712,
+      "Hoàn thành": 713,
       "Cancel": 22,
       "(trong)": 15,
       "Pending": 13,
-      "Đang thực hiện": 8
+      "Đang thực hiện": 7
     },
     "byCategoryQty": {
       "HÌNH ẢNH": 25781,
       "HÌNH ẢNH AI": 2457,
-      "VIDEO": 893,
+      "VIDEO": 879,
       "SOCIAL POST": 572,
       "KEY VISUAL": 367,
       "LANDINGPAGE": 187,
@@ -122,12 +122,12 @@
     },
     "byChannelQty": {
       "SHOPPE": 22404,
-      "FACEBOOK": 1726,
-      "SHOPPE ISM": 1475,
+      "FACEBOOK": 1865,
+      "SHOPPE ISM": 1461,
       "SHOPPE ARISTINO": 1427,
       "TIKTOK MB": 936,
       "WEB ARISTINO": 781,
-      "(trong)": 734,
+      "(trong)": 595,
       "WEB KG VIETNAM": 270,
       "TIKTOK MN": 254,
       "AMAZON": 225,
@@ -144,10 +144,10 @@
       "SHOPPE MN": 1
     },
     "byChannelTasks": {
-      "FACEBOOK": 247,
+      "FACEBOOK": 248,
       "SHOPPE": 174,
       "TIKTOK MB": 95,
-      "(trong)": 47,
+      "(trong)": 46,
       "SHOPPE ARISTINO": 43,
       "WEB KG VIETNAM": 34,
       "WEB ARISTINO": 32,
@@ -173,7 +173,7 @@
       "2026-04": 2953,
       "2026-03": 2929,
       "2026-06": 2918,
-      "2026-07": 1670,
+      "2026-07": 1656,
       "2026-02": 878,
       "(khong ngay)": 19,
       "2025-11": 2
@@ -182,12 +182,12 @@
   "byPerson": {
     "ẨN": {
       "tasks": 335,
-      "quantity": 3528,
-      "avgQuantityPerTask": 10.53,
-      "completedTasks": 330,
-      "completedQuantity": 3430,
-      "inProgressTasks": 1,
-      "inProgressQuantity": 25,
+      "quantity": 3514,
+      "avgQuantityPerTask": 10.49,
+      "completedTasks": 331,
+      "completedQuantity": 3441,
+      "inProgressTasks": 0,
+      "inProgressQuantity": 0,
       "canceledTasks": 4,
       "missingQuantityTasks": 2,
       "missingQuantityRows": [
@@ -195,14 +195,13 @@
         515
       ],
       "byStatusTasks": {
-        "Hoàn thành": 330,
-        "Cancel": 4,
-        "Đang thực hiện": 1
+        "Hoàn thành": 331,
+        "Cancel": 4
       },
       "byCategoryQty": {
         "HÌNH ẢNH": 1746,
         "HÌNH ẢNH AI": 1278,
-        "VIDEO": 388,
+        "VIDEO": 374,
         "SOCIAL POST": 55,
         "KEY VISUAL": 39,
         "LANDINGPAGE": 13,
@@ -220,12 +219,12 @@
       },
       "byChannelQty": {
         "SHOPPE": 1279,
-        "(trong)": 535,
+        "FACEBOOK": 462,
         "SHOPPE ARISTINO": 456,
         "TIKTOK MB": 409,
-        "FACEBOOK": 323,
+        "(trong)": 396,
         "TIKTOK MN": 228,
-        "SHOPPE ISM": 172,
+        "SHOPPE ISM": 158,
         "WEB ARISTINO": 42,
         "WEB KG VIETNAM": 38,
         "WEB ISM": 29,
@@ -238,10 +237,10 @@
         "SHOPPE MN": 1
       },
       "byChannelTasks": {
-        "FACEBOOK": 79,
+        "FACEBOOK": 80,
         "SHOPPE": 76,
         "TIKTOK MB": 67,
-        "(trong)": 29,
+        "(trong)": 28,
         "SHOPPE ARISTINO": 24,
         "SHOPPE ISM": 23,
         "TIKTOK MN": 10,
@@ -258,8 +257,8 @@
       },
       "byMonthQty": {
         "2026-01": 603,
-        "2026-07": 549,
         "2025-12": 545,
+        "2026-07": 535,
         "2026-03": 481,
         "2026-04": 480,
         "2026-06": 367,
@@ -13202,7 +13201,7 @@
       "person": "ẨN",
       "personHinh": "ẨN",
       "personVideo": "ẨN",
-      "channel": "(trong)",
+      "channel": "FACEBOOK",
       "category": "HÌNH ẢNH",
       "status": "Hoàn thành",
       "quantity": 139,
@@ -13544,13 +13543,13 @@
       "personVideo": "ẨN",
       "channel": "SHOPPE ISM",
       "category": "VIDEO",
-      "status": "Đang thực hiện",
-      "quantity": 25,
+      "status": "Hoàn thành",
+      "quantity": 11,
       "qtyHinh": 0,
-      "qtyVideo": 25,
+      "qtyVideo": 11,
       "month": "2026-07",
       "orderDate": "2026-07-31",
-      "completionDate": "",
+      "completionDate": "2026-07-31",
       "weekOfMonth": 4,
       "detail": "Edit source video: https://kgvn.sharepoint.com/sites/all/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2Fall%2FShared%20Documents%2FTMDT%2FVIDEO%20TEAM%20TIKTOK%2FINSIDEMEN%2FT%E1%BB%A7%20%C4%91%E1%BB%93%20m%E1%BA%B7c%20trong&viewid=edcd55f1%2D7f4c%2D4dd5%2D8d6d%2D1916cc831ba9&p=true&ga=1"
     }
@@ -13563,13 +13562,13 @@
       "personVideo": "ẨN",
       "channel": "SHOPPE ISM",
       "category": "VIDEO",
-      "status": "Đang thực hiện",
-      "quantity": 25,
+      "status": "Hoàn thành",
+      "quantity": 11,
       "qtyHinh": 0,
-      "qtyVideo": 25,
+      "qtyVideo": 11,
       "month": "2026-07",
       "orderDate": "2026-07-31",
-      "completionDate": "",
+      "completionDate": "2026-07-31",
       "weekOfMonth": 4,
       "detail": "Edit source video: https://kgvn.sharepoint.com/sites/all/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2Fall%2FShared%20Documents%2FTMDT%2FVIDEO%20TEAM%20TIKTOK%2FINSIDEMEN%2FT%E1%BB%A7%20%C4%91%E1%BB%93%20m%E1%BA%B7c%20trong&viewid=edcd55f1%2D7f4c%2D4dd5%2D8d6d%2D1916cc831ba9&p=true&ga=1"
     },
@@ -13901,7 +13900,7 @@
       "person": "ẨN",
       "personHinh": "ẨN",
       "personVideo": "ẨN",
-      "channel": "(trong)",
+      "channel": "FACEBOOK",
       "category": "HÌNH ẢNH",
       "status": "Hoàn thành",
       "quantity": 139,
