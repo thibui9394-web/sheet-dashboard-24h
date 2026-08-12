@@ -672,3 +672,262 @@ tbody tr:hover {
   background: #ffedd5;
   border: 1px solid #fed7aa;
 }
+
+.task-edit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 22px;
+  border-radius: 999px;
+  padding: 2px 8px;
+  border: 1px solid #fdba74;
+  background: #fff7ed;
+  color: #c2410c;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.task-edit-badge:hover,
+.task-edit-badge:focus-visible {
+  border-color: #f97316;
+  background: #ffedd5;
+  color: #9a3412;
+}
+
+.task-edit-badge-date {
+  border-color: #fca5a5;
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.task-edit-recent {
+  border-radius: 999px;
+  padding: 1px 5px;
+  background: #ea580c;
+  color: white;
+  font-size: 9px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+body.history-open {
+  overflow: hidden;
+}
+
+.history-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: rgba(15, 23, 42, 0.4);
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.history-backdrop[hidden] {
+  display: none;
+}
+
+.history-backdrop.is-open {
+  opacity: 1;
+}
+
+.history-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  width: min(520px, 100vw);
+  height: 100vh;
+  padding: 20px;
+  border-left: 1px solid var(--line);
+  background: #f8fafc;
+  box-shadow: -18px 0 45px rgba(15, 23, 42, 0.16);
+  transform: translateX(102%);
+  visibility: hidden;
+  transition: transform 220ms ease, visibility 220ms ease;
+}
+
+.history-drawer.is-open {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.history-drawer-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.history-drawer-head h2 {
+  margin: 2px 0 0;
+}
+
+.history-eyebrow {
+  margin: 0;
+  color: #ea580c;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.history-subtitle {
+  display: -webkit-box;
+  max-width: 410px;
+  margin: 6px 0 0;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.history-close {
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-color: var(--line);
+  border-radius: 999px;
+  background: white;
+  color: var(--ink);
+  font-size: 24px;
+  line-height: 1;
+}
+
+.history-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 14px 0 10px;
+}
+
+.history-summary span {
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.history-summary strong {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--ink);
+  font-size: 18px;
+}
+
+.history-sheet-link {
+  align-self: flex-start;
+  margin-bottom: 12px;
+  color: #0f766e;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.history-sheet-link:hover {
+  text-decoration: underline;
+}
+
+.history-timeline {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0;
+  padding-right: 3px;
+  overflow-y: auto;
+}
+
+.history-event {
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-left: 4px solid #fb923c;
+  border-radius: 9px;
+  background: white;
+}
+
+.history-event-clear {
+  border-left-color: #ef4444;
+}
+
+.history-event-baseline,
+.history-event-initial {
+  border-left-color: #14b8a6;
+}
+
+.history-event-head {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 9px;
+}
+
+.history-event-head strong {
+  font-size: 13px;
+}
+
+.history-event-head time {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.history-value {
+  margin-top: 7px;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.history-value span {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.history-value pre {
+  max-height: 180px;
+  margin: 0;
+  overflow: auto;
+  font: inherit;
+  font-size: 12px;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.history-old {
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+.history-new {
+  background: #ecfdf5;
+  color: #166534;
+}
+
+.history-empty {
+  margin: 20px 0;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 520px) {
+  .history-drawer {
+    padding: 16px;
+  }
+
+  .history-summary {
+    grid-template-columns: 1fr;
+  }
+}

@@ -156,11 +156,13 @@ test("weekOfMonth: ngay 15-21 -> tuan 3", () => {
 test("weekOfMonth: ngay 22+ -> tuan 4 (capped)", () => {
   assert.equal(weekOfMonth("22/6/2026"), 4);
   assert.equal(weekOfMonth("30/6/2026"), 4);
-  assert.equal(weekOfMonth("31/6/2026"), 4);
 });
 
 test("weekOfMonth: ngay khong hop le -> null", () => {
   assert.equal(weekOfMonth("abc"), null);
+  assert.equal(weekOfMonth("31/6/2026"), null);
+  assert.equal(weekOfMonth("29/2/2025"), null);
+  assert.equal(weekOfMonth("29/2/2024"), 4);
 });
 
 // ============================================================
@@ -176,10 +178,15 @@ test("extractMonth: rong -> (khong ngay)", () => {
 
 test("formatOrderDate: ngay dung -> YYYY-MM-DD", () => {
   assert.equal(formatOrderDate("3/6/2026"), "2026-06-03");
+  assert.equal(formatOrderDate("03/08/2026 14:35"), "2026-08-03");
+  assert.equal(formatOrderDate("12/08/2026 18:16"), "2026-08-12");
+  assert.equal(formatOrderDate("08/12/2026 18:16"), "2026-12-08");
 });
 
 test("formatOrderDate: sai -> null", () => {
   assert.equal(formatOrderDate("abc"), null);
+  assert.equal(formatOrderDate("31/06/2026 14:35"), null);
+  assert.equal(formatOrderDate("08-03-2026"), null);
 });
 
 // ============================================================
@@ -356,6 +363,13 @@ test("recordsFromRows: row number bat dau tu startRowNumber", () => {
   assert.equal(records[0].row, 100);
 });
 
+test("recordsFromRows: doc Task ID ky thuat neu co", () => {
+  const headers = [...HEADERS, "_TASK_ID"];
+  const body = [[...makeRow("SHOPEE", "task tracked", 1, 0, "3/6/2026", "HINH ANH", "Pending", "KHANG", ""), "task-uuid-1"]];
+  const records = recordsFromRows(headers, body, 2);
+  assert.equal(records[0].taskId, "task-uuid-1");
+});
+
 test("recordsFromRows: 2 nguoi khac nhau VIDEO AI giu nguyen category goc", () => {
   const body = [
     makeRow("SHOPEE", "task G", 10, 5, "3/6/2026", "VIDEO AI", "Hoàn thành", "KHANG", "NHẬT THI")
@@ -412,6 +426,24 @@ test("summarizePerson: mang rong", () => {
   assert.equal(summary.tasks, 0);
   assert.equal(summary.quantity, 0);
   assert.equal(summary.avgQuantityPerTask, 0);
+});
+
+test("summarizePerson: tong san luong chi gom hoan thanh va dang thuc hien", () => {
+  const records = [
+    { row: 2, category: "HÌNH ẢNH", channel: "SHOPPE", status: "Hoàn thành", quantity: 10, qtyHinh: 10, qtyVideo: 0, month: "2026-06", completionDate: "2026-07-03" },
+    { row: 3, category: "HÌNH ẢNH", channel: "SHOPPE", status: "Đang thực hiện", quantity: 5, qtyHinh: 5, qtyVideo: 0, month: "2026-06" },
+    { row: 4, category: "HÌNH ẢNH", channel: "SHOPPE", status: "Pending", quantity: 7, qtyHinh: 7, qtyVideo: 0, month: "2026-07" },
+    { row: 5, category: "HÌNH ẢNH", channel: "SHOPPE", status: "Cancel", quantity: 9, qtyHinh: 9, qtyVideo: 0, month: "2026-07" }
+  ];
+
+  const summary = summarizePerson(records);
+  assert.equal(summary.quantity, 15);
+  assert.equal(summary.completedQuantity, 10);
+  assert.equal(summary.inProgressQuantity, 5);
+  assert.equal(
+    Object.values(summary.byMonthQty).reduce((sum, quantity) => sum + quantity, 0),
+    15
+  );
 });
 
 test("recordsFromRows: khong co nguoi thiet ke nhung status la Cancel -> van giu va assign cho (trong)", () => {
@@ -480,4 +512,41 @@ test("buildSnapshot: same-person record giu nguyen full qty", () => {
   assert.equal(snap.byPerson["KHANG"].tasks, 1);
   // Should NOT have a combined entry
   assert.equal(Object.keys(snap.byPerson).length, 1);
+});
+
+test("buildSnapshot: gan edit summary va khong public email nguoi sua", () => {
+  const records = [{
+    row: 10,
+    taskId: "task-10",
+    person: "KHANG",
+    personHinh: "KHANG",
+    personVideo: "KHANG",
+    channel: "SHOPPE",
+    detail: "task tracked",
+    category: "HINH ANH",
+    status: "Pending",
+    quantity: 0,
+    qtyHinh: 0,
+    qtyVideo: 0,
+    month: "2026-08",
+    orderDate: "2026-08-03",
+    completionDate: "",
+    weekOfMonth: 1
+  }];
+  const events = [{
+    eventId: "event-1",
+    taskId: "task-10",
+    column: "C",
+    action: "EDIT",
+    revision: 1,
+    oldValue: "A",
+    newValue: "B",
+    editedAt: "2026-08-12T10:00:00.000Z",
+    editorEmail: "private@example.com"
+  }];
+
+  const snap = buildSnapshot(records, "test", "2026-08", 2, events);
+  assert.equal(snap.records[0].editSummary.editCount, 1);
+  assert.equal(snap.editHistory["task-10"][0].editorEmail, undefined);
+  assert.equal(snap.metadata.editTracking.editedTaskCount, 1);
 });

@@ -48,11 +48,36 @@ Moi lan chay, script uu tien che do incremental:
 - Neu can quet lai toan bo sheet thu cong: `FORCE_FULL_SNAPSHOT=1 npm run update`.
 - Dashboard hien thoi diem cap nhat cuoi.
 
+## Theo doi chinh sua cot C/J
+
+Tinh nang tracking la lop bo sung, khong tham gia tinh KPI va khong chan team
+nhap task khi log gap loi.
+
+- Theo doi `NOI DUNG ORDER` (cot C) va `NGAY ORDER` (cot J).
+- Gan Task ID on dinh vao cot AA (`_TASK_ID`) va an cot nay.
+- Ghi gia tri truoc/sau, thoi gian va email nguoi sua vao file Google Sheet
+  `Design Team - Edit Log` chi admin so huu.
+- Dashboard cong khai chi nhan log da an danh; email khong duoc ghi vao
+  `data/snapshot.json`.
+- Task da sua hien badge `Da sua N`. Click badge de xem timeline va mo dung
+  dong trong Google Sheet.
+- Neu endpoint log tam loi, ETL giu lich su cu va van cap nhat KPI binh thuong.
+
+Ma cai dat Google nam trong [google-apps-script](E:\codex\sheet-dashboard-24h-latest\google-apps-script).
+Sau khi chay `setupTracking()` va deploy Web app, tao hai GitHub secrets:
+
+- `EDIT_LOG_API_URL`: URL `/exec` cua Apps Script Web app.
+- `EDIT_LOG_API_TOKEN`: token tra ve tu `setupTracking()`.
+
+Lan dong bo dau sau khi bat tracking nen chon `Quet toan bo lich su` de moi
+record nhan Task ID that thay vi Task ID fallback theo so dong.
+
 ## File quan trong
 
 - [scripts/update-snapshot.mjs](E:\codex\sheet-dashboard-24h\scripts\update-snapshot.mjs): Tai CSV tu Google Sheet, tong hop KPI, ghi `data/snapshot.json`.
 - [index.html](E:\codex\sheet-dashboard-24h\index.html): UI bao cao.
 - [app.js](E:\codex\sheet-dashboard-24h\app.js): Logic filter + render.
+- [dashboard-domain.js](E:\codex\sheet-dashboard-24h\dashboard-domain.js): Quy tac nghiep vu dung chung cho thang, trang thai, no dong va san luong.
 - [data/snapshot.json](E:\codex\sheet-dashboard-24h\data\snapshot.json): Du lieu da tong hop cho frontend.
 
 ## Ghi chu nghiep vu
@@ -62,6 +87,9 @@ Moi lan chay, script uu tien che do incremental:
 
 ## Logic tinh KPI (thang/tuan hien tai luon "gom no dong")
 
+- Cot `NGAY ORDER` (J) va `NGAY HOAN THANH` (R) co dinh dang `dd/MM/yyyy HH:mm`; ETL luon parse theo thu tu ngay/thang/nam, khong tu dao ngay va thang.
+- Tong san luong chi gom task `Hoan thanh` va `Dang thuc hien`; `Pending`, trang thai trong va `Cancel` khong cong san luong.
 - Task da "Hoan thanh" duoc tinh vao thang/tuan **ngay hoan thanh thuc te** (`NGAY HOAN THANH`), khong phai thang order.
-- Task con "Dang thuc hien" ma chua xong se duoc coi la con no: no van hien o thang order goc cho toi thang hien tai, va trong thang hien tai no luon "nhay" theo tuan hien tai (tuan 1 -> 2 -> 3 -> 4) cho toi khi hoan thanh.
-- Toan bo dashboard (the KPI tong, bang "Theo nhan su", bang kenh/hang muc, tien do theo tuan) deu dung chung 1 cong thuc nay (`aggregateRows` trong `app.js`) de dam bao so lieu khop nhau o moi cho.
+- Task chua xong duoc tracking tu thang order qua cac thang tiep theo. San luong `Dang thuc hien` chi tinh o thang hien tai de khong bi lap.
+- Khi task hoan thanh, toan bo san luong chuyen vao thang/tuan hoan thanh. Cac thang cu chi giu dau task ton voi san luong bang 0, khong danh dau la thieu so luong.
+- Toan bo dashboard va ETL dung chung quy tac trong `dashboard-domain.js` de giu so lieu nhat quan.

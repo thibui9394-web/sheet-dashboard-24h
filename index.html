@@ -133,6 +133,21 @@
       </section>
     </main>
 
-    <script type="module" src="./app.js?v=3"></script>
+    <div id="historyBackdrop" class="history-backdrop" hidden></div>
+    <aside id="historyDrawer" class="history-drawer" aria-hidden="true" aria-labelledby="historyTitle">
+      <div class="history-drawer-head">
+        <div>
+          <p class="history-eyebrow">THEO DÕI THAY ĐỔI</p>
+          <h2 id="historyTitle">Lịch sử chỉnh sửa</h2>
+          <p id="historySubtitle" class="history-subtitle"></p>
+        </div>
+        <button id="historyCloseBtn" class="history-close" type="button" aria-label="Đóng lịch sử">×</button>
+      </div>
+      <div id="historySummary" class="history-summary"></div>
+      <a id="historySheetLink" class="history-sheet-link" target="_blank" rel="noopener noreferrer">Mở dòng này trong Google Sheet</a>
+      <div id="historyTimeline" class="history-timeline"></div>
+    </aside>
+
+    <script type="module" src="./app.js?v=5"></script>
   </body>
 </html>

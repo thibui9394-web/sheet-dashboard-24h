@@ -1,3 +1,12 @@
+import {
+  TIME_ZONE,
+  currentCalendarMonthKey,
+  deriveRecordForMonth,
+  getCompletionMonth,
+  getProductionMonth,
+  statusKey
+} from "./dashboard-domain.js";
+
 const personFilterEl = document.querySelector("#personFilter");
 const monthFilterEl = document.querySelector("#monthFilter");
 const updatedAtEl = document.querySelector("#updatedAt");
@@ -9,7 +18,14 @@ const previousOpenSummaryEl = document.querySelector("#previousOpenSummary");
 const previousOpenTableBodyEl = document.querySelector("#previousOpenTable tbody");
 const reloadBtn = document.querySelector("#reloadBtn");
 const syncBtn = document.querySelector("#syncBtn");
-const TIME_ZONE = "Asia/Ho_Chi_Minh";
+const historyDrawerEl = document.querySelector("#historyDrawer");
+const historyBackdropEl = document.querySelector("#historyBackdrop");
+const historyCloseBtnEl = document.querySelector("#historyCloseBtn");
+const historyTitleEl = document.querySelector("#historyTitle");
+const historySubtitleEl = document.querySelector("#historySubtitle");
+const historySummaryEl = document.querySelector("#historySummary");
+const historyTimelineEl = document.querySelector("#historyTimeline");
+const historySheetLinkEl = document.querySelector("#historySheetLink");
 const WEEK_TASK_INITIAL_LIMIT = 2;
 const WEEK_TASK_EXPAND_STEP = 3;
 const CHANNEL_ROW_DISPLAY_LIMIT = 5;
@@ -70,12 +86,8 @@ function snapshotRows() {
   return snapshot.records || snapshot.latestRows || [];
 }
 
-function statusKey(status) {
-  const value = status || "";
-  if (value === "Ho\u00e0n th\u00e0nh") return "completed";
-  if (value === "\u0110ang th\u1ef1c hi\u1ec7n") return "inProgress";
-  if (value.toLowerCase() === "cancel") return "cancel";
-  return "pending";
+function isEditTrackingEnabled() {
+  return Boolean(snapshot?.metadata?.editTracking?.enabled);
 }
 
 function statusLabel(key) {
@@ -150,7 +162,9 @@ function renderBarChart(containerId, items, unit = "") {
     track.className = "bar-track";
     const fill = document.createElement("div");
     fill.className = "bar-fill";
-    fill.style.width = `${Math.max(2, Math.round((item.value / max) * 100))}%`;
+    fill.style.width = item.value <= 0
+      ? "0%"
+      : `${Math.max(2, Math.round((item.value / max) * 100))}%`;
     track.appendChild(fill);
 
     const value = document.createElement("span");
@@ -228,139 +242,6 @@ function renderPersonTable(person, month) {
   );
 }
 
-function getCompletionMonth(r) {
-  if (r.completionDate) {
-    const parts = r.completionDate.split("-");
-    if (parts.length >= 2) {
-      return `${parts[0]}-${parts[1]}`;
-    }
-  }
-  return r.month;
-}
-
-function currentCalendarMonthKey() {
-  const parts = new Intl.DateTimeFormat("en-CA", {
-    timeZone: TIME_ZONE,
-    year: "numeric",
-    month: "2-digit"
-  }).formatToParts(new Date());
-  const year = parts.find((part) => part.type === "year")?.value;
-  const month = parts.find((part) => part.type === "month")?.value;
-  return `${year}-${month}`;
-}
-
-function currentCalendarWeek() {
-  const parts = new Intl.DateTimeFormat("en-CA", {
-    timeZone: TIME_ZONE,
-    day: "numeric"
-  }).formatToParts(new Date());
-  const day = Number(parts.find((part) => part.type === "day")?.value || 1);
-  if (day >= 1 && day <= 7) return 1;
-  if (day >= 8 && day <= 14) return 2;
-  if (day >= 15 && day <= 21) return 3;
-  return 4;
-}
-
-function getEffectiveWeek(r, targetMonth) {
-  if (r.completionDate && statusKey(r.status) === "completed") {
-    const parts = r.completionDate.split("-");
-    if (parts.length >= 3 && `${parts[0]}-${parts[1]}` === targetMonth) {
-      const day = Number(parts[2]);
-      if (day >= 1 && day <= 7) return 1;
-      if (day >= 8 && day <= 14) return 2;
-      if (day >= 15 && day <= 21) return 3;
-      return 4;
-    }
-  }
-  
-  if (statusKey(r.status) === "inProgress") {
-    const isAssigned = r.person && r.person !== "" && r.person !== "Trống";
-    if (isAssigned) {
-      const curMonth = currentCalendarMonthKey();
-      if (targetMonth === curMonth) {
-        return currentCalendarWeek();
-      }
-    }
-  }
-  
-  return r.weekOfMonth || 1;
-}
-
-function getEffectiveStatusAndQty(r, viewingMonth) {
-  const currentStatus = statusKey(r.status);
-  const compMonth = getCompletionMonth(r);
-  
-  if (currentStatus === "cancel" || currentStatus === "pending") {
-    return { status: currentStatus, quantity: 0 };
-  }
-
-  if (viewingMonth === "ALL") {
-    return { status: currentStatus, quantity: r.quantity };
-  }
-  
-  if (currentStatus === "completed" && compMonth > viewingMonth) {
-    return { status: "completed", quantity: 0 };
-  }
-  
-  return { status: currentStatus, quantity: r.quantity };
-}
-
-function getEffectiveRecord(r, month) {
-  const eff = getEffectiveStatusAndQty(r, month);
-  const mapped = {
-    ...r,
-    status: eff.status === "completed" ? "Hoàn thành" : (eff.status === "inProgress" ? "Đang thực hiện" : (eff.status === "cancel" ? "Cancel" : "Pending")),
-    quantity: eff.quantity,
-    originalRecord: r
-  };
-  
-  mapped.weekOfMonth = getEffectiveWeek(r, month);
-
-  const targetMonth = month === "ALL" ? latestMonth() : month;
-  mapped.isDebt = !!(targetMonth && r.month && r.month !== "(khong ngay)" && r.month < targetMonth);
-
-  // Nhan ngay/thang don gian: hoan thanh thi ghi ngay hoan thanh,
-  // dang lam thi ghi ngay order. Dong/thang da co san o dong meta xam ben duoi.
-  mapped.customLabel = "";
-  if (eff.status === "completed" && r.completionDate) {
-    const parts = r.completionDate.split("-");
-    if (parts.length >= 3) mapped.customLabel = `${parts[2]}/${parts[1]}`;
-  } else if (eff.status === "inProgress" && r.orderDate) {
-    const parts = r.orderDate.split("-");
-    if (parts.length >= 3) mapped.customLabel = `${parts[2]}/${parts[1]}`;
-  }
-
-  return mapped;
-}
-
-function isRecordInMonth(r, month) {
-  if (month === "ALL") return true;
-
-  const compMonth = getCompletionMonth(r);
-  const status = statusKey(r.status);
-
-  if (status === "completed") {
-    if (compMonth === month) return true;
-    if (compMonth > month && r.month <= month) return true;
-    return false;
-  }
-
-  if (status === "cancel") {
-    return r.month === month;
-  }
-
-  const isAssigned = r.person && r.person !== "" && r.person !== "Trống";
-  if (isAssigned && status === "inProgress") {
-    const curMonth = currentCalendarMonthKey();
-    if (month === curMonth) {
-      return r.month <= month;
-    }
-    return r.month === month;
-  } else {
-    return r.month === month;
-  }
-}
-
 function recordMatchesPerson(r, person) {
   if (person === "ALL") return true;
   const ph = r.personHinh || r.person || "";
@@ -383,12 +264,9 @@ function adjustRecordForPerson(r, person) {
 
 function aggregateRows(person, month) {
   return snapshotRows()
-    .filter((r) => {
-      if (!recordMatchesPerson(r, person)) return false;
-      if (!isRecordInMonth(r, month)) return false;
-      return true;
-    })
-    .map((r) => getEffectiveRecord(adjustRecordForPerson(r, person), month));
+    .filter((r) => recordMatchesPerson(r, person))
+    .map((r) => deriveRecordForMonth(adjustRecordForPerson(r, person), month))
+    .filter(Boolean);
 }
 
 function renderChannelCategoryGroup(tbody, channelGroups) {
@@ -453,7 +331,8 @@ function renderMonthTable(rows, month) {
   if (month === "ALL") {
     const monthMap = new Map();
     for (const row of rows) {
-      monthMap.set(row.month, (monthMap.get(row.month) || 0) + row.quantity);
+      const reportMonth = row.reportMonth || row.month;
+      monthMap.set(reportMonth, (monthMap.get(reportMonth) || 0) + row.quantity);
     }
     const sorted = [...monthMap.entries()].sort((a, b) => a[0].localeCompare(b[0]));
     renderBarChart("#monthChart", sorted.map(([m, qty]) => ({ label: monthLabel(m), value: qty })), "Số lượng");
@@ -462,8 +341,8 @@ function renderMonthTable(rows, month) {
 
   // Khi loc 1 thang cu the: tach ro SL moi phat sinh trong thang nay
   // voi SL cua task no dong tu cac thang truoc, tranh xoe nhieu thang gay roi.
-  const newRows = rows.filter((row) => row.month === month);
-  const debtRows = rows.filter((row) => row.month !== month);
+  const newRows = rows.filter((row) => (row.orderMonth || row.month) === month);
+  const debtRows = rows.filter((row) => (row.orderMonth || row.month) !== month);
   const newQty = newRows.reduce((sum, row) => sum + row.quantity, 0);
   const debtQty = debtRows.reduce((sum, row) => sum + row.quantity, 0);
 
@@ -577,11 +456,16 @@ function summarizeWeek(rows) {
     completed: 0,
     inProgress: 0,
     cancel: 0,
-    pending: 0
+    pending: 0,
+    editedTasks: 0,
+    dateChangedTasks: 0
   };
 
   for (const row of rows) {
     summary[statusKey(row.status)] += 1;
+    const editSummary = row.editSummary || row.originalRecord?.editSummary;
+    if (Number(editSummary?.editCount || 0) > 0) summary.editedTasks += 1;
+    if (Number(editSummary?.dateEditCount || 0) > 0) summary.dateChangedTasks += 1;
   }
 
   return summary;
@@ -605,6 +489,136 @@ function createStatusBadge(key) {
   return badge;
 }
 
+function isRecentEdit(iso) {
+  const timestamp = Date.parse(iso || "");
+  return Number.isFinite(timestamp) && Date.now() - timestamp <= 24 * 60 * 60 * 1000;
+}
+
+function historyEventsFor(row) {
+  const original = row.originalRecord || row;
+  return snapshot?.editHistory?.[original.taskId] || [];
+}
+
+function historyActionLabel(event) {
+  const field = event.column === "C" ? "Nội dung order" : "Ngày order";
+  if (event.action === "BASELINE") return `${field} — Dữ liệu nền`;
+  if (event.action === "INITIAL") return `${field} — Lần đầu nhập`;
+  if (event.action === "CLEAR") return `${field} — Xóa dữ liệu (sửa lần ${event.revision || 1})`;
+  return `${field} — Sửa lần ${event.revision || 1}`;
+}
+
+function createHistoryValue(label, value, className) {
+  const block = document.createElement("div");
+  block.className = `history-value ${className}`;
+  const caption = document.createElement("span");
+  caption.textContent = label;
+  const content = document.createElement("pre");
+  content.textContent = value || "(Trống)";
+  block.appendChild(caption);
+  block.appendChild(content);
+  return block;
+}
+
+function closeHistory() {
+  historyDrawerEl.classList.remove("is-open");
+  historyDrawerEl.setAttribute("aria-hidden", "true");
+  historyBackdropEl.classList.remove("is-open");
+  historyBackdropEl.hidden = true;
+  document.body.classList.remove("history-open");
+}
+
+function openHistory(row) {
+  const original = row.originalRecord || row;
+  const summary = original.editSummary || row.editSummary || {};
+  const events = historyEventsFor(original);
+  const source = snapshot?.metadata?.source || {};
+
+  historyTitleEl.textContent = `Lịch sử dòng ${original.row}`;
+  historySubtitleEl.textContent = original.detail || "(Không có nội dung task)";
+  historySummaryEl.innerHTML = "";
+  [
+    ["Tổng lần sửa", summary.editCount || 0],
+    ["Cột C", summary.contentEditCount || 0],
+    ["Cột J", summary.dateEditCount || 0]
+  ].forEach(([label, value]) => historySummaryEl.appendChild(createMetric(label, value)));
+
+  historyTimelineEl.innerHTML = "";
+  if (events.length === 0) {
+    const empty = document.createElement("p");
+    empty.className = "history-empty";
+    empty.textContent = "Chưa có dữ liệu lịch sử cho task này.";
+    historyTimelineEl.appendChild(empty);
+  } else {
+    for (const event of events) {
+      const item = document.createElement("article");
+      item.className = `history-event history-event-${String(event.action || "edit").toLowerCase()}`;
+
+      const head = document.createElement("div");
+      head.className = "history-event-head";
+      const label = document.createElement("strong");
+      label.textContent = historyActionLabel(event);
+      const time = document.createElement("time");
+      time.dateTime = event.editedAt;
+      time.textContent = formatDate(event.editedAt);
+      head.appendChild(label);
+      head.appendChild(time);
+      item.appendChild(head);
+
+      if (event.action !== "BASELINE" && event.action !== "INITIAL") {
+        item.appendChild(createHistoryValue("Trước", event.oldValue, "history-old"));
+      }
+      item.appendChild(createHistoryValue(
+        event.action === "BASELINE" ? "Giá trị khi bật tracking" : "Sau",
+        event.newValue,
+        "history-new"
+      ));
+      historyTimelineEl.appendChild(item);
+    }
+  }
+
+  if (source.sheetId && source.gid) {
+    historySheetLinkEl.href = `https://docs.google.com/spreadsheets/d/${source.sheetId}/edit#gid=${source.gid}&range=C${original.row}:J${original.row}`;
+    historySheetLinkEl.hidden = false;
+  } else {
+    historySheetLinkEl.hidden = true;
+  }
+
+  historyBackdropEl.hidden = false;
+  requestAnimationFrame(() => {
+    historyBackdropEl.classList.add("is-open");
+    historyDrawerEl.classList.add("is-open");
+  });
+  historyDrawerEl.setAttribute("aria-hidden", "false");
+  document.body.classList.add("history-open");
+  historyCloseBtnEl.focus();
+}
+
+function createEditBadge(row) {
+  const original = row.originalRecord || row;
+  const summary = original.editSummary || row.editSummary;
+  if (!summary || Number(summary.editCount || 0) <= 0) return null;
+
+  const badge = document.createElement("button");
+  badge.type = "button";
+  badge.className = `task-edit-badge${summary.hasDateChange ? " task-edit-badge-date" : ""}`;
+  badge.textContent = `✎ Đã sửa ${formatNumber(summary.editCount)}`;
+  badge.title = summary.hasDateChange
+    ? "Task có thay đổi ngày order. Click để xem lịch sử."
+    : "Click để xem lịch sử chỉnh sửa.";
+  badge.addEventListener("click", (event) => {
+    event.stopPropagation();
+    openHistory(original);
+  });
+
+  if (isRecentEdit(summary.lastEditedAt)) {
+    const recent = document.createElement("span");
+    recent.className = "task-edit-recent";
+    recent.textContent = "Mới";
+    badge.appendChild(recent);
+  }
+  return badge;
+}
+
 function createTaskItem(row) {
   const item = document.createElement("article");
   item.className = "week-task";
@@ -623,6 +637,8 @@ function createTaskItem(row) {
     debtBadge.innerHTML = `\u23f3 T\u1ed3n ${monthLabel(orderMonth)}`;
     badgesGroup.appendChild(debtBadge);
   }
+  const editBadge = createEditBadge(row);
+  if (editBadge) badgesGroup.appendChild(editBadge);
   head.appendChild(badgesGroup);
 
   if (row.customLabel) {
@@ -685,6 +701,10 @@ function renderWeeklyProgress(person, month) {
     metrics.appendChild(createMetric("\u0110ang l\u00e0m", summary.inProgress));
     metrics.appendChild(createMetric("Pending", summary.pending));
     metrics.appendChild(createMetric("Cancel", summary.cancel));
+    if (isEditTrackingEnabled()) {
+      metrics.appendChild(createMetric("Đã sửa", summary.editedTasks));
+      metrics.appendChild(createMetric("Đổi ngày", summary.dateChangedTasks));
+    }
 
     const list = document.createElement("div");
     list.className = "week-task-list";
@@ -746,8 +766,11 @@ function renderPreviousMonthOpenTasks(person) {
   const targetMonth = previousMonthKey();
   const rows = aggregateRows(person, targetMonth)
     .filter((row) => {
-      const realStatus = row.originalRecord ? statusKey(row.originalRecord.status) : statusKey(row.status);
-      return realStatus !== "completed" && realStatus !== "cancel";
+      const original = row.originalRecord || row;
+      const realStatus = statusKey(original.status);
+      if (realStatus === "cancel") return false;
+      if (realStatus === "completed") return getCompletionMonth(original) > targetMonth;
+      return true;
     })
     .sort((a, b) =>
       statusSortValue(a) - statusSortValue(b) ||
@@ -790,10 +813,16 @@ function renderPreviousMonthOpenTasks(person) {
   }
 }
 
+function isMissingQuantity(row) {
+  if (row.trackingOnly) return false;
+  const original = row.originalRecord || row;
+  return statusKey(original.status) !== "cancel" && Number(original.quantity || 0) === 0;
+}
+
 function renderMissingTable(person, month) {
   const tbody = document.querySelector("#missingQtyTable tbody");
   tbody.innerHTML = "";
-  const rows = aggregateRows(person, month).filter((r) => r.quantity === 0 && r.status !== "Cancel");
+  const rows = aggregateRows(person, month).filter(isMissingQuantity);
   for (const row of rows.slice(0, 200)) {
     const tr = document.createElement("tr");
     tr.appendChild(createCell(String(row.row), "num"));
@@ -823,7 +852,7 @@ function computeScopeKpi(person, month) {
     inProgressQuantity: inProgressRows.reduce((sum, r) => sum + r.quantity, 0),
     canceledTasks: canceledRows.length,
     pendingTasks: pendingRows.length,
-    missingQuantityTasks: rows.filter((r) => r.quantity === 0 && r.status !== "Cancel").length
+    missingQuantityTasks: rows.filter(isMissingQuantity).length
   };
 }
 
@@ -848,8 +877,19 @@ async function load() {
   const response = await fetch("./data/snapshot.json", { cache: "no-store" });
   snapshot = await response.json();
   personList = Object.keys(snapshot.byPerson || {}).filter((p) => p && p !== "").sort((a, b) => a.localeCompare(b));
-  monthList = [...new Set(snapshotRows().map((r) => r.month).filter((v) => v && v !== "(khong ngay)"))]
-    .sort((a, b) => a.localeCompare(b));
+  const currentMonth = currentCalendarMonthKey();
+  const months = new Set();
+  for (const row of snapshotRows()) {
+    const candidates = [
+      row.month,
+      getCompletionMonth(row),
+      getProductionMonth(row, currentMonth)
+    ];
+    for (const value of candidates) {
+      if (value && value !== "(khong ngay)") months.add(value);
+    }
+  }
+  monthList = [...months].sort((a, b) => a.localeCompare(b));
 
   updatedAtEl.textContent = `Đã cập nhật lúc: ${formatDate(snapshot.metadata.generatedAt)}`;
   totalRecordsEl.textContent = `Tổng record: ${formatNumber(snapshot.metadata.totalRecords)}`;
@@ -860,6 +900,11 @@ async function load() {
 personFilterEl.addEventListener("change", render);
 monthFilterEl.addEventListener("change", render);
 reloadBtn.addEventListener("click", load);
+historyCloseBtnEl.addEventListener("click", closeHistory);
+historyBackdropEl.addEventListener("click", closeHistory);
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && historyDrawerEl.classList.contains("is-open")) closeHistory();
+});
 
 syncBtn.addEventListener("click", async () => {
   const passcode = prompt("Vui lòng nhập mật mã để đồng bộ dữ liệu:");

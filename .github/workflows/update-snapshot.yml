@@ -131,6 +131,9 @@ jobs:
           SHEET_ID: 1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM
           SHEET_GID: 131891982
           SHEET_NAME: 2026_Design_Team
+          SHEET_MAX_COLUMN: AA
+          EDIT_LOG_API_URL: ${{ secrets.EDIT_LOG_API_URL }}
+          EDIT_LOG_API_TOKEN: ${{ secrets.EDIT_LOG_API_TOKEN }}
 
       - name: Commit Snapshot
         run: |

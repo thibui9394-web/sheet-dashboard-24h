@@ -1,12 +1,20 @@
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { getProductionMonth, statusKey } from "../dashboard-domain.js";
+import {
+  buildEditTracking,
+  editEventsFromPayload,
+  flattenSnapshotHistory
+} from "./edit-tracking.mjs";
 
 const SHEET_ID = process.env.SHEET_ID || "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM";
 const SHEET_GID = process.env.SHEET_GID || "131891982";
 const SHEET_NAME = process.env.SHEET_NAME || "2026_Design_Team";
 const TZ = process.env.TZ || "Asia/Ho_Chi_Minh";
-const SHEET_MAX_COLUMN = process.env.SHEET_MAX_COLUMN || "Z";
+const SHEET_MAX_COLUMN = process.env.SHEET_MAX_COLUMN || "AA";
+const EDIT_LOG_API_URL = process.env.EDIT_LOG_API_URL || "";
+const EDIT_LOG_API_TOKEN = process.env.EDIT_LOG_API_TOKEN || "";
 const FORCE_FULL_SNAPSHOT = process.env.FORCE_FULL_SNAPSHOT === "1" || process.env.FORCE_FULL_SNAPSHOT === "true";
 
 // Exclusion setup for known outlier rows.
@@ -99,34 +107,19 @@ export function normalizeStatus(raw) {
   return normalizeText(raw) || "(trong)";
 }
 
-function monthIndex(year, month) {
-  return year * 12 + month;
-}
-
-function isValidDatePart(day, month) {
-  return day >= 1 && day <= 31 && month >= 1 && month <= 12;
-}
-
 export function parseOrderDate(raw) {
   const text = normalizeText(raw);
-  const match = text.match(/(\d{1,2})[/-](\d{1,2})[/-](\d{4})/);
+  const match = text.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})(?:\s+\d{1,2}:\d{2}(?::\d{2})?)?\s*$/);
   if (!match) return null;
-  const first = Number(match[1]);
-  const second = Number(match[2]);
+  const day = Number(match[1]);
+  const month = Number(match[2]);
   const year = Number(match[3]);
-  let day = first;
-  let month = second;
-  const active = currentMonthKey().split("-").map(Number);
-  const activeMonthIndex = monthIndex(active[0], active[1]);
-  const dmyMonthIndex = monthIndex(year, second);
-  const swappedLooksValid = isValidDatePart(second, first);
 
-  if (!isValidDatePart(first, second) || (dmyMonthIndex > activeMonthIndex && swappedLooksValid)) {
-    day = second;
-    month = first;
-  }
-
-  if (!isValidDatePart(day, month)) return null;
+  const candidate = new Date(Date.UTC(year, month - 1, day));
+  const isValid = candidate.getUTCFullYear() === year &&
+    candidate.getUTCMonth() === month - 1 &&
+    candidate.getUTCDate() === day;
+  if (!isValid) return null;
   return { year, month, day };
 }
 
@@ -179,6 +172,31 @@ async function fetchCsv(range) {
   }
   const csvBytes = await response.arrayBuffer();
   return new TextDecoder("utf-8").decode(csvBytes);
+}
+
+async function fetchEditEvents(previousSnapshot) {
+  const fallback = flattenSnapshotHistory(previousSnapshot);
+  if (!EDIT_LOG_API_URL) return fallback;
+
+  try {
+    const url = new URL(EDIT_LOG_API_URL);
+    if (EDIT_LOG_API_TOKEN) url.searchParams.set("token", EDIT_LOG_API_TOKEN);
+    const response = await fetch(url, { redirect: "follow" });
+    if (!response.ok) {
+      throw new Error(`Edit log download failed: ${response.status} ${response.statusText}`);
+    }
+    const payload = await response.json();
+    if (payload?.ok === false) throw new Error(payload.error || "Edit log endpoint returned an error");
+    if (!Array.isArray(payload) && !Array.isArray(payload?.events)) {
+      throw new Error("Edit log endpoint returned an invalid payload");
+    }
+    return editEventsFromPayload(payload);
+  } catch (error) {
+    // Edit tracking is optional. Keep the previous public history when its
+    // endpoint is temporarily unavailable so the existing KPI flow still runs.
+    console.warn(`Khong the tai edit log, tam dung lich su cu: ${error.message}`);
+    return fallback;
+  }
 }
 
 async function readPreviousSnapshot() {
@@ -260,6 +278,8 @@ export function recordsFromRows(headers, body, startRowNumber) {
   const colPersonVideo = findColumnIndex(headers, ["THỰC HIỆN VIDEO"], false);
   const colCompletionDate = findColumnIndex(headers, ["NGÀY HOÀN THÀNH"], false);
 
+  const colTaskId = findColumnIndex(headers, ["_TASK_ID", "TASK_ID", "TASK ID"], false);
+
   const records = [];
   const isVideoCategory = (cat) => {
     const c = (cat || "").trim().toUpperCase();
@@ -269,6 +289,9 @@ export function recordsFromRows(headers, body, startRowNumber) {
   for (let index = 0; index < body.length; index += 1) {
     const row = body[index];
     const rowNumber = startRowNumber + index;
+    const taskId = colTaskId !== -1 && normalizeText(row[colTaskId])
+      ? normalizeText(row[colTaskId])
+      : `row:${rowNumber}`;
     
     const detail = normalizeText(row[colDetail]);
     const orderDate = formatOrderDate(row[colDate]);
@@ -296,6 +319,7 @@ export function recordsFromRows(headers, body, startRowNumber) {
       // Two different people — single merged record with both names
       records.push({
         row: rowNumber,
+        taskId,
         person: `${actualPersonHinh}, ${actualPersonVideo}`,
         personHinh: actualPersonHinh,
         personVideo: actualPersonVideo,
@@ -316,6 +340,7 @@ export function recordsFromRows(headers, body, startRowNumber) {
       const person = personHinh || personVideo;
       records.push({
         row: rowNumber,
+        taskId,
         person,
         personHinh: person,
         personVideo: person,
@@ -339,11 +364,16 @@ export function recordsFromRows(headers, body, startRowNumber) {
 
 export function summarizePerson(records) {
   const totalTasks = records.length;
-  const totalQuantity = records.reduce((sum, r) => sum + r.quantity, 0);
-  const completed = records.filter((r) => r.status === "Ho\u00e0n th\u00e0nh");
-  const inProgress = records.filter((r) => r.status === "\u0110ang th\u1ef1c hi\u1ec7n");
-  const canceled = records.filter((r) => r.status === "Cancel");
-  const missingQuantity = records.filter((r) => r.quantity === 0);
+  const completed = records.filter((r) => statusKey(r.status) === "completed");
+  const inProgress = records.filter((r) => statusKey(r.status) === "inProgress");
+  const canceled = records.filter((r) => statusKey(r.status) === "cancel");
+  const pending = records.filter((r) => statusKey(r.status) === "pending");
+  const productionRecords = [...completed, ...inProgress];
+  const totalQuantity = productionRecords.reduce((sum, r) => sum + r.quantity, 0);
+  const missingQuantity = records.filter(
+    (r) => statusKey(r.status) !== "cancel" && r.quantity === 0
+  );
+  const activeMonth = currentMonthKey();
 
   const byCategoryQty = new Map();
   const byCategoryTasks = new Map();
@@ -358,8 +388,15 @@ export function summarizePerson(records) {
   };
 
   for (const record of records) {
-    const qtyHinh = record.qtyHinh !== undefined ? record.qtyHinh : (isVideoCategory(record.category) ? 0 : record.quantity);
-    const qtyVideo = record.qtyVideo !== undefined ? record.qtyVideo : (isVideoCategory(record.category) ? record.quantity : 0);
+    const key = statusKey(record.status);
+    const countsAsProduction = key === "completed" || key === "inProgress";
+    const countedQuantity = countsAsProduction ? record.quantity : 0;
+    const qtyHinh = countsAsProduction
+      ? (record.qtyHinh !== undefined ? record.qtyHinh : (isVideoCategory(record.category) ? 0 : record.quantity))
+      : 0;
+    const qtyVideo = countsAsProduction
+      ? (record.qtyVideo !== undefined ? record.qtyVideo : (isVideoCategory(record.category) ? record.quantity : 0))
+      : 0;
 
     if (qtyHinh > 0) {
       const imageCat = isVideoCategory(record.category) ? "HÌNH ẢNH" : record.category;
@@ -371,9 +408,10 @@ export function summarizePerson(records) {
     }
 
     byCategoryTasks.set(record.category, (byCategoryTasks.get(record.category) || 0) + 1);
-    byChannelQty.set(record.channel, (byChannelQty.get(record.channel) || 0) + record.quantity);
+    byChannelQty.set(record.channel, (byChannelQty.get(record.channel) || 0) + countedQuantity);
     byChannelTasks.set(record.channel, (byChannelTasks.get(record.channel) || 0) + 1);
-    byMonthQty.set(record.month, (byMonthQty.get(record.month) || 0) + record.quantity);
+    const reportMonth = getProductionMonth(record, activeMonth);
+    byMonthQty.set(reportMonth, (byMonthQty.get(reportMonth) || 0) + countedQuantity);
     byStatusTasks.set(record.status, (byStatusTasks.get(record.status) || 0) + 1);
   }
 
@@ -387,6 +425,7 @@ export function summarizePerson(records) {
     inProgressTasks: inProgress.length,
     inProgressQuantity: inProgress.reduce((sum, r) => sum + r.quantity, 0),
     canceledTasks: canceled.length,
+    pendingTasks: pending.length,
     missingQuantityTasks: missingQuantity.length,
     missingQuantityRows: missingQuantity.map((r) => r.row),
     byStatusTasks: toKeyedCounts(byStatusTasks),
@@ -401,6 +440,7 @@ export function summarizePerson(records) {
 function compactRecord(record) {
   return {
     row: record.row,
+    taskId: record.taskId || `row:${record.row}`,
     person: record.person,
     personHinh: record.personHinh || record.person,
     personVideo: record.personVideo || record.person,
@@ -414,16 +454,26 @@ function compactRecord(record) {
     orderDate: record.orderDate || null,
     completionDate: record.completionDate || "",
     weekOfMonth: record.weekOfMonth || null,
-    detail: record.detail
+    detail: record.detail,
+    ...(record.editSummary ? { editSummary: record.editSummary } : {})
   };
 }
 
-export function buildSnapshot(records, updateMode, activeMonth, activeRangeStartRow) {
+export function buildSnapshot(records, updateMode, activeMonth, activeRangeStartRow, editEvents = []) {
   const filtered = applyExclusions(records).sort((a, b) => a.row - b.row);
+  const normalizedRecords = filtered.map((record) => ({
+    ...record,
+    taskId: record.taskId || `row:${record.row}`
+  }));
+  const editTracking = buildEditTracking(normalizedRecords, editEvents);
+  const trackedRecords = normalizedRecords.map((record) => {
+    const editSummary = editTracking.summariesByTaskId.get(record.taskId);
+    return editSummary ? { ...record, editSummary } : record;
+  });
 
   // Extract individual person names from personHinh/personVideo fields
   const personSet = new Set();
-  for (const r of filtered) {
+  for (const r of trackedRecords) {
     const ph = r.personHinh || r.person || "";
     const pv = r.personVideo || r.person || "";
     if (ph) personSet.add(ph);
@@ -434,7 +484,7 @@ export function buildSnapshot(records, updateMode, activeMonth, activeRangeStart
   const byPerson = {};
   for (const person of people) {
     // Create virtual records with person-specific quantities
-    const personRecords = filtered
+    const personRecords = trackedRecords
       .filter((r) => {
         const ph = r.personHinh || r.person || "";
         const pv = r.personVideo || r.person || "";
@@ -453,7 +503,7 @@ export function buildSnapshot(records, updateMode, activeMonth, activeRangeStart
     byPerson[person] = summarizePerson(personRecords);
   }
 
-  const latestRows = filtered
+  const latestRows = trackedRecords
     .slice()
     .sort((a, b) => b.row - a.row)
     .slice(0, 200)
@@ -477,12 +527,17 @@ export function buildSnapshot(records, updateMode, activeMonth, activeRangeStart
       exclusions: Object.fromEntries(
         Object.entries(EXCLUDED_ROWS_BY_PERSON).map(([person, set]) => [person, [...set.values()]])
       ),
-      totalRecords: filtered.length
+      totalRecords: trackedRecords.length,
+      editTracking: {
+        enabled: Boolean(EDIT_LOG_API_URL) || editTracking.stats.trackedTaskCount > 0,
+        ...editTracking.stats
+      }
     },
-    overview: summarizePerson(filtered),
+    overview: summarizePerson(trackedRecords),
     byPerson,
-    records: filtered.map(compactRecord),
-    latestRows
+    records: trackedRecords.map(compactRecord),
+    latestRows,
+    editHistory: editTracking.history
   };
 }
 
@@ -536,8 +591,11 @@ async function loadActiveMonthRecords(previousSnapshot, activeMonth) {
 async function main() {
   const activeMonth = process.env.TARGET_MONTH || currentMonthKey();
   const previousSnapshot = await readPreviousSnapshot();
-  const { records, updateMode, activeRangeStartRow } = await loadActiveMonthRecords(previousSnapshot, activeMonth);
-  const snapshot = buildSnapshot(records, updateMode, activeMonth, activeRangeStartRow);
+  const [{ records, updateMode, activeRangeStartRow }, editEvents] = await Promise.all([
+    loadActiveMonthRecords(previousSnapshot, activeMonth),
+    fetchEditEvents(previousSnapshot)
+  ]);
+  const snapshot = buildSnapshot(records, updateMode, activeMonth, activeRangeStartRow, editEvents);
 
   await writeFile(snapshotPath, `${JSON.stringify(snapshot, null, 2)}\n`, "utf8");
 
