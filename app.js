@@ -6,7 +6,7 @@ import {
   getCompletionMonth,
   getProductionMonth,
   statusKey
-} from "./dashboard-domain.js?v=3";
+} from "./dashboard-domain.js?v=4";
 
 const personFilterEl = document.querySelector("#personFilter");
 const monthFilterEl = document.querySelector("#monthFilter");
