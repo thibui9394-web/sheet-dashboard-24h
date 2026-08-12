@@ -96,9 +96,42 @@ test("pending va cancel khong tinh san luong", () => {
   const pending = deriveRecordForMonth({ ...base, status: "Pending" }, "2026-08", options);
   const cancelAll = deriveRecordForMonth({ ...base, status: "Cancel" }, "ALL", options);
 
-  assert.equal(pending.quantity, 0);
-  assert.equal(pending.trackingOnly, false);
+  assert.equal(pending, null);
   assert.equal(cancelAll.quantity, 0);
+});
+
+test("pending ton khong lap lai trong thang hien tai", () => {
+  const pendingRecord = {
+    row: 102,
+    quantity: 0,
+    month: "2026-07",
+    orderDate: "2026-07-28",
+    weekOfMonth: 4,
+    status: "Pending"
+  };
+  const pendingDebt = deriveRecordForMonth(
+    pendingRecord,
+    "2026-08",
+    { currentMonth: "2026-08", currentWeek: 2 }
+  );
+  const pendingInOrderMonth = deriveRecordForMonth(
+    pendingRecord,
+    "2026-07",
+    { currentMonth: "2026-08", currentWeek: 2 }
+  );
+
+  const pendingThisMonth = deriveRecordForMonth({
+    row: 103,
+    quantity: 0,
+    month: "2026-08",
+    orderDate: "2026-08-04",
+    weekOfMonth: 1,
+    status: "Pending"
+  }, "2026-08", { currentMonth: "2026-08", currentWeek: 2 });
+
+  assert.equal(pendingDebt, null);
+  assert.equal(pendingInOrderMonth.weekOfMonth, 4);
+  assert.equal(pendingThisMonth.weekOfMonth, 1);
 });
 
 test("helper trang thai va thang hoan thanh dung mot quy tac", () => {

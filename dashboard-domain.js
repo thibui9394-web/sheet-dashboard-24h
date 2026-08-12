@@ -121,12 +121,22 @@ export function deriveRecordForMonth(record, viewingMonth, options = {}) {
         effectiveKey = "inProgress";
         quantity = 0;
       }
-    } else if (key === "inProgress" || key === "pending") {
+    } else if (key === "inProgress") {
       include = isMonthBetween(viewingMonth, orderMonth, currentMonth) || viewingMonth === orderMonth;
       trackingOnly = include && viewingMonth !== currentMonth;
-      quantity = key === "inProgress" && viewingMonth === currentMonth
+      quantity = viewingMonth === currentMonth
         ? Number(record.quantity || 0)
         : 0;
+    } else if (key === "pending") {
+      // Pending cu chi nam trong lich su cac thang truoc va bang task chua xong.
+      // Khong mang no vao box tien do cua thang hien tai, tranh hien task o
+      // tuan 3/4 chua toi va tranh trung voi bang backlog ben duoi.
+      include = viewingMonth === orderMonth || (
+        viewingMonth !== currentMonth &&
+        isMonthBetween(viewingMonth, orderMonth, currentMonth)
+      );
+      trackingOnly = include && viewingMonth !== orderMonth;
+      quantity = 0;
     } else if (key === "cancel") {
       include = viewingMonth === orderMonth;
       quantity = 0;
