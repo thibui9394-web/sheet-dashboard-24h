@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-08-12T04:45:13.834Z",
+    "generatedAt": "2026-08-12T07:46:37.842Z",
     "timezone": "Asia/Ho_Chi_Minh",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -8,35 +8,48 @@
       "gid": "131891982"
     },
     "incremental": {
-      "mode": "full-open-tasks",
+      "mode": "full-forced",
       "activeMonth": "2026-08",
       "activeRangeStartRow": 785,
       "sheetMaxColumn": "AA"
     },
     "exclusions": {
-      "KHANG": [
-        128
+      "taskIds": [
+        "91a3a6e9-ce7a-4de8-af24-d74fd515d337"
       ]
     },
     "totalRecords": 802,
     "editTracking": {
       "enabled": true,
-      "trackedTaskCount": 3,
-      "editedTaskCount": 3,
-      "totalEditCount": 4
+      "state": "warning",
+      "source": "edit-log-api",
+      "fetchedAt": "2026-08-12T07:46:37.804Z",
+      "lastSuccessfulAt": "2026-08-12T07:46:37.804Z",
+      "apiEventCount": 1619,
+      "apiConfirmedEventCount": 1602,
+      "previousApiEventCount": 0,
+      "previousConfirmedEventCount": 5,
+      "missingApiEventCount": 0,
+      "missingConfirmedEventCount": 0,
+      "message": "16 thay đổi được phát hiện từ Sheet nhưng chưa có sự kiện Log tương ứng.",
+      "trackedTaskCount": 802,
+      "editedTaskCount": 4,
+      "totalEditCount": 6,
+      "recoveryTaskCount": 4,
+      "recoveryEventCount": 16
     }
   },
   "overview": {
     "tasks": 802,
-    "quantity": 31513,
-    "avgQuantityPerTask": 39.29,
-    "completedTasks": 743,
-    "completedQuantity": 31513,
+    "quantity": 31517,
+    "avgQuantityPerTask": 39.3,
+    "completedTasks": 744,
+    "completedQuantity": 31517,
     "inProgressTasks": 1,
     "inProgressQuantity": 0,
     "canceledTasks": 22,
-    "pendingTasks": 36,
-    "missingQuantityTasks": 42,
+    "pendingTasks": 35,
+    "missingQuantityTasks": 41,
     "missingQuantityRows": [
       24,
       92,
@@ -78,18 +91,17 @@
       811,
       812,
       813,
-      814,
-      816
+      814
     ],
     "byStatusTasks": {
-      "Hoàn thành": 743,
-      "(trong)": 23,
+      "Hoàn thành": 744,
       "Cancel": 22,
+      "(trong)": 22,
       "Pending": 13,
       "Đang thực hiện": 1
     },
     "byCategoryQty": {
-      "HÌNH ẢNH": 26580,
+      "HÌNH ẢNH": 26584,
       "HÌNH ẢNH AI": 2697,
       "VIDEO": 929,
       "SOCIAL POST": 577,
@@ -101,12 +113,12 @@
       "VIDEO AI": 1
     },
     "byCategoryTasks": {
-      "HÌNH ẢNH": 261,
+      "HÌNH ẢNH": 262,
       "HÌNH ẢNH AI": 258,
       "VIDEO": 89,
       "SOCIAL POST": 81,
       "KEY VISUAL": 40,
-      "(trong)": 28,
+      "(trong)": 27,
       "LANDINGPAGE": 20,
       "KEY VISUAL AI": 16,
       "VIDEO AI": 8,
@@ -116,7 +128,7 @@
       "SHOPPE": 22404,
       "FACEBOOK": 2123,
       "SHOPPE ISM": 1895,
-      "SHOPPE ARISTINO": 1679,
+      "SHOPPE ARISTINO": 1683,
       "TIKTOK MB": 936,
       "(trong)": 820,
       "WEB ARISTINO": 775,
@@ -167,18 +179,18 @@
       "2026-06": 2838,
       "(khong ngay)": 2029,
       "2026-07": 1775,
-      "2026-08": 1177,
+      "2026-08": 1181,
       "2026-02": 878,
       "2025-11": 2
     }
   },
   "byPerson": {
     "ẨN": {
-      "tasks": 351,
-      "quantity": 3806,
-      "avgQuantityPerTask": 10.84,
-      "completedTasks": 346,
-      "completedQuantity": 3806,
+      "tasks": 352,
+      "quantity": 3810,
+      "avgQuantityPerTask": 10.82,
+      "completedTasks": 347,
+      "completedQuantity": 3810,
       "inProgressTasks": 1,
       "inProgressQuantity": 0,
       "canceledTasks": 4,
@@ -190,12 +202,12 @@
         809
       ],
       "byStatusTasks": {
-        "Hoàn thành": 346,
+        "Hoàn thành": 347,
         "Cancel": 4,
         "Đang thực hiện": 1
       },
       "byCategoryQty": {
-        "HÌNH ẢNH": 1907,
+        "HÌNH ẢNH": 1911,
         "HÌNH ẢNH AI": 1359,
         "VIDEO": 424,
         "SOCIAL POST": 55,
@@ -204,7 +216,7 @@
         "(trong)": 9
       },
       "byCategoryTasks": {
-        "HÌNH ẢNH": 136,
+        "HÌNH ẢNH": 137,
         "HÌNH ẢNH AI": 119,
         "VIDEO": 69,
         "KEY VISUAL": 11,
@@ -215,7 +227,7 @@
       },
       "byChannelQty": {
         "SHOPPE": 1280,
-        "SHOPPE ARISTINO": 652,
+        "SHOPPE ARISTINO": 656,
         "FACEBOOK": 607,
         "TIKTOK MB": 410,
         "(trong)": 405,
@@ -237,7 +249,7 @@
         "SHOPPE": 77,
         "TIKTOK MB": 68,
         "(trong)": 29,
-        "SHOPPE ARISTINO": 28,
+        "SHOPPE ARISTINO": 29,
         "SHOPPE ISM": 25,
         "TIKTOK MN": 10,
         "WEB ARISTINO": 9,
@@ -257,7 +269,7 @@
         "2025-12": 545,
         "2026-03": 480,
         "2026-04": 420,
-        "2026-08": 365,
+        "2026-08": 369,
         "2026-02": 315,
         "2026-06": 297,
         "2026-05": 180,
@@ -3651,6 +3663,7 @@
         "editCount": 1,
         "contentEditCount": 0,
         "dateEditCount": 1,
+        "recoveryCount": 0,
         "hasDateChange": true,
         "lastEditedAt": "2026-08-12T04:11:49.572Z"
       }
@@ -5147,7 +5160,15 @@
       "orderDate": "2026-05-02",
       "completionDate": "",
       "weekOfMonth": 1,
-      "detail": "Thiết kế banner collection cho các mục:\n1. Áo khoác\n2. Áo polo ngắn tay\n3. Áo thun\n4. Áo tanktop\n5. Áo Nỉ Sweatshirt\n6. Quần Kaki\n7. Quần thể thao\n8. Quần Jeans\n9. Quần short\n10. Quần âu\n11. Bộ Suits\n12. Áo sơ mi (làm lại)\nhttps://www.figma.com/design/DqtIWnDLsnSStIzivYCJuQ/Untitled?node-id=0-1&t=8LuJlDz1yfIYhxOj-1"
+      "detail": "Thiết kế banner collection cho các mục:\n1. Áo khoác\n2. Áo polo ngắn tay\n3. Áo thun\n4. Áo tanktop\n5. Áo Nỉ Sweatshirt\n6. Quần Kaki\n7. Quần thể thao\n8. Quần Jeans\n9. Quần short\n10. Quần âu\n11. Bộ Suits\n12. Áo sơ mi (làm lại)\nhttps://www.figma.com/design/DqtIWnDLsnSStIzivYCJuQ/Untitled?node-id=0-1&t=8LuJlDz1yfIYhxOj-1",
+      "editSummary": {
+        "editCount": 0,
+        "contentEditCount": 0,
+        "dateEditCount": 0,
+        "recoveryCount": 4,
+        "hasDateChange": false,
+        "lastEditedAt": "2026-08-12T07:39:00.815Z"
+      }
     },
     {
       "row": 267,
@@ -14167,11 +14188,12 @@
       "weekOfMonth": 4,
       "detail": "Cắt video từ Live\nhttps://kgvn.sharepoint.com/:v:/s/all/IQDT9Nh1_rioQ7L0X9214sBbAc27Dfeq57WLVrFHLdwviCs?e=BaXDxj",
       "editSummary": {
-        "editCount": 1,
-        "contentEditCount": 1,
+        "editCount": 2,
+        "contentEditCount": 2,
         "dateEditCount": 0,
+        "recoveryCount": 0,
         "hasDateChange": false,
-        "lastEditedAt": "2026-08-12T02:53:14.554Z"
+        "lastEditedAt": "2026-08-12T03:54:02.722Z"
       }
     },
     {
@@ -14357,8 +14379,9 @@
         "editCount": 2,
         "contentEditCount": 2,
         "dateEditCount": 0,
+        "recoveryCount": 0,
         "hasDateChange": false,
-        "lastEditedAt": "2026-08-12T04:42:02.000Z"
+        "lastEditedAt": "2026-08-12T04:42:04.525Z"
       }
     },
     {
@@ -14539,7 +14562,15 @@
       "orderDate": "2026-04-08",
       "completionDate": "2026-08-05",
       "weekOfMonth": 2,
-      "detail": "Thumbnail quà tặng:\n1. Aristino official: màu vàng gold\n2. Aristino premium: màu pastel nâu\n3. Aristino business: màu Xanh lá gold\nCác quà tặng: CO08; AC21; ABF005EXP01"
+      "detail": "Thumbnail quà tặng:\n1. Aristino official: màu vàng gold\n2. Aristino premium: màu pastel nâu\n3. Aristino business: màu Xanh lá gold\nCác quà tặng: CO08; AC21; ABF005EXP01",
+      "editSummary": {
+        "editCount": 0,
+        "contentEditCount": 0,
+        "dateEditCount": 0,
+        "recoveryCount": 4,
+        "hasDateChange": false,
+        "lastEditedAt": "2026-08-12T07:39:00.815Z"
+      }
     },
     {
       "row": 797,
@@ -14557,7 +14588,15 @@
       "orderDate": "2026-08-04",
       "completionDate": "2026-08-06",
       "weekOfMonth": 1,
-      "detail": "Thumbanil livestream VHL 8/8 2 shop Premium + Business (CẦN GẤP)\n\nChi tiết order: Nội dung làm thumbnaill\n\nFont chữ VHL yêu cầu Font\n\nLink frame VHL yêu cầu VHL-08.08-Thumbnail 01"
+      "detail": "Thumbanil livestream VHL 8/8 2 shop Premium + Business (CẦN GẤP)\n\nChi tiết order: Nội dung làm thumbnaill\n\nFont chữ VHL yêu cầu Font\n\nLink frame VHL yêu cầu VHL-08.08-Thumbnail 01",
+      "editSummary": {
+        "editCount": 0,
+        "contentEditCount": 0,
+        "dateEditCount": 0,
+        "recoveryCount": 4,
+        "hasDateChange": false,
+        "lastEditedAt": "2026-08-12T07:39:00.815Z"
+      }
     },
     {
       "row": 798,
@@ -14701,7 +14740,15 @@
       "orderDate": "2026-08-05",
       "completionDate": "2026-08-10",
       "weekOfMonth": 1,
-      "detail": "Frame ct ism: https://docs.google.com/spreadsheets/d/10cTV99Qll0v9mt8KPsW7QB3ITPAGqfB73TS5uWkd21U/edit?gid=1933514487#gid=1933514487"
+      "detail": "Frame ct ism: https://docs.google.com/spreadsheets/d/10cTV99Qll0v9mt8KPsW7QB3ITPAGqfB73TS5uWkd21U/edit?gid=1933514487#gid=1933514487",
+      "editSummary": {
+        "editCount": 0,
+        "contentEditCount": 0,
+        "dateEditCount": 0,
+        "recoveryCount": 4,
+        "hasDateChange": false,
+        "lastEditedAt": "2026-08-12T07:39:00.815Z"
+      }
     },
     {
       "row": 806,
@@ -14886,40 +14933,56 @@
     {
       "row": 816,
       "taskId": "dce7bd98-a8a0-45a5-ba6b-fc4b7d3469a4",
-      "person": "",
-      "personHinh": "",
-      "personVideo": "",
+      "person": "ẨN",
+      "personHinh": "ẨN",
+      "personVideo": "ẨN",
       "channel": "SHOPPE ARISTINO",
-      "category": "(trong)",
-      "status": "(trong)",
-      "quantity": 0,
-      "qtyHinh": 0,
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 4,
+      "qtyHinh": 4,
       "qtyVideo": 0,
       "month": "2026-08",
       "orderDate": "2026-08-12",
-      "completionDate": "",
+      "completionDate": "2026-08-12",
       "weekOfMonth": 2,
-      "detail": "FRAME KV 15.8: https://www.figma.com/board/eD6EohaKTfBQenO3CvrhZP/K-G-T8-2026?node-id=550-119&t=0oWHuYXSgCYklSqa-0\n\n- 1 FRAME KV 15.8 ARIS OFF\n- 3 FRAME KV 15.8 ARIS BUSI"
+      "detail": "FRAME KV 15.8: https://www.figma.com/board/eD6EohaKTfBQenO3CvrhZP/K-G-T8-2026?node-id=550-119&t=0oWHuYXSgCYklSqa-0\n\n- 1 FRAME KV 15.8 ARIS OFF\n- 3 FRAME KV 15.8 ARIS BUSI",
+      "editSummary": {
+        "editCount": 1,
+        "contentEditCount": 1,
+        "dateEditCount": 0,
+        "recoveryCount": 0,
+        "hasDateChange": false,
+        "lastEditedAt": "2026-08-12T03:44:05.429Z"
+      }
     }
   ],
   "latestRows": [
     {
       "row": 816,
       "taskId": "dce7bd98-a8a0-45a5-ba6b-fc4b7d3469a4",
-      "person": "",
-      "personHinh": "",
-      "personVideo": "",
+      "person": "ẨN",
+      "personHinh": "ẨN",
+      "personVideo": "ẨN",
       "channel": "SHOPPE ARISTINO",
-      "category": "(trong)",
-      "status": "(trong)",
-      "quantity": 0,
-      "qtyHinh": 0,
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 4,
+      "qtyHinh": 4,
       "qtyVideo": 0,
       "month": "2026-08",
       "orderDate": "2026-08-12",
-      "completionDate": "",
+      "completionDate": "2026-08-12",
       "weekOfMonth": 2,
-      "detail": "FRAME KV 15.8: https://www.figma.com/board/eD6EohaKTfBQenO3CvrhZP/K-G-T8-2026?node-id=550-119&t=0oWHuYXSgCYklSqa-0\n\n- 1 FRAME KV 15.8 ARIS OFF\n- 3 FRAME KV 15.8 ARIS BUSI"
+      "detail": "FRAME KV 15.8: https://www.figma.com/board/eD6EohaKTfBQenO3CvrhZP/K-G-T8-2026?node-id=550-119&t=0oWHuYXSgCYklSqa-0\n\n- 1 FRAME KV 15.8 ARIS OFF\n- 3 FRAME KV 15.8 ARIS BUSI",
+      "editSummary": {
+        "editCount": 1,
+        "contentEditCount": 1,
+        "dateEditCount": 0,
+        "recoveryCount": 0,
+        "hasDateChange": false,
+        "lastEditedAt": "2026-08-12T03:44:05.429Z"
+      }
     },
     {
       "row": 815,
@@ -15117,7 +15180,15 @@
       "orderDate": "2026-08-05",
       "completionDate": "2026-08-10",
       "weekOfMonth": 1,
-      "detail": "Frame ct ism: https://docs.google.com/spreadsheets/d/10cTV99Qll0v9mt8KPsW7QB3ITPAGqfB73TS5uWkd21U/edit?gid=1933514487#gid=1933514487"
+      "detail": "Frame ct ism: https://docs.google.com/spreadsheets/d/10cTV99Qll0v9mt8KPsW7QB3ITPAGqfB73TS5uWkd21U/edit?gid=1933514487#gid=1933514487",
+      "editSummary": {
+        "editCount": 0,
+        "contentEditCount": 0,
+        "dateEditCount": 0,
+        "recoveryCount": 4,
+        "hasDateChange": false,
+        "lastEditedAt": "2026-08-12T07:39:00.815Z"
+      }
     },
     {
       "row": 804,
@@ -15261,7 +15332,15 @@
       "orderDate": "2026-08-04",
       "completionDate": "2026-08-06",
       "weekOfMonth": 1,
-      "detail": "Thumbanil livestream VHL 8/8 2 shop Premium + Business (CẦN GẤP)\n\nChi tiết order: Nội dung làm thumbnaill\n\nFont chữ VHL yêu cầu Font\n\nLink frame VHL yêu cầu VHL-08.08-Thumbnail 01"
+      "detail": "Thumbanil livestream VHL 8/8 2 shop Premium + Business (CẦN GẤP)\n\nChi tiết order: Nội dung làm thumbnaill\n\nFont chữ VHL yêu cầu Font\n\nLink frame VHL yêu cầu VHL-08.08-Thumbnail 01",
+      "editSummary": {
+        "editCount": 0,
+        "contentEditCount": 0,
+        "dateEditCount": 0,
+        "recoveryCount": 4,
+        "hasDateChange": false,
+        "lastEditedAt": "2026-08-12T07:39:00.815Z"
+      }
     },
     {
       "row": 796,
@@ -15279,7 +15358,15 @@
       "orderDate": "2026-04-08",
       "completionDate": "2026-08-05",
       "weekOfMonth": 2,
-      "detail": "Thumbnail quà tặng:\n1. Aristino official: màu vàng gold\n2. Aristino premium: màu pastel nâu\n3. Aristino business: màu Xanh lá gold\nCác quà tặng: CO08; AC21; ABF005EXP01"
+      "detail": "Thumbnail quà tặng:\n1. Aristino official: màu vàng gold\n2. Aristino premium: màu pastel nâu\n3. Aristino business: màu Xanh lá gold\nCác quà tặng: CO08; AC21; ABF005EXP01",
+      "editSummary": {
+        "editCount": 0,
+        "contentEditCount": 0,
+        "dateEditCount": 0,
+        "recoveryCount": 4,
+        "hasDateChange": false,
+        "lastEditedAt": "2026-08-12T07:39:00.815Z"
+      }
     },
     {
       "row": 795,
@@ -15464,8 +15551,9 @@
         "editCount": 2,
         "contentEditCount": 2,
         "dateEditCount": 0,
+        "recoveryCount": 0,
         "hasDateChange": false,
-        "lastEditedAt": "2026-08-12T04:42:02.000Z"
+        "lastEditedAt": "2026-08-12T04:42:04.525Z"
       }
     },
     {
@@ -15648,11 +15736,12 @@
       "weekOfMonth": 4,
       "detail": "Cắt video từ Live\nhttps://kgvn.sharepoint.com/:v:/s/all/IQDT9Nh1_rioQ7L0X9214sBbAc27Dfeq57WLVrFHLdwviCs?e=BaXDxj",
       "editSummary": {
-        "editCount": 1,
-        "contentEditCount": 1,
+        "editCount": 2,
+        "contentEditCount": 2,
         "dateEditCount": 0,
+        "recoveryCount": 0,
         "hasDateChange": false,
-        "lastEditedAt": "2026-08-12T02:53:14.554Z"
+        "lastEditedAt": "2026-08-12T03:54:02.722Z"
       }
     },
     {
@@ -18519,7 +18608,128 @@
     }
   ],
   "editHistory": {
+    "adaabfc5-8b31-4967-9caf-3c41b7bdfd7f": [
+      {
+        "eventId": "evt_2db07fe6163f60d132604c95e53761e9",
+        "batchId": "reconcile:fe307e36-1fb4-48cf-b75d-43fb694ed863",
+        "taskId": "adaabfc5-8b31-4967-9caf-3c41b7bdfd7f",
+        "row": 797,
+        "eventRow": 797,
+        "column": "J",
+        "field": "NGÀY ORDER",
+        "action": "EDIT",
+        "revision": 4,
+        "oldValue": "2026-04-08",
+        "newValue": "2026-08-04",
+        "editedAt": "2026-08-12T07:39:00.815Z",
+        "source": "snapshot-recovery",
+        "status": "recovery",
+        "isRecovery": true
+      },
+      {
+        "eventId": "evt_1aff1ef2e18128b02e3d70d3ab1fc9b3",
+        "batchId": "reconcile:e8ae36ab-4f49-40ea-bd52-a01dba8a2800",
+        "taskId": "adaabfc5-8b31-4967-9caf-3c41b7bdfd7f",
+        "row": 797,
+        "eventRow": 797,
+        "column": "J",
+        "field": "NGÀY ORDER",
+        "action": "EDIT",
+        "revision": 3,
+        "oldValue": "2026-04-08",
+        "newValue": "2026-08-04",
+        "editedAt": "2026-08-12T07:37:58.205Z",
+        "source": "snapshot-recovery",
+        "status": "recovery",
+        "isRecovery": true
+      },
+      {
+        "eventId": "evt_8e11f38db40020fda074394189fd599e",
+        "batchId": "reconcile:fdd86103-25fd-4a3a-a577-dcc4994650e8",
+        "taskId": "adaabfc5-8b31-4967-9caf-3c41b7bdfd7f",
+        "row": 797,
+        "eventRow": 797,
+        "column": "J",
+        "field": "NGÀY ORDER",
+        "action": "EDIT",
+        "revision": 2,
+        "oldValue": "2026-04-08",
+        "newValue": "2026-08-04",
+        "editedAt": "2026-08-12T07:34:55.448Z",
+        "source": "snapshot-recovery",
+        "status": "recovery",
+        "isRecovery": true
+      },
+      {
+        "eventId": "evt_92e8db54e12ef9c7f2268830ba1b1143",
+        "batchId": "reconcile:da0a50fe-13eb-4f9a-b680-dcf9e219523e",
+        "taskId": "adaabfc5-8b31-4967-9caf-3c41b7bdfd7f",
+        "row": 797,
+        "eventRow": 797,
+        "column": "J",
+        "field": "NGÀY ORDER",
+        "action": "EDIT",
+        "revision": 1,
+        "oldValue": "2026-04-08",
+        "newValue": "2026-08-04",
+        "editedAt": "2026-08-12T07:34:26.708Z",
+        "source": "snapshot-recovery",
+        "status": "recovery",
+        "isRecovery": true
+      },
+      {
+        "eventId": "318f7acd-bd85-4f01-87f8-5e34e20db6d3",
+        "batchId": "setup",
+        "taskId": "adaabfc5-8b31-4967-9caf-3c41b7bdfd7f",
+        "row": 797,
+        "eventRow": 796,
+        "column": "J",
+        "field": "NGÀY ORDER",
+        "action": "BASELINE",
+        "revision": 0,
+        "oldValue": "",
+        "newValue": "2026-08-04",
+        "editedAt": "2026-08-12T02:36:41.042Z",
+        "source": "legacy_import",
+        "status": "confirmed",
+        "isRecovery": false
+      },
+      {
+        "eventId": "11ae2cd7-711b-40ed-b0d0-73cf2c1cb21d",
+        "batchId": "setup",
+        "taskId": "adaabfc5-8b31-4967-9caf-3c41b7bdfd7f",
+        "row": 797,
+        "eventRow": 796,
+        "column": "C",
+        "field": "NỘI DUNG ORDER",
+        "action": "BASELINE",
+        "revision": 0,
+        "oldValue": "",
+        "newValue": "Thumbanil livestream VHL 8/8 2 shop Premium + Business (CẦN GẤP)\n\nChi tiết order: Nội dung làm thumbnaill\n\nFont chữ VHL yêu cầu Font\n\nLink frame VHL yêu cầu VHL-08.08-Thumbnail 01 ",
+        "editedAt": "2026-08-12T02:36:41.042Z",
+        "source": "legacy_import",
+        "status": "confirmed",
+        "isRecovery": false
+      }
+    ],
     "a8fd5e1c-90e5-4649-8523-6bd825038373": [
+      {
+        "eventId": "ac47e69c-50b5-4887-8355-1232ddf27b43",
+        "batchId": "bdae1779-ae31-49be-b4b8-f2faefc2116f",
+        "taskId": "a8fd5e1c-90e5-4649-8523-6bd825038373",
+        "row": 775,
+        "eventRow": 775,
+        "column": "C",
+        "field": "NỘI DUNG ORDER",
+        "action": "EDIT",
+        "revision": 2,
+        "oldValue": "Cắt video từ Live test\nhttps://kgvn.sharepoint.com/:v:/s/all/IQDT9Nh1_rioQ7L0X9214sBbAc27Dfeq57WLVrFHLdwviCs?e=BaXDxj",
+        "newValue": "Cắt video từ Live\nhttps://kgvn.sharepoint.com/:v:/s/all/IQDT9Nh1_rioQ7L0X9214sBbAc27Dfeq57WLVrFHLdwviCs?e=BaXDxj",
+        "editedAt": "2026-08-12T03:54:02.722Z",
+        "source": "legacy_import",
+        "status": "confirmed",
+        "isRecovery": false
+      },
       {
         "eventId": "03a356e6-0668-44f2-9358-fd62d85dc0a7",
         "batchId": "50e3636f-9543-4855-aa8b-0c81a35ffa2c",
@@ -18532,7 +18742,10 @@
         "revision": 1,
         "oldValue": "Cắt video từ Live \nhttps://kgvn.sharepoint.com/:v:/s/all/IQDT9Nh1_rioQ7L0X9214sBbAc27Dfeq57WLVrFHLdwviCs?e=BaXDxj",
         "newValue": "Cắt video từ Live test\nhttps://kgvn.sharepoint.com/:v:/s/all/IQDT9Nh1_rioQ7L0X9214sBbAc27Dfeq57WLVrFHLdwviCs?e=BaXDxj",
-        "editedAt": "2026-08-12T02:53:14.554Z"
+        "editedAt": "2026-08-12T02:53:14.554Z",
+        "source": "legacy_import",
+        "status": "confirmed",
+        "isRecovery": false
       },
       {
         "eventId": "4f0f6f65-2fbd-40c3-b8a9-eb62c2cb78aa",
@@ -18546,7 +18759,10 @@
         "revision": 0,
         "oldValue": "",
         "newValue": "Cắt video từ Live \nhttps://kgvn.sharepoint.com/:v:/s/all/IQDT9Nh1_rioQ7L0X9214sBbAc27Dfeq57WLVrFHLdwviCs?e=BaXDxj",
-        "editedAt": "2026-08-12T02:36:41.042Z"
+        "editedAt": "2026-08-12T02:36:41.042Z",
+        "source": "legacy_import",
+        "status": "confirmed",
+        "isRecovery": false
       },
       {
         "eventId": "48d5c5fc-b3b6-4209-a6ec-b8ebfc852164",
@@ -18559,8 +18775,219 @@
         "action": "BASELINE",
         "revision": 0,
         "oldValue": "",
-        "newValue": "28/07/2026 10:18",
-        "editedAt": "2026-08-12T02:36:41.042Z"
+        "newValue": "2026-07-28",
+        "editedAt": "2026-08-12T02:36:41.042Z",
+        "source": "legacy_import",
+        "status": "confirmed",
+        "isRecovery": false
+      }
+    ],
+    "f3f2896d-b68d-4b7b-91e3-7344ac77c0de": [
+      {
+        "eventId": "evt_47e101ec4eaff15f2f55c565f7f01c0f",
+        "batchId": "reconcile:fe307e36-1fb4-48cf-b75d-43fb694ed863",
+        "taskId": "f3f2896d-b68d-4b7b-91e3-7344ac77c0de",
+        "row": 805,
+        "eventRow": 805,
+        "column": "J",
+        "field": "NGÀY ORDER",
+        "action": "EDIT",
+        "revision": 4,
+        "oldValue": "2026-05-08",
+        "newValue": "2026-08-05",
+        "editedAt": "2026-08-12T07:39:00.815Z",
+        "source": "snapshot-recovery",
+        "status": "recovery",
+        "isRecovery": true
+      },
+      {
+        "eventId": "evt_5d3778d9499e0a4464eacbaa606bf3af",
+        "batchId": "reconcile:e8ae36ab-4f49-40ea-bd52-a01dba8a2800",
+        "taskId": "f3f2896d-b68d-4b7b-91e3-7344ac77c0de",
+        "row": 805,
+        "eventRow": 805,
+        "column": "J",
+        "field": "NGÀY ORDER",
+        "action": "EDIT",
+        "revision": 3,
+        "oldValue": "2026-05-08",
+        "newValue": "2026-08-05",
+        "editedAt": "2026-08-12T07:37:58.205Z",
+        "source": "snapshot-recovery",
+        "status": "recovery",
+        "isRecovery": true
+      },
+      {
+        "eventId": "evt_1cb482e63d6a14f48afc8926102bc2ef",
+        "batchId": "reconcile:fdd86103-25fd-4a3a-a577-dcc4994650e8",
+        "taskId": "f3f2896d-b68d-4b7b-91e3-7344ac77c0de",
+        "row": 805,
+        "eventRow": 805,
+        "column": "J",
+        "field": "NGÀY ORDER",
+        "action": "EDIT",
+        "revision": 2,
+        "oldValue": "2026-05-08",
+        "newValue": "2026-08-05",
+        "editedAt": "2026-08-12T07:34:55.448Z",
+        "source": "snapshot-recovery",
+        "status": "recovery",
+        "isRecovery": true
+      },
+      {
+        "eventId": "evt_7bfd520c8e390024d196362f87157c57",
+        "batchId": "reconcile:da0a50fe-13eb-4f9a-b680-dcf9e219523e",
+        "taskId": "f3f2896d-b68d-4b7b-91e3-7344ac77c0de",
+        "row": 805,
+        "eventRow": 805,
+        "column": "J",
+        "field": "NGÀY ORDER",
+        "action": "EDIT",
+        "revision": 1,
+        "oldValue": "2026-05-08",
+        "newValue": "2026-08-05",
+        "editedAt": "2026-08-12T07:34:26.708Z",
+        "source": "snapshot-recovery",
+        "status": "recovery",
+        "isRecovery": true
+      },
+      {
+        "eventId": "a609f198-46cd-44a4-a66a-aef0910dedce",
+        "batchId": "setup",
+        "taskId": "f3f2896d-b68d-4b7b-91e3-7344ac77c0de",
+        "row": 805,
+        "eventRow": 804,
+        "column": "C",
+        "field": "NỘI DUNG ORDER",
+        "action": "BASELINE",
+        "revision": 0,
+        "oldValue": "",
+        "newValue": "Frame ct ism: https://docs.google.com/spreadsheets/d/10cTV99Qll0v9mt8KPsW7QB3ITPAGqfB73TS5uWkd21U/edit?gid=1933514487#gid=1933514487",
+        "editedAt": "2026-08-12T02:36:41.042Z",
+        "source": "legacy_import",
+        "status": "confirmed",
+        "isRecovery": false
+      },
+      {
+        "eventId": "4dda26da-6822-4de2-a6a4-5e89c786590f",
+        "batchId": "setup",
+        "taskId": "f3f2896d-b68d-4b7b-91e3-7344ac77c0de",
+        "row": 805,
+        "eventRow": 804,
+        "column": "J",
+        "field": "NGÀY ORDER",
+        "action": "BASELINE",
+        "revision": 0,
+        "oldValue": "",
+        "newValue": "2026-08-05",
+        "editedAt": "2026-08-12T02:36:41.042Z",
+        "source": "legacy_import",
+        "status": "confirmed",
+        "isRecovery": false
+      }
+    ],
+    "1049472a-bc96-4cfb-bef4-2441119b75a9": [
+      {
+        "eventId": "evt_895b6dd1f31c2b56d578c1baf4bc6f87",
+        "batchId": "reconcile:fe307e36-1fb4-48cf-b75d-43fb694ed863",
+        "taskId": "1049472a-bc96-4cfb-bef4-2441119b75a9",
+        "row": 796,
+        "eventRow": 796,
+        "column": "J",
+        "field": "NGÀY ORDER",
+        "action": "EDIT",
+        "revision": 4,
+        "oldValue": "2026-08-04",
+        "newValue": "2026-04-08",
+        "editedAt": "2026-08-12T07:39:00.815Z",
+        "source": "snapshot-recovery",
+        "status": "recovery",
+        "isRecovery": true
+      },
+      {
+        "eventId": "evt_c9a2e4710dcf7dee7b9f23e22417645d",
+        "batchId": "reconcile:e8ae36ab-4f49-40ea-bd52-a01dba8a2800",
+        "taskId": "1049472a-bc96-4cfb-bef4-2441119b75a9",
+        "row": 796,
+        "eventRow": 796,
+        "column": "J",
+        "field": "NGÀY ORDER",
+        "action": "EDIT",
+        "revision": 3,
+        "oldValue": "2026-08-04",
+        "newValue": "2026-04-08",
+        "editedAt": "2026-08-12T07:37:58.205Z",
+        "source": "snapshot-recovery",
+        "status": "recovery",
+        "isRecovery": true
+      },
+      {
+        "eventId": "evt_98d5fcbed75c3cd73ca348c531080bc6",
+        "batchId": "reconcile:fdd86103-25fd-4a3a-a577-dcc4994650e8",
+        "taskId": "1049472a-bc96-4cfb-bef4-2441119b75a9",
+        "row": 796,
+        "eventRow": 796,
+        "column": "J",
+        "field": "NGÀY ORDER",
+        "action": "EDIT",
+        "revision": 2,
+        "oldValue": "2026-08-04",
+        "newValue": "2026-04-08",
+        "editedAt": "2026-08-12T07:34:55.448Z",
+        "source": "snapshot-recovery",
+        "status": "recovery",
+        "isRecovery": true
+      },
+      {
+        "eventId": "evt_aafd3ae8ca21ad2037ac76d5d755ca24",
+        "batchId": "reconcile:da0a50fe-13eb-4f9a-b680-dcf9e219523e",
+        "taskId": "1049472a-bc96-4cfb-bef4-2441119b75a9",
+        "row": 796,
+        "eventRow": 796,
+        "column": "J",
+        "field": "NGÀY ORDER",
+        "action": "EDIT",
+        "revision": 1,
+        "oldValue": "2026-08-04",
+        "newValue": "2026-04-08",
+        "editedAt": "2026-08-12T07:34:26.708Z",
+        "source": "snapshot-recovery",
+        "status": "recovery",
+        "isRecovery": true
+      },
+      {
+        "eventId": "bf902bfd-256a-4122-b2c2-5bc48b1f63aa",
+        "batchId": "setup",
+        "taskId": "1049472a-bc96-4cfb-bef4-2441119b75a9",
+        "row": 796,
+        "eventRow": 795,
+        "column": "C",
+        "field": "NỘI DUNG ORDER",
+        "action": "BASELINE",
+        "revision": 0,
+        "oldValue": "",
+        "newValue": "Thumbnail quà tặng:\n1. Aristino official: màu vàng gold\n2. Aristino premium: màu pastel nâu\n3. Aristino business: màu Xanh lá gold\nCác quà tặng: CO08; AC21; ABF005EXP01\n",
+        "editedAt": "2026-08-12T02:36:41.042Z",
+        "source": "legacy_import",
+        "status": "confirmed",
+        "isRecovery": false
+      },
+      {
+        "eventId": "5d08e828-5c41-4418-b949-3987e8eac25b",
+        "batchId": "setup",
+        "taskId": "1049472a-bc96-4cfb-bef4-2441119b75a9",
+        "row": 796,
+        "eventRow": 795,
+        "column": "J",
+        "field": "NGÀY ORDER",
+        "action": "BASELINE",
+        "revision": 0,
+        "oldValue": "",
+        "newValue": "2026-04-08",
+        "editedAt": "2026-08-12T02:36:41.042Z",
+        "source": "legacy_import",
+        "status": "confirmed",
+        "isRecovery": false
       }
     ],
     "46bdf76d-a80e-48b5-b77b-8ac72b1e483d": [
@@ -18574,15 +19001,156 @@
         "field": "NGÀY ORDER",
         "action": "EDIT",
         "revision": 1,
-        "oldValue": "01/12/2026 15:58",
-        "newValue": "12/01/2026 15:58",
-        "editedAt": "2026-08-12T04:11:49.572Z"
+        "oldValue": "2026-12-01",
+        "newValue": "2026-01-12",
+        "editedAt": "2026-08-12T04:11:49.572Z",
+        "source": "legacy_import",
+        "status": "confirmed",
+        "isRecovery": false
+      },
+      {
+        "eventId": "bb665988-87aa-4513-b48c-d9bc2ddc5643",
+        "batchId": "setup",
+        "taskId": "46bdf76d-a80e-48b5-b77b-8ac72b1e483d",
+        "row": 182,
+        "eventRow": 182,
+        "column": "J",
+        "field": "NGÀY ORDER",
+        "action": "BASELINE",
+        "revision": 0,
+        "oldValue": "",
+        "newValue": "2026-12-01",
+        "editedAt": "2026-08-12T02:36:41.042Z",
+        "source": "legacy_import",
+        "status": "confirmed",
+        "isRecovery": false
+      },
+      {
+        "eventId": "5f534714-3369-4a1e-aa5c-9d4b46a59099",
+        "batchId": "setup",
+        "taskId": "46bdf76d-a80e-48b5-b77b-8ac72b1e483d",
+        "row": 182,
+        "eventRow": 182,
+        "column": "C",
+        "field": "NỘI DUNG ORDER",
+        "action": "BASELINE",
+        "revision": 0,
+        "oldValue": "",
+        "newValue": "Thay Frame Shopee Business 15/1, nếu tiện thì chạy giúp e frame 25/1 luôn ạ, ảnh tại link:\n\nChạy frame business 15/1 + 25/1",
+        "editedAt": "2026-08-12T02:36:41.042Z",
+        "source": "legacy_import",
+        "status": "confirmed",
+        "isRecovery": false
+      }
+    ],
+    "24f76117-6ad7-4aeb-8198-3219a57f9883": [
+      {
+        "eventId": "evt_8718d8cf7ce9f813426cd52713b4013d",
+        "batchId": "reconcile:fe307e36-1fb4-48cf-b75d-43fb694ed863",
+        "taskId": "24f76117-6ad7-4aeb-8198-3219a57f9883",
+        "row": 266,
+        "eventRow": 266,
+        "column": "J",
+        "field": "NGÀY ORDER",
+        "action": "EDIT",
+        "revision": 4,
+        "oldValue": "2026-02-05",
+        "newValue": "2026-05-02",
+        "editedAt": "2026-08-12T07:39:00.815Z",
+        "source": "snapshot-recovery",
+        "status": "recovery",
+        "isRecovery": true
+      },
+      {
+        "eventId": "evt_fb57667d961e28aacb2dbabc1cdf2a7b",
+        "batchId": "reconcile:e8ae36ab-4f49-40ea-bd52-a01dba8a2800",
+        "taskId": "24f76117-6ad7-4aeb-8198-3219a57f9883",
+        "row": 266,
+        "eventRow": 266,
+        "column": "J",
+        "field": "NGÀY ORDER",
+        "action": "EDIT",
+        "revision": 3,
+        "oldValue": "2026-02-05",
+        "newValue": "2026-05-02",
+        "editedAt": "2026-08-12T07:37:58.205Z",
+        "source": "snapshot-recovery",
+        "status": "recovery",
+        "isRecovery": true
+      },
+      {
+        "eventId": "evt_15b3b16ecee6b4a4fde365176d228557",
+        "batchId": "reconcile:fdd86103-25fd-4a3a-a577-dcc4994650e8",
+        "taskId": "24f76117-6ad7-4aeb-8198-3219a57f9883",
+        "row": 266,
+        "eventRow": 266,
+        "column": "J",
+        "field": "NGÀY ORDER",
+        "action": "EDIT",
+        "revision": 2,
+        "oldValue": "2026-02-05",
+        "newValue": "2026-05-02",
+        "editedAt": "2026-08-12T07:34:55.448Z",
+        "source": "snapshot-recovery",
+        "status": "recovery",
+        "isRecovery": true
+      },
+      {
+        "eventId": "evt_07b20abbf7b88b1327a26c216a2843e4",
+        "batchId": "reconcile:da0a50fe-13eb-4f9a-b680-dcf9e219523e",
+        "taskId": "24f76117-6ad7-4aeb-8198-3219a57f9883",
+        "row": 266,
+        "eventRow": 266,
+        "column": "J",
+        "field": "NGÀY ORDER",
+        "action": "EDIT",
+        "revision": 1,
+        "oldValue": "2026-02-05",
+        "newValue": "2026-05-02",
+        "editedAt": "2026-08-12T07:34:26.708Z",
+        "source": "snapshot-recovery",
+        "status": "recovery",
+        "isRecovery": true
+      },
+      {
+        "eventId": "bd008d64-1b18-47a6-9341-5d0890409a4e",
+        "batchId": "setup",
+        "taskId": "24f76117-6ad7-4aeb-8198-3219a57f9883",
+        "row": 266,
+        "eventRow": 266,
+        "column": "C",
+        "field": "NỘI DUNG ORDER",
+        "action": "BASELINE",
+        "revision": 0,
+        "oldValue": "",
+        "newValue": "Thiết kế banner collection cho các mục:\n1. Áo khoác\n2. Áo polo ngắn tay\n3. Áo thun\n4. Áo tanktop\n5. Áo Nỉ Sweatshirt\n6. Quần Kaki\n7. Quần thể thao\n8. Quần Jeans\n9. Quần short\n10. Quần âu\n11. Bộ Suits\n12. Áo sơ mi (làm lại)\nhttps://www.figma.com/design/DqtIWnDLsnSStIzivYCJuQ/Untitled?node-id=0-1&t=8LuJlDz1yfIYhxOj-1",
+        "editedAt": "2026-08-12T02:36:41.042Z",
+        "source": "legacy_import",
+        "status": "confirmed",
+        "isRecovery": false
+      },
+      {
+        "eventId": "8c99bf51-46be-43c4-a004-608229cd4b08",
+        "batchId": "setup",
+        "taskId": "24f76117-6ad7-4aeb-8198-3219a57f9883",
+        "row": 266,
+        "eventRow": 266,
+        "column": "J",
+        "field": "NGÀY ORDER",
+        "action": "BASELINE",
+        "revision": 0,
+        "oldValue": "",
+        "newValue": "2026-05-02",
+        "editedAt": "2026-08-12T02:36:41.042Z",
+        "source": "legacy_import",
+        "status": "confirmed",
+        "isRecovery": false
       }
     ],
     "7502eb97-d056-49c4-872a-d481afc51e70": [
       {
-        "eventId": "snapshot:7502eb97-d056-49c4-872a-d481afc51e70:C:2026-08-12T04:42:02.000Z",
-        "batchId": "snapshot-diff",
+        "eventId": "a2289f05-bd8d-4f93-8b45-c3bb56039584",
+        "batchId": "184b0ec7-29fa-468d-9638-b4dde4042c79",
         "taskId": "7502eb97-d056-49c4-872a-d481afc51e70",
         "row": 786,
         "eventRow": 786,
@@ -18590,9 +19158,12 @@
         "field": "NỘI DUNG ORDER",
         "action": "EDIT",
         "revision": 2,
-        "oldValue": "INSIDEMEN - TRI ÂN test\n- Frame tri ân - hình ảnh đại diện sản phẩm tại webiste - phần frame, bỏ giá sản phẩm và chữ mua ngay - chỉ chạy ảnh frame - k bao gồm giá, mã sản phẩm, chữ mua ngay. \nZ:\\Insidemen\\2026\\Tháng 7\\7_29_Frame\n- Danh sách sản phẩm tại đây: https://docs.google.com/spreadsheets/d/10kDVK26N7GJ771PW1fkl_MuVgOlCxumY/edit?usp=sharing&ouid=102359365888250622780&rtpof=true&sd=true",
-        "newValue": "INSIDEMEN - TRI ÂN test 2\n- Frame tri ân - hình ảnh đại diện sản phẩm tại webiste - phần frame, bỏ giá sản phẩm và chữ mua ngay - chỉ chạy ảnh frame - k bao gồm giá, mã sản phẩm, chữ mua ngay. \nZ:\\Insidemen\\2026\\Tháng 7\\7_29_Frame\n- Danh sách sản phẩm tại đây: https://docs.google.com/spreadsheets/d/10kDVK26N7GJ771PW1fkl_MuVgOlCxumY/edit?usp=sharing&ouid=102359365888250622780&rtpof=true&sd=true",
-        "editedAt": "2026-08-12T04:42:02.000Z"
+        "oldValue": "INSIDEMEN - TRI ÂN test\n- Frame tri ân - hình ảnh đại diện sản phẩm tại webiste - phần frame, bỏ giá sản phẩm và chữ mua ngay - chỉ chạy ảnh frame - k bao gồm giá, mã sản phẩm, chữ mua ngay. \nZ:\\Insidemen\\2026\\Tháng 7\\7_29_Frame\n- Danh sách sản phẩm tại đây: https://docs.google.com/spreadsheets/d/10kDVK26N7GJ771PW1fkl_MuVgOlCxumY/edit?usp=sharing&ouid=102359365888250622780&rtpof=true&sd=true\n\n",
+        "newValue": "INSIDEMEN - TRI ÂN test 2\n- Frame tri ân - hình ảnh đại diện sản phẩm tại webiste - phần frame, bỏ giá sản phẩm và chữ mua ngay - chỉ chạy ảnh frame - k bao gồm giá, mã sản phẩm, chữ mua ngay. \nZ:\\Insidemen\\2026\\Tháng 7\\7_29_Frame\n- Danh sách sản phẩm tại đây: https://docs.google.com/spreadsheets/d/10kDVK26N7GJ771PW1fkl_MuVgOlCxumY/edit?usp=sharing&ouid=102359365888250622780&rtpof=true&sd=true\n\n",
+        "editedAt": "2026-08-12T04:42:04.525Z",
+        "source": "legacy_import",
+        "status": "confirmed",
+        "isRecovery": false
       },
       {
         "eventId": "3e18c802-37fd-423d-8d47-7dd26b3ca075",
@@ -18606,7 +19177,97 @@
         "revision": 1,
         "oldValue": "\n\nINSIDEMEN - TRI ÂN \n- Frame tri ân - hình ảnh đại diện sản phẩm tại webiste - phần frame, bỏ giá sản phẩm và chữ mua ngay - chỉ chạy ảnh frame - k bao gồm giá, mã sản phẩm, chữ mua ngay. \nZ:\\Insidemen\\2026\\Tháng 7\\7_29_Frame\n- Danh sách sản phẩm tại đây: https://docs.google.com/spreadsheets/d/10kDVK26N7GJ771PW1fkl_MuVgOlCxumY/edit?usp=sharing&ouid=102359365888250622780&rtpof=true&sd=true\n\n",
         "newValue": "INSIDEMEN - TRI ÂN test\n- Frame tri ân - hình ảnh đại diện sản phẩm tại webiste - phần frame, bỏ giá sản phẩm và chữ mua ngay - chỉ chạy ảnh frame - k bao gồm giá, mã sản phẩm, chữ mua ngay. \nZ:\\Insidemen\\2026\\Tháng 7\\7_29_Frame\n- Danh sách sản phẩm tại đây: https://docs.google.com/spreadsheets/d/10kDVK26N7GJ771PW1fkl_MuVgOlCxumY/edit?usp=sharing&ouid=102359365888250622780&rtpof=true&sd=true\n\n",
-        "editedAt": "2026-08-12T03:54:12.057Z"
+        "editedAt": "2026-08-12T03:54:12.057Z",
+        "source": "legacy_import",
+        "status": "confirmed",
+        "isRecovery": false
+      },
+      {
+        "eventId": "e065bcb6-6674-40cb-a43c-3210c960cb36",
+        "batchId": "setup",
+        "taskId": "7502eb97-d056-49c4-872a-d481afc51e70",
+        "row": 786,
+        "eventRow": 785,
+        "column": "J",
+        "field": "NGÀY ORDER",
+        "action": "BASELINE",
+        "revision": 0,
+        "oldValue": "",
+        "newValue": "2026-08-03",
+        "editedAt": "2026-08-12T02:36:41.042Z",
+        "source": "legacy_import",
+        "status": "confirmed",
+        "isRecovery": false
+      },
+      {
+        "eventId": "b702911c-8235-464c-8279-07b2b17a3b59",
+        "batchId": "setup",
+        "taskId": "7502eb97-d056-49c4-872a-d481afc51e70",
+        "row": 786,
+        "eventRow": 785,
+        "column": "C",
+        "field": "NỘI DUNG ORDER",
+        "action": "BASELINE",
+        "revision": 0,
+        "oldValue": "",
+        "newValue": "\n\nINSIDEMEN - TRI ÂN \n- Frame tri ân - hình ảnh đại diện sản phẩm tại webiste - phần frame, bỏ giá sản phẩm và chữ mua ngay - chỉ chạy ảnh frame - k bao gồm giá, mã sản phẩm, chữ mua ngay. \nZ:\\Insidemen\\2026\\Tháng 7\\7_29_Frame\n- Danh sách sản phẩm tại đây: https://docs.google.com/spreadsheets/d/10kDVK26N7GJ771PW1fkl_MuVgOlCxumY/edit?usp=sharing&ouid=102359365888250622780&rtpof=true&sd=true\n\n",
+        "editedAt": "2026-08-12T02:36:41.042Z",
+        "source": "legacy_import",
+        "status": "confirmed",
+        "isRecovery": false
+      }
+    ],
+    "dce7bd98-a8a0-45a5-ba6b-fc4b7d3469a4": [
+      {
+        "eventId": "dd595e1f-9872-467d-93cc-5ec3cbb5ce58",
+        "batchId": "ac2e59e6-1579-48a7-a73e-de926f7448a2",
+        "taskId": "dce7bd98-a8a0-45a5-ba6b-fc4b7d3469a4",
+        "row": 816,
+        "eventRow": 816,
+        "column": "C",
+        "field": "NỘI DUNG ORDER",
+        "action": "EDIT",
+        "revision": 1,
+        "oldValue": "FRAME KV 15.8\n\n- 1 FRAME KV 15.8 ARIS OFF\n- 3 FRAME KV 15.8 ARIS BUSI",
+        "newValue": "FRAME KV 15.8: https://www.figma.com/board/eD6EohaKTfBQenO3CvrhZP/K-G-T8-2026?node-id=550-119&t=0oWHuYXSgCYklSqa-0\n\n- 1 FRAME KV 15.8 ARIS OFF\n- 3 FRAME KV 15.8 ARIS BUSI",
+        "editedAt": "2026-08-12T03:44:05.429Z",
+        "source": "legacy_import",
+        "status": "confirmed",
+        "isRecovery": false
+      },
+      {
+        "eventId": "f088873f-522f-4da6-ab9a-bee0b218508b",
+        "batchId": "setup",
+        "taskId": "dce7bd98-a8a0-45a5-ba6b-fc4b7d3469a4",
+        "row": 816,
+        "eventRow": 816,
+        "column": "J",
+        "field": "NGÀY ORDER",
+        "action": "BASELINE",
+        "revision": 0,
+        "oldValue": "",
+        "newValue": "2026-08-12",
+        "editedAt": "2026-08-12T03:43:58.512Z",
+        "source": "legacy_import",
+        "status": "confirmed",
+        "isRecovery": false
+      },
+      {
+        "eventId": "2f0f91a7-08a8-4b37-a0a3-b292c5e92f2a",
+        "batchId": "baa299fb-b731-4cb7-86a1-1b6a8ee43762",
+        "taskId": "dce7bd98-a8a0-45a5-ba6b-fc4b7d3469a4",
+        "row": 816,
+        "eventRow": 816,
+        "column": "C",
+        "field": "NỘI DUNG ORDER",
+        "action": "INITIAL",
+        "revision": 0,
+        "oldValue": "",
+        "newValue": "FRAME KV 15.8\n\n- 1 FRAME KV 15.8 ARIS OFF\n- 3 FRAME KV 15.8 ARIS BUSI",
+        "editedAt": "2026-08-12T03:38:34.140Z",
+        "source": "legacy_import",
+        "status": "confirmed",
+        "isRecovery": false
       }
     ]
   }
