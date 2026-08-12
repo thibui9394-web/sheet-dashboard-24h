@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-08-12T01:42:20.923Z",
+    "generatedAt": "2026-08-12T01:55:26.280Z",
     "timezone": "Asia/Ho_Chi_Minh",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -24,9 +24,9 @@
     "tasks": 800,
     "quantity": 31554,
     "avgQuantityPerTask": 39.44,
-    "completedTasks": 737,
+    "completedTasks": 738,
     "completedQuantity": 31424,
-    "inProgressTasks": 2,
+    "inProgressTasks": 1,
     "inProgressQuantity": 0,
     "canceledTasks": 22,
     "missingQuantityTasks": 65,
@@ -98,11 +98,11 @@
       813
     ],
     "byStatusTasks": {
-      "Hoàn thành": 737,
+      "Hoàn thành": 738,
       "(trong)": 26,
       "Cancel": 22,
       "Pending": 13,
-      "Đang thực hiện": 2
+      "Đang thực hiện": 1
     },
     "byCategoryQty": {
       "HÌNH ẢNH": 26661,
@@ -117,12 +117,12 @@
       "VIDEO AI": 1
     },
     "byCategoryTasks": {
-      "HÌNH ẢNH AI": 257,
+      "HÌNH ẢNH AI": 258,
       "HÌNH ẢNH": 257,
       "VIDEO": 89,
       "SOCIAL POST": 81,
       "KEY VISUAL": 40,
-      "(trong)": 31,
+      "(trong)": 30,
       "LANDINGPAGE": 20,
       "KEY VISUAL AI": 16,
       "VIDEO AI": 8,
@@ -377,9 +377,9 @@
       "tasks": 155,
       "quantity": 25363,
       "avgQuantityPerTask": 163.63,
-      "completedTasks": 144,
+      "completedTasks": 145,
       "completedQuantity": 25337,
-      "inProgressTasks": 1,
+      "inProgressTasks": 0,
       "inProgressQuantity": 0,
       "canceledTasks": 2,
       "missingQuantityTasks": 10,
@@ -396,11 +396,10 @@
         643
       ],
       "byStatusTasks": {
-        "Hoàn thành": 144,
+        "Hoàn thành": 145,
         "Pending": 4,
         "(trong)": 4,
-        "Cancel": 2,
-        "Đang thực hiện": 1
+        "Cancel": 2
       },
       "byCategoryQty": {
         "HÌNH ẢNH": 24033,
@@ -414,13 +413,13 @@
         "VIDEO AI": 1
       },
       "byCategoryTasks": {
-        "HÌNH ẢNH AI": 57,
+        "HÌNH ẢNH AI": 58,
         "HÌNH ẢNH": 43,
         "VIDEO": 19,
         "KEY VISUAL": 10,
         "KEY VISUAL AI": 9,
         "VIDEO AI": 6,
-        "(trong)": 5,
+        "(trong)": 4,
         "LANDINGPAGE": 3,
         "SOCIAL POST": 2,
         "GIAO DIỆN": 1
@@ -11186,14 +11185,14 @@
       "personHinh": "NHẬT THI",
       "personVideo": "NHẬT THI",
       "channel": "AMAZON",
-      "category": "(trong)",
-      "status": "Đang thực hiện",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
       "quantity": 0,
       "qtyHinh": 0,
       "qtyVideo": 0,
       "month": "2026-06",
       "orderDate": "2026-06-05",
-      "completionDate": "",
+      "completionDate": "2026-08-12",
       "weekOfMonth": 1,
       "detail": "ARISTINO_Polo_APS009EGP01\n\nAnh làm giúp em bộ hình cho mã polo cotton của Aristino (mã APS009EGP01 / APS008EGP01)\n- Listing: 3 mã màu\n- Content A+"
     },
@@ -16951,14 +16950,14 @@
       "personHinh": "NHẬT THI",
       "personVideo": "NHẬT THI",
       "channel": "AMAZON",
-      "category": "(trong)",
-      "status": "Đang thực hiện",
+      "category": "HÌNH ẢNH AI",
+      "status": "Hoàn thành",
       "quantity": 0,
       "qtyHinh": 0,
       "qtyVideo": 0,
       "month": "2026-06",
       "orderDate": "2026-06-05",
-      "completionDate": "",
+      "completionDate": "2026-08-12",
       "weekOfMonth": 1,
       "detail": "ARISTINO_Polo_APS009EGP01\n\nAnh làm giúp em bộ hình cho mã polo cotton của Aristino (mã APS009EGP01 / APS008EGP01)\n- Listing: 3 mã màu\n- Content A+"
     },
