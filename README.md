@@ -40,13 +40,9 @@ Cach cap nhat tren GitHub:
 4. Chon branch `main`.
 5. Doi workflow va deploy Pages chay xong, sau do bam `Nap lai` tren dashboard.
 
-Moi lan chay, script uu tien che do incremental:
-
-- Luu `records` day du trong `data/snapshot.json`.
-- Neu van la thang hien tai da cache, chi tai lai range tu dong bat dau cua thang hien tai den cuoi sheet.
-- Khi chua co cache hoac sang thang moi, script full-bootstrap mot lan de tim lai dong bat dau cua thang hien tai.
-- Neu can quet lai toan bo sheet thu cong: `FORCE_FULL_SNAPSHOT=1 npm run update`.
-- Dashboard hien thoi diem cap nhat cuoi.
+Moi lan chay, script quet toan bo Sheet. Cach nay bao dam chen, xoa, di chuyen,
+sap xep va sua task o thang cu deu duoc phan anh. Workflow co khoa `concurrency`
+de hai lan cap nhat gan nhau khong tranh nhau ghi snapshot.
 
 ## Theo doi chinh sua cot C/J
 
@@ -54,14 +50,19 @@ Tinh nang tracking la lop bo sung, khong tham gia tinh KPI va khong chan team
 nhap task khi log gap loi.
 
 - Theo doi `NOI DUNG ORDER` (cot C) va `NGAY ORDER` (cot J).
-- Gan Task ID on dinh vao cot AA (`_TASK_ID`) va an cot nay.
-- Ghi gia tri truoc/sau, thoi gian va email nguoi sua vao file Google Sheet
-  `Design Team - Edit Log` chi admin so huu.
-- Dashboard cong khai chi nhan log da an danh; email khong duoc ghi vao
-  `data/snapshot.json`.
+- Gan Task ID on dinh vao cot AA (`_TASK_ID`), an va bao ve cot nay.
+- Ghi gia tri truoc/sau va thoi gian vao file Google Sheet
+  `Design Team - Edit Log` chi admin so huu; khong thu thap danh tinh nguoi sua.
+- `Edit_Log` chi them event. `Task_Index` giu dong hien tai hoac `DA XOA`;
+  lich su cu khong bi sua lai khi task di chuyen.
 - Task da sua hien badge `Da sua N`. Click badge de xem timeline va mo dung
   dong trong Google Sheet.
-- Neu endpoint log tam loi, ETL giu lich su cu va van cap nhat KPI binh thuong.
+- Chi event Log xac nhan moi cong vao `Da sua N`. Chenh lech do doi soat snapshot
+  hien thanh canh bao `can doi chieu`, khong gia thanh lan sua chinh thuc.
+- Dashboard hien ro Log da dong bo, bi stale hay chua cau hinh.
+- Trigger doi soat 5 phut/lần bat thay doi qua API/script va giu Task ID khi C/J
+  tam thoi bi xoa rong. Sort A:Z bo sot cot AA duoc tu sua khi cap C/J du de
+  nhan dien mot chu trinh doi dong ro rang.
 
 Ma cai dat Google nam trong [google-apps-script](E:\codex\sheet-dashboard-24h-latest\google-apps-script).
 Sau khi chay `setupTracking()` va deploy Web app, tao hai GitHub secrets:
@@ -69,8 +70,10 @@ Sau khi chay `setupTracking()` va deploy Web app, tao hai GitHub secrets:
 - `EDIT_LOG_API_URL`: URL `/exec` cua Apps Script Web app.
 - `EDIT_LOG_API_TOKEN`: token tra ve tu `setupTracking()`.
 
-Lan dong bo dau sau khi bat tracking nen chon `Quet toan bo lich su` de moi
-record nhan Task ID that thay vi Task ID fallback theo so dong.
+Moi lan dong bo deu quet toan bo. ETL se dung neu task thieu/trung Task ID, neu
+snapshot rong, so task giam bat thuong, hoac Log API tra ve thieu event da tung
+duoc cong bo. Truong hop Log thieu du lieu se hien canh bao `partial`, khong gia
+thanh trang thai dong bo thanh cong.
 
 ## File quan trong
 
@@ -82,8 +85,8 @@ record nhan Task ID that thay vi Task ID fallback theo so dong.
 
 ## Ghi chu nghiep vu
 
-- Da loai tru dong `128` cua `KHANG` trong tinh KPI (outlier da thong nhat).
-- Muon bo loai tru nay: sua `EXCLUDED_ROWS_BY_PERSON` trong script update.
+- Da loai tru task outlier cua `KHANG` bang Task ID on dinh, khong con bam so dong 128.
+- Muon bo loai tru nay: sua `EXCLUDED_TASK_IDS` trong script update.
 
 ## Logic tinh KPI (thang/tuan hien tai luon "gom no dong")
 

@@ -4,10 +4,10 @@ on:
   workflow_dispatch:
     inputs:
       scan_all:
-        description: "Quét toàn bộ lịch sử (Quét tất cả)"
+        description: "Quét toàn bộ lịch sử (mặc định và khuyến nghị)"
         type: boolean
         required: false
-        default: false
+        default: true
       scan_jan:
         description: "Quét Tháng 01/2026"
         type: boolean
@@ -72,6 +72,12 @@ on:
 permissions:
   contents: write
 
+# Chỉ cho một lần cập nhật snapshot chạy tại một thời điểm để hai lần dispatch
+# gần nhau không cùng checkout một commit rồi tranh nhau git push.
+concurrency:
+  group: update-dashboard-snapshot-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -104,6 +110,14 @@ jobs:
           if [ "${{ github.event.inputs.scan_oct }}" = "true" ]; then MONTHS+=("2026-10"); fi
           if [ "${{ github.event.inputs.scan_nov }}" = "true" ]; then MONTHS+=("2026-11"); fi
           if [ "${{ github.event.inputs.scan_dec }}" = "true" ]; then MONTHS+=("2026-12"); fi
+
+          # Full scan thắng mọi lựa chọn tháng. Nếu dispatch không truyền input
+          # (client cũ/API thủ công), vẫn mặc định full scan để việc chèn, xóa,
+          # dời hoặc sửa dòng ở tháng cũ không bị giữ cache sai.
+          if [ "${{ github.event.inputs.scan_all }}" = "true" ] || [ ${#MONTHS[@]} -eq 0 ]; then
+            FORCE_FULL=true
+            MONTHS=()
+          fi
           
           IFS=',' eval 'MONTHS_STR="${MONTHS[*]}"'
           

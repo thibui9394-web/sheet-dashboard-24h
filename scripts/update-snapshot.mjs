@@ -6,7 +6,8 @@ import {
   buildEditTracking,
   editEventsFromPayload,
   flattenSnapshotHistory,
-  inferSnapshotEditEvents
+  inferSnapshotEditEvents,
+  mergeEditEvents
 } from "./edit-tracking.mjs";
 
 const SHEET_ID = process.env.SHEET_ID || "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM";
@@ -17,11 +18,13 @@ const SHEET_MAX_COLUMN = process.env.SHEET_MAX_COLUMN || "AA";
 const EDIT_LOG_API_URL = process.env.EDIT_LOG_API_URL || "";
 const EDIT_LOG_API_TOKEN = process.env.EDIT_LOG_API_TOKEN || "";
 const FORCE_FULL_SNAPSHOT = process.env.FORCE_FULL_SNAPSHOT === "1" || process.env.FORCE_FULL_SNAPSHOT === "true";
+const ALLOW_LARGE_SNAPSHOT_DROP = process.env.ALLOW_LARGE_SNAPSHOT_DROP === "1" || process.env.ALLOW_LARGE_SNAPSHOT_DROP === "true";
 
-// Exclusion setup for known outlier rows.
-const EXCLUDED_ROWS_BY_PERSON = {
-  KHANG: new Set([128])
-};
+// Exclusions must follow the task, not a row number that changes after
+// insert/delete/sort operations in Google Sheets.
+const EXCLUDED_TASK_IDS = new Set([
+  "91a3a6e9-ce7a-4de8-af24-d74fd515d337"
+]);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -152,10 +155,7 @@ function toKeyedCounts(items) {
 }
 
 export function applyExclusions(records) {
-  return records.filter((record) => {
-    const excludedRows = EXCLUDED_ROWS_BY_PERSON[record.person] || new Set();
-    return !excludedRows.has(record.row);
-  });
+  return records.filter((record) => !EXCLUDED_TASK_IDS.has(normalizeText(record.taskId)));
 }
 
 function exportUrl(range) {
@@ -175,9 +175,149 @@ async function fetchCsv(range) {
   return new TextDecoder("utf-8").decode(csvBytes);
 }
 
+function isConfirmedEditEvent(event) {
+  return event?.isRecovery !== true &&
+    String(event?.status || "").trim().toLowerCase() !== "recovery" &&
+    String(event?.trackingStatus || event?.tracking_status || "").trim().toLowerCase() !== "recovery";
+}
+
+function editEventIdentity(event) {
+  const eventId = String(event?.eventId || event?.event_id || "").trim();
+  if (eventId) return `id:${eventId}`;
+  return [
+    event?.taskId || event?.task_id || "",
+    event?.column || "",
+    event?.action || "",
+    event?.revision || 0,
+    event?.editedAt || event?.edited_at || "",
+    event?.oldValue ?? event?.old_value ?? "",
+    event?.newValue ?? event?.new_value ?? ""
+  ].map((value) => String(value)).join("\u0000");
+}
+
+/**
+ * A successful HTTP response is not enough to trust the Log payload. The Log
+ * is append-only, so every confirmed event already published in the previous
+ * snapshot must still be present. An empty payload is deliberately treated as
+ * partial because it is indistinguishable from a wrong or freshly reset Log.
+ */
+export function assessEditLogCompleteness(previousEvents, apiEvents, previousHealth = {}) {
+  const previousConfirmed = (previousEvents || []).filter(isConfirmedEditEvent);
+  const apiConfirmed = (apiEvents || []).filter(isConfirmedEditEvent);
+  const apiIdentities = new Set(apiConfirmed.map(editEventIdentity));
+  const missingIdentities = previousConfirmed
+    .map(editEventIdentity)
+    .filter((identity) => !apiIdentities.has(identity));
+  const isEmpty = (apiEvents || []).length === 0;
+  const previousApiEventCount = Math.max(0, Number(previousHealth.apiEventCount || 0) || 0);
+  const previousApiConfirmedEventCount = Math.max(
+    previousConfirmed.length,
+    Number(previousHealth.apiConfirmedEventCount || 0) || 0
+  );
+  const missingApiEventCount = Math.max(0, previousApiEventCount - (apiEvents || []).length);
+  const missingConfirmedEventCount = Math.max(
+    missingIdentities.length,
+    previousApiConfirmedEventCount - apiConfirmed.length
+  );
+  const complete = !isEmpty && missingApiEventCount === 0 && missingConfirmedEventCount === 0;
+
+  return {
+    complete,
+    reason: isEmpty
+      ? "empty"
+      : missingConfirmedEventCount > 0
+        ? "missing-confirmed-events"
+        : missingApiEventCount > 0
+          ? "api-event-count-regressed"
+          : "complete",
+    previousApiEventCount,
+    previousConfirmedEventCount: previousApiConfirmedEventCount,
+    apiConfirmedEventCount: apiConfirmed.length,
+    missingApiEventCount,
+    missingConfirmedEventCount
+  };
+}
+
+export function reconcileEditLogFetch(
+  previousEvents,
+  apiEvents,
+  previousHealth = {},
+  fetchedAt = new Date().toISOString(),
+  endpointHealth = null
+) {
+  const assessment = assessEditLogCompleteness(previousEvents, apiEvents, previousHealth);
+  const events = mergeEditEvents(previousEvents, apiEvents);
+  const commonHealth = {
+    source: assessment.complete ? "edit-log-api" : "edit-log-api+snapshot-history",
+    fetchedAt,
+    lastSuccessfulAt: assessment.complete
+      ? fetchedAt
+      : (previousHealth.lastSuccessfulAt || null),
+    apiEventCount: apiEvents.length,
+    apiConfirmedEventCount: assessment.apiConfirmedEventCount,
+    previousApiEventCount: assessment.previousApiEventCount,
+    previousConfirmedEventCount: assessment.previousConfirmedEventCount,
+    missingApiEventCount: assessment.missingApiEventCount,
+    missingConfirmedEventCount: assessment.missingConfirmedEventCount
+  };
+
+  const endpointError = endpointHealth && String(endpointHealth.state || "").toUpperCase() === "ERROR";
+  if (assessment.complete && !endpointError) {
+    return {
+      events,
+      health: {
+        ...commonHealth,
+        state: "ok",
+        message: "Log chính thức đã được đồng bộ."
+      }
+    };
+  }
+
+  if (endpointError) {
+    const rows = Array.isArray(endpointHealth.rows) ? endpointHealth.rows.filter(Boolean) : [];
+    return {
+      events,
+      health: {
+        ...commonHealth,
+        state: "warning",
+        endpointHealth,
+        message: rows.length
+          ? `Tracking đang dừng an toàn vì chưa thể xác định Task ID ở dòng ${rows.join(", ")}. Admin cần đối chiếu.`
+          : "Tracking đang dừng an toàn và cần admin đối chiếu."
+      }
+    };
+  }
+
+  const message = assessment.reason === "empty"
+    ? "API Log trả về rỗng; dashboard đang giữ lịch sử gần nhất và đánh dấu dữ liệu chưa đầy đủ."
+    : assessment.reason === "missing-confirmed-events"
+      ? `API Log đang thiếu ${assessment.missingConfirmedEventCount} sự kiện chính thức đã có trước đó; dashboard vẫn giữ lịch sử gần nhất.`
+      : `API Log trả về ít hơn lần đồng bộ trước ${assessment.missingApiEventCount} sự kiện; dashboard vẫn giữ lịch sử gần nhất.`;
+  return {
+    events,
+    health: {
+      ...commonHealth,
+      state: "partial",
+      message
+    }
+  };
+}
+
 async function fetchEditEvents(previousSnapshot) {
   const fallback = flattenSnapshotHistory(previousSnapshot);
-  if (!EDIT_LOG_API_URL) return fallback;
+  const previousHealth = previousSnapshot?.metadata?.editTracking || {};
+  if (!EDIT_LOG_API_URL) {
+    return {
+      events: fallback,
+      health: {
+        state: "unconfigured",
+        source: "snapshot-history",
+        fetchedAt: null,
+        lastSuccessfulAt: previousHealth.lastSuccessfulAt || null,
+        message: "Dashboard chưa được kết nối với Log chính thức."
+      }
+    };
+  }
 
   try {
     const url = new URL(EDIT_LOG_API_URL);
@@ -191,12 +331,22 @@ async function fetchEditEvents(previousSnapshot) {
     if (!Array.isArray(payload) && !Array.isArray(payload?.events)) {
       throw new Error("Edit log endpoint returned an invalid payload");
     }
-    return editEventsFromPayload(payload);
+    const apiEvents = editEventsFromPayload(payload);
+    return reconcileEditLogFetch(fallback, apiEvents, previousHealth, new Date().toISOString(), payload?.trackingHealth || null);
   } catch (error) {
     // Edit tracking is optional. Keep the previous public history when its
     // endpoint is temporarily unavailable so the existing KPI flow still runs.
     console.warn(`Khong the tai edit log, tam dung lich su cu: ${error.message}`);
-    return fallback;
+    return {
+      events: fallback,
+      health: {
+        state: "stale",
+        source: "snapshot-history",
+        fetchedAt: null,
+        lastSuccessfulAt: previousHealth.lastSuccessfulAt || null,
+        message: "Không tải được Log mới; lịch sử đang giữ bản gần nhất."
+      }
+    };
   }
 }
 
@@ -363,6 +513,51 @@ export function recordsFromRows(headers, body, startRowNumber) {
   return records;
 }
 
+export function validateStableTaskIds(records) {
+  const missingRows = [];
+  const rowsByTaskId = new Map();
+
+  for (const record of records || []) {
+    const taskId = normalizeText(record?.taskId);
+    if (!taskId || taskId.startsWith("row:")) {
+      missingRows.push(record?.row || "?");
+      continue;
+    }
+    if (!rowsByTaskId.has(taskId)) rowsByTaskId.set(taskId, []);
+    rowsByTaskId.get(taskId).push(record?.row || "?");
+  }
+
+  const duplicates = [...rowsByTaskId.entries()].filter(([, rows]) => rows.length > 1);
+  if (missingRows.length || duplicates.length) {
+    const details = [];
+    if (missingRows.length) details.push(`thiếu _TASK_ID ở dòng ${missingRows.join(", ")}`);
+    if (duplicates.length) {
+      details.push(`trùng _TASK_ID: ${duplicates.map(([id, rows]) => `${id} (dòng ${rows.join(", ")})`).join("; ")}`);
+    }
+    throw new Error(`Dừng cập nhật để tránh gắn nhầm lịch sử: ${details.join(" | ")}`);
+  }
+  return true;
+}
+
+export function validateSnapshotTransition(previousRecords, currentRecords, allowLargeDrop = ALLOW_LARGE_SNAPSHOT_DROP) {
+  const previousCount = Array.isArray(previousRecords) ? previousRecords.length : 0;
+  const currentCount = Array.isArray(currentRecords) ? currentRecords.length : 0;
+  if (currentCount === 0) {
+    throw new Error("Dừng cập nhật vì lần quét trả về 0 task.");
+  }
+  if (!previousCount || allowLargeDrop) return true;
+
+  const drop = previousCount - currentCount;
+  const allowedDrop = Math.max(25, Math.ceil(previousCount * 0.1));
+  if (drop > allowedDrop) {
+    throw new Error(
+      `Dừng cập nhật vì số task giảm bất thường ${previousCount} → ${currentCount}. ` +
+      "Kiểm tra Sheet; nếu đây là thao tác xóa có chủ ý, chạy lại với ALLOW_LARGE_SNAPSHOT_DROP=1."
+    );
+  }
+  return true;
+}
+
 export function summarizePerson(records) {
   const totalTasks = records.length;
   const completed = records.filter((r) => statusKey(r.status) === "completed");
@@ -460,13 +655,16 @@ function compactRecord(record) {
   };
 }
 
-export function buildSnapshot(records, updateMode, activeMonth, activeRangeStartRow, editEvents = []) {
+export function buildSnapshot(records, updateMode, activeMonth, activeRangeStartRow, editEvents = [], editLogHealth = {}) {
   const filtered = applyExclusions(records).sort((a, b) => a.row - b.row);
   const normalizedRecords = filtered.map((record) => ({
     ...record,
     taskId: record.taskId || `row:${record.row}`
   }));
   const editTracking = buildEditTracking(normalizedRecords, editEvents);
+  const editTrackingState = editLogHealth.state === "ok" && editTracking.stats.recoveryEventCount > 0
+    ? "warning"
+    : (editLogHealth.state || "unknown");
   const trackedRecords = normalizedRecords.map((record) => {
     const editSummary = editTracking.summariesByTaskId.get(record.taskId);
     return editSummary ? { ...record, editSummary } : record;
@@ -525,12 +723,25 @@ export function buildSnapshot(records, updateMode, activeMonth, activeRangeStart
         activeRangeStartRow,
         sheetMaxColumn: SHEET_MAX_COLUMN
       },
-      exclusions: Object.fromEntries(
-        Object.entries(EXCLUDED_ROWS_BY_PERSON).map(([person, set]) => [person, [...set.values()]])
-      ),
+      exclusions: {
+        taskIds: [...EXCLUDED_TASK_IDS]
+      },
       totalRecords: trackedRecords.length,
       editTracking: {
         enabled: Boolean(EDIT_LOG_API_URL) || editTracking.stats.trackedTaskCount > 0,
+        state: editTrackingState,
+        source: editLogHealth.source || "unknown",
+        fetchedAt: editLogHealth.fetchedAt || null,
+        lastSuccessfulAt: editLogHealth.lastSuccessfulAt || null,
+        apiEventCount: Number(editLogHealth.apiEventCount || 0),
+        apiConfirmedEventCount: Number(editLogHealth.apiConfirmedEventCount || 0),
+        previousApiEventCount: Number(editLogHealth.previousApiEventCount || 0),
+        previousConfirmedEventCount: Number(editLogHealth.previousConfirmedEventCount || 0),
+        missingApiEventCount: Number(editLogHealth.missingApiEventCount || 0),
+        missingConfirmedEventCount: Number(editLogHealth.missingConfirmedEventCount || 0),
+        message: editTrackingState === "warning"
+          ? `${editTracking.stats.recoveryEventCount} thay đổi được phát hiện từ Sheet nhưng chưa có sự kiện Log tương ứng.`
+          : (editLogHealth.message || ""),
         ...editTracking.stats
       }
     },
@@ -549,59 +760,38 @@ async function loadFullRecords() {
   return recordsFromRows(headers, body, 2);
 }
 
-async function loadActiveMonthRecords(previousSnapshot, activeMonth) {
-  const previousRecords = Array.isArray(previousSnapshot?.records) ? previousSnapshot.records : [];
-  const activeRangeStartRow = previousSnapshot?.metadata?.incremental?.activeRangeStartRow;
-  const cachedMonth = previousSnapshot?.metadata?.incremental?.activeMonth;
-
-  const hasOpenTasksInPreviousMonths = previousRecords.some(
-    (record) => record.month !== activeMonth &&
-                record.status !== "Hoàn thành" &&
-                record.status !== "Cancel"
-  );
-
-  if (FORCE_FULL_SNAPSHOT || !previousRecords.length || !activeRangeStartRow || cachedMonth !== activeMonth || hasOpenTasksInPreviousMonths) {
-    const records = await loadFullRecords();
-    const monthRows = records.filter((record) => record.month === activeMonth).map((record) => record.row);
-    return {
-      records,
-      updateMode: FORCE_FULL_SNAPSHOT ? "full-forced" : (hasOpenTasksInPreviousMonths ? "full-open-tasks" : "full-bootstrap"),
-      activeRangeStartRow: monthRows.length ? Math.min(...monthRows) : null
-    };
-  }
-
-  const headerRows = parseCsv(await fetchCsv(`A1:${SHEET_MAX_COLUMN}1`));
-  const headers = headerRows[0];
-  validateHeaders(headers);
-
-  const rangeRows = parseCsv(await fetchCsv(`A${activeRangeStartRow}:${SHEET_MAX_COLUMN}`));
-  const refreshedActiveRecords = recordsFromRows(headers, rangeRows, activeRangeStartRow)
-    .filter((record) => record.month === activeMonth);
-  const records = [
-    ...previousRecords.filter((record) => record.month !== activeMonth),
-    ...refreshedActiveRecords
-  ];
-
+async function loadEveryRecord(activeMonth) {
+  const records = await loadFullRecords();
+  const monthRows = records.filter((record) => record.month === activeMonth).map((record) => record.row);
   return {
     records,
-    updateMode: "active-month",
-    activeRangeStartRow
+    updateMode: FORCE_FULL_SNAPSHOT ? "full-forced" : "full",
+    activeRangeStartRow: monthRows.length ? Math.min(...monthRows) : null
   };
 }
 
 async function main() {
   const activeMonth = process.env.TARGET_MONTH || currentMonthKey();
   const previousSnapshot = await readPreviousSnapshot();
-  const [{ records, updateMode, activeRangeStartRow }, editEvents] = await Promise.all([
-    loadActiveMonthRecords(previousSnapshot, activeMonth),
+  const [{ records, updateMode, activeRangeStartRow }, editLogResult] = await Promise.all([
+    loadEveryRecord(activeMonth),
     fetchEditEvents(previousSnapshot)
   ]);
+  validateStableTaskIds(records);
+  validateSnapshotTransition(previousSnapshot?.records, records);
   const completeEditEvents = inferSnapshotEditEvents(
     previousSnapshot?.records,
     records,
-    editEvents
+    editLogResult.events
   );
-  const snapshot = buildSnapshot(records, updateMode, activeMonth, activeRangeStartRow, completeEditEvents);
+  const snapshot = buildSnapshot(
+    records,
+    updateMode,
+    activeMonth,
+    activeRangeStartRow,
+    completeEditEvents,
+    editLogResult.health
+  );
 
   await writeFile(snapshotPath, `${JSON.stringify(snapshot, null, 2)}\n`, "utf8");
 

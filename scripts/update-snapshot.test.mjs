@@ -16,9 +16,108 @@ import {
   findColumnIndex,
   validateHeaders,
   recordsFromRows,
+  validateStableTaskIds,
+  validateSnapshotTransition,
+  assessEditLogCompleteness,
+  reconcileEditLogFetch,
   summarizePerson,
   buildSnapshot
 } from "./update-snapshot.mjs";
+
+function confirmedEditEvent(eventId, taskId = "task-1", revision = 1) {
+  return {
+    eventId,
+    taskId,
+    column: "C",
+    action: "EDIT",
+    revision,
+    oldValue: `old-${revision}`,
+    newValue: `new-${revision}`,
+    editedAt: `2026-08-12T10:0${revision}:00.000Z`,
+    source: "edit-log",
+    status: "confirmed",
+    isRecovery: false
+  };
+}
+
+test("assessEditLogCompleteness: API rong luon bi danh dau partial", () => {
+  const assessment = assessEditLogCompleteness([], []);
+  assert.equal(assessment.complete, false);
+  assert.equal(assessment.reason, "empty");
+});
+
+test("assessEditLogCompleteness: chan so luong API giam du lich su public khong con event", () => {
+  const assessment = assessEditLogCompleteness(
+    [],
+    [confirmedEditEvent("event-2")],
+    { apiEventCount: 2 }
+  );
+  assert.equal(assessment.complete, false);
+  assert.equal(assessment.reason, "api-event-count-regressed");
+  assert.equal(assessment.missingApiEventCount, 1);
+});
+
+test("reconcileEditLogFetch: API bi cat ngan giu lich su cu va khong bao ok", () => {
+  const first = confirmedEditEvent("event-1", "task-1", 1);
+  const second = confirmedEditEvent("event-2", "task-1", 2);
+  const replacement = confirmedEditEvent("event-3", "task-1", 3);
+  const result = reconcileEditLogFetch(
+    [first, second],
+    [second, replacement],
+    { lastSuccessfulAt: "2026-08-12T09:00:00.000Z" },
+    "2026-08-12T11:00:00.000Z"
+  );
+
+  assert.equal(result.health.state, "partial");
+  assert.equal(result.health.missingConfirmedEventCount, 1);
+  assert.equal(result.health.lastSuccessfulAt, "2026-08-12T09:00:00.000Z");
+  assert.deepEqual(result.events.map((event) => event.eventId).sort(), ["event-1", "event-2", "event-3"]);
+});
+
+test("reconcileEditLogFetch: API day du duoc bao ok va cap nhat moc thanh cong", () => {
+  const first = confirmedEditEvent("event-1", "task-1", 1);
+  const second = confirmedEditEvent("event-2", "task-1", 2);
+  const fetchedAt = "2026-08-12T11:00:00.000Z";
+  const result = reconcileEditLogFetch([first], [first, second], {}, fetchedAt);
+
+  assert.equal(result.health.state, "ok");
+  assert.equal(result.health.missingConfirmedEventCount, 0);
+  assert.equal(result.health.lastSuccessfulAt, fetchedAt);
+  assert.equal(result.events.length, 2);
+});
+
+test("reconcileEditLogFetch: endpoint tracking fail-closed khong duoc bao ok", () => {
+  const first = confirmedEditEvent("event-1", "task-1", 1);
+  const result = reconcileEditLogFetch(
+    [first],
+    [first],
+    {},
+    "2026-08-12T11:00:00.000Z",
+    { state: "ERROR", code: "AMBIGUOUS_TASK_ID_MAPPING", rows: [266, 796] }
+  );
+  assert.equal(result.health.state, "warning");
+  assert.match(result.health.message, /266, 796/);
+});
+
+test("validateStableTaskIds: dung cap nhat khi thieu hoac trung Task ID", () => {
+  assert.throws(
+    () => validateStableTaskIds([{ row: 10, taskId: "row:10" }]),
+    /thiếu _TASK_ID.*10/
+  );
+  assert.throws(
+    () => validateStableTaskIds([{ row: 10, taskId: "same" }, { row: 20, taskId: "same" }]),
+    /trùng _TASK_ID.*same.*10, 20/
+  );
+  assert.equal(validateStableTaskIds([{ row: 10, taskId: "stable-10" }]), true);
+});
+
+test("validateSnapshotTransition: chan snapshot rong hoac giam bat thuong", () => {
+  assert.throws(() => validateSnapshotTransition([{ taskId: "old" }], []), /0 task/);
+  const previous = Array.from({ length: 100 }, (_, index) => ({ taskId: `old-${index}` }));
+  const current = previous.slice(0, 70);
+  assert.throws(() => validateSnapshotTransition(previous, current), /giảm bất thường/);
+  assert.equal(validateSnapshotTransition(previous, current, true), true);
+});
 
 // ============================================================
 // parseCsv
@@ -243,21 +342,21 @@ test("validateHeaders: header rong -> throw", () => {
   assert.throws(() => validateHeaders([]), /khong co header/);
   assert.throws(() => validateHeaders(null), /khong co header/);
 });
-test("applyExclusions: loai row outlier KHANG 128", () => {
+test("applyExclusions: loai outlier theo Task ID du bi doi dong", () => {
   const records = [
-    { row: 127, person: "KHANG", quantity: 5 },
-    { row: 128, person: "KHANG", quantity: 1000 },
-    { row: 129, person: "KHANG", quantity: 3 }
+    { row: 127, taskId: "task-normal-1", person: "KHANG", quantity: 5 },
+    { row: 777, taskId: "91a3a6e9-ce7a-4de8-af24-d74fd515d337", person: "KHANG", quantity: 1000 },
+    { row: 129, taskId: "task-normal-2", person: "KHANG", quantity: 3 }
   ];
   const result = applyExclusions(records);
   assert.equal(result.length, 2);
   assert.deepEqual(result.map((r) => r.row), [127, 129]);
 });
 
-test("applyExclusions: row 128 cua nguoi khac van giu", () => {
+test("applyExclusions: cung dong cu nhung Task ID khac van giu", () => {
   const records = [
     { row: 128, person: "ẨN", quantity: 5 },
-    { row: 128, person: "KHANG", quantity: 1000 }
+    { row: 999, taskId: "91a3a6e9-ce7a-4de8-af24-d74fd515d337", person: "KHANG", quantity: 1000 }
   ];
   const result = applyExclusions(records);
   assert.equal(result.length, 1);

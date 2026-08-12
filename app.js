@@ -12,6 +12,7 @@ const personFilterEl = document.querySelector("#personFilter");
 const monthFilterEl = document.querySelector("#monthFilter");
 const updatedAtEl = document.querySelector("#updatedAt");
 const totalRecordsEl = document.querySelector("#totalRecords");
+const trackingHealthEl = document.querySelector("#trackingHealth");
 const weeklyProgressEl = document.querySelector("#weeklyProgress");
 const weeklyScopeEl = document.querySelector("#weeklyScope");
 const previousOpenScopeEl = document.querySelector("#previousOpenScope");
@@ -89,6 +90,25 @@ function snapshotRows() {
 
 function isEditTrackingEnabled() {
   return Boolean(snapshot?.metadata?.editTracking?.enabled);
+}
+
+function renderTrackingHealth() {
+  const tracking = snapshot?.metadata?.editTracking || {};
+  const recoveryCount = Number(tracking.recoveryEventCount || 0);
+  let state = tracking.state || "unknown";
+  if (state === "ok" && recoveryCount > 0) state = "warning";
+
+  const labels = {
+    ok: "Lịch sử sửa: Đã đồng bộ Log",
+    warning: `Lịch sử sửa: Có ${formatNumber(recoveryCount)} thay đổi cần đối chiếu`,
+    partial: "Lịch sử sửa: Log đang thiếu dữ liệu",
+    stale: "Lịch sử sửa: Đang dùng bản gần nhất",
+    unconfigured: "Lịch sử sửa: Chưa kết nối Log",
+    unknown: "Lịch sử sửa: Chưa xác định"
+  };
+  trackingHealthEl.textContent = labels[state] || labels.unknown;
+  trackingHealthEl.className = `tracking-health tracking-health-${state}`;
+  trackingHealthEl.title = tracking.message || "";
 }
 
 function statusLabel(key) {
@@ -498,6 +518,7 @@ function historyEventsFor(row) {
 
 function historyActionLabel(event) {
   const field = event.column === "C" ? "Nội dung order" : "Ngày order";
+  if (event.isRecovery) return `${field} — Phát hiện lệch, cần đối chiếu Log`;
   if (event.action === "BASELINE") return `${field} — Dữ liệu nền`;
   if (event.action === "INITIAL") return `${field} — Lần đầu nhập`;
   if (event.action === "CLEAR") return `${field} — Xóa dữ liệu (sửa lần ${event.revision || 1})`;
@@ -538,6 +559,9 @@ function openHistory(row) {
     ["NỘI DUNG ORDER", summary.contentEditCount || 0],
     ["NGÀY ORDER", summary.dateEditCount || 0]
   ].forEach(([label, value]) => historySummaryEl.appendChild(createMetric(label, value)));
+  if (Number(summary.recoveryCount || 0) > 0) {
+    historySummaryEl.appendChild(createMetric("Cần đối chiếu", summary.recoveryCount));
+  }
 
   historyTimelineEl.innerHTML = "";
   if (events.length === 0) {
@@ -548,7 +572,7 @@ function openHistory(row) {
   } else {
     for (const event of events) {
       const item = document.createElement("article");
-      item.className = `history-event history-event-${String(event.action || "edit").toLowerCase()}`;
+      item.className = `history-event history-event-${event.isRecovery ? "recovery" : String(event.action || "edit").toLowerCase()}`;
 
       const head = document.createElement("div");
       head.className = "history-event-head";
@@ -593,15 +617,21 @@ function openHistory(row) {
 function createEditBadge(row) {
   const original = row.originalRecord || row;
   const summary = original.editSummary || row.editSummary;
-  if (!summary || Number(summary.editCount || 0) <= 0) return null;
+  const editCount = Number(summary?.editCount || 0);
+  const recoveryCount = Number(summary?.recoveryCount || 0);
+  if (!summary || (editCount <= 0 && recoveryCount <= 0)) return null;
 
   const badge = document.createElement("button");
   badge.type = "button";
-  badge.className = `task-edit-badge${summary.hasDateChange ? " task-edit-badge-date" : ""}`;
-  badge.textContent = `✎ Đã sửa ${formatNumber(summary.editCount)}`;
-  badge.title = summary.hasDateChange
-    ? "Task có thay đổi ngày order. Click để xem lịch sử."
-    : "Click để xem lịch sử chỉnh sửa.";
+  badge.className = `task-edit-badge${summary.hasDateChange ? " task-edit-badge-date" : ""}${recoveryCount ? " task-edit-badge-recovery" : ""}`;
+  badge.textContent = editCount > 0
+    ? `✎ Đã sửa ${formatNumber(editCount)}${recoveryCount ? ` · ${formatNumber(recoveryCount)} cần đối chiếu` : ""}`
+    : `⚠ Phát hiện lệch ${formatNumber(recoveryCount)}`;
+  badge.title = recoveryCount
+    ? "Có thay đổi được phát hiện từ dữ liệu Sheet nhưng chưa có sự kiện Log tương ứng. Click để đối chiếu."
+    : summary.hasDateChange
+      ? "Task có thay đổi ngày order. Click để xem lịch sử."
+      : "Click để xem lịch sử chỉnh sửa.";
   badge.addEventListener("click", (event) => {
     event.stopPropagation();
     openHistory(original);
@@ -893,6 +923,7 @@ async function load() {
 
   updatedAtEl.textContent = `Đã cập nhật lúc: ${formatDate(snapshot.metadata.generatedAt)}`;
   totalRecordsEl.textContent = `Tổng record: ${formatNumber(snapshot.metadata.totalRecords)}`;
+  renderTrackingHealth();
   setFilters();
   render();
 }

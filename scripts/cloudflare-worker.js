@@ -1,18 +1,25 @@
 export default {
   async fetch(request, env, ctx) {
+    const corsHeaders = {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Sync-Passcode",
+    };
+    const jsonResponse = (payload, status = 200) => new Response(JSON.stringify(payload), {
+      status,
+      headers: {
+        ...corsHeaders,
+        "Content-Type": "application/json",
+      },
+    });
+
     // 1. Xử lý CORS preflight (cho phép gửi header tùy chỉnh X-Sync-Passcode)
     if (request.method === "OPTIONS") {
-      return new Response(null, {
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "POST, OPTIONS",
-          "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Sync-Passcode",
-        },
-      });
+      return new Response(null, { status: 204, headers: corsHeaders });
     }
 
     if (request.method !== "POST") {
-      return new Response("Method Not Allowed", { status: 405 });
+      return jsonResponse({ success: false, status: "method_not_allowed", error: "Chỉ hỗ trợ phương thức POST." }, 405);
     }
 
     try {
@@ -20,17 +27,22 @@ export default {
       const clientPasscode = request.headers.get("X-Sync-Passcode");
       const serverPasscode = env.SYNC_PASSCODE; // Cần cấu hình trong Cloudflare settings
 
-      if (serverPasscode && clientPasscode !== serverPasscode) {
-        return new Response(
-          JSON.stringify({ success: false, error: "Mật mã không chính xác. Bạn không có quyền đồng bộ." }),
-          {
-            status: 401,
-            headers: {
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
-            },
-          }
-        );
+      // Fail closed: tuyệt đối không cho dispatch công khai nếu Worker bị thiếu
+      // secret bảo vệ do cấu hình/deploy nhầm.
+      if (!serverPasscode) {
+        return jsonResponse({
+          success: false,
+          status: "configuration_error",
+          error: "Worker chưa được cấu hình SYNC_PASSCODE.",
+        }, 500);
+      }
+
+      if (!clientPasscode || clientPasscode !== serverPasscode) {
+        return jsonResponse({
+          success: false,
+          status: "unauthorized",
+          error: "Mật mã không chính xác. Bạn không có quyền đồng bộ.",
+        }, 401);
       }
 
       // 3. Lấy thông tin cấu hình từ Environment Variables của Worker
@@ -40,16 +52,11 @@ export default {
       const githubToken = env.GITHUB_TOKEN;
 
       if (!githubToken) {
-        return new Response(
-          JSON.stringify({ error: "Lỗi: Chưa cấu hình Secret GITHUB_TOKEN trên Cloudflare Worker." }),
-          {
-            status: 500,
-            headers: {
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
-            },
-          }
-        );
+        return jsonResponse({
+          success: false,
+          status: "configuration_error",
+          error: "Worker chưa được cấu hình GITHUB_TOKEN.",
+        }, 500);
       }
 
       // 4. Gửi lệnh sang GitHub
@@ -65,45 +72,33 @@ export default {
           },
           body: JSON.stringify({
             ref: "main",
+            // Dashboard luôn yêu cầu full scan để mọi thao tác chèn, xóa, dời
+            // và sửa dòng (kể cả tháng cũ) được phản ánh chính xác.
+            inputs: {
+              scan_all: "true",
+            },
           }),
         }
       );
 
       if (githubResponse.status === 204) {
-        return new Response(
-          JSON.stringify({ success: true, message: "Kích hoạt đồng bộ thành công!" }),
-          {
-            status: 200,
-            headers: {
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
-            },
-          }
-        );
+        return jsonResponse({
+          success: true,
+          status: "accepted",
+          scope: "full",
+          message: "GitHub đã nhận yêu cầu quét toàn bộ Sheet.",
+          workflowUrl: `https://github.com/${owner}/${repo}/actions/workflows/${workflowId}`,
+        }, 202);
       } else {
         const errorText = await githubResponse.text();
-        return new Response(
-          JSON.stringify({ success: false, error: `GitHub API error: ${errorText}` }),
-          {
-            status: githubResponse.status,
-            headers: {
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
-            },
-          }
-        );
+        return jsonResponse({
+          success: false,
+          status: "rejected",
+          error: `GitHub API error: ${errorText}`,
+        }, githubResponse.status);
       }
     } catch (err) {
-      return new Response(
-        JSON.stringify({ success: false, error: err.message }),
-        {
-          status: 500,
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-          },
-        }
-      );
+      return jsonResponse({ success: false, status: "error", error: err.message }, 500);
     }
   },
 };
