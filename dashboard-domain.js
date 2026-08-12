@@ -21,6 +21,10 @@ export function currentCalendarMonthKey(date = new Date(), timeZone = TIME_ZONE)
   return `${year}-${month}`;
 }
 
+export function defaultDashboardMonth(selectedMonth, date = new Date()) {
+  return selectedMonth === "ALL" ? currentCalendarMonthKey(date) : selectedMonth;
+}
+
 export function currentCalendarWeek(date = new Date(), timeZone = TIME_ZONE) {
   const parts = new Intl.DateTimeFormat("en-CA", {
     timeZone,

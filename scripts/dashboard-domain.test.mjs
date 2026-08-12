@@ -2,11 +2,18 @@ import test from "node:test";
 import assert from "node:assert/strict";
 
 import {
+  defaultDashboardMonth,
   deriveRecordForMonth,
   getCompletionMonth,
   getProductionMonth,
   statusKey
 } from "../dashboard-domain.js";
+
+test("box tien do dung thang hien tai khi bo loc la Tat ca", () => {
+  const now = new Date("2026-08-12T03:00:00.000Z");
+  assert.equal(defaultDashboardMonth("ALL", now), "2026-08");
+  assert.equal(defaultDashboardMonth("2026-12", now), "2026-12");
+});
 
 const completedInAugust = {
   row: 100,

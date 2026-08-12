@@ -1,6 +1,7 @@
 import {
   TIME_ZONE,
   currentCalendarMonthKey,
+  defaultDashboardMonth,
   deriveRecordForMonth,
   getCompletionMonth,
   getProductionMonth,
@@ -445,10 +446,6 @@ function weekRangeLabel(week, month) {
   return `${String(start).padStart(2, "0")}-${String(end).padStart(2, "0")}`;
 }
 
-function latestMonth() {
-  return monthList[monthList.length - 1] || null;
-}
-
 function summarizeWeek(rows) {
   const summary = {
     tasks: rows.length,
@@ -665,7 +662,10 @@ function createTaskItem(row) {
 }
 
 function renderWeeklyProgress(person, month) {
-  const targetMonth = month === "ALL" ? latestMonth() : month;
+  // Khi bo loc la "Tat ca", box tien do van phai hien thang hien tai.
+  // Khong dung thang lon nhat trong du lieu vi mot ngay tuong lai/nhap nham
+  // co the keo ca box sang thang do va lam task hien tai trong nhu bi mat.
+  const targetMonth = defaultDashboardMonth(month);
   weeklyProgressEl.innerHTML = "";
 
   if (!targetMonth) {
