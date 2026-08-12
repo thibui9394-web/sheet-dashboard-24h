@@ -16,7 +16,7 @@ var LOG_HEADERS = [
   "MÃ SỰ KIỆN",
   "MÃ THAO TÁC",
   "MÃ TASK",
-  "DÒNG NGUỒN",
+  "DÒNG HIỆN TẠI",
   "CỘT",
   "TRƯỜNG DỮ LIỆU",
   "LOẠI THAY ĐỔI",
@@ -24,7 +24,13 @@ var LOG_HEADERS = [
   "GIÁ TRỊ CŨ",
   "GIÁ TRỊ MỚI",
   "THỜI GIAN SỬA",
-  "TÀI KHOẢN SỬA"
+  "TÀI KHOẢN SỬA",
+  "DÒNG LÚC SỬA"
+];
+
+var PREVIOUS_LOG_HEADERS = [
+  "MÃ SỰ KIỆN", "MÃ THAO TÁC", "MÃ TASK", "DÒNG NGUỒN", "CỘT", "TRƯỜNG DỮ LIỆU",
+  "LOẠI THAY ĐỔI", "LẦN SỬA", "GIÁ TRỊ CŨ", "GIÁ TRỊ MỚI", "THỜI GIAN SỬA", "TÀI KHOẢN SỬA"
 ];
 
 var STATE_HEADERS = [
@@ -65,11 +71,13 @@ function setupTracking() {
 
     var baseline = initializeBaseline_(sourceSheet, logSheet, stateSheet);
     ensureEditTrigger_();
+    ensureStructureTrigger_();
+    var rowSync = syncCurrentRows_(sourceSheet, logSheet);
 
     if (!properties.getProperty("API_TOKEN")) {
       properties.setProperty("API_TOKEN", createToken_());
     }
-    properties.setProperty("TRACKING_VERSION", "1");
+    properties.setProperty("TRACKING_VERSION", "2");
     properties.setProperty("TRACKING_INSTALLED_AT", new Date().toISOString());
 
     var result = {
@@ -79,6 +87,7 @@ function setupTracking() {
       logSpreadsheetUrl: logBook.getUrl(),
       initializedTasks: baseline.taskCount,
       baselineEvents: baseline.eventCount,
+      syncedLogRows: rowSync.updatedRows,
       apiToken: properties.getProperty("API_TOKEN")
     };
     console.log("SETUP_RESULT=" + JSON.stringify(result));
@@ -150,7 +159,8 @@ function onTrackedEdit(e) {
           String(oldValue),
           String(newValue),
           editedAt,
-          editorEmail
+          editorEmail,
+          row
         ]);
 
         upsertState_(stateSheet, stateMap, {
@@ -208,6 +218,7 @@ function doGet(e) {
       batchId: row[1],
       taskId: row[2],
       row: Number(row[3] || 0),
+      eventRow: Number(row[12] || row[3] || 0),
       column: row[4],
       field: row[5],
       action: row[6],
@@ -220,7 +231,7 @@ function doGet(e) {
 
   return jsonResponse_({
     ok: true,
-    version: 1,
+    version: 2,
     generatedAt: new Date().toISOString(),
     events: events
   });
@@ -238,11 +249,55 @@ function getTrackingStatus() {
   };
 }
 
+/** Installable onChange handler. Dong bo so dong sau khi chen, xoa hoac sap xep dong. */
+function onTrackedStructureChange(e) {
+  var changeType = e && e.changeType ? String(e.changeType) : "";
+  if (changeType === "EDIT" || changeType === "FORMAT") return;
+
+  var lock = LockService.getScriptLock();
+  lock.waitLock(30000);
+  try {
+    var properties = PropertiesService.getScriptProperties();
+    var logBookId = properties.getProperty("LOG_SPREADSHEET_ID");
+    if (!logBookId) return;
+
+    var source = SpreadsheetApp.openById(TRACKING_CONFIG.SOURCE_SPREADSHEET_ID);
+    var sourceSheet = getSheetById_(source, TRACKING_CONFIG.SOURCE_SHEET_GID);
+    var logBook = SpreadsheetApp.openById(logBookId);
+    var logSheet = ensureSheet_(logBook, TRACKING_CONFIG.LOG_SHEET_NAME, LOG_HEADERS);
+    syncCurrentRows_(sourceSheet, logSheet);
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+/** Chay thu cong neu can dong bo ngay cot DONG HIEN TAI trong Sheet Log. */
+function syncCurrentRows() {
+  var lock = LockService.getScriptLock();
+  lock.waitLock(30000);
+  try {
+    var properties = PropertiesService.getScriptProperties();
+    var logBookId = properties.getProperty("LOG_SPREADSHEET_ID");
+    if (!logBookId) throw new Error("Tracking chua duoc setup.");
+
+    var source = SpreadsheetApp.openById(TRACKING_CONFIG.SOURCE_SPREADSHEET_ID);
+    var sourceSheet = getSheetById_(source, TRACKING_CONFIG.SOURCE_SHEET_GID);
+    var logBook = SpreadsheetApp.openById(logBookId);
+    var logSheet = ensureSheet_(logBook, TRACKING_CONFIG.LOG_SHEET_NAME, LOG_HEADERS);
+    var result = syncCurrentRows_(sourceSheet, logSheet);
+    console.log("ROW_SYNC_RESULT=" + JSON.stringify(result));
+    return result;
+  } finally {
+    lock.releaseLock();
+  }
+}
+
 /** Tam dung ghi log, khong xoa Task ID hay lich su. Chay setupTracking de bat lai. */
 function pauseTracking() {
   var deleted = 0;
   ScriptApp.getProjectTriggers().forEach(function(trigger) {
-    if (trigger.getHandlerFunction() === "onTrackedEdit") {
+    if (trigger.getHandlerFunction() === "onTrackedEdit" ||
+        trigger.getHandlerFunction() === "onTrackedStructureChange") {
       ScriptApp.deleteTrigger(trigger);
       deleted += 1;
     }
@@ -323,7 +378,8 @@ function initializeBaseline_(sourceSheet, logSheet, stateSheet) {
           "",
           fieldInfo.value,
           now,
-          ""
+          "",
+          index + 2
         ]);
       }
     }
@@ -472,6 +528,9 @@ function ensureSheet_(book, name, headers) {
     headerRange.setValues([headers]);
     sheet.setFrozenRows(1);
   } else if (existing.join("|") !== headers.join("|")) {
+    if (name === TRACKING_CONFIG.LOG_SHEET_NAME && migrateLogSheet_(sheet, headers)) {
+      return sheet;
+    }
     var legacyHeaders = name === TRACKING_CONFIG.LOG_SHEET_NAME
       ? LEGACY_LOG_HEADERS
       : LEGACY_STATE_HEADERS;
@@ -482,6 +541,63 @@ function ensureSheet_(book, name, headers) {
     }
   }
   return sheet;
+}
+
+function migrateLogSheet_(sheet, headers) {
+  var oldHeaderCount = PREVIOUS_LOG_HEADERS.length;
+  var oldHeaders = sheet.getRange(1, 1, 1, oldHeaderCount).getDisplayValues()[0];
+  var isPreviousVietnamese = oldHeaders.join("|") === PREVIOUS_LOG_HEADERS.join("|");
+  var isLegacyEnglish = oldHeaders.join("|") === LEGACY_LOG_HEADERS.join("|");
+  if (!isPreviousVietnamese && !isLegacyEnglish) return false;
+
+  var lastRow = sheet.getLastRow();
+  if (lastRow >= 2) {
+    var rowCount = lastRow - 1;
+    var currentRows = sheet.getRange(2, 4, rowCount, 1).getDisplayValues();
+    sheet.getRange(2, 13, rowCount, 1).setValues(currentRows);
+  }
+  sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
+  sheet.setFrozenRows(1);
+  return true;
+}
+
+function syncCurrentRows_(sourceSheet, logSheet) {
+  var sourceLastRow = sourceSheet.getLastRow();
+  var currentRowByTaskId = {};
+  if (sourceLastRow >= 2) {
+    var sourceIds = sourceSheet
+      .getRange(2, TRACKING_CONFIG.TASK_ID_COLUMN, sourceLastRow - 1, 1)
+      .getDisplayValues();
+    for (var sourceIndex = 0; sourceIndex < sourceIds.length; sourceIndex += 1) {
+      var sourceTaskId = String(sourceIds[sourceIndex][0] || "").trim();
+      if (sourceTaskId) currentRowByTaskId[sourceTaskId] = sourceIndex + 2;
+    }
+  }
+
+  var logLastRow = logSheet.getLastRow();
+  if (logLastRow < 2) return { ok: true, updatedRows: 0, missingTasks: 0 };
+
+  var logRowCount = logLastRow - 1;
+  var logTaskAndRows = logSheet.getRange(2, 3, logRowCount, 2).getDisplayValues();
+  var currentRowValues = [];
+  var updatedRows = 0;
+  var missingTasks = 0;
+  for (var logIndex = 0; logIndex < logTaskAndRows.length; logIndex += 1) {
+    var logTaskId = String(logTaskAndRows[logIndex][0] || "").trim();
+    var previousRow = String(logTaskAndRows[logIndex][1] || "");
+    var currentRow = currentRowByTaskId[logTaskId];
+    if (!currentRow) {
+      currentRowValues.push([previousRow]);
+      if (logTaskId) missingTasks += 1;
+      continue;
+    }
+    currentRowValues.push([currentRow]);
+    if (String(currentRow) !== previousRow) updatedRows += 1;
+  }
+  if (updatedRows > 0) {
+    logSheet.getRange(2, 4, logRowCount, 1).setValues(currentRowValues);
+  }
+  return { ok: true, updatedRows: updatedRows, missingTasks: missingTasks };
 }
 
 function getSheetById_(book, sheetId) {
@@ -500,6 +616,18 @@ function ensureEditTrigger_() {
     ScriptApp.newTrigger("onTrackedEdit")
       .forSpreadsheet(TRACKING_CONFIG.SOURCE_SPREADSHEET_ID)
       .onEdit()
+      .create();
+  }
+}
+
+function ensureStructureTrigger_() {
+  var exists = ScriptApp.getProjectTriggers().some(function(trigger) {
+    return trigger.getHandlerFunction() === "onTrackedStructureChange";
+  });
+  if (!exists) {
+    ScriptApp.newTrigger("onTrackedStructureChange")
+      .forSpreadsheet(TRACKING_CONFIG.SOURCE_SPREADSHEET_ID)
+      .onChange()
       .create();
   }
 }

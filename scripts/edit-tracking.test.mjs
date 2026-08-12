@@ -16,6 +16,7 @@ test("normalizeEditEvent strips editor identity and keeps public fields", () => 
   const event = normalizeEditEvent({
     eventId: "e1",
     taskId: "task-10",
+    row: 10,
     column: "c",
     action: "edit",
     editedAt: "2026-08-12T10:00:00.000Z",
@@ -27,6 +28,24 @@ test("normalizeEditEvent strips editor identity and keeps public fields", () => 
   assert.equal(event.column, "C");
   assert.equal(event.field, "NỘI DUNG ORDER");
   assert.equal(event.editorEmail, undefined);
+  assert.equal(event.eventRow, 10);
+});
+
+test("normalizeEditEvent keeps current row separate from row at edit time", () => {
+  const event = normalizeEditEvent({
+    eventId: "event-2",
+    taskId: "task-10",
+    row: 776,
+    eventRow: 775,
+    column: "C",
+    action: "EDIT",
+    revision: 2,
+    oldValue: "Cu",
+    newValue: "Moi",
+    editedAt: "2026-08-12T03:00:00.000Z"
+  });
+  assert.equal(event.row, 776);
+  assert.equal(event.eventRow, 775);
 });
 
 test("editEventsFromPayload accepts Apps Script response envelope", () => {
