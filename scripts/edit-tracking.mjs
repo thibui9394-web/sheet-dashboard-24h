@@ -111,3 +111,72 @@ export function flattenSnapshotHistory(snapshot) {
   if (!source || typeof source !== "object") return [];
   return Object.values(source).flatMap((events) => Array.isArray(events) ? events : []);
 }
+
+function comparableValue(value) {
+  return cleanText(value).replace(/\r\n/g, "\n").trim();
+}
+
+/**
+ * Du phong khi API Log bi tre hoac chua duoc cau hinh: so sanh snapshot cu/moi
+ * de Dashboard khong bo sot thay doi o hai cot dang theo doi.
+ */
+export function inferSnapshotEditEvents(
+  previousRecords,
+  currentRecords,
+  rawEvents,
+  editedAt = new Date().toISOString()
+) {
+  const events = (rawEvents || []).map(normalizeEditEvent).filter(Boolean);
+  const previousByTaskId = new Map(
+    (previousRecords || [])
+      .filter((record) => cleanText(record?.taskId).trim())
+      .map((record) => [cleanText(record.taskId).trim(), record])
+  );
+  const trackedFields = [
+    { column: "C", field: "NỘI DUNG ORDER", property: "detail" },
+    { column: "J", field: "NGÀY ORDER", property: "orderDate" }
+  ];
+
+  for (const current of currentRecords || []) {
+    const taskId = cleanText(current?.taskId).trim();
+    const previous = previousByTaskId.get(taskId);
+    if (!taskId || !previous) continue;
+
+    for (const tracked of trackedFields) {
+      const oldValue = cleanText(previous[tracked.property]);
+      const newValue = cleanText(current[tracked.property]);
+      if (oldValue === newValue) continue;
+
+      const alreadyTracked = events.some((event) =>
+        event.taskId === taskId &&
+        event.column === tracked.column &&
+        comparableValue(event.oldValue) === comparableValue(oldValue) &&
+        comparableValue(event.newValue) === comparableValue(newValue)
+      );
+      if (alreadyTracked) continue;
+
+      const previousRevision = events
+        .filter((event) => event.taskId === taskId && event.column === tracked.column)
+        .reduce((max, event) => Math.max(max, cleanInteger(event.revision, 0)), 0);
+      const action = newValue === "" ? "CLEAR" : oldValue === "" ? "INITIAL" : "EDIT";
+      const revision = action === "INITIAL" ? previousRevision : previousRevision + 1;
+
+      events.push({
+        eventId: `snapshot:${taskId}:${tracked.column}:${editedAt}`,
+        batchId: "snapshot-diff",
+        taskId,
+        row: cleanInteger(current.row, 0),
+        eventRow: cleanInteger(current.row, 0),
+        column: tracked.column,
+        field: tracked.field,
+        action,
+        revision,
+        oldValue,
+        newValue,
+        editedAt
+      });
+    }
+  }
+
+  return events;
+}

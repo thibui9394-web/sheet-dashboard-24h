@@ -180,6 +180,7 @@ function onTrackedEdit(e) {
     }
 
     if (logRows.length > 0) {
+      ensureRowCapacity_(logSheet, logSheet.getLastRow() + logRows.length);
       logSheet.getRange(logSheet.getLastRow() + 1, 1, logRows.length, LOG_HEADERS.length).setValues(logRows);
       writeStateMap_(stateSheet, stateMap);
     }
@@ -541,6 +542,12 @@ function ensureSheet_(book, name, headers) {
     }
   }
   return sheet;
+}
+
+function ensureRowCapacity_(sheet, requiredLastRow) {
+  var maxRows = sheet.getMaxRows();
+  if (requiredLastRow <= maxRows) return;
+  sheet.insertRowsAfter(maxRows, Math.max(requiredLastRow - maxRows, 100));
 }
 
 function migrateLogSheet_(sheet, headers) {

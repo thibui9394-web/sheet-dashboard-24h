@@ -5,7 +5,8 @@ import { getProductionMonth, statusKey } from "../dashboard-domain.js";
 import {
   buildEditTracking,
   editEventsFromPayload,
-  flattenSnapshotHistory
+  flattenSnapshotHistory,
+  inferSnapshotEditEvents
 } from "./edit-tracking.mjs";
 
 const SHEET_ID = process.env.SHEET_ID || "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM";
@@ -595,7 +596,12 @@ async function main() {
     loadActiveMonthRecords(previousSnapshot, activeMonth),
     fetchEditEvents(previousSnapshot)
   ]);
-  const snapshot = buildSnapshot(records, updateMode, activeMonth, activeRangeStartRow, editEvents);
+  const completeEditEvents = inferSnapshotEditEvents(
+    previousSnapshot?.records,
+    records,
+    editEvents
+  );
+  const snapshot = buildSnapshot(records, updateMode, activeMonth, activeRangeStartRow, completeEditEvents);
 
   await writeFile(snapshotPath, `${JSON.stringify(snapshot, null, 2)}\n`, "utf8");
 

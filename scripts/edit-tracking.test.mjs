@@ -4,6 +4,7 @@ import {
   buildEditTracking,
   editEventsFromPayload,
   flattenSnapshotHistory,
+  inferSnapshotEditEvents,
   normalizeEditEvent
 } from "./edit-tracking.mjs";
 
@@ -95,4 +96,62 @@ test("buildEditTracking does not publish baseline-only task history", () => {
 test("flattenSnapshotHistory preserves history when API is not configured", () => {
   const events = [{ taskId: "task-10", column: "C", action: "EDIT", editedAt: "2026-08-12T10:00:00.000Z" }];
   assert.deepEqual(flattenSnapshotHistory({ editHistory: { "task-10": events } }), events);
+});
+
+test("inferSnapshotEditEvents records a missed content edit", () => {
+  const events = inferSnapshotEditEvents(
+    [{ row: 10, taskId: "task-10", detail: "Test", orderDate: "2026-08-01" }],
+    [{ row: 10, taskId: "task-10", detail: "Test 2", orderDate: "2026-08-01" }],
+    [{
+      eventId: "first-edit",
+      taskId: "task-10",
+      row: 10,
+      column: "C",
+      action: "EDIT",
+      revision: 1,
+      oldValue: "Original",
+      newValue: "Test",
+      editedAt: "2026-08-12T03:54:12.057Z"
+    }],
+    "2026-08-12T04:42:02.000Z"
+  );
+
+  assert.equal(events.length, 2);
+  assert.deepEqual(events[1], {
+    eventId: "snapshot:task-10:C:2026-08-12T04:42:02.000Z",
+    batchId: "snapshot-diff",
+    taskId: "task-10",
+    row: 10,
+    eventRow: 10,
+    column: "C",
+    field: "NỘI DUNG ORDER",
+    action: "EDIT",
+    revision: 2,
+    oldValue: "Test",
+    newValue: "Test 2",
+    editedAt: "2026-08-12T04:42:02.000Z"
+  });
+});
+
+test("inferSnapshotEditEvents does not duplicate an API event", () => {
+  const event = {
+    eventId: "api-edit",
+    taskId: "task-10",
+    row: 10,
+    column: "C",
+    action: "EDIT",
+    revision: 2,
+    oldValue: "Test\n",
+    newValue: "Test 2\n",
+    editedAt: "2026-08-12T04:42:02.000Z"
+  };
+  const events = inferSnapshotEditEvents(
+    [{ row: 10, taskId: "task-10", detail: "Test", orderDate: "2026-08-01" }],
+    [{ row: 10, taskId: "task-10", detail: "Test 2", orderDate: "2026-08-01" }],
+    [event],
+    "2026-08-12T04:45:00.000Z"
+  );
+
+  assert.equal(events.length, 1);
+  assert.equal(events[0].eventId, "api-edit");
 });

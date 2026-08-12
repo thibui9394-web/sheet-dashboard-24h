@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-08-12T04:42:48.206Z",
+    "generatedAt": "2026-08-12T04:45:13.834Z",
     "timezone": "Asia/Ho_Chi_Minh",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -23,7 +23,7 @@
       "enabled": true,
       "trackedTaskCount": 3,
       "editedTaskCount": 3,
-      "totalEditCount": 3
+      "totalEditCount": 4
     }
   },
   "overview": {
@@ -14354,11 +14354,11 @@
       "weekOfMonth": 1,
       "detail": "INSIDEMEN - TRI ÂN test 2\n- Frame tri ân - hình ảnh đại diện sản phẩm tại webiste - phần frame, bỏ giá sản phẩm và chữ mua ngay - chỉ chạy ảnh frame - k bao gồm giá, mã sản phẩm, chữ mua ngay. \nZ:\\Insidemen\\2026\\Tháng 7\\7_29_Frame\n- Danh sách sản phẩm tại đây: https://docs.google.com/spreadsheets/d/10kDVK26N7GJ771PW1fkl_MuVgOlCxumY/edit?usp=sharing&ouid=102359365888250622780&rtpof=true&sd=true",
       "editSummary": {
-        "editCount": 1,
-        "contentEditCount": 1,
+        "editCount": 2,
+        "contentEditCount": 2,
         "dateEditCount": 0,
         "hasDateChange": false,
-        "lastEditedAt": "2026-08-12T03:54:12.057Z"
+        "lastEditedAt": "2026-08-12T04:42:02.000Z"
       }
     },
     {
@@ -15461,11 +15461,11 @@
       "weekOfMonth": 1,
       "detail": "INSIDEMEN - TRI ÂN test 2\n- Frame tri ân - hình ảnh đại diện sản phẩm tại webiste - phần frame, bỏ giá sản phẩm và chữ mua ngay - chỉ chạy ảnh frame - k bao gồm giá, mã sản phẩm, chữ mua ngay. \nZ:\\Insidemen\\2026\\Tháng 7\\7_29_Frame\n- Danh sách sản phẩm tại đây: https://docs.google.com/spreadsheets/d/10kDVK26N7GJ771PW1fkl_MuVgOlCxumY/edit?usp=sharing&ouid=102359365888250622780&rtpof=true&sd=true",
       "editSummary": {
-        "editCount": 1,
-        "contentEditCount": 1,
+        "editCount": 2,
+        "contentEditCount": 2,
         "dateEditCount": 0,
         "hasDateChange": false,
-        "lastEditedAt": "2026-08-12T03:54:12.057Z"
+        "lastEditedAt": "2026-08-12T04:42:02.000Z"
       }
     },
     {
@@ -18580,6 +18580,20 @@
       }
     ],
     "7502eb97-d056-49c4-872a-d481afc51e70": [
+      {
+        "eventId": "snapshot:7502eb97-d056-49c4-872a-d481afc51e70:C:2026-08-12T04:42:02.000Z",
+        "batchId": "snapshot-diff",
+        "taskId": "7502eb97-d056-49c4-872a-d481afc51e70",
+        "row": 786,
+        "eventRow": 786,
+        "column": "C",
+        "field": "NỘI DUNG ORDER",
+        "action": "EDIT",
+        "revision": 2,
+        "oldValue": "INSIDEMEN - TRI ÂN test\n- Frame tri ân - hình ảnh đại diện sản phẩm tại webiste - phần frame, bỏ giá sản phẩm và chữ mua ngay - chỉ chạy ảnh frame - k bao gồm giá, mã sản phẩm, chữ mua ngay. \nZ:\\Insidemen\\2026\\Tháng 7\\7_29_Frame\n- Danh sách sản phẩm tại đây: https://docs.google.com/spreadsheets/d/10kDVK26N7GJ771PW1fkl_MuVgOlCxumY/edit?usp=sharing&ouid=102359365888250622780&rtpof=true&sd=true",
+        "newValue": "INSIDEMEN - TRI ÂN test 2\n- Frame tri ân - hình ảnh đại diện sản phẩm tại webiste - phần frame, bỏ giá sản phẩm và chữ mua ngay - chỉ chạy ảnh frame - k bao gồm giá, mã sản phẩm, chữ mua ngay. \nZ:\\Insidemen\\2026\\Tháng 7\\7_29_Frame\n- Danh sách sản phẩm tại đây: https://docs.google.com/spreadsheets/d/10kDVK26N7GJ771PW1fkl_MuVgOlCxumY/edit?usp=sharing&ouid=102359365888250622780&rtpof=true&sd=true",
+        "editedAt": "2026-08-12T04:42:02.000Z"
+      },
       {
         "eventId": "3e18c802-37fd-423d-8d47-7dd26b3ca075",
         "batchId": "31adc010-b23c-4f18-91b7-174074421223",
