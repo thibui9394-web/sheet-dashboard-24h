@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-08-12T07:49:58.263Z",
+    "generatedAt": "2026-08-12T07:53:34.241Z",
     "timezone": "Asia/Ho_Chi_Minh",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -32,7 +32,7 @@
       "missingApiEventCount": 0,
       "missingConfirmedEventCount": 0,
       "message": "Không tải được Log mới; lịch sử đang giữ bản gần nhất.",
-      "trackedTaskCount": 8,
+      "trackedTaskCount": 4,
       "editedTaskCount": 4,
       "totalEditCount": 6,
       "recoveryTaskCount": 0,
