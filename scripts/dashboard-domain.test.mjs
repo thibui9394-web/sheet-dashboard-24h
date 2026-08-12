@@ -26,7 +26,7 @@ const completedInAugust = {
   weekOfMonth: 4
 };
 
-test("task hoan thanh chi tinh san luong vao thang hoan thanh", () => {
+test("task hoan thanh giu trang thai va ngay, chi tinh san luong vao thang hoan thanh", () => {
   const options = { currentMonth: "2026-08", currentWeek: 2 };
   const june = deriveRecordForMonth(completedInAugust, "2026-06", options);
   const july = deriveRecordForMonth(completedInAugust, "2026-07", options);
@@ -34,11 +34,14 @@ test("task hoan thanh chi tinh san luong vao thang hoan thanh", () => {
   const september = deriveRecordForMonth(completedInAugust, "2026-09", options);
 
   assert.equal(june.trackingOnly, true);
-  assert.equal(june.status, "Đang thực hiện");
+  assert.equal(june.status, "Hoàn thành");
   assert.equal(june.quantity, 0);
+  assert.equal(june.customLabel, "05/08");
 
   assert.equal(july.trackingOnly, true);
+  assert.equal(july.status, "Hoàn thành");
   assert.equal(july.quantity, 0);
+  assert.equal(july.customLabel, "05/08");
 
   assert.equal(august.trackingOnly, false);
   assert.equal(august.status, "Hoàn thành");

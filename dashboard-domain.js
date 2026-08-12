@@ -88,7 +88,8 @@ function completionWeek(record) {
  * Chuyển một record gốc thành record hiệu lực cho scope đang xem.
  *
  * Quy tắc:
- * - Hoàn thành: sản lượng chỉ thuộc tháng hoàn thành.
+ * - Hoàn thành: giữ trạng thái và ngày hoàn thành ở mọi tháng task tồn tại,
+ *   nhưng sản lượng chỉ thuộc tháng hoàn thành.
  * - Đang thực hiện: sản lượng thuộc tháng hiện tại.
  * - Pending/Cancel: không tính sản lượng.
  * - Các tháng trước chỉ giữ dấu task tồn với quantity = 0.
@@ -118,7 +119,6 @@ export function deriveRecordForMonth(record, viewingMonth, options = {}) {
       ) {
         include = true;
         trackingOnly = true;
-        effectiveKey = "inProgress";
         quantity = 0;
       }
     } else if (key === "inProgress") {
