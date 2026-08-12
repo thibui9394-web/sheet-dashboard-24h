@@ -535,8 +535,8 @@ function openHistory(row) {
   historySummaryEl.innerHTML = "";
   [
     ["Tổng lần sửa", summary.editCount || 0],
-    ["Cột C", summary.contentEditCount || 0],
-    ["Cột J", summary.dateEditCount || 0]
+    ["NỘI DUNG ORDER", summary.contentEditCount || 0],
+    ["NGÀY ORDER", summary.dateEditCount || 0]
   ].forEach(([label, value]) => historySummaryEl.appendChild(createMetric(label, value)));
 
   historyTimelineEl.innerHTML = "";
