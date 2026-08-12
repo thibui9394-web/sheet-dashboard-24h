@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-08-12T08:52:47.178Z",
+    "generatedAt": "2026-08-12T08:54:24.726Z",
     "timezone": "Asia/Ho_Chi_Minh",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -23,20 +23,20 @@
       "enabled": true,
       "state": "warning",
       "source": "edit-log-api",
-      "fetchedAt": "2026-08-12T08:52:47.137Z",
-      "lastSuccessfulAt": "2026-08-12T08:52:47.137Z",
-      "apiEventCount": 1633,
+      "fetchedAt": "2026-08-12T08:54:24.683Z",
+      "lastSuccessfulAt": "2026-08-12T08:54:24.683Z",
+      "apiEventCount": 1634,
       "apiConfirmedEventCount": 1607,
       "previousApiEventCount": 1633,
       "previousConfirmedEventCount": 1607,
       "missingApiEventCount": 0,
       "missingConfirmedEventCount": 0,
-      "message": "7 thay đổi được phát hiện từ Sheet nhưng chưa có sự kiện Log tương ứng.",
+      "message": "8 thay đổi được phát hiện từ Sheet nhưng chưa có sự kiện Log tương ứng.",
       "trackedTaskCount": 802,
       "editedTaskCount": 6,
       "totalEditCount": 11,
-      "recoveryTaskCount": 3,
-      "recoveryEventCount": 7
+      "recoveryTaskCount": 4,
+      "recoveryEventCount": 8
     }
   },
   "overview": {
@@ -47,8 +47,8 @@
     "completedQuantity": 31517,
     "inProgressTasks": 1,
     "inProgressQuantity": 0,
-    "canceledTasks": 43,
-    "pendingTasks": 14,
+    "canceledTasks": 44,
+    "pendingTasks": 13,
     "missingQuantityTasks": 22,
     "missingQuantityRows": [
       150,
@@ -76,8 +76,8 @@
     ],
     "byStatusTasks": {
       "Hoàn thành": 744,
-      "Cancel": 43,
-      "(trong)": 14,
+      "Cancel": 44,
+      "(trong)": 13,
       "Đang thực hiện": 1
     },
     "byCategoryQty": {
@@ -5127,15 +5127,23 @@
       "personVideo": "",
       "channel": "WEB ARISTINO",
       "category": "HÌNH ẢNH",
-      "status": "(trong)",
+      "status": "Cancel",
       "quantity": 12,
       "qtyHinh": 12,
       "qtyVideo": 0,
-      "month": "2026-05",
-      "orderDate": "2026-05-02",
+      "month": "2026-02",
+      "orderDate": "2026-02-05",
       "completionDate": "",
       "weekOfMonth": 1,
-      "detail": "Thiết kế banner collection cho các mục:\n1. Áo khoác\n2. Áo polo ngắn tay\n3. Áo thun\n4. Áo tanktop\n5. Áo Nỉ Sweatshirt\n6. Quần Kaki\n7. Quần thể thao\n8. Quần Jeans\n9. Quần short\n10. Quần âu\n11. Bộ Suits\n12. Áo sơ mi (làm lại)\nhttps://www.figma.com/design/DqtIWnDLsnSStIzivYCJuQ/Untitled?node-id=0-1&t=8LuJlDz1yfIYhxOj-1"
+      "detail": "Thiết kế banner collection cho các mục:\n1. Áo khoác\n2. Áo polo ngắn tay\n3. Áo thun\n4. Áo tanktop\n5. Áo Nỉ Sweatshirt\n6. Quần Kaki\n7. Quần thể thao\n8. Quần Jeans\n9. Quần short\n10. Quần âu\n11. Bộ Suits\n12. Áo sơ mi (làm lại)\nhttps://www.figma.com/design/DqtIWnDLsnSStIzivYCJuQ/Untitled?node-id=0-1&t=8LuJlDz1yfIYhxOj-1",
+      "editSummary": {
+        "editCount": 0,
+        "contentEditCount": 0,
+        "dateEditCount": 0,
+        "recoveryCount": 1,
+        "hasDateChange": false,
+        "lastEditedAt": "2026-08-12T08:53:49.436Z"
+      }
     },
     {
       "row": 267,
@@ -19004,6 +19012,59 @@
         "revision": 0,
         "oldValue": "",
         "newValue": "Thay Frame Shopee Business 15/1, nếu tiện thì chạy giúp e frame 25/1 luôn ạ, ảnh tại link:\n\nChạy frame business 15/1 + 25/1",
+        "editedAt": "2026-08-12T02:36:41.042Z",
+        "source": "legacy_import",
+        "status": "confirmed",
+        "isRecovery": false
+      }
+    ],
+    "24f76117-6ad7-4aeb-8198-3219a57f9883": [
+      {
+        "eventId": "evt_38ad08c8c532a9babb14a110b3ea354a",
+        "batchId": "reconcile:76b63fc8-6be0-4dcb-a4f5-ab5ff19cb1a1",
+        "taskId": "24f76117-6ad7-4aeb-8198-3219a57f9883",
+        "row": 266,
+        "eventRow": 266,
+        "column": "J",
+        "field": "NGÀY ORDER",
+        "action": "EDIT",
+        "revision": 5,
+        "oldValue": "2026-05-02",
+        "newValue": "2026-02-05",
+        "editedAt": "2026-08-12T08:53:49.436Z",
+        "source": "snapshot-recovery",
+        "status": "recovery",
+        "isRecovery": true
+      },
+      {
+        "eventId": "bd008d64-1b18-47a6-9341-5d0890409a4e",
+        "batchId": "setup",
+        "taskId": "24f76117-6ad7-4aeb-8198-3219a57f9883",
+        "row": 266,
+        "eventRow": 266,
+        "column": "C",
+        "field": "NỘI DUNG ORDER",
+        "action": "BASELINE",
+        "revision": 0,
+        "oldValue": "",
+        "newValue": "Thiết kế banner collection cho các mục:\n1. Áo khoác\n2. Áo polo ngắn tay\n3. Áo thun\n4. Áo tanktop\n5. Áo Nỉ Sweatshirt\n6. Quần Kaki\n7. Quần thể thao\n8. Quần Jeans\n9. Quần short\n10. Quần âu\n11. Bộ Suits\n12. Áo sơ mi (làm lại)\nhttps://www.figma.com/design/DqtIWnDLsnSStIzivYCJuQ/Untitled?node-id=0-1&t=8LuJlDz1yfIYhxOj-1",
+        "editedAt": "2026-08-12T02:36:41.042Z",
+        "source": "legacy_import",
+        "status": "confirmed",
+        "isRecovery": false
+      },
+      {
+        "eventId": "8c99bf51-46be-43c4-a004-608229cd4b08",
+        "batchId": "setup",
+        "taskId": "24f76117-6ad7-4aeb-8198-3219a57f9883",
+        "row": 266,
+        "eventRow": 266,
+        "column": "J",
+        "field": "NGÀY ORDER",
+        "action": "BASELINE",
+        "revision": 0,
+        "oldValue": "",
+        "newValue": "2026-05-02",
         "editedAt": "2026-08-12T02:36:41.042Z",
         "source": "legacy_import",
         "status": "confirmed",
