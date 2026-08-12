@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-08-12T04:29:36.844Z",
+    "generatedAt": "2026-08-12T04:42:48.206Z",
     "timezone": "Asia/Ho_Chi_Minh",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -8,7 +8,7 @@
       "gid": "131891982"
     },
     "incremental": {
-      "mode": "full-forced",
+      "mode": "full-open-tasks",
       "activeMonth": "2026-08",
       "activeRangeStartRow": 785,
       "sheetMaxColumn": "AA"
@@ -14352,7 +14352,7 @@
       "orderDate": "2026-08-03",
       "completionDate": "2026-08-04",
       "weekOfMonth": 1,
-      "detail": "INSIDEMEN - TRI ÂN test\n- Frame tri ân - hình ảnh đại diện sản phẩm tại webiste - phần frame, bỏ giá sản phẩm và chữ mua ngay - chỉ chạy ảnh frame - k bao gồm giá, mã sản phẩm, chữ mua ngay. \nZ:\\Insidemen\\2026\\Tháng 7\\7_29_Frame\n- Danh sách sản phẩm tại đây: https://docs.google.com/spreadsheets/d/10kDVK26N7GJ771PW1fkl_MuVgOlCxumY/edit?usp=sharing&ouid=102359365888250622780&rtpof=true&sd=true",
+      "detail": "INSIDEMEN - TRI ÂN test 2\n- Frame tri ân - hình ảnh đại diện sản phẩm tại webiste - phần frame, bỏ giá sản phẩm và chữ mua ngay - chỉ chạy ảnh frame - k bao gồm giá, mã sản phẩm, chữ mua ngay. \nZ:\\Insidemen\\2026\\Tháng 7\\7_29_Frame\n- Danh sách sản phẩm tại đây: https://docs.google.com/spreadsheets/d/10kDVK26N7GJ771PW1fkl_MuVgOlCxumY/edit?usp=sharing&ouid=102359365888250622780&rtpof=true&sd=true",
       "editSummary": {
         "editCount": 1,
         "contentEditCount": 1,
@@ -15459,7 +15459,14 @@
       "orderDate": "2026-08-03",
       "completionDate": "2026-08-04",
       "weekOfMonth": 1,
-      "detail": "INSIDEMEN - TRI ÂN test\n- Frame tri ân - hình ảnh đại diện sản phẩm tại webiste - phần frame, bỏ giá sản phẩm và chữ mua ngay - chỉ chạy ảnh frame - k bao gồm giá, mã sản phẩm, chữ mua ngay. \nZ:\\Insidemen\\2026\\Tháng 7\\7_29_Frame\n- Danh sách sản phẩm tại đây: https://docs.google.com/spreadsheets/d/10kDVK26N7GJ771PW1fkl_MuVgOlCxumY/edit?usp=sharing&ouid=102359365888250622780&rtpof=true&sd=true"
+      "detail": "INSIDEMEN - TRI ÂN test 2\n- Frame tri ân - hình ảnh đại diện sản phẩm tại webiste - phần frame, bỏ giá sản phẩm và chữ mua ngay - chỉ chạy ảnh frame - k bao gồm giá, mã sản phẩm, chữ mua ngay. \nZ:\\Insidemen\\2026\\Tháng 7\\7_29_Frame\n- Danh sách sản phẩm tại đây: https://docs.google.com/spreadsheets/d/10kDVK26N7GJ771PW1fkl_MuVgOlCxumY/edit?usp=sharing&ouid=102359365888250622780&rtpof=true&sd=true",
+      "editSummary": {
+        "editCount": 1,
+        "contentEditCount": 1,
+        "dateEditCount": 0,
+        "hasDateChange": false,
+        "lastEditedAt": "2026-08-12T03:54:12.057Z"
+      }
     },
     {
       "row": 785,
