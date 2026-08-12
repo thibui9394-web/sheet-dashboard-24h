@@ -134,6 +134,44 @@ test("mergeEditEvents preserves repeated A to B and revert transitions with dist
   assert.deepEqual(merged.map((event) => event.revision), [1, 2, 3]);
 });
 
+test("mergeEditEvents removes proven month-day normalization artifacts", () => {
+  const baseline = edit({
+    eventId: "baseline-date",
+    column: "J",
+    action: "BASELINE",
+    revision: 0,
+    oldValue: "",
+    newValue: "2026-08-04"
+  });
+  const artifact = edit({
+    eventId: "recovery-date-artifact",
+    column: "J",
+    action: "EDIT",
+    revision: 1,
+    oldValue: "2026-04-08",
+    newValue: "2026-08-04",
+    source: "snapshot-recovery",
+    trackingStatus: "recovery",
+    isRecovery: true
+  });
+  const realRecovery = edit({
+    eventId: "recovery-real-date",
+    column: "J",
+    action: "EDIT",
+    revision: 2,
+    oldValue: "2026-08-03",
+    newValue: "2026-08-04",
+    source: "snapshot-recovery",
+    trackingStatus: "recovery",
+    isRecovery: true
+  });
+
+  assert.deepEqual(
+    mergeEditEvents([], [baseline, artifact, realRecovery]).map((item) => item.eventId),
+    ["baseline-date", "recovery-real-date"]
+  );
+});
+
 test("mergeEditEvents replaces a matching recovery placeholder with confirmed event", () => {
   const recovery = edit({
     eventId: "recovery:task-10:C:t",

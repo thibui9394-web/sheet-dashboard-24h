@@ -152,6 +152,31 @@ function transitionKey(event) {
   ].join("\u0000");
 }
 
+function transposedMonthDay(first, second) {
+  const left = cleanText(first).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  const right = cleanText(second).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!left || !right || first === second) return false;
+  return left[1] === right[1] && left[2] === right[3] && left[3] === right[2];
+}
+
+function removeLegacyDateNormalizationArtifacts(events) {
+  const baselineDates = new Map();
+  for (const event of events) {
+    if (event.isRecovery || event.column !== "J" || event.action !== "BASELINE") continue;
+    baselineDates.set(event.taskId, comparableValue("J", event.newValue));
+  }
+  return events.filter((event) => {
+    if (!event.isRecovery || event.column !== "J" || event.action !== "EDIT") return true;
+    const baseline = baselineDates.get(event.taskId);
+    const oldValue = comparableValue("J", event.oldValue);
+    const newValue = comparableValue("J", event.newValue);
+    // Early v3 migration let Sheets reinterpret ISO dates as locale dates in
+    // Tracking_State. The telltale event returns from M/D-swapped ISO back to
+    // the unchanged confirmed baseline. It is normalization noise, not an edit.
+    return !(baseline && newValue === baseline && transposedMonthDay(oldValue, newValue));
+  });
+}
+
 /**
  * Merge an existing snapshot history with a potentially partial API payload.
  * A real event ID is the identity boundary: distinct IDs are never collapsed
@@ -184,14 +209,15 @@ export function mergeEditEvents(previousEvents, apiEvents) {
   // A recovery placeholder is removed only when an official event with the
   // same revision and transition arrives. Official events with different IDs
   // remain distinct, including repeated and reverted transitions.
+  const cleaned = removeLegacyDateNormalizationArtifacts(merged);
   const confirmedTransitions = new Set(
-    merged
+    cleaned
       .filter((event) => !event.isRecovery)
       .map(transitionKey)
       .filter(Boolean)
   );
   const recoveryTransitions = new Set();
-  return merged
+  return cleaned
     .sort(eventSort)
     .filter((event) => {
       if (!event.isRecovery) return true;
