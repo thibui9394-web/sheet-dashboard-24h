@@ -398,6 +398,20 @@ function syncCurrentRows() {
   return reconcileCurrentRowsWithLabel_("MANUAL_RECONCILE");
 }
 
+/** Tu kiem tra doGet bang token noi bo ma khong in/tra token ra log. */
+function selfTestTrackingApi() {
+  var token = PropertiesService.getScriptProperties().getProperty("API_TOKEN") || "";
+  var payload = JSON.parse(doGet({ parameter: { token: token } }).getContent());
+  var result = {
+    ok: payload.ok === true,
+    version: payload.version || 0,
+    eventCount: Array.isArray(payload.events) ? payload.events.length : 0,
+    trackingHealth: payload.trackingHealth || null
+  };
+  console.log("API_SELF_TEST=" + JSON.stringify(result));
+  return result;
+}
+
 function reconcileCurrentRowsWithLabel_(sourceLabel) {
   var lock = LockService.getScriptLock();
   lock.waitLock(30000);
