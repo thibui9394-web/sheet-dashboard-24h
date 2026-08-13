@@ -248,10 +248,9 @@ button {
 }
 
 .week-task-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
   gap: 6px;
   margin-bottom: 6px;
 }
@@ -680,7 +679,21 @@ tbody tr:hover {
 .week-task-badges {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 6px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.week-task-head > .task-delay-label {
+  margin-left: 0;
+}
+
+.week-task-badges > .task-edit-badge {
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: left;
 }
 
 .task-debt-badge {
