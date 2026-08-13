@@ -665,7 +665,6 @@ function createTaskItem(row) {
     badgesGroup.appendChild(debtBadge);
   }
   const editBadge = createEditBadge(row);
-  if (editBadge) badgesGroup.appendChild(editBadge);
   head.appendChild(badgesGroup);
 
   if (row.customLabel) {
@@ -675,6 +674,8 @@ function createTaskItem(row) {
     labelSpan.textContent = row.customLabel;
     head.appendChild(labelSpan);
   }
+
+  if (editBadge) head.appendChild(editBadge);
 
   const detail = document.createElement("p");
   detail.className = "week-task-detail";

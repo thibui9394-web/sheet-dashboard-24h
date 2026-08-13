@@ -689,7 +689,9 @@ tbody tr:hover {
   margin-left: 0;
 }
 
-.week-task-badges > .task-edit-badge {
+.week-task-head > .task-edit-badge {
+  grid-column: 1 / -1;
+  justify-self: start;
   max-width: 100%;
   white-space: normal;
   overflow-wrap: anywhere;
