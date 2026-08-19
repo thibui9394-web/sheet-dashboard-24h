@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2026-08-19T02:20:17.225Z",
+    "generatedAt": "2026-08-19T02:22:42.158Z",
     "timezone": "Asia/Ho_Chi_Minh",
     "source": {
       "sheetId": "1QQ-FGthecJ9bl-XlwDU17ZiD8b47ilJuUs1bSkgpYvM",
@@ -18,13 +18,13 @@
         "91a3a6e9-ce7a-4de8-af24-d74fd515d337"
       ]
     },
-    "totalRecords": 806,
+    "totalRecords": 805,
     "editTracking": {
       "enabled": true,
       "state": "warning",
       "source": "edit-log-api",
-      "fetchedAt": "2026-08-19T02:20:17.187Z",
-      "lastSuccessfulAt": "2026-08-19T02:20:17.187Z",
+      "fetchedAt": "2026-08-19T02:22:42.118Z",
+      "lastSuccessfulAt": "2026-08-19T02:22:42.118Z",
       "apiEventCount": 1645,
       "apiConfirmedEventCount": 1616,
       "previousApiEventCount": 1645,
@@ -32,7 +32,7 @@
       "missingApiEventCount": 0,
       "missingConfirmedEventCount": 0,
       "message": "10 thay đổi được phát hiện từ Sheet nhưng chưa có sự kiện Log tương ứng.",
-      "trackedTaskCount": 806,
+      "trackedTaskCount": 805,
       "editedTaskCount": 9,
       "totalEditCount": 15,
       "recoveryTaskCount": 6,
@@ -40,16 +40,16 @@
     }
   },
   "overview": {
-    "tasks": 806,
+    "tasks": 805,
     "quantity": 31523,
-    "avgQuantityPerTask": 39.11,
+    "avgQuantityPerTask": 39.16,
     "completedTasks": 748,
     "completedQuantity": 31523,
     "inProgressTasks": 0,
     "inProgressQuantity": 0,
     "canceledTasks": 44,
-    "pendingTasks": 14,
-    "missingQuantityTasks": 23,
+    "pendingTasks": 13,
+    "missingQuantityTasks": 22,
     "missingQuantityRows": [
       150,
       174,
@@ -72,13 +72,12 @@
       814,
       817,
       818,
-      819,
-      820
+      819
     ],
     "byStatusTasks": {
       "Hoàn thành": 748,
       "Cancel": 44,
-      "(trong)": 14
+      "(trong)": 13
     },
     "byCategoryQty": {
       "HÌNH ẢNH": 26587,
@@ -98,7 +97,7 @@
       "VIDEO": 90,
       "SOCIAL POST": 81,
       "KEY VISUAL": 40,
-      "(trong)": 28,
+      "(trong)": 27,
       "LANDINGPAGE": 20,
       "KEY VISUAL AI": 16,
       "VIDEO AI": 8,
@@ -125,8 +124,7 @@
       "SHOPPE SALINA": 2,
       "ZALO BROADCAST": 1,
       "B2B": 1,
-      "SHOPPE MN": 1,
-      "SHOWROOM": 0
+      "SHOPPE MN": 1
     },
     "byChannelTasks": {
       "FACEBOOK": 264,
@@ -149,8 +147,7 @@
       "WEB SALINA": 1,
       "B2B": 1,
       "SHOPPE MN": 1,
-      "SHOPPE SALINA": 1,
-      "SHOWROOM": 1
+      "SHOPPE SALINA": 1
     },
     "byMonthQty": {
       "2026-01": 10296,
@@ -14964,24 +14961,6 @@
     },
     {
       "row": 818,
-      "taskId": "50657f0d-5b3c-4df8-a3d0-d43f954d76e2",
-      "person": "",
-      "personHinh": "",
-      "personVideo": "",
-      "channel": "SHOWROOM",
-      "category": "(trong)",
-      "status": "(trong)",
-      "quantity": 0,
-      "qtyHinh": 0,
-      "qtyVideo": 0,
-      "month": "(khong ngay)",
-      "orderDate": null,
-      "completionDate": "",
-      "weekOfMonth": null,
-      "detail": "Ảnh GTSP"
-    },
-    {
-      "row": 819,
       "taskId": "4405cd70-7bb2-41ad-aaca-10ab3c0845ba",
       "person": "",
       "personHinh": "",
@@ -15007,7 +14986,7 @@
       }
     },
     {
-      "row": 820,
+      "row": 819,
       "taskId": "fa492e76-8591-4195-b6c6-b3a3f25a5d97",
       "person": "",
       "personHinh": "",
@@ -15035,7 +15014,7 @@
   ],
   "latestRows": [
     {
-      "row": 820,
+      "row": 819,
       "taskId": "fa492e76-8591-4195-b6c6-b3a3f25a5d97",
       "person": "",
       "personHinh": "",
@@ -15061,7 +15040,7 @@
       }
     },
     {
-      "row": 819,
+      "row": 818,
       "taskId": "4405cd70-7bb2-41ad-aaca-10ab3c0845ba",
       "person": "",
       "personHinh": "",
@@ -15085,24 +15064,6 @@
         "hasDateChange": false,
         "lastEditedAt": "2026-08-17T08:27:57.333Z"
       }
-    },
-    {
-      "row": 818,
-      "taskId": "50657f0d-5b3c-4df8-a3d0-d43f954d76e2",
-      "person": "",
-      "personHinh": "",
-      "personVideo": "",
-      "channel": "SHOWROOM",
-      "category": "(trong)",
-      "status": "(trong)",
-      "quantity": 0,
-      "qtyHinh": 0,
-      "qtyVideo": 0,
-      "month": "(khong ngay)",
-      "orderDate": null,
-      "completionDate": "",
-      "weekOfMonth": null,
-      "detail": "Ảnh GTSP"
     },
     {
       "row": 817,
@@ -18705,6 +18666,24 @@
       "completionDate": "",
       "weekOfMonth": 4,
       "detail": "Làm Combo\nCBI005        3\nCBI002EDP01        3\nCBR017        2\nCBR005EDP01        2\nCBI1605        3\nCBR002EDP01        2\nCBI1701        3\nCBI009EDP01        3\nCBI005EDP01        3\nCBR012        2"
+    },
+    {
+      "row": 617,
+      "taskId": "b64e841b-9ad0-44b7-8f0f-705cf5f4c66b",
+      "person": "ẨN",
+      "personHinh": "ẨN",
+      "personVideo": "ẨN",
+      "channel": "TIKTOK MB",
+      "category": "HÌNH ẢNH",
+      "status": "Hoàn thành",
+      "quantity": 2,
+      "qtyHinh": 2,
+      "qtyVideo": 0,
+      "month": "2026-05",
+      "orderDate": "2026-05-28",
+      "completionDate": "",
+      "weekOfMonth": 4,
+      "detail": "LDP ARISTINO x TIKTOKSHOP - SINH NHẬT TIKTOKSHOP\n\nhttps://www.figma.com/board/iaYXq8oFeoc0ppQm83kBPs/Untitled?node-id=347-380&t=HoPrjXKtPSPZK5K0-0"
     }
   ],
   "editHistory": {
@@ -19360,7 +19339,7 @@
         "eventId": "evt_cafbcd708cd25c77835ed9bb753797cd",
         "batchId": "reconcile:cae6765b-94fb-413b-be9e-d7272bc22039",
         "taskId": "4405cd70-7bb2-41ad-aaca-10ab3c0845ba",
-        "row": 819,
+        "row": 818,
         "eventRow": 819,
         "column": "J",
         "field": "NGÀY ORDER",
@@ -19377,7 +19356,7 @@
         "eventId": "evt_3e9a9abc918674ac74eed2ccf55b337e",
         "batchId": "80930218-bc9b-4c52-b199-560322558b44",
         "taskId": "4405cd70-7bb2-41ad-aaca-10ab3c0845ba",
-        "row": 819,
+        "row": 818,
         "eventRow": 819,
         "column": "C",
         "field": "NỘI DUNG ORDER",
@@ -19394,7 +19373,7 @@
         "eventId": "evt_a07412568b9658b308bc8ea5e8b04fd2",
         "batchId": "359a234e-c082-4070-a871-8f0c2f3a32a4",
         "taskId": "4405cd70-7bb2-41ad-aaca-10ab3c0845ba",
-        "row": 819,
+        "row": 818,
         "eventRow": 819,
         "column": "C",
         "field": "NỘI DUNG ORDER",
@@ -19411,7 +19390,7 @@
         "eventId": "evt_ef5bc2a2fe83897e6faac722bf5b97ba",
         "batchId": "a2567bc1-f8d6-4961-a74d-465b34bb15eb",
         "taskId": "4405cd70-7bb2-41ad-aaca-10ab3c0845ba",
-        "row": 819,
+        "row": 818,
         "eventRow": 819,
         "column": "C",
         "field": "NỘI DUNG ORDER",
@@ -19430,7 +19409,7 @@
         "eventId": "evt_99ffedbffcfdeb9b98af3820ce024081",
         "batchId": "reconcile:76d01960-8cbb-4761-9cec-0d521789b9f0",
         "taskId": "fa492e76-8591-4195-b6c6-b3a3f25a5d97",
-        "row": 820,
+        "row": 819,
         "eventRow": 820,
         "column": "J",
         "field": "NGÀY ORDER",
@@ -19447,7 +19426,7 @@
         "eventId": "evt_7ef864e96f6cd62fef80fda7b4d83fce",
         "batchId": "30a399de-87a7-435a-a651-7cef6a57f3a4",
         "taskId": "fa492e76-8591-4195-b6c6-b3a3f25a5d97",
-        "row": 820,
+        "row": 819,
         "eventRow": 820,
         "column": "C",
         "field": "NỘI DUNG ORDER",
@@ -19464,7 +19443,7 @@
         "eventId": "evt_4c8729f062e338eebc5da0349161998c",
         "batchId": "e6d3f825-046e-4c77-9f4d-2353b073b652",
         "taskId": "fa492e76-8591-4195-b6c6-b3a3f25a5d97",
-        "row": 820,
+        "row": 819,
         "eventRow": 820,
         "column": "C",
         "field": "NỘI DUNG ORDER",
